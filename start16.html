@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>文本域中多行文本的输入</title>
+</head>
+<body>
+<form  method="post" action="save.php">
+    <label>个人简介：</label>
+    <textarea cols="50" rows="10">在这里输入内容...</textarea>
+    <!--  <textarea  rows="行数" cols="列数">文本</textarea>
+          <textarea>标签是成对出现的，以<textarea>开始，以</textarea>结束。
+          rows ：多行输入域的行数。
+          cols ：多行输入域的列数。
+          在<textarea></textarea>标签之间可以输入默认值。如：在这里输入内容...
+          注意这两个属性可用css样式的width和height来代替：col用width、row用height来代替。-->
+    <input type="submit" value="确定"  name="submit" />
+    <input type="reset" value="重置"  name="reset" />
+</form>
+</body>
+</html>
