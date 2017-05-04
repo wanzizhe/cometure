@@ -1,0 +1,204 @@
+/*header开始*/
+#header{
+    background: url(../photo/banner33.jpg) no-repeat center;
+    height: 250px;
+}
+#login a:hover{
+    text-decoration: underline;
+}
+#login a{
+    color:white;
+    display:block;
+    margin-top:20px;
+    text-decoration: none;
+}
+#login,#header h1{
+    color: #fff;
+    width:300px;
+    margin-left:82px;
+}
+#cart{
+    width: 260px;
+    height: 30px;
+    background: #000;
+    opacity: .5;/* 取值范围0~1 */
+    filter: alpha(opacity=50);/* ie下  取值范围0~100 */
+    color: #fff;
+    text-align: center;
+    /*文字居中*/
+    padding: 10px 20px;
+    /*鼠标变成小手*/
+    cursor: pointer;
+    margin-top:25px;
+    line-height:0;
+    position:relative;
+    margin-left:10px;
+}#cart img{
+     vertical-align: middle;
+     /*图片和文字一齐*/
+ }
+#header .float{
+    float:left;
+}
+#login {
+    margin-right:38px;
+    margin-top:25px;
+}
+#name{
+    margin-right:28px;
+    margin-top:25px;
+}
+#header p {
+    color: #ffffff;
+    float:right;
+    position:relative;
+    margin-right:100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+#line{
+    float:left;
+}
+#nav>li{
+    color:#fff;
+    height:40px;
+    width:190px;
+    background:hotpink;
+    float:left;
+    line-height:40px;
+    text-align:center;
+}
+#main-header p{
+    height:30px;
+    color:#fff;
+    float:left;
+    position:relative;
+    margin-left:920px;
+}
+#nav .add-white:hover{
+    background: #000;
+}
+#nav a{
+    color:#ffffff;
+    width:100%;
+    height:100%;
+}
+#white{
+    width: 1140px;
+    height: 300px;
+    background: #ffffff;
+    display:none;
+    position:relative;
+    margin-left: -190px;
+    z-index: 1;
+}
+#line #store:hover #white{
+    display:block;
+}
+#white li{
+    color:#000;
+    width:50px;
+}
+#white li:hover{
+    text-decoration: underline;
+}
+#white ul{
+    float:left;
+    margin-left:170px;
+}
+#white .top{
+    font-weight:700;
+    margin-bottom:5px;
+}
+/*header结束*/
+
+/*register开始*/
+
+#register{
+    height: 500px;
+}
+#register-num{
+    float: left;
+}
+#register-info h2{
+    margin-top: 30px;
+}
+#register-num #world{
+    color:#999999;
+    margin:20px 0;
+}
+#world a{
+    color:#464646;
+    text-decoration: none;
+}
+#world a:hover{
+    color:orange;
+    text-decoration: underline;
+}
+#put-in{
+    width: 555px;
+    height: 318px;
+}
+#put-in label{
+    display: block;
+    margin-bottom: 40px;
+}
+#put-in input{
+    width: 402px;
+    height: 41px;
+    float: right;
+    outline: none;
+    font-size: 20px;
+    text-indent:10px;
+}
+#put-in button{
+    width: 444px;
+    height: 41px;
+    background: orange;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 20px;
+    border:1px solid orange;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+#put-in button:hover{
+    color:black;
+    background: #ffffff;
+    border:1px solid #000;
+}
+
+#quality{
+    width: 555px;
+    height: 250px;
+    float: right;
+}
+#quality .get h3{
+    color:orange
+}
+#quality .get p{
+    color: #999999;
+    margin:20px 0;
+}
+
+
+
+/*register结束*/
+
+
+/*footer开始*/
+#footer{
+    background: hotpink;
+    height:82px;
+    color:#ffffff;
+}
+#footer h3{
+    position:absolute;
+    margin-top:30px;
+}
+#footer h4{
+    position:absolute;
+    margin-top:30px;
+    margin-left: 940px;
+}
+/*footer结束*/
