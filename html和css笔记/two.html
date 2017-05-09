@@ -1,0 +1,21 @@
+3.宽度，高度的百分比为其父元素的百分比
+4.设完padding-top：10px;以后，父元素与子元素一起掉下来，这是溢出问题，用overflow：hidden；（溢出隐藏）
+5.当元素为兄弟时，上面的元素的margin-bottom和下面元素的margin-top取两个值的时候，取其中最大的那个。
+水平自动居中：margin：0 auto；
+6.display：block；把行级元素转化为块级元素
+display：online；把块级元素转化为行级元素
+display：inline-block；既有行级元素特点又有块级元素特点（有兼容性问题）
+行级元素和行级元素之间的缝隙是因为代码之间有回车。
+7.display：none；让元素不显示
+8.行级元素变块级元素可以设定宽和高
+行级元素脱离文档流也可以设定宽和高
+9.选择器：伪类选择器：a：hover{   }（在早期ie中hover只对啊标签好使）
+a{background：#ff0000；}
+a：hover{bg：#00ff00；}    鼠标碰时背景变绿
+10.图片是过度元素，可以认为是行级元素，但是可以调高度和宽度。
+11.vertical-align：top/middle/bottom;
+图片和文字上面中间下面对齐（此属性给图片加）
+background：#颜色，url（地址）no-repeat center；图片居中
+background，margin，border都是集合属性
+12.形成三角形，设很大的边框，把div的width设为0，把其他三个三角形设为透明（transparent）
+13.background-attachment：fixed；字动背景不动
