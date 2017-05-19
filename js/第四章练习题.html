@@ -1,0 +1,62 @@
+
+var j,i;
+j=1;
+for(i=1;i<=10;i++)
+j*=i;
+document.write("10!为"+j);
+
+var a, b,c;
+b=1;
+c=0;
+for(a=1;a<=10;a++){
+b=b*a;
+c=c+b;
+}
+document.write("1!+2!+3!...10!等于"+c);
+
+var d,e;
+for(d=1;d<=5;d++){
+for(e=1;e<=d;e++){
+document.write(e);
+document.write(" ");
+}
+document.write("<br>");
+}
+
+var i,line;
+for(line=1;line<=5;line++)
+{
+for(i=1;i<=5-line;i++) document.write("&ensp;");
+for(i=1;i<=line;i++)
+{
+document.write("*");
+if (i>0) document.write(" ");
+}
+document.write("<br>");
+}
+
+document.write("&nbsp11");
+document.write("<br>");
+document.write("1111");
+
+
+var m;
+for(m=100;m<=999;m++)
+{
+if (m % 4 == 2 && m % 7 == 3 && m % 9 == 5)
+document.write("m="+m+"<br>");
+}
+
+var n, a ,b, c,a1,b1;
+for(n=1000;n<=9999;n++)
+{
+a=Math.floor(n/1000);
+a1=n%1000;
+b=Math.floor(a1/100);
+b1=n%100;
+c=Math.floor(b1/10);
+if( n % 13 == 0 && a == b + c )
+{
+document.write("abcd四位数为"+n+"<br>");
+}
+}
