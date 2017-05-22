@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滑动图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width:400px;
+            height:300px;
+            margin:200px auto;
+        }
+        #imgs img{
+            border: 0;
+            width:400px;
+            height:300px;
+            display:none;
+        }
+        #num li{
+            list-style: none;
+        }
+        #imgs .selected{
+            display:block;
+        }
+        #num li,#mark div{
+            width: 15px;
+            height: 15px;
+            background: #000;
+            color: #ffffff;
+            float:left;
+            margin-left: 3px;
+            line-height: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #container{
+            position:relative;
+        }
+        #num {
+            position: absolute;
+            bottom:10px;
+            right:10px;
+        }
+        #num .selected{
+            background: #cccccc;
+        }
+
+        #mark{
+            position: absolute;
+            bottom:10px;
+            left:5px;
+        }
+        #mark .selected{
+            background: #cccccc;
+        }
+    </style>
+</head>
+<body>
+     <div id="container">
+      <div id="imgs">
+          <img src="../photo/s2.jpg" alt="" class="selected"/>
+          <img src="../photo/s3.jpg" alt=""/>
+          <img src="../photo/s4.jpg" alt=""/>
+          <img src="../photo/s4.jpg" alt=""/>
+      </div>
+        <ul id="num">
+            <li id="first" class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+         <div id="mark">
+             <div id="left">
+                 <
+             </div>
+             <div id="right">
+                 >
+             </div>
+         </div>
+     </div>
+     <script>
+         var oNum=document.getElementById("num");
+         var aLi=oNum.getElementsByTagName("li");
+         var oImgs=document.getElementById("imgs");
+         var aImg=oImgs.getElementsByTagName("img");
+         var oLeft=document.getElementById("left");
+         var oRight=document.getElementById("right");
+               var nowindex=0;
+             for(var i=0;i<aLi.length;i++){
+                 aLi[i].index=i;
+                 aLi[i].onclick=function(){
+                     for(var i=0;i<aLi.length;i++){
+                         aLi[i].className="";
+                         aImg[i].className="";
+                     }
+                     this.className="selected";
+                     aImg[this.index].className="selected";
+                     nowindex=this.index;
+                    }
+                 }
+
+                     oLeft.onclick=function(){
+                         for(var i=0;i<aLi.length;i++){
+                             aLi[i].className="";
+                             aImg[i].className="";
+                         }
+                         nowindex--;
+                         if(nowindex==-1){
+                             nowindex=3;
+                         }
+                         aLi[nowindex].className="selected";
+                         aImg[nowindex].className="selected";
+                     };
+                    oRight.onclick=function(){
+                         for(var i=0;i<aLi.length;i++){
+                             aLi[i].className="";
+                             aImg[i].className="";
+                         }
+                         nowindex++;
+                         if(nowindex==4){
+                             nowindex=0;
+                         }
+                         aLi[nowindex].className="selected";
+                         aImg[nowindex].className="selected";
+                     };
+                     var timer=setInterval(function(){
+                             for (var i = 0; i < aLi.length; i++) {
+                                 aLi[i].className = "";
+                                 aImg[i].className = "";
+                             }
+                             nowindex++;
+                             if (nowindex == 4) {
+                                 nowindex = 0;
+                             }
+                             aLi[nowindex].className = "selected";
+                             aImg[nowindex].className = "selected";
+                     },1000);
+                    var oCon=document.getElementById("container");
+                     oCon.onmouseover=function(){
+                          clearInterval(timer);
+                      };
+                       oCon.onmouseout=function(){
+                           timer=setInterval(function(){
+                               for (var i = 0; i < aLi.length; i++) {
+                                   aLi[i].className = "";
+                                   aImg[i].className = "";
+                               }
+                               nowindex++;
+                               if (nowindex == 4) {
+                                   nowindex = 0;
+                               }
+                               aLi[nowindex].className = "selected";
+                               aImg[nowindex].className = "selected";
+                           },1000);
+                      };
+
+     </script>
+</body>
+</html>
