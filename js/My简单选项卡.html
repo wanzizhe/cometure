@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单选项卡</title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+        li{
+            list-style: none;
+        }
+        #info{
+            width: 400px;
+            height: 300px;
+            border:1px solid #fa6398;
+            margin:200px auto;
+        }
+        #things li{
+            width: 96px;
+            height: 40px;
+            background: #fa6398;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            margin:0 2px;
+            cursor: pointer;
+        }
+       #things .selected{
+           background: #cccccc;
+           color: #ffffff;
+       }
+       #content li{
+           display: none;
+       }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+        <div id="info">
+            <div id="things">
+               <ul>
+                   <li class="selected">小衫</li>
+                   <li >裤子</li>
+                   <li >连衣裙</li>
+                   <li>鞋子</li>
+               </ul>
+            </div>
+            <div id="content">
+               <ul>
+                   <li class="selected">衬衫 针织衫</li>
+                   <li>牛仔裤 雪纺裤</li>
+                   <li>露肩连衣裙 超长连衣裙</li>
+                   <li>运动鞋 皮鞋</li>
+               </ul>
+            </div>
+        </div>
+        <script>
+                var oDiv=document.getElementById("things");
+                var aLi=oDiv.getElementsByTagName("li");
+                var oDiv1=document.getElementById("content");
+                var aLi1=oDiv1.getElementsByTagName("li");
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].index=i;
+                    aLi[i].onclick=function(){
+                        for(var i=0;i<aLi.length;i++){
+                            aLi[i].className="";
+                            aLi1[i].className="";
+                        }
+                        this.className="selected";
+                        aLi1[this.index].className="selected";
+                    };
+                }
+        </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
