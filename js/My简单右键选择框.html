@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单右键选择框</title>
+    <style>
+        *{
+            padding:0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #info{
+            width: 100px;
+            height: 253px;
+            border:1px solid #000000;
+            display:none;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        #info li{
+            width: 100px;
+            height: 50px;
+            border-bottom:1px solid #000000 ;
+            line-height: 50px;
+            text-align: center;
+            cursor: pointer;
+        }
+        #info li:hover{
+            background: #cccccc;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <ul id="info">
+            <li>刷新</li>
+            <li>复制</li>
+            <li>粘贴</li>
+            <li>重新加载</li>
+            <li>发送到</li>
+        </ul>
+        <script>
+           var oUl=document.getElementById("info");
+           var aLi=oUl.getElementsByTagName("li");
+            document.oncontextmenu=function(e){
+                e= e || window.event;
+                oUl.style.display="block";
+                oUl.style.top= e.clientY+"px";
+                oUl.style.left= e.clientX+"px";
+                return false;
+            };
+            document.onclick=function(){
+                oUl.style.display="none";
+            };
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].onclick=function(){
+                    alert(this.innerHTML);
+                };
+            }
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+</html>
