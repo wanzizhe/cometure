@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单轮播图</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #big{
+            width: 500px;
+            margin:100px  auto;
+        }
+        #photo{
+            position:absolute;
+        }
+        #photo img{
+            width: 310px;
+            height: 400px;
+            display:none;
+        }
+        #photo .selected{
+            display: block;
+        }
+        #num{
+            position: relative;
+            top:380px;
+            left:115px;
+        }
+        #num .selected{
+            background: #fa6398;
+            color: #ffffff;
+        }
+        #num li{
+            width: 15px;
+            height: 15px;
+            background: #cccccc;
+            float:left;
+            color: #000000;
+            margin-left: 6px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 15px;
+            opacity:0.6;
+        }
+        #login li{
+            width: 20px;
+            height: 40px;
+            background:#cccccc;
+            opacity:0.6;
+            position: relative;
+            top: 180px;
+            text-align: center;
+            line-height: 15px;
+            cursor: pointer;
+            color: #000000;
+            font-size: 30px;
+        }
+        #login .choice{
+            margin-left: 290px;
+            position: relative;
+            top: 140px;
+            text-align: center;
+            line-height: 40px;
+            color: #000000;
+            cursor: pointer;
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="big">
+      <div id="photo">
+        <img src="../photo/a.jpg" alt="" class="selected"/>
+        <img src="../photo/b.jpg" alt=""/>
+        <img src="../photo/e.jpg" alt=""/>
+        <img src="../photo/d.jpg" alt=""/>
+      </div>
+        <ul id="num">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <ul id="login">
+            <li id="left"><</li>
+            <li id="right" class="choice">></li>
+        </ul>
+</div>
+    <script>
+        var oNum=document.getElementById("num");
+        var aLi=oNum.getElementsByTagName("li");
+        var oPhoto=document.getElementById("photo");
+        var aImg=oPhoto.getElementsByTagName("img");
+        var oLeft=document.getElementById("left");
+        var oRight=document.getElementById("right");
+        var nowindex=0;
+        function circle(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className="";
+                aImg[i].className="";
+            }
+            aLi[nowindex].className="selected";
+            aImg[nowindex].className="selected";
+        }
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                nowindex=this.index;
+               circle();
+            };
+        }
+        oLeft.onclick=oRight.onclick=function() {
+            if (this == oLeft) {
+                nowindex--;
+                if (nowindex == -1) {
+                    nowindex =aLi.length-1;
+                }
+            }
+            else {
+                nowindex++;
+                if (nowindex ==aLi.length) {
+                    nowindex = 0;
+                }
+            }
+            circle();
+        };
+        function move(){timer=setInterval(function(){
+            circle();
+            nowindex++;
+            if(nowindex==aLi.length){
+                nowindex=0;
+            }
+        },1000);}
+        var oBig=document.getElementById("big");
+        oBig.onmouseover=function(){
+            clearInterval(timer);
+        };
+        oBig.onmouseout=function(){
+             move();
+        };
+        move();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
