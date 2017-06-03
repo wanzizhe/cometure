@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        h3{
+            height: 20px;
+            width: 150px;
+            background: #000000;
+            color: #ffffff;
+            font-size: large;
+            cursor: pointer;
+        }
+        .rectangle{
+            width: 149px;
+            border:1px solid #000000;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="manage" class="selected">
+            <h3>管理区</h3>
+            <ul class="rectangle">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </div>
+        <div id="communication" class="selected">
+            <h3>交流区</h3>
+            <ul class="rectangle">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var oDiv=document.getElementById("container");
+       var aH3=oDiv.getElementsByTagName("h3");
+       var oUl=oDiv.getElementsByClassName("rectangle");
+        var a=false;//标识位，false是合上 true是打开
+       for(var i=0;i<aH3.length;i++){
+           aH3[i].index=i;
+           aH3[i].a=false;
+        aH3[i].onclick=function(){
+            if(this.a){
+                oUl[this.index].style.display="none";
+            }
+            else{
+                oUl[this.index].style.display="block";
+            }
+            this.a=!this.a;
+        };
+       }
+
+
+
+
+    </script>
+</body>
+</html>
