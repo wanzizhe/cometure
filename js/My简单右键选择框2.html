@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单右键选择框2</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            width: 80px;
+            border:1px solid #000000;
+            display: none;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+        li{
+            border-bottom: 1px solid #000000;
+            text-align:center;
+        }
+        li:hover{
+            background: #cccccc;
+            color:#ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>刷新</li>
+    <li>复制</li>
+    <li>粘贴</li>
+    <li>检查</li>
+    <li>重新加载</li>
+</ul>
+<script>
+    var oUl=document.getElementsByTagName("ul")[0];//getElementsByTagName取到的是一堆元素，
+    // 只有一个ul，也是一堆元素，只不过元素的个数为一。
+    var aLi=oUl.getElementsByTagName("li");
+    document.oncontextmenu=function(e){
+        e=e||window.event;
+        oUl.style.left= e.clientX+"px";
+        oUl.style.top= e.clientY+"px";
+        oUl.style.display="block";
+        return false;
+    };
+    document.onclick=function(){
+        oUl.style.display="none";
+    };
+    for(var i=0; i<aLi.length; i++){
+//        aLi[i].index=i;
+        aLi[i].onclick=function(){
+//            alert(aLi[this.index]);
+            alert(this.innerHTML);
+        };
+    }
+</script>
+</body>
+</html>
