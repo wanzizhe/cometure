@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>innerHTML</title>
+    <style>
+
+    </style>
+</head>
+    <body>
+    <!--innerHTML有双向功能：获取对象内容   向对象插入内容-->
+       <div id="aa">
+           <h3>输出内容</h3>
+       </div>
+        <div id="bb">
+            <h3>啦啦啦</h3>
+        </div>
+       <script>
+           var a=document.getElementById("aa").innerHTML; //获取对象内容
+           console.log(a);
+           var b=document.getElementById("bb").innerHTML;
+           console.log(b);
+           var c=document.getElementById("bb").innerHTML="这是被插入的内容";
+           console.log(c);//向对象插入内容，插入内容后不显示之前内容，例如上面的console.log(b)就没有得到输出
+       </script>
+    </body>
+</html>
