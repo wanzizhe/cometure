@@ -131,12 +131,9 @@
             }
             circle();
         };
-        function move(){timer=setInterval(function(){
-            circle();
-            nowindex++;
-            if(nowindex==aLi.length){
-                nowindex=0;
-            }
+        function move(){
+            timer=setInterval(function(){
+                oRight.onclick();
         },1000);}
         var oBig=document.getElementById("big");
         oBig.onmouseover=function(){
