@@ -91,53 +91,38 @@
         var oLef=document.getElementById("left");
         var oRig=document.getElementById("right");
         var nowindex=0;
+        function circle(){
+            for(var i=0;i<aLi.length;i++){
+                aLi[i].className="";
+                aImg[i].className="";
+            }
+            aLi[nowindex].className="selected";
+            aImg[nowindex].className="selected";
+        }
         for(var i=0;i<aLi.length;i++){
             aLi[i].index=i;
             aLi[i].onclick=function(){
-                for(var i=0;i<aLi.length;i++){
-                    aLi[i].className="";
-                    aImg[i].className="";
-                }
-                aLi[this.index].className="selected";
-                aImg[this.index].className="selected";
+                nowindex=this.index;
+               circle();
             };
         }
             oLef.onclick=function(){
-                for(var i=0;i<aLi.length;i++){
-                    aLi[i].className="";
-                    aImg[i].className="";
-                }
                 nowindex--;
                 if(nowindex==-1){
-                    nowindex=3;
+                    nowindex=aLi.length-1;
                 }
-                aLi[nowindex].className="selected";
-                aImg[nowindex].className="selected";
+                circle();
             };
           oRig.onclick=function(){
-                for(var i=0;i<aLi.length;i++){
-                    aLi[i].className="";
-                    aImg[i].className="";
-                }
                 nowindex++;
-                if(nowindex==4){
+                if(nowindex==aLi.length){
                     nowindex=0;
                 }
-                aLi[nowindex].className="selected";
-                aImg[nowindex].className="selected";
+              circle();
             };
         function move(){
              timer=setInterval(function(){
-                for(var i=0;i<aLi.length;i++){
-                    aLi[i].className="";
-                    aImg[i].className="";
-                }
-                nowindex++;
-                if(nowindex==4){
-                    nowindex=0;
-                }
-                aLi[nowindex].className="selected";
-                aImg[nowindex].className="selected";
+                 oRig.onclick();
             },1000);
         }
         var oCon=document.getElementById("container");
@@ -147,6 +132,7 @@
         oCon.onmouseout=function(){
              move();
         };
+        move();
     </script>
     </body>
 </html>
