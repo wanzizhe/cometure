@@ -126,23 +126,7 @@
                 aLi[nowindex].className="selected";
                 aImg[nowindex].className="selected";
             };
-           var timer=setInterval(function(){
-                   for(var i=0;i<aLi.length;i++){
-                       aLi[i].className="";
-                       aImg[i].className="";
-                   }
-                   nowindex++;
-                   if(nowindex==4){
-                       nowindex=0;
-                   }
-                   aLi[nowindex].className="selected";
-                   aImg[nowindex].className="selected";
-        },1000);
-        var oCon=document.getElementById("container");
-        oCon.onmouseover=function(){
-            clearInterval(timer);
-        };
-        oCon.onmouseout=function(){
+        function move(){
              timer=setInterval(function(){
                 for(var i=0;i<aLi.length;i++){
                     aLi[i].className="";
@@ -155,6 +139,13 @@
                 aLi[nowindex].className="selected";
                 aImg[nowindex].className="selected";
             },1000);
+        }
+        var oCon=document.getElementById("container");
+        oCon.onmouseover=function(){
+            clearInterval(timer);
+        };
+        oCon.onmouseout=function(){
+             move();
         };
     </script>
     </body>
