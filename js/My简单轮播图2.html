@@ -120,6 +120,9 @@
                 }
               circle();
             };
+        oLef.onselectstart=oRig.onselectstart=function(){
+          return false;
+        };
         function move(){
              timer=setInterval(function(){
                  oRig.onclick();
