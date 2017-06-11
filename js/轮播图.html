@@ -101,7 +101,6 @@
                      nowindex=this.index;
                     }
                  }
-
                      oLeft.onclick=function(){
                          for(var i=0;i<aLi.length;i++){
                              aLi[i].className="";
@@ -126,6 +125,9 @@
                          aLi[nowindex].className="selected";
                          aImg[nowindex].className="selected";
                      };
+                    oLeft.onselectstart=oRight.onselectstart=function(){
+                        return false;
+                    };
                      var timer=setInterval(function(){
                              for (var i = 0; i < aLi.length; i++) {
                                  aLi[i].className = "";
@@ -156,7 +158,6 @@
                                aImg[nowindex].className = "selected";
                            },1000);
                       };
-
      </script>
 </body>
 </html>
