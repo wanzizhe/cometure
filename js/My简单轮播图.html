@@ -131,6 +131,9 @@
             }
             circle();
         };
+       oLeft.onselectstart=oRight.onselectstart=function(){
+            return false;
+        };
         function move(){
             timer=setInterval(function(){
                 oRight.onclick();
