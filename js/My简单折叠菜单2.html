@@ -18,6 +18,10 @@
             #container .selected{
                 background: #000000;
                 color:#ffffff;
+                cursor: pointer;
+            }
+            #container .num{
+                display: none;
             }
         </style>
     </head>
@@ -41,10 +45,21 @@
         </li>
     </ul>
     <script>
-        var aH3=document.getElementsByTagName("h3");
+        var oUl=document.getElementById("container");
+        var aH3=oUl.getElementsByTagName("h3");
+        var oUl1=oUl.getElementsByClassName("num");
+        var bFlag=false;//标识位  false为合上  true为打开
         for(var i=0;i<aH3.length;i++){
+            aH3[i].index=i;
+            aH3[i].bFlag=false;
             aH3[i].onclick=function(){
-
+                 if(this.bFlag){
+                     oUl1[this.index].style.display="none";
+                 }
+                 else{
+                     oUl1[this.index].style.display="block";
+                 }
+                this.bFlag=!this.bFlag;
             };
         }
     </script>
