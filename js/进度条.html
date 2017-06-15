@@ -43,7 +43,10 @@
     <script>
         var oInfo=document.getElementById("info");
         var oWaiting=document.getElementById("waiting");
+        var timer;
         oWaiting.onclick=function(){
+            oInfo.style.width=0;
+            clearInterval(timer);
             move();
         };
         function move(){
@@ -53,7 +56,6 @@
             clearInterval(timer);
              }
         },10);
-            oInfo.style.width=0+"px";
         }
     </script>
 </html>
