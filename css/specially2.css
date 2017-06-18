@@ -10,6 +10,7 @@
     color:white;
     display:block;
     margin-top:20px;
+    text-decoration: none;
 }
 #login,#header h1{
     color: #fff;
@@ -32,7 +33,12 @@
     line-height:0;
     position:relative;
     margin-left:10px;
-}#cart img{
+}
+#cart a{
+    color: #ffffff;
+    text-decoration: none;
+}
+#cart img{
      vertical-align: middle;
      /*Í¼Æ¬ºÍÎÄ×ÖÒ»Æë*/
  }
@@ -127,6 +133,24 @@
     height: 400px;
     border:1px solid #cccccc;
     padding: 4px;
+    position: relative;
+}
+#big-picture ul{
+    position: absolute;
+    top:480px;
+}
+#big-picture li{
+    width: 30px;
+    height: 50px;
+    background: #000;
+    float: left;
+    color:#ffffff;
+    font-size: 50px;
+    cursor: pointer;
+}
+#big-picture #left{
+    margin-left: 10px;
+    margin-right: 410px;
 }
 #small-picture img{
     width: 150px;
@@ -136,10 +160,16 @@
     padding: 3px;
     margin-top:10px;
     margin-right:10px;
+    cursor: pointer;
+}
+#picture #small-picture .selected{
+    border:1px solid #000000;
 }
 #small-picture {
     height: 133px;
     width: 800px;
+    position:relative;
+    left:0;
 }
 #explain{
     width:620px;
