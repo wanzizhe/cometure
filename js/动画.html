@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #div{
+            width: 200px;
+            height: 200px;
+            background: #fa6398;
+            position:absolute;
+            left:0;
+            top:20px;
+        }
+        #move{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+     <button id="move">move</button>
+     <div id="div">
+         div
+     </div>
+     <script src="../javascript/wichung-1.0.js"></script>
+     <script>
+         var oMove=document.getElementById("move");
+         var oDiv=document.getElementById("div");
+         oMove.onclick=function(){
+              animate(oDiv,{left:500},function(){
+                  animate(oDiv,{top:500})
+              });
+         };
+     </script>
+</body>
+</html>
