@@ -33,7 +33,12 @@
     line-height:0;
     position:relative;
     margin-left:10px;
-}#cart img{
+}
+#cart a{
+     color: #ffffff;
+     text-decoration: none;
+ }
+#cart img{
      vertical-align: middle;
      /*图片和文字一齐*/
  }
@@ -197,11 +202,6 @@
     color: #ffffff;
     border:1px solid orange;
 }
-
-
-
-
-
 
 /*footer开始*/
 #footer{
