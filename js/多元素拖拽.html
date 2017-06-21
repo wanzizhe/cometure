@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>多元素拖拽</title>
+        <style>
+            #div1{
+                width: 200px;
+                height: 200px;
+                background: #00ffff;
+                position: absolute;
+                top:0;
+                left:0;
+            }
+            #div2{
+                width: 200px;
+                height: 200px;
+                background: #ffff00;
+                position: absolute;
+                top: 200px;
+                left:0;
+            }
+            #div3{
+                width: 200px;
+                height: 200px;
+                background: #ff00ff;
+                position: absolute;
+                top: 400px;
+                left:0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>
+    </body>
+    <script>
+        var oDiv1=document.getElementById("div1");
+        var oDiv2=document.getElementById("div2");
+        var oDiv3=document.getElementById("div3");
+        function move(elem) {
+            elem.onmousedown = function (e) {
+                e = e || window.event;
+                var oDiv_x = e.clientX - elem.offsetLeft;
+                var oDiv_y = e.clientY - elem.offsetTop;
+                document.onmousemove = function (e) {
+                    e = e || window.event;
+                    elem.style.left = e.clientX - oDiv_x + "px";
+                    elem.style.top = e.clientY - oDiv_y + "px";
+                };
+            };
+        }
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            };
+        move(oDiv1);
+        move(oDiv2);
+        move(oDiv3);
+    </script>
+</html>
