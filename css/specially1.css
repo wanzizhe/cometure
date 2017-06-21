@@ -32,7 +32,12 @@
     line-height:0;
     position:relative;
     margin-left:10px;
-}#cart img{
+}
+#cart a{
+    color: #ffffff;
+    text-decoration: none;
+}
+#cart img{
      vertical-align: middle;
      /*Í¼Æ¬ºÍÎÄ×ÖÒ»Æë*/
  }
