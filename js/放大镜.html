@@ -16,6 +16,16 @@
                 height: 400px;
                 position: relative;
             }
+            #mask{
+                width: 400px;
+                height: 400px;
+                background: #000;
+                position: absolute;
+                top: 0;
+                left: 0;
+                opacity: 0;
+                filter:alpha(opacity=0);
+            }
             #white{
                 width: 200px;
                 height: 200px;
@@ -45,6 +55,7 @@
         <div id="small">
             <img src="../photo/small.jpg" alt=""/>
             <div id="white"></div>
+            <div id="mask"></div>
         </div>
         <div id="big">
            <img src="../photo/big.jpg" alt=""/>
@@ -56,11 +67,16 @@
         var oWhite=document.getElementById("white");
         var oBig=document.getElementById("big");
         var aImg1=oBig.getElementsByTagName("img")[0];
-        aImg.onmouseover=function(){
+        var aMark=document.getElementById("mask");
+        aMark.onmouseover=function(){
             oWhite.style.display="block";
             oBig.style.display="block";
         };
-        aImg.onmousemove=function(e){
+        aMark.onmouseout=function(){
+            oWhite.style.display="none";
+            oBig.style.display="none";
+        };
+        aMark.onmousemove=function(e){
             e=e||window.event;
             var left= e.clientX-oWhite.offsetWidth/2;
             var top= e.clientY-oWhite.offsetHeight/2;
