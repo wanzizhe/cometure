@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>放大镜</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #small,#big{
+                float: left;
+            }
+            #small{
+                width: 400px;
+                height: 400px;
+                position: relative;
+            }
+            #white{
+                width: 200px;
+                height: 200px;
+                background: #cccccc;
+                opacity: .5;
+                filter: alpha(opacity=50);
+                position: absolute;
+                top:0;
+                left:0;
+                display:none;
+            }
+            #big{
+                width: 500px;
+                height: 500px;
+                overflow: hidden;
+                position:relative;
+                display:none;
+            }
+            #big img{
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="small">
+            <img src="../photo/small.jpg" alt=""/>
+            <div id="white"></div>
+        </div>
+        <div id="big">
+           <img src="../photo/big.jpg" alt=""/>
+        </div>
+    </body>
+    <script>
+        var oSmall=document.getElementById("small");
+        var aImg=oSmall.getElementsByTagName("img")[0];
+        var oWhite=document.getElementById("white");
+        var oBig=document.getElementById("big");
+        var aImg1=oBig.getElementsByTagName("img")[0];
+        aImg.onmouseover=function(){
+            oWhite.style.display="block";
+            oBig.style.display="block";
+        };
+        aImg.onmousemove=function(e){
+            e=e||window.event;
+            var left= e.clientX-oWhite.offsetWidth/2;
+            var top= e.clientY-oWhite.offsetHeight/2;
+            if(top<=0){
+                top=0;
+            }
+            if(left<=0){
+                left=0;
+            }
+            var maxX=oSmall.offsetWidth-oWhite.offsetWidth;
+            if(left>=maxX){
+                left=maxX;
+            }
+            var maxY=oSmall.offsetHeight-oWhite.offsetHeight;
+            if(top>=maxY){
+                top=maxY;
+            }
+            oWhite.style.top=top+"px";
+            oWhite.style.left=left+"px";
+
+             var scaleX=left/maxX;
+            var scaleY=top/maxY;
+             aImg1.style.left=-scaleX*(aImg1.offsetWidth-oBig.offsetWidth)+"px";
+            aImg1.style.top=-scaleY*(aImg1.offsetHeight-oBig.offsetHeight)+"px";
+        }
+    </script>
+</html>
