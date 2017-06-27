@@ -1,0 +1,51 @@
+*{
+    padding:0;
+    margin:0;
+}
+#nav a{
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+}
+img{
+    border:0;
+}
+/*È¥µôi6µÄ±ß¿ò*/
+li{
+    list-style:none;
+}
+.wrapper{
+    width: 1140px;
+    /*background: #cccccc;*/
+    height:100%;
+    margin:0 auto;
+}
+#header .add-white{
+    background: #000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
