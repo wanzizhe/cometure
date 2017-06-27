@@ -146,7 +146,6 @@
 }
 #choice li{
     width: 240px;
-    height: 35px;
     color: #464646;
     background: #F9F9F9;
     line-height: 35px;
@@ -159,6 +158,18 @@
     margin-top: 13px;
     margin-right: 13px;
     cursor: pointer;
+}
+.list{
+    display: none;
+    width: 230px;
+}
+#choice .list .beautiful{
+    height: 35px;
+    width: 220px;
+    background: #00ffff;
+    color:#fa6398;
+    opacity: .5;
+    font-size: 20px;
 }
 /*choose½áÊø*/
 
