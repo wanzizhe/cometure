@@ -59,6 +59,7 @@
     margin-right:100px;
     margin-top: 5px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 #line{
     float:left;
