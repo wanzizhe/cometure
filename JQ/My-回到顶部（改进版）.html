@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>回到顶部（改进版）</title>
+        <style>
+        body{
+            height:2000px;
+            }
+        #div{
+            width: 80px;
+            height: 80px;
+            background: #00ffff;
+            cursor:pointer;
+            position:fixed;
+            bottom:10px;
+            right:10px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="div">回到顶部</div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+//        var oDiv1=document.getElementById("div");
+//                    oDiv1.onclick=function(){
+//                         var timer=setInterval(function(){
+//                             var oScrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+//                             //前者为在chrome浏览器下可以（body），后者在firefox下可以（Html）
+//                              if(oScrollTop<0){
+//                                 clearInterval(timer);
+//                             }
+//                             else{
+//                                  window.scrollTo(0,oScrollTop-=60);
+//                              }
+//                         },100);
+//                    };
+        $(function(){
+            $("#div").on("click",function(){
+                var target;
+                if($("body").scrollTop()){
+                    target=$("body");
+                }
+                else{
+                    target=$("html");
+                }
+                var timer=setInterval(function(){
+                    var oScrollTop=target.scrollTop();
+                    if(oScrollTop<=0){
+                        clearInterval(timer);
+                    }
+                    target.scrollTop(oScrollTop-=100);
+                },100)
+            });
+        });
+    </script>
+    </body>
+</html>
