@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>全选全不选</title>
+    </head>
+    <body>
+       <h1>你的爱好是什么？</h1>
+       <input type="checkbox" name="hobby" />篮球
+       <!--checked为input本身属性,只要有checked就会被选中，无论checked后面的值是多少-->
+       <input type="checkbox" name="hobby"/>足球
+       <input type="checkbox" name="hobby"/>排球
+       <input type="checkbox" name="hobby"/>羽毛球
+       <br/>
+       <button id="check-all">全选</button>
+       <button id="check-no">全不选</button>
+       <button id="check-reverse">反选</button>
+       <script src="jquery-1.11.2.js"></script>
+       <script>
+           $(function(){
+               var hobby=$("input[name=hobby]");
+               $("#check-all").on("click",function(){
+//                    $("input[name=hobby]").prop("checked",true);
+                   hobby.prop("checked",true);
+               });
+//               带有checked，selected的只能用prop，不能使用attr。
+               $("#check-no").on("click",function(){
+//                   $("input[name=hobby]").prop("checked",false);
+                   hobby.prop("checked",false);
+//                   多次用到$("input[name=hobby]")需要将其封装成变量。
+               });
+               $("#check-reverse").on("click",function(){
+                   //each遍历所有的看选中还是未选中，index索引，elem元素
+                    hobby.each(function(index,elem){
+                        //JQ
+//                       if($(this).prop("checked")){
+//                           $(this).prop("checked",false);
+//                       }
+//                       else{
+//                           $(this).prop("checked",true);
+//                       }
+                        //原生(能用原生就用原生，原生比JQ要快很多）
+                        this.checked=!this.checked;
+                   });
+               });
+           });
+       </script>
+    </body>
+</html>
