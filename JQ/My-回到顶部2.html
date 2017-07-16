@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>回到顶部2</title>
+        <style>
+            body{
+                height:2000px;
+            }
+            #div{
+                width: 80px;
+                height: 80px;
+                background: #00ffff;
+                cursor:pointer;
+                position:fixed;
+                bottom:10px;
+                right:10px;
+            }
+        </style>
+    </head>
+    <body>
+      <div id="div">回到顶部</div>
+      <script src="jquery-1.11.2.js"></script>
+      <script>
+          $(function(){
+              $("#div").on("click",function(){
+                  var timer=setInterval(function(){
+                      var oScrollTop=$("body").scrollTop();
+                      if(oScrollTop<=0){
+                          clearInterval(timer);
+                      }
+                      $("body").scrollTop(oScrollTop-=100);
+                  },100);
+              });
+          });
+      </script>
+    </body>
+</html>
