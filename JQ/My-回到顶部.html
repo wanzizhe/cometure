@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>回到顶部</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height:2000px;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: #ffff00;
+            position: fixed;
+            bottom:30px;
+            right:30px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">return top</div>
+<script src="jquery-1.11.2.js"></script>
+<script>
+    //原生代码
+    //            var oDiv1=document.getElementById("div1");
+    //            oDiv1.onclick=function(){
+    //                 var timer=setInterval(function(){
+    //                     var oScrollTop=document.body.scrollTop||document.documentElement.scrollTop;
+    //                      if(oScrollTop<0){
+        //                         clearInterval(timer);
+        //                     }
+    //                     window.scrollTo(0,oScrollTop-=60;
+    //                 },100);
+    //            };
+    // JQ代码
+    $(function(){
+        $("#div1").on("click",function(){
+            var timer=setInterval(function(){
+                var oScrollTop=$("body").scrollTop();
+                if(oScrollTop<0) {
+                    clearInterval(timer);
+                }
+                $("body").scrollTop(oScrollTop-=60);
+            },60);
+        });
+    });
+
+</script>
+</body>
+</html>
