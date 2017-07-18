@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单轮播图(改进版）</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            margin:100px 600px;
+            position:relative;
+        }
+        #photo img{
+            width: 300px;
+            height: 400px;
+            display: none;
+        }
+        #photo .selected{
+            display: block;
+        }
+        #num{
+            position:absolute;
+            top:380px;
+            left: 110px;
+        }
+        #num li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: paleturquoise;
+            margin-left: 3px;
+            color: yellowgreen;
+            line-height: 20px;
+            text-align: center;
+            opacity:0.6;
+            cursor: pointer;
+        }
+        #num .selected{
+            background: #fa6398;
+            color:#cccccc;
+        }
+        #logo{
+            position:absolute;
+            top: 180px;
+
+        }
+        #logo li{
+            float: left;
+            width: 17px;
+            height: 40px;
+            background:paleturquoise;
+            opacity:0.6;
+            color:yellowgreen;
+            font-size: 35px;
+            cursor: pointer;
+        }
+        #logo #left{
+            margin-right: 266px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="photo">
+        <img src="../photo/1.jpg" alt="" class="selected"/>
+        <img src="../photo/2.jpg" alt=""/>
+        <img src="../photo/3.jpg" alt=""/>
+        <img src="../photo/4.jpg" alt=""/>
+    </div>
+    <ul id="num">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <ul id="logo">
+        <li id="left"><</li>
+        <li id="right">></li>
+    </ul>
+</div>
+<script src="jquery-1.11.2.js"></script>
+<script>
+    $(function(){
+        var nowindex=0;
+        var li1=$("#num li");
+        var img=$("#photo img");
+        var timer;
+        function cycle(){
+            li1.eq(nowindex).addClass("selected").siblings().removeClass("selected");
+            img.eq(nowindex).addClass("selected").siblings().removeClass("selected");
+        }
+       li1.on("click",function(){
+            nowindex=$(this).index();
+           cycle();
+        });
+        $("#logo li").on("click",function(){
+            if($(this).attr("id")=="left"){
+                nowindex--;
+                if(nowindex==-1){
+                    nowindex=li1.length-1;
+                }
+            }else{
+                nowindex++;
+                if(nowindex==li1.length){
+                    nowindex=0;
+                }
+            }
+          cycle();
+        });
+        function play(){
+            timer=setInterval(function(){
+                $("#right").trigger("click");
+            },1000);
+        }
+        $("#container").hover(function(){
+            clearInterval(timer);
+        },function(){
+            play();
+        });
+    });
+</script>
+</body>
+</html>
