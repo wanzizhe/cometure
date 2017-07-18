@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>My简单折叠菜单</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        h3{
+            height: 20px;
+            width: 150px;
+            background: #000000;
+            color: #ffffff;
+            font-size: large;
+            cursor: pointer;
+        }
+        .rectangle{
+            width: 149px;
+            border:1px solid #000000;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="manage" class="selected">
+            <h3>管理区</h3>
+            <ul class="rectangle">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </div>
+        <div id="communication" class="selected">
+            <h3>交流区</h3>
+            <ul class="rectangle">
+                <li>001</li>
+                <li>002</li>
+                <li>003</li>
+            </ul>
+        </div>
+    </div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+       $(function(){
+           $("#container h3").on("click",function(){
+               $(this).next().stop(false,true).slideToggle(1000)
+           });
+       });
+
+    </script>
+</body>
+</html>
