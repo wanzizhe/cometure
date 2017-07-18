@@ -87,12 +87,12 @@
     <script>
         $(function(){
             var nowindex=0;
+            var timer;
             $("#num li").on("click",function(){
                 nowindex=$(this).index();
-                console.log(nowindex);
                 $("#num li").eq(nowindex).addClass("selected").siblings().removeClass("selected");
 //                $("#photo img").eq(nowindex).addClass("selected").siblings().removeClass("selected");
-                $("#photo img").eq(nowindex).fadeIn("slow").css("display","block").siblings().css("display","none");
+                $("#photo img").eq(nowindex).fadeIn("slow").addClass("selected").siblings().css("display","none");
 //                $("#num li").eq(nowindex).fadeIn("slow").css("display","block").siblings().removeClass("selected");
             });
             $("#logo li").on("click",function(){
@@ -108,19 +108,21 @@
                     }
                 }
                 $("#num li").eq(nowindex).addClass("selected").siblings().removeClass("selected");
-                $("#photo img").eq(nowindex).addClass("selected").siblings().removeClass("selected");
-            });
-            var timer=setInterval(function(){
-                 $("#right").trigger("click");
-                console.log(nowindex);
+                $("#photo img").eq(nowindex).fadeIn("slow").addClass("selected").siblings().css("display","none");
+//                $("#photo img").eq(nowindex).addClass("selected").siblings().removeClass("selected");
+        });
+           function play(){
+               timer=setInterval(function(){
+                   $("#right").trigger("click");
+                   console.log(nowindex);
 
-            },1000);
+               },1000);
+           }
+            play();
             $("#container").hover(function(){
                  clearInterval(timer);
             },function(){
-                timer=setInterval(function(){
-                    $("#right").trigger("click");console.log(nowindex);
-                },1000);
+                play();
             });
         });
     </script>
