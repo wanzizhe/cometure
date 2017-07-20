@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>2</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            #main div:first-child{
+                position:absolute;
+                top:0;
+                left:0;
+            }
+            /*css3属性要用在main下面的div*/
+            #main div:last-child{
+                position:absolute;
+                top:0;
+                right:0;
+            }
+            #left{
+                background: #fa6398;
+                height: 400px;
+                width: 300px;
+
+            }
+            #right{
+                background:#ffff00;
+                height: 400px;
+                width: 300px;
+
+            }
+            #center{
+                background: #00ffff;
+                height:400px;
+            }
+        </style>
+    </head>
+    <body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="center"></div>
+        <div id="right"></div>
+    </div>
+    </body>
+</html>
