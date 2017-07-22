@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>五环</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .cycle,.cycle::after{
+                width: 200px;
+                height: 200px;
+                border:10px solid #000000;
+                -webkit-border-radius: 50%;
+                -moz-border-radius:50%;
+                -ms-border-radius:50%;
+                -o-border-radius:50%;
+                position:absolute;
+            }
+            .cycle::after{
+                content:"";
+                top:-10px;
+                left:-10px;
+            }
+            .blue{
+                border-color: blue;
+                top:0;
+                left:0;
+            }
+            .blue.cycle::after{
+                border-color: blue;
+                z-index: 1;
+                border-bottom-color: transparent;
+            }
+            .black{
+                border-color: black;
+                top:0;
+                left:230px;
+            }
+            .black.cycle::after{
+                border-color: black;
+                z-index: 1;
+                border-left-color:transparent;
+            }
+            .red{
+                border-color: red;
+                top:0;
+                left:460px;
+            }
+            .red.cycle::after{
+                border-color: red;
+                z-index: 2;
+                border-left-color:transparent;
+            }
+            .yellow{
+                border-color: yellow;
+                top:110px;
+                left:110px;
+            }
+            .yellow.cycle::after{
+                border-color: yellow;
+            }
+            .green{
+                border-color: green;
+                top:110px;
+                left:340px;
+            }
+           .green.cycle::after{
+                border-color: green;
+               z-index: 1;
+               border-top-color:transparent;
+            }
+
+        </style>
+    </head>
+    <body>
+     <div class="cycle blue"></div>
+     <div class="cycle black"></div>
+     <div class="cycle red"></div>
+     <div class="cycle yellow"></div>
+     <div class="cycle green"></div>
+    </body>
+</html>
