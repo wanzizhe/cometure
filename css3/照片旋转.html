@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>照片旋转</title>
+        <style>
+          *{
+              margin: 0;
+              padding: 0;
+          }
+          body{
+              perspective: 1000px;
+              perspective-origin: 50% -500px;
+          }
+          #contain {
+              width: 125px;
+              height: 125px;
+              position:relative;
+              margin: 200px auto;
+              transform-style: preserve-3d;
+              transition: all 1s linear;
+          }
+            #contain img{
+                width: 125px;
+                height: 125px;
+                position: absolute;
+                transition: all 1s linear;
+            }
+        </style>
+    </head>
+    <body>
+     <div id="contain"></div>
+     <script>
+//         图片预处理
+         var oContain=document.getElementById("contain");
+         var picture=0;
+        for(var i=0;i<9;i++){
+            var oImg=new Image();
+            oImg.onload=function(){
+                picture++;
+                if(picture==9){
+                    loadSuccess();
+                }
+            };
+            oImg.src="../images/"+ (i+1)+".jpg";
+            oContain.appendChild(oImg);
+        }
+         function loadSuccess(){
+               var aImg=document.getElementsByTagName("img");
+             for(i=0;i<aImg.length;i++){
+                 aImg[i].style.transform="rotateY("+(i+1)*40+"deg) translateZ(200px)";
+                 aImg[i].style.transitionDelay = i * 100 + "ms";
+             }
+            }
+           var num=0;
+         oContain.onclick=function(){
+             num++;
+             oContain.style.transform="rotateY("+ num*40+"deg)"
+         }
+     </script>
+    </body>
+</html>
