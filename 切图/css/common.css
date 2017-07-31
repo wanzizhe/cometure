@@ -1,0 +1,74 @@
+*{
+    margin:0;
+    padding: 0;
+}
+li{
+    list-style:none;
+}
+img{
+    border:0;
+}
+a{
+    text-decoration: none;
+}
+.wrapper{
+    width: 1002px;
+    height: 100%;
+    /*background: #999999;*/
+    margin:0 auto;
+}
+.clearfix::after{
+    content:"";
+    display: block;
+    clear:both;
+}
+#logo img{
+    margin-top: 36px;
+    float: left;
+}
+ #word li{
+    float: left;
+}
+ #word li span{
+     display: block;
+     width: 1px;
+     height: 14px;
+     background:url("../img/huabu.png") no-repeat;
+     float: right;
+     margin:0 25px;
+     margin-top:3px;
+ }
+ #word li a{
+     float: left;
+     font-size: 15px;
+     color:#000000;
+ }
+ #word{
+     margin-left:160px;
+     margin-top:50px;
+     float: left;
+ }
+#search{
+    position: relative;
+}
+#search input{
+    width: 130px;
+    height: 30px;
+    float: right;
+    margin-top: 45px;
+    outline: none;
+    text-indent: 5px;
+    border:0;
+    background: #f3f3f3;
+}
+#search span{
+    display: block;
+    width: 10px;
+    height: 12px;
+    background:url("../img/huabu.png") -3px -19px no-repeat;
+    float: right;
+    position:absolute;
+    top:55px;
+    right:8px;
+
+}
