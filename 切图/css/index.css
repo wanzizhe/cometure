@@ -1,0 +1,236 @@
+/*banner开始*/
+#banner{
+    height: 460px;
+    width:1280px;
+    padding-top: 40px;
+    margin-left: 130px;
+    position:relative;
+}
+#photo img{
+    width: 1280px;
+    height: 460px;
+    display: none;
+}
+#photo .selected{
+    display: block;
+}
+
+#direction li img{
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+}
+#direction #left img{
+    position: absolute;
+    top:230px;
+    right:130px;
+}
+#direction #right img{
+    position: absolute;
+    top:230px;
+    left:120px;
+}
+/*banner结束*/
+
+/*news开始*/
+#news{
+    height: 492px;
+}
+#news .circle{
+    width: 334px;
+    float: left;
+}
+.circle .big-word span{
+    display: block;
+     font-size: 30px;
+    font-weight: 900;
+    color:#626262;
+    text-align: center;
+    margin-top: 70px;
+}
+#first .big-word span:nth-last-child(1){
+    display: block;
+    width: 100px;
+    height: 102px;
+    background:url("../img/huabu1.png") no-repeat;
+    margin:20px auto;
+}
+#second .big-word span:nth-last-child(1){
+    display: block;
+    width: 100px;
+    height: 102px;
+    background:url("../img/huabu1.png") -100px 0 no-repeat;
+    margin:20px auto;
+}
+#third .big-word span:nth-last-child(1){
+    display: block;
+    width: 100px;
+    height: 102px;
+    background:url("../img/huabu1.png") -200px 0 no-repeat;
+    margin:20px auto;
+}
+.circle .text p{
+    text-align: center;
+}
+.circle .text p:nth-last-child(1){
+    margin-top: 30px;
+    font-weight: 800;
+    font-size: 20px;
+    color:#00aeff;
+}
+/*news结束*/
+/*works开始*/
+#works{
+    height: 500px;
+    background:#e2e7ed;
+}
+#works #top span{
+    display: block;
+    font-size: 30px;
+    font-weight: 900;
+    color:#626262;
+    margin:20px 0;
+    float: left;
+}
+#works #pic span{
+    display: block;
+    width: 250px;
+    height: 200px;
+    float: left;
+}
+#works #pic span:nth-child(1){
+    background:url("../img/huabu2.png") no-repeat;
+}
+#works #pic span:nth-child(2){
+    background:url("../img/huabu2.png") 0 -200px no-repeat;
+}
+#works #pic span:nth-child(3){
+    background:url("../img/huabu2.png") 0 -400px no-repeat;
+}
+#works #pic span:nth-child(4){
+    background:url("../img/huabu2.png") 0 -600px no-repeat;
+}
+#works #pic span:nth-child(5){
+    background:url("../img/huabu2.png") 0 -800px no-repeat;
+}
+#works #pic span:nth-child(6){
+    background:url("../img/huabu2.png") -250px 0 no-repeat;
+}
+#works #pic span:nth-child(7){
+    background:url("../img/huabu2.png") -250px -200px no-repeat;
+}
+#works #pic span:nth-child(8){
+    background:url("../img/huabu2.png") -250px -400px no-repeat;
+}
+/*works结束*/
+/*client开始*/
+#clients{
+    height:155px;
+}
+#clients #cli-top span{
+    display: block;
+    font-size: 30px;
+    font-weight: 900;
+    color:#626262;
+    margin:20px 0;
+}
+#circle img{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-top:20px;
+}
+#circle span{
+    display: block;
+    width: 225px;
+    height: 100px;
+    float: left;
+}
+#circle span:nth-of-type(1){
+    background:url("../img/huabu1.png")  0 -100px no-repeat;
+}
+#circle span:nth-of-type(2){
+    background:url("../img/huabu1.png")  0 -200px no-repeat;
+}
+#circle span:nth-of-type(3){
+    background:url("../img/huabu1.png")  0 -300px no-repeat;
+}
+#circle span:nth-of-type(4){
+    background:url("../img/huabu1.png")  0 -400px no-repeat;
+}
+/*client结束*/
+/*footer开始*/
+#footer{
+    height: 176px;
+    background: #31333e;
+    position: relative;
+}
+#left-word li{
+    float: left;
+}
+#left-word li span{
+    display: block;
+    width: 1px;
+    height: 14px;
+    background:url("../img/huabu.png") no-repeat;
+    float: right;
+    margin:0 25px;
+    margin-top:3px;
+}
+#left-word li a{
+    float: left;
+    font-size: 15px;
+    color: #ffffff;;
+}
+#left-word{
+    margin-top:50px;
+    float: left;
+}
+#little p:nth-child(1){
+    color:#FFFFFF;
+    position: absolute;
+    top:65px;
+    left:255px;
+}
+#little p:nth-child(2){
+    color:#FFFFFF;
+    position: absolute;
+    top:120px;
+    left:255px;
+    font-size: 12px;
+}
+#footer #little-pic{
+    float: right;
+    margin-top: 25px;
+}
+#footer #little-pic span{
+    display: block;
+    float: left;
+    width: 35px;
+    height: 35px;
+}
+#footer #little-pic span:nth-child(1){
+    background: url("../img/huabu3.png");
+}
+#footer #little-pic span:nth-child(2){
+    background: url("../img/huabu3.png") 0 -35px ;
+    margin-left: 10px;
+}
+#footer #little-pic span:nth-child(3){
+    background: url("../img/huabu3.png") 0 -73px;
+    margin-left: 10px;
+}
+#footer #little-pic span:nth-child(4){
+    background: url("../img/huabu3.png") 0 -110px;
+    margin-left: 10px;
+}
+#footer #little-pic span:nth-child(5){
+    background: url("../img/huabu3.png") 0 -147px;
+    margin-left: 10px;
+}
+#footer #little-pic span:nth-child(6){
+    background: url("../img/huabu3.png") 0 -184px;
+    margin-left: 10px;
+}
+
+/*footer结束*/
