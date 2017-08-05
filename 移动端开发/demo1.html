@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            h3{
+                width: 960px;
+                height: 100px;
+                background: #AEADAE;
+                text-align: center;
+                line-height: 100px;
+                margin:30px auto;
+                color:#ffffff;
+            }
+            #img{
+                width: 960px;
+                margin: 0 auto;
+            }
+            #img img{
+                width: 960px;
+                display: block;
+            }
+            #word{
+                width: 960px;
+                margin:0 auto;
+            }
+            .clearfix::after{
+                content:"";
+                display: block;
+                clear:both;
+            }
+            #left{
+                width: 629px;
+                height: 300px;
+                background: #00aeff;
+                text-align: center;
+                float: left;
+                display: table;
+            }
+            #left span{
+                display: table-cell;
+                vertical-align:middle ;
+            }
+            #right{
+                width: 300px;
+                height: 300px;
+                background: #F296B2;
+                float: right;
+                text-align: center;
+                display: table;
+
+            }
+            #right span{
+                display: table-cell;
+                vertical-align:middle ;
+            }
+            @media(max-width:956px){
+                h3,#word,#img{
+                    width:100%;
+                }
+                #left{
+                    width:67%;
+                }
+                #right{
+                    width:30%;
+                }
+                #img img{
+                    width: 100%;
+                }
+            }
+            @media (max-width: 479px) {
+                 #left,#right{
+                     width: 100%;
+                 }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <h3>页头</h3>
+        </div>
+        <div id="nav">
+            <h3>导航</h3>
+        </div>
+        <div id="img">
+            <img src="01.jpg" alt=""/>
+        </div>
+       <div id="word" class="clearfix">
+           <div id="left">
+               <span>Lorem ipsum dolor sit amet,
+                   consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut,
+                   rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum,quis bibendum mi volutpat.
+                   Cras pretium quam quis magna facilisis, eget feugiat nisi lacinia.
+               </span>
+           </div>
+           <div id="right">
+               <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus vitae risus. Integer venenatis libero sit amet sapien dictum,
+                   quis bibendum mi volutpat. Cras pretium quam quis magna facilisis,
+                   eget feugiat nisi lacinia.
+               </span>
+           </div>
+       </div>
+        <div id="footer">
+            <h3>页脚</h3>
+        </div>
+    </body>
+</html>
