@@ -20,7 +20,7 @@ define(["jquery"],function($){
         this.$content=$('<div class="content"></div>');
     }
     Second.prototype.open=function(){
-        this.$container.append(this.$box).append(this.$content).appendTo(document.body);
+        this.$container.append(this.$box).appendTo(document.body);
         this.$box.append(this.$title).append(this.$content);
         this.$title.append(this.$word).append(this.$close);
         this.$box.css({
