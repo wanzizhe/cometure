@@ -6,7 +6,7 @@ requirejs.config({
 require(["jquery","second"],function($,Second){
     $("#btn").on("click",function(){
         var settings = {
-            width: 500,
+            width: 300,
             height: 300,
             title: "弹出层",
             content: "login.html"
