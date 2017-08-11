@@ -1,0 +1,798 @@
+/*#banner开始*/
+#banner{
+    position: relative;
+}
+#banner img:nth-child(1){
+    display: block;
+    width: 100%;
+    /*height: 557px;*/
+}
+#banner img:nth-child(2){
+    display: none;
+}
+#banner span{
+    display: block;
+    font-size: 13px;
+    font-weight: 900;
+    color:#999999;
+    width: 34px;
+    height: 22px;
+    background: #444444;
+    line-height: 22px;
+    text-align: center;
+    position: absolute;
+    top:20px;
+    right:50px;
+}
+@media (max-width: 991px){
+    #banner img:nth-child(2){
+        width: 100%;
+        display: block;
+    }
+    #banner img:nth-child(1){
+        display: none;
+    }
+}
+/*#banner结束*/
+
+/*contain下的club开始*/
+#contain #club{
+    width: 1520px;
+    height: 220px;
+    background: #000;
+}
+#contain #club #club-contain{
+    width: 720px;
+    margin:0 auto;
+}
+#club #club-contain #club-left{
+    float: left;
+    width: 275px;
+    height:220px;
+}
+#club #club-left span{
+    float: right;
+    display: block;
+}
+#club #club-left span{
+    display: block;
+    color: #ffffff;
+    margin-top:60px;
+    font-weight: 900;
+    margin-right:120px;
+}
+#club #club-left img{
+    margin-top:10px;
+    margin-left: 100px;
+    width: 160px;
+    height: 38px;
+}
+#club #club-contain #club-right{
+    width: 375px;
+    height:220px;
+    float: right;
+}
+#club #club-right span{
+    display: block;
+    color: #ffffff;
+}
+#club #club-right span:nth-child(1){
+    margin-top: 40px;
+    font-size: 25px;
+    font-weight: 900;
+}
+#club #club-right span:nth-child(2){
+    margin:20px 0;
+    /*margin-bottom: 10px;*/
+}
+#club #club-right button{
+    width: 100px;
+    height: 40px;
+    color:#b89f7a;
+    border:2px solid #b89f7a;
+    background: #000000;
+    cursor: pointer;
+    line-height: 40px;
+}
+#club #club-right a{
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    color:#b89f7a;
+}
+#club #club-right a:hover{
+    background: #b89f7a;
+    color:#FFFFFF;
+}
+#club #club-right p{
+    color:#b89f7a;
+    float: right;
+    font-size: 12px;
+    cursor: pointer;
+}
+@media (max-width: 1520px ) {
+    #contain #club {
+        width: 100%;
+    }
+    #club #club-contain #club-left{
+        width: 50%;
+    }
+    #club #club-contain #club-right{
+        width: 50%;
+    }
+}
+@media (max-width:767px) {
+    #contain #club{
+        width:100%;
+        height: 490px;
+        background: #000000;
+    }
+    #contain #club #club-contain{
+        width: 100%;
+    }
+    #contain #club #club-left {
+        height: 220px;
+        width: 100%;
+        text-align: center;
+    }
+    #contain #club #club-left span{
+        display: block;
+        width: 100%;
+        margin:0 auto;
+        padding-top: 70px;
+    }
+    #contain #club #club-left img{
+        display: block;
+        height:40px;
+        margin:0 auto;
+        padding-top: 10px;
+    }
+    #contain #club #club-right{
+        width: 100%;
+        text-align: center;
+    }
+    #contain #club  #club-right{
+        width: 100%;
+    }
+    #contain #club  #club-right span{
+        display: block;
+        width: 100%;
+    }
+    #contain #club  #club-right button{
+        margin:5px 0;
+        width: 80%;
+    }
+    #contain #club  #club-right a{
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        color:#b89f7a;
+        text-align: center;
+    }
+    #contain #club  #club-right a:hover{
+        color:#FFFFFF;
+    }
+    #club #club-right span:nth-child(1){
+        margin-top: 0;
+    }
+    #contain #club  #club-right p{
+        text-align: right;
+        width: 100%;
+        margin-top: 40px;
+        margin-right: 10px;
+    }
+}
+/*contain下的club结束*/
+
+/*contain下的app开始*/
+#app{
+    background: #dddddd;
+}
+#app #app-contain{
+    width: 900px;
+    height: 220px;
+    margin:0 auto;
+}
+#first{
+    width: 190px;
+    height: 200px;
+    float: left;
+}
+#first img{
+    display: block;
+    margin-top: 20px;
+    width: 190px;
+}
+#second{
+    width: 150px;
+    height: 209px;
+    margin-left: 150px;
+    float: left;
+}
+#second img:nth-child(1){
+    width: 130px;
+    height: 130px;
+    margin-top: 20px;
+}
+#second img:nth-child(2){
+    width: 25px;
+    height: 30px;
+    margin-left: 80px;
+    margin-top: 15px;
+}
+#second p{
+    width: 35px;
+    height: 45px;
+    font-size: 12px;
+    color:#6E6E6E;
+    float: right;
+    margin-top: 10px;
+    border-left:1px solid #000000;
+    padding-left: 5px;
+}
+#third{
+    width: 400px;
+    height: 80px;
+    float: left;
+}
+#third p:nth-child(1){
+    font-family: AvenirLight, 'HelveticaNeue-Light', 'Helvetica Neue', arial, "Hiragino Sans GB", "冬青黑体", "Microsoft YaHei New", "Microsoft Yahei", "微软雅黑", 宋体, SimSun, STXihei, "华文细黑", sans-serif;
+    font-size: larger;
+    margin-top: 80px;
+    margin-left: 30px;
+}
+#third p:nth-child(2){
+    color:#b89f7a;
+    font-size: 12px;
+    cursor:pointer;
+    margin-top: 10px;
+    margin-left: 30px;
+}
+@media (max-width:767px){
+    #app #app-contain{
+        width: 100%;
+        position: relative;
+    }
+    #third{
+        width: 100%;
+        position: absolute;
+        top:10px;
+    }
+    #first{
+        width: 50%;
+    }
+    #second{
+        display: none;
+    }
+    #first {
+        width: 50%;
+    }
+    #first img{
+        width: 150px;
+        margin-top: 60px;
+        margin-left: 150px;
+    }
+    #third p:nth-child(1){
+        font-size: 15px;
+        width: 55%;
+        margin:10px auto;
+    }
+    #third p:nth-child(2){
+        width: 90%;
+       text-align: right;
+        margin-top: 140px;
+    }
+}
+@media (max-width: 430px) {
+    #first {
+        width: 35%;
+    }
+
+    #first img {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    #third p:nth-child(2) {
+        margin-top:100px;
+    }
+}
+/*contain下的app结束*/
+/*contain下的big-pic开始*/
+#big-pic img:nth-child(1){
+    display: block;
+    height: 424px;
+}
+#big-pic img:nth-child(2){
+    display: none;
+}
+@media (max-width: 1850px) {
+    #big-pic img:nth-child(1){
+        width: 100%;
+        height: 100%;
+    }
+}
+@media (max-width: 767px) {
+    #big-pic img:nth-child(2){
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    #big-pic img:nth-child(1){
+        display: none;
+    }
+}
+/*contain下的big-pic结束*/
+
+/*contain下的two开始*/
+#two{
+    width: 1848px;
+}
+#two #green {
+    width: 759px;
+    height: 759px;
+    background: url("../img/big-pic1.jpg") no-repeat;
+    background-size:contain;
+    float: left;
+    position: relative;
+}
+#two #black{
+    width: 759px;
+    height:759px;
+    background: url("../img/big-pic2.jpg") no-repeat;
+    background-size:contain;
+    float: left;
+    position: relative;
+}
+#two #green h2{
+    width: 100%;
+  position: absolute;
+    bottom:40px;
+    color: #FFFFFF;
+    text-align: center;
+}
+#two #green h3{
+    width: 100%;
+    position: absolute;
+    bottom:20px;
+    color:#b89f7a;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+}
+#two #black h2{
+    width: 100%;
+    position: absolute;
+    bottom:40px;
+    color: #FFFFFF;
+    text-align: center;
+}
+#two #black h3{
+    width: 100%;
+    position: absolute;
+    bottom:20px;
+    color:#b89f7a;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+@media (max-width: 1850px){
+    #two{
+        width: 100%;
+    }
+    #two #green{
+        width: 50%;
+        height:0;
+        padding-top: 50%;
+    }
+    #two #black{
+        width: 50%;
+        height:0;
+        padding-top: 50%;
+    }
+}
+@media (max-width: 767px){
+    #two{
+        width: 100%;
+    }
+    #two #green{
+        width: 100%;
+        height:0;
+        padding-top: 100%;
+        background-size:cover;
+    }
+    #two #black{
+        width: 100%;
+        height:0;
+        padding-top: 100%;
+        background-size:cover;
+    }
+}
+/*contain下的two结束*/
+
+/*contain下的speak开始*/
+#contain #speak{
+    width: 1519px;
+    height: 222px;
+    background:#296744;
+    overflow: hidden;
+}
+#speak-pic{
+    width: 700px;
+    margin: 70px auto;
+}
+#top{
+    float: left;
+}
+#top img:nth-child(1){
+    width: 177px;
+}
+#top img:nth-child(2){
+    width: 106px;
+    margin:0 20px 0 30px;
+}
+#bottom img:nth-child(1){
+    width: 98px;
+    margin: 0 30px 0 20px;
+}
+#bottom img:nth-child(2){
+    width: 184px;
+}
+@media (max-width: 1850px){
+    #contain #speak{
+        width: 100%;
+    }
+}
+@media (max-width: 767px){
+    #speak-pic{
+        width: 100%;
+    }
+    #contain #speak{
+        width: 100%;
+        height:auto;
+    }
+    #top{
+        width: 100%;
+        float:none;
+      text-align: center;
+        margin: 20px 0;
+    }
+    #bottom{
+        width: 100%;
+        text-align: center;
+    }
+}
+/*contain下的speak结束*/
+/*contain下的watch开始*/
+#watch{
+    width: 1519px;
+    height: 220px;
+}
+#watch-contain{
+    width: 1040px;
+    height: 220px;
+    margin: 0 auto;
+}
+#watch img:nth-child(1){
+    width: 408px;
+    height: 220px;
+    float: left;
+}
+#watch img:nth-child(2){
+    display: none;
+}
+#watch-contain #center{
+    width: 344px;
+    height: 114px;
+    float: left;
+    margin:40px 60px;
+}
+#watch-contain #center span{
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 500;
+}
+#watch-contain #center p{
+    color:#b89f7a;
+    font-size: 12px;
+    cursor: pointer;
+    margin:10px 0;
+}
+#watch-contain #watch-right{
+    width: 130px;
+    height: 172px;
+    float: left;
+    margin:40px 0;
+}
+#watch-contain #watch-right img{
+    width: 130px;
+    height: 130px;
+}
+#watch-contain #watch-right span{
+    display: block;
+    text-align: center;
+    font-weight: 900;
+}
+@media (max-width: 1850px){
+    #watch{
+        width: 100%;
+    }
+}
+@media (max-width: 1064px){
+    #watch{
+        width: 100%;
+        height: 630px;
+    }
+    #watch-contain {
+        width: 100%;
+        height: 630px;
+    }
+    #watch img:nth-child(1){
+        display: none;
+    }
+
+    #watch img:nth-child(2){
+        width: 414px;
+        display: block;
+        margin: 0 auto;
+    }
+    #watch-contain #center{
+        float: none;
+    }
+    #watch-contain #watch-right{
+        display: none;
+    }
+    #watch-contain #center{
+        width: 80%;
+        height:auto;
+        margin:0 auto;
+    }
+    #watch-contain #center p{
+        width: 100%;
+        text-align: center;
+    }
+    #green-contain{
+        width: 100%;
+    }
+    #green-btn{
+        width: 200px;
+        height: 75px;
+        background: url("../img/button.svg") no-repeat;
+        cursor:pointer;
+        margin: 0 auto;
+    }
+}
+/*contain下的watch结束*/
+
+/*choice开始*/
+#choice{
+    width: 1519px;
+    height: auto;
+    background:#e6e6e6;
+    float: left;
+}
+#choice #word{
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    padding-top: 80px;
+}
+#choice #word h2{
+    text-align: center;
+}
+#choice #word p{
+    text-align: center;
+    color:#898989;
+    margin:20px 0;
+}
+@media (max-width: 1850px){
+    #choice{
+        width: 100%;
+    }
+    #choice #word{
+        width: 100%;
+    }
+}
+#four{
+    width: 1100px;
+    height: 280px;
+    margin: 50px auto;
+}
+#four .like{
+    width: 240px;
+    height: 280px;
+    border:1px solid #666666;
+    box-shadow: 1px 1px 2px 2px #999999;
+    float: left;
+    margin:20px 15px;
+    cursor: pointer;
+}
+#four .like:hover{
+    box-shadow: 2px 2px 2px 2px #6E6E6E;
+}
+#four .like img{
+    width: 240px;
+    height: 160px;
+}
+.like p{
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    margin: 10px 0;
+}
+.like p:hover{
+    color:orange;
+}
+.like p:last-child{
+    color:#898989;
+    font-size: 14px;
+}
+@media (max-width: 1133px){
+    #four{
+        width: 820px;
+    }
+}
+@media (max-width: 861px){
+    #four{
+        width: 550px;
+    }
+}
+/*choice结束*/
+/*product开始*/
+#product{
+    width: 1519px;
+    height: auto;
+    background: #000;
+    float: left;
+}
+#product-contain{
+    width: 1000px;
+    margin: 0 auto;
+}
+#product-left{
+    width: 480px;
+    height: 528px;
+    float: left;
+}
+#product-right{
+    width: 500px;
+    height: 200px;
+    float:right;
+   margin:160px 0;
+
+}
+#product-right p{
+    color:#b89f7a;
+    font-size: 12px;
+    font-weight:900;
+    text-align: center;
+}
+#product-right span{
+    display:block;
+    margin:30px 0;
+    color:#999999;
+}
+#product-right #button{
+    width: 250px;
+    margin: 0 auto;
+}
+#product-right #button button{
+    width: 100px;
+    height: 40px;
+    color:#b89f7a;
+    background: #000;
+    border:2px solid #b89f7a;
+    margin:0 10px;
+    cursor:pointer;
+}
+#product-right #button button:hover{
+    background:#b89f7a;
+    color: #ffffff;
+}
+@media (max-width: 1850px){
+    #product{
+        width: 100%;
+    }
+}
+@media (max-width: 1014px){
+    #product-contain{
+        width: 850px;
+    }
+    #product-left{
+        width: 430px;
+    }
+    #product-right{
+        width: 400px;
+    }
+}
+@media (max-width: 882px){
+    #product-contain{
+        width: 750px;
+    }
+    #product-right{
+        width: 250px;
+    }
+    #product-right #button{
+        width: 100px;
+    }
+    #product-right #button button{
+        width: 120px;
+        margin:10px 0;
+    }
+}
+@media (max-width: 766px){
+    #product-contain{
+        width:80%;
+    }
+    #product-left{
+        width: 100%;
+    }
+    #product-right{
+        width: 100%;
+    }
+    #product-right p{
+        width: 100%;
+        font-size: 25px;
+    }
+    #product-right span{
+        width: 100%;
+    }
+    #product-right #button{
+        width: 100%;
+    }
+    #product-right #button button{
+        display: block;
+        width:80% ;
+        margin:10px auto;
+    }
+}
+/*product结束*/
+/*footer开始*/
+#footer{
+    width: 1519px;
+    height: auto;
+    background: #6E6E6E;
+    float: left;
+}
+#footer-contain{
+    width: 900px;
+    margin:0 auto;
+}
+#footer ul{
+    color: #ffffff;
+    float: left;
+    margin:80px;
+}
+@media (max-width: 1850px){
+    #footer{
+        width: 100%;
+    }
+}
+@media (max-width: 881px){
+    #footer-contain{
+        width: 800px;
+    }
+    #footer ul{
+        margin: 80px 50px;
+    }
+}
+@media (max-width: 765px){
+
+}
+
+/*footer结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
