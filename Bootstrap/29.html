@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--表单控件状态(验证状态)-->
+<!--在制作表单时，不免要做表单验证。同样也需要提供验证状态样式，在Bootstrap框架中同样提供这几种效果。-->
+<!--1、.has-warning:警告状态（黄色）-->
+<!--2、.has-error：错误状态（红色）-->
+<!--3、.has-success：成功状态（绿色）-->
+<!--使用的时候只需要在form-group容器上对应添加状态类名。-->
+
+<h3>示例1</h3>
+<form role="form">
+    <div class="form-group has-success">
+        <label class="control-label" for="inputSuccess1">成功状态</label>
+        <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+    </div>
+    <div class="form-group has-warning">
+        <label class="control-label" for="inputWarning1">警告状态</label>
+        <input type="text" class="form-control" id="inputWarning1" placeholder="警告状态">
+    </div>
+    <div class="form-group has-error">
+        <label class="control-label" for="inputError1">错误状态
+            <input type="text" class="form-control" id="inputError1" placeholder="错误状态">
+        </label>
+    </div>
+    <div class="form-group has-error">
+        <label class="control-label">错误状态
+            <input type="text" class="form-control">
+        </label>
+    </div>
+</form>
+
+<!--很多时候，在表单验证的时候，不同的状态会提供不同的 icon，比如成功是一个对号（√），-->
+<!--错误是一个叉号（×）等。在Bootstrap框中也提供了这样的效果。-->
+<!--如果你想让表单在对应的状态下显示 icon 出来，只需要在对应的状态下添加类名“has-feedback”。-->
+<!--请注意，此类名要与“has-error”、“has-warning”和“has-success”在一起：-->
+<!--从效果图中可以看出，图标都居右。在 Bootstrap 的小图标都是使用@font-face来制作-->
+<!--而且必须在表单中添加了一个 span 元素：-->
+<!--<span class="glyphicon glyphicon-ok form-control-feedback"></span>-->
+<h3>示例2</h3>
+<form role="form">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess1">成功状态</label>
+        <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+        <span class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <div class="form-group has-warning has-feedback">
+        <label class="control-label" for="inputWarning1">警告状态</label>
+        <input type="text" class="form-control" id="inputWarning1" placeholder="警告状态">
+        <span class="glyphicon glyphicon-warning-sign form-control-feedback"></span>
+    </div>
+    <div class="form-group has-error has-feedback">
+        <label class="control-label" for="inputError1">错误状态</label>
+        <input type="text" class="form-control" id="inputError1" placeholder="错误状态">
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    </div>
+    <!--此处注意，input要写在label外面，要不然样式会出错，应该是label样式牵制了input样式-->
+    <div class="form-group has-error has-feedback">
+        <label class="control-label" for="inputError1">错误状态
+            <input type="text" class="form-control" id="inputError1" placeholder="错误状态">
+        </label>
+        <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+    </div>
+</form>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
