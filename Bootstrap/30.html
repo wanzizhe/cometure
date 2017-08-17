@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--表单提示信息-->
+<!--平常在制作表单验证时，要提供不同的提示信息。-->
+<!--在Bootstrap框架中也提供了这样的效果。-->
+<!--使用了一个"help-block"样式，将提示信息以块状显示，并且显示在控件底部。-->
+<form role="form">
+    <div class="form-group has-success has-feedback">
+        <label class="control-label" for="inputSuccess1">成功状态</label>
+        <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+        <span class="help-block">你输入的信息是正确的</span>
+        <span class="glyphiconglyphicon-ok form-control-feedback"></span>
+    </div>
+</form>
+
+<!--借助于Bootstrap的网格系统，可以让提示信息显示在控件的后面，也就是同一水平显示。-->
+<form role="form">
+    <div class="form-group">
+        <label class="control-label" for="inputSuccess1">成功状态</label>
+        <div class="row">
+            <div class="col-xs-6">
+                <input type="text" class="form-control" id="inputSuccess1" placeholder="成功状态" >
+            </div>
+            <span class="col-xs-6 help-block">你输入的信息是正确的</span>
+        </div>
+    </div>
+</form>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
