@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--表单控件状态(禁用状态)-->
+<!--只需要在需要禁用的表单控件上加上“disabled”即可-->
+<form role="form" class="form-horizontal">
+    <div class="form-group">
+        <div class="col-xs-6">
+            <input class="form-control input-lg" type="text" placeholder="不是焦点状态下效果">
+        </div>
+        <div class="col-xs-6">
+            <input class="form-control input-lg" id="disabledInput" type="text" placeholder="表单已被禁用，不可输入" disabled>
+            <!--在使用了“form-control”的表单控件中，样式设置了禁用表单背景色为灰色，而且手型变成了不准输入的形状。-->
+            <!--如果控件中不使用类名“form-control”，禁用的控件只会有一个不准输入的手型出来。-->
+        </div>
+    </div>
+</form>
+
+<!--在Bootstrap框架中，如果fieldset设置了disabled属性，整个域都将处于被禁用状态。-->
+<form role="form">
+    <fieldset disabled>
+        <div class="form-group">
+            <label for="disabledTextInput">禁用的输入框</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">禁用的下拉框</label>
+            <select id="disabledSelect" class="form-control">
+                <option>不可选择</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox">无法选择
+            </label>
+        </div>
+        <button type="submit" class="btnbtn-primary">提交</button>
+    </fieldset>
+</form>
+
+<!--据说对于整个禁用的域中，如果legend中有输入框的话，这个输入框是无法被禁用的。-->
+<form role="form">
+    <fieldset disabled>
+        <legend>
+            <input type="text" class="form-control" placeholder="显然我颜色变灰了，但是我没被禁用，不信？单击试一下" />
+        </legend>
+        <div class="form-group">
+            <label for="disabledTextInput">禁用的输入框</label>
+            <input type="text" id="disabledTextInput" class="form-control" placeholder="禁止输入">
+        </div>
+        <div class="form-group">
+            <label for="disabledSelect">禁用的下拉框</label>
+            <select id="disabledSelect" class="form-control">
+                <option>不可选择</option>
+            </select>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"> 无法选择
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </fieldset>
+</form>
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
