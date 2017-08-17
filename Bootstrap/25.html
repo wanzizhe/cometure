@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--表单控件(复选框和单选按钮水平排列)-->
+<!--1、如果checkbox需要水平排列，只需要在label标签上添加类名“checkbox-inline”-->
+<!--2、如果radio需要水平排列，只需要在label标签上添加类名“radio-inline”-->
+<form role="form">
+    <div class="form-group">
+        <label class="checkbox-inline">
+            <input type="checkbox"  value="option1">游戏
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox"  value="option2">摄影
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox"  value="option3">旅游
+        </label>
+    </div>
+    <div class="form-group">
+        <label class="radio-inline">
+            <input type="radio"  value="option1" name="sex">男性
+        </label>
+        <label class="radio-inline">
+            <input type="radio"  value="option2" name="sex">女性
+        </label>
+        <label class="radio-inline">
+            <input type="radio"  value="option3" name="sex">中性
+        </label>
+    </div>
+</form>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
