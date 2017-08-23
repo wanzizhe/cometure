@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+                 <!--按钮-->
+    <button class="btn" type="button">基础按钮.btn</button>
+    <button class="btn btn-default" type="button">默认按钮.btn-default</button>
+    <button class="btn btn-primary" type="button">主要按钮.btn-primary</button>
+    <button class="btn btn-success" type="button">成功按钮.btn-success</button>
+    <button class="btn btn-info" type="button">信息按钮.btn-info</button>
+    <button class="btn btn-warning" type="button">警告按钮.btn-warning</button>
+    <button class="btn btn-danger" type="button">危险按钮.btn-danger</button>
+    <button class="btn btn-link" type="button">链接按钮.btn-link</button>
+    <br>
+
+
+
+                 <!--基本按钮   -->
+    <button class="btn" type="button">我是一个基本按钮</button>
+
+
+                <!--默认按钮     -->
+    <button class="btn btn-default" type="button">默认按钮</button>
+    <br>
+
+
+                 <!--多标签支持-->
+     <!--虽然在Bootstrap框架中使用任何标签元素都可以实现按钮风格，-->
+     <!--但个人并不建议这样使用，为了避免浏览器兼容性问题，个人强烈建议使用button或a标签来制作按钮。-->
+    <button class="btn btn-default" type="button">button标签按钮</button>
+    <input type="submit" class="btn btn-default" value="input标签按钮"/>
+    <a href="##" class="btn btn-default">a标签按钮</a>
+    <span class="btn btn-default">span标签按钮</span>
+    <div class="btn btn-default">div标签按钮</div>
+    <br>
+
+                 <!--定制风格-->
+     <button class="btn" type="button">基础按钮.btn</button>
+     <button class="btn btn-default" type="button">默认按钮.btn-default</button>
+     <button class="btn btn-primary" type="button">主要按钮.btn-primary</button>
+     <button class="btn btn-success" type="button">成功按钮.btn-success</button>
+     <button class="btn btn-info" type="button">信息按钮.btn-info</button>
+     <button class="btn btn-warning" type="button">警告按钮.btn-warning</button>
+     <button class="btn btn-danger" type="button">危险按钮.btn-danger</button>
+     <button class="btn btn-link" type="button">链接按钮.btn-link</button>
+    <br>
+
+
+                    <!--按钮大小 -->
+     <!--通过在基础按钮“.btn”的基础上追加类名来控制按钮的大小。-->
+     <!--那么在实际使用中，这几个类名可以配合按钮中其他颜色类名一起使用，但唯一一点不能缺少“.btn”类名-->
+    <button class="btn btn-primary btn-lg" type="button">大型按钮.btn-lg</button>
+    <button class="btn btn-primary" type="button">正常按钮</button>
+    <button class="btn btn-primary btn-sm" type="button">小型按钮.btn-sm</button>
+    <button class="btn btn-primary btn-xs" type="button">超小型按钮.btn-xs</button>
+   <br>
+
+
+
+                     <!--块状按钮-->
+       <!--有时候在制作按钮的时候需要按钮宽度充满整个父容器（width:100%），特别是在移动端的制作中。-->
+       <!--使用方法和前面的类似，只需要在原按钮类名上添加“.btn-block”类名，当然“.btn”类名是不可或缺的：          -->
+    <button class="btn btn-primary btn-lg btn-block" type="button">大型按钮.btn-lg</button>
+    <button class="btn btn-primary btn-block" type="button">正常按钮</button>
+    <button class="btn btn-primary btn-sm btn-block" type="button">小型按钮.btn-sm</button>
+    <button class="btn btn-primary btn-xs btn-block" type="button">超小型按钮.btn-xs</button>
+
+
+
+
+                 <!--按钮状态——禁用状态-->
+    <!--在Bootstrap框架中，要禁用按钮有两种实现方式：-->
+
+    <!--方法1：在标签中添加disabled属性-->
+
+    <!--方法2：在元素标签中添加类名“disabled”-->
+
+    <!--两者的主要区别是：-->
+
+    <!--“.disabled”样式不会禁止按钮的默认行为，比如说提交和重置行为等。-->
+    <!--如果想要让这样的禁用按钮也能禁止按钮的默认行为，则需要通过JavaScript这样的语言来处理。-->
+    <!--对于<a>标签也存在类似问题，如果通过类名“.disable”来禁用按钮，其链接行为是无法禁止。-->
+    <!--而在元素标签中添加“disabled”属性的方法是可以禁止元素的默认行为的。-->
+    <button class="btn btn-primary btn-lg btn-block" type="button" disabled="disabled">通过disabled属性禁用按钮</button>
+    <button class="btn btn-primary btn-block disabled" type="button">通过添加类名disabled禁用按钮</button>
+    <button class="btn btn-primary btn-sm btn-block" type="button">未禁用的按钮</button>
+
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
