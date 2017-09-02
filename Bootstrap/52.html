@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+<!--按钮（按钮组）-->
+<!--使用一个名为“btn-group”的容器，把多个按钮放到这个容器中。-->
+<!--除了可以使用<button>元素之外，还可以使用其他标签元素，比如<a>标签。-->
+<!--唯一要保证的是：不管使用什么标签，“.btn-group”容器里的标签元素需要带有类名“.btn”-->
+<!--我们平常制作网页时每个按钮都是带有圆角，而在按钮组中的按钮，-->
+<!--除了第一个和最后一个具有边上的圆角之外，其他的按钮没有圆角，它是怎么实现的呢？-->
+<!--1、默认所有按钮都有圆角-->
+
+<!--2、除第一个按钮和最后一个按钮（下拉按钮除外），其他的按钮都取消圆角效果-->
+
+<!--3、第一个按钮只留左上角和左下角是圆角-->
+
+<!--4、最后一个按钮只留右上角和右下角是圆角                    -->
+<div class="btn-group">
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-backward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pause"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-stop"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-forward "></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-fast-forward"></span></button>
+    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-step-forward"></span></button>
+</div>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
