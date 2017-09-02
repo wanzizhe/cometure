@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--下拉菜单（对齐方式）-->
+<!--Bootstrap框架中下拉菜单默认是左对齐，如果你想让下拉菜单相对于父容器右对齐时，-->
+<!--可以在“dropdown-menu”上添加一个“pull-right”或者“dropdown-menu-right”类名-->
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        下拉菜单
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+        …
+    </ul>
+</div>
+<!--自己练习-->
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        食物
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation" class="dropdown-header">水果</li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹果</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹果</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation" class="dropdown-header">蔬菜</li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹果</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">苹果</a></li>
+    </ul>
+</div>
+
+
+
+
+<h4>使用pull-right类使下拉菜单与父容器右边对齐</h4>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        下拉菜单
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+    </ul>
+</div>
+<br />
+<br />
+<h4>使用dropdown-menu-right类使下拉菜单与父容器右边对齐</h4>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        下拉菜单
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+    </ul>
+</div>
+<br />
+<br />
+<h4>下拉菜单与父容器左边对齐</h4>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+        下拉菜单
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left" role="menu" aria-labelledby="dropdownMenu1">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+        <li role="presentation" class="divider"></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">下拉菜单项</a></li>
+    </ul>
+</div>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
