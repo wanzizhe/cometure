@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--按钮（嵌套分组）-->
+<!--很多时候，我们常把下拉菜单和普通的按钮组排列在一起，实现类似于导航菜单的效果。-->
+<!--使用的时候，只需要把当初制作下拉菜单的“dropdown”的容器换成“btn-group”，并且和普通的按钮放在同一级。                    -->
+<div class="btn-group">
+    <button class="btn btn-default" type="button">首页</button>
+    <button class="btn btn-default" type="button">产品展示</button>
+    <button class="btn btn-default" type="button">案例分析</button>
+    <button class="btn btn-default" type="button">联系我们</button>
+    <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">关于我们<span class="caret"></span></button>
+        <ul class="dropdown-menu">
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">组织结构</a></li>
+            <li><a href="#">客服服务</a></li>
+        </ul>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
