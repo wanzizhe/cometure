@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+<!--按钮（垂直分组）-->
+<!--我们只需要把水平分组的“btn-group”类名换成“btn-group-vertical”即可。-->
+<div class="btn-group-vertical">
+    <button class="btn btn-default" type="button">首页</button>
+    <button class="btn btn-default" type="button">产品展示</button>
+    <button class="btn btn-default" type="button">案例分析</button>
+    <button class="btn btn-default" type="button">联系我们</button>
+    <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+            关于我们
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">公司简介</a></li>
+            <li><a href="#">企业文化</a></li>
+            <li><a href="#">组织结构</a></li>
+            <li><a href="#">客服服务</a></li>
+        </ul>
+    </div>
+</div>
+<!--自己练习-->
+<div    class="btn-group-vertical">
+    <button class="btn btn-default" type="button">首页</button>
+    <div class="btn-group">
+        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+            产品展示
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="#">收割机</a></li>
+            <li><a href="#">收割机</a></li>
+            <li><a href="#">收割机</a></li>
+        </ul>
+    </div>
+    <button class="btn btn-default" type="button">首页</button>
+    <button class="btn btn-default" type="button">首页</button>
+</div>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
