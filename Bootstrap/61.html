@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--导航（标签形tab导航）-->
+<!--标签形导航是通过“nav-tabs”样式来实现。在制作标签形导航时需要在原导航“nav”上追加此类名-->
+<ul class="nav nav-tabs">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li><a href="#">Responsive</a></li>
+</ul>
+<br />
+<!--一般情况之下，选项卡会有一个当前选中项。其实在Bootstrap框架也相应提供了。-->
+<!--假设我们想让“Home”项为当前选中项，只需要在其标签上添加类名“class="active"”即可-->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li><a href="#">Responsive</a></li>
+</ul>
+<br />
+<!--除了当前项之外，有的选项卡还带有禁用状态，实现这样的效果，-->
+<!--只需要在标签项上添加“class="disabled"”即可-->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li class="disabled"><a href="#">Responsive</a></li>
+</ul>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
