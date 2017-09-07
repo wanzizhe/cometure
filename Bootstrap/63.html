@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+<!--导航（垂直堆叠的导航）-->
+<!--垂直导航，就类似前面介绍的垂直排列按钮一样。制作垂直堆叠导航只需要在“nav-pills”的基础上添加一个“nav-stacked”类名即可-->
+<ul class="nav nav-pills nav-stacked">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li class="disabled"><a href="#">Responsive</a></li>
+</ul>
+<br />
+<!--在下拉菜单一节中，下拉菜单组与组之间有一个分隔线。其实在垂直堆叠导航也具有这样的效果，
+只需要添加在导航项之间添加“<li class=”nav-divider”></li>”即可-->
+<ul class="nav nav-pills nav-stacked">
+    <li class="active"><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li class="nav-divider"></li>
+    <li class="disabled"><a href="#">Responsive</a></li>
+</ul>
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
