@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+<!--为导航条添加标题、二级菜单及状态-->
+<!--在Web页面制作中，常常在菜单前面都会有一个标题（文字字号比其它文字稍大一些），-->
+<!--其实在Bootstrap框架也为大家做了这方面考虑，其通过“navbar-header”和“navbar-brand”来实现-->
+<!--加入导航条标题-->
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">网站首页</a></li>
+        <li><a href="#">系列教程</a></li>
+        <li><a href="#">名师介绍</a></li>
+        <li><a href="#">成功案例</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</div>
+<!--导航条状态及二级菜单-->
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">网站首页</a></li>
+        <li class="dropdown">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                系列教程
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">CSS3</a></li>
+                <li><a href="#">JavaScript</a></li>
+                <li class="disabled"><a href="#">PHP</a></li>
+            </ul>
+        </li>
+        <li><a href="#">名师介绍</a></li>
+        <li><a href="#">成功案例</a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</div>
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
