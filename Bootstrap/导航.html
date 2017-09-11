@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+
+                            <!--导航（基础样式）-->
+<!--Bootstrap框架中制作导航条主要通过“.nav”样式。默认的“.nav”样式不提供默认的导航样式，-->
+<!--必须附加另外一个样式才会有效，比如“nav-tabs”、“nav-pills”之类。-->
+<ul class="nav nav-pills">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">CSS3</a></li>
+    <li><a href="#">Sass</a></li>
+    <li><a href="#">jQuery</a></li>
+    <li><a href="#">Responsive</a></li>
+</ul>
+
+
+
+
+
+
+                            <!--导航（标签形tab导航）-->
+  <!--标签形导航是通过“nav-tabs”样式来实现。在制作标签形导航时需要在原导航“nav”上追加此类名-->
+                            <ul class="nav nav-tabs">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li><a href="#">Responsive</a></li>
+                            </ul>
+                            <br />
+  <!--一般情况之下，选项卡会有一个当前选中项。其实在Bootstrap框架也相应提供了。-->
+  <!--假设我们想让“Home”项为当前选中项，只需要在其标签上添加类名“class="active"”即可-->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li><a href="#">Responsive</a></li>
+                            </ul>
+                            <br />
+  <!--除了当前项之外，有的选项卡还带有禁用状态，实现这样的效果，-->
+  <!--只需要在标签项上添加“class="disabled"”即可-->
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li class="disabled"><a href="#">Responsive</a></li>
+                            </ul>
+
+
+
+
+
+                            <!--导航（胶囊形(pills)导航）-->
+<!--胶囊形（pills）导航听起来有点别扭，因为其外形看起来有点像胶囊形状。-->
+<!--但其更像我们平时看到的大众形导航。当前项高亮显示，并带有圆角效果。-->
+<!--其实现方法和“nav-tabs”类似，同样的结构，只需要把类名“nav-tabs”换成“nav-pills”即可-->
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li class="disabled"><a href="#">Responsive</a></li>
+                            </ul>
+
+
+
+
+                            <!--导航（垂直堆叠的导航）-->
+<!--垂直导航，就类似前面介绍的垂直排列按钮一样。制作垂直堆叠导航只需要在“nav-pills”的基础上添加一个“nav-stacked”类名即可-->
+                            <ul class="nav nav-pills nav-stacked">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li class="disabled"><a href="#">Responsive</a></li>
+                            </ul>
+                            <br />
+<!--在下拉菜单一节中，下拉菜单组与组之间有一个分隔线。其实在垂直堆叠导航也具有这样的效果，
+只需要添加在导航项之间添加“<li class=”nav-divider”></li>”即可-->
+                            <ul class="nav nav-pills nav-stacked">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li class="nav-divider"></li>
+                                <li class="disabled"><a href="#">Responsive</a></li>
+                            </ul>
+
+
+
+
+
+                            <!--自适应导航（使用）-->
+<!--自适应导航和前面使用“btn-group-justified”制作的自适应按钮组是一样的。-->
+<!--只不过在制作自适应导航时更换了另一个类名“nav-justified”。-->
+<!--当然他需要和“nav-tabs”或者“nav-pills”配合在一起使用。-->
+                            <ul class="nav nav-tabs nav-justified">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li><a href="#">Responsive</a></li>
+                            </ul>
+                            <br />
+                            <!--制作一个宽度自适应的胶囊形（pills）导航条-->
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#">CSS3</a></li>
+                                <li><a href="#">Sass</a></li>
+                                <li><a href="#">jQuery</a></li>
+                                <li><a href="#">Responsive</a></li>
+                            </ul>
+<!--这里有一个媒体查询条件：“@media (min-width:768px){…}”-->
+<!--表示自适应导航仅在浏览器视窗宽度大于768px才能按上图风格显示。-->
+<!--当你的浏览器视窗宽度小于768px的时候，将会变化-->
+
+
+
+
+                            <!--导航加下拉菜单（二级导航）-->
+ <!--只需要将li当作父容器，使用类名“dropdown”，同时在li中嵌套另一个列表ul，-->
+                            <ul class="nav nav-pills">
+                                <li class="active"><a href="#">首页</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        教程
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">CSS3</a></li>
+                                        <li><a href="#">Sass</a></li>
+                                        <li><a href="#">jQuery</a></li>
+                                        <li><a href="#">Responsive</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">关于我们</a></li>
+                            </ul>
+
+
+
+
+                            <!--面包屑式导航-->
+                            <!--使用方式就很简单，为ol加入breadcrumb类-->
+                            <ol class="breadcrumb">
+                                <li><a href="#">首页</a></li>
+                                <li><a href="#">我的书</a></li>
+                                <li class="active">《图解CSS3》</li>
+                            </ol>
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
