@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--导航条中的按钮、文本和链接-->
+<!--1、导航条中的按钮navbar-btn-->
+
+<!--2、导航条中的文本navbar-text-->
+
+<!--3、导航条中的普通链接navbar-link-->
+
+<!--但这三种样式在框架中使用时受到一定的限制，需要和navbar-brand、navbar-nav配合起来使用。-->
+<!--而且对数量也有一定的限制，一般情况在使用一到两个不会有问题，超过两个就会有问题。-->
+<!--用了三个navbar-text发现问题-->
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <ul class="nav navbar-nav">
+        <li><a href="#" class="navbar-text">Navbar Text</a></li>
+        <li><a href="#" class="navbar-text">Navbar Text</a></li>
+        <li><a href="#" class="navbar-text">Navbar Text</a></li>
+    </ul>
+</div>
+<!--发现问题做结构调整-->
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <div class="nav navbar-nav">
+        <a href="#" class="navbar-text">Navbar Text</a>
+        <a href="#" class="navbar-text">Navbar Text</a>
+        <a href="#" class="navbar-text">Navbar Text</a>
+    </div>
+</div>
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
