@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <!--<style>-->
+        <!--body {-->
+            <!--padding-top: 70px;/*有顶部固定导航条时设置*/-->
+            <!--padding-bottom: 70px;/*有底部固定导航条时设置*/-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+
+<!--基础导航条-->
+<!--第一步：首先在制作导航的列表(<ul class=”nav”>)基础上添加类名“navbar-nav”-->
+<!--第二步：在列表外部添加一个容器（div），并且使用类名“navbar”和“navbar-default”-->
+<!--<div class="navbar navbar-default" role="navigation">-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li><a href="#">系列教程</a></li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
+
+
+
+                       <!--为导航条添加标题、二级菜单及状态-->
+<!--在Web页面制作中，常常在菜单前面都会有一个标题（文字字号比其它文字稍大一些），-->
+<!--其实在Bootstrap框架也为大家做了这方面考虑，其通过“navbar-header”和“navbar-brand”来实现-->
+<!--加入导航条标题-->
+<!--<div class="navbar navbar-default" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　    <a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li><a href="#">系列教程</a></li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--导航条状态及二级菜单-->
+<!--<div class="navbar navbar-default" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　    <a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li class="dropdown">-->
+            <!--<a href="#" data-toggle="dropdown" class="dropdown-toggle">-->
+                <!--系列教程-->
+                <!--<span class="caret"></span>-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">CSS3</a></li>-->
+                <!--<li><a href="#">JavaScript</a></li>-->
+                <!--<li class="disabled"><a href="#">PHP</a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
+
+
+<!--带表单的导航条-->
+<!--在navbar容器中放置一个带有navbar-form类名的表单-->
+<!--“navbar-left”让表单左浮动，更好实现对齐。在Bootstrap框架中.-->
+<!--&lt;!&ndash;还提供了“navbar-right”样式，让元素在导航条靠右对齐。&ndash;&gt;-->
+<!--<div class="navbar navbar-default" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　    <a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li class="dropdown">-->
+            <!--<a href="#" data-toggle="dropdown" class="dropdown-toggle">-->
+                <!--系列教程-->
+                <!--<span class="caret"></span>-->
+            <!--</a>-->
+            <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">CSS3</a></li>-->
+                <!--<li><a href="#">JavaScript</a></li>-->
+                <!--<li class="disabled"><a href="#">PHP</a></li>-->
+            <!--</ul>-->
+        <!--</li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+    <!--<form action="#" class="navbar-form navbar-left" role="search">-->
+        <!--<div class="form-group">-->
+            <!--<input type="text" class="form-control" placeholder="请输入关键词" />-->
+        <!--</div>-->
+        <!--<button type="submit" class="btn btn-default">搜索</button>-->
+    <!--</form>-->
+<!--</div>-->
+
+
+
+
+<!--导航条中的按钮、文本和链接-->
+<!--1、导航条中的按钮navbar-btn-->
+
+<!--2、导航条中的文本navbar-text-->
+
+<!--3、导航条中的普通链接navbar-link-->
+
+<!--但这三种样式在框架中使用时受到一定的限制，需要和navbar-brand、navbar-nav配合起来使用。-->
+<!--而且对数量也有一定的限制，一般情况在使用一到两个不会有问题，超过两个就会有问题。-->
+<!--用了三个navbar-text发现问题-->
+<!--<div class="navbar navbar-default" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　    <a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li><a href="#" class="navbar-text">Navbar Text</a></li>-->
+        <!--<li><a href="#" class="navbar-text">Navbar Text</a></li>-->
+        <!--<li><a href="#" class="navbar-text">Navbar Text</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--发现问题做结构调整-->
+<!--
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <div class="nav navbar-nav">
+        <a href="#" class="navbar-text">Navbar Text</a>
+        <a href="#" class="navbar-text">Navbar Text</a>
+        <a href="#" class="navbar-text">Navbar Text</a>
+    </div>
+</div>
+-->
+
+
+
+
+<!--固定导航条-->
+<!--☑  .navbar-fixed-top：导航条固定在浏览器窗口顶部-->
+
+<!--☑  .navbar-fixed-bottom：导航条固定在浏览器窗口底部-->
+<!--实现原理很简单，就是在navbar-fixed-top和navbar-fixed-bottom使用了position：fixed属性，-->
+<!--并且设置navbar-fixed-top的top值为0,而navbar-fixed-bottom的bottom值为0。-->
+
+<!--存在bug及解决方法:-->
+
+<!--从运行效果中大家不难发现，页面主内容顶部和底部都被固定导航条给遮住了。为了避免固定导航条遮盖内容
+
+<!--第一种解决这个bug方法：-->
+
+<!--我们需要在body上做一些处理：-->
+ <!--<style>-->
+<!--   body {-->
+<!--      padding-top: 70px;/*有顶部固定导航条时设置*/-->
+<!--      padding-bottom: 70px;/*有底部固定导航条时设置*/-->
+<!--       }-->
+<!--</style>-->
+
+
+<!--第二种解决这个bug方法：（没好使）-->
+
+<!--其实除了这种解决方案之外，我们还有其他的解决方法，把固定导航条都放在页面内容前面-->
+
+<!--<div class="navbar navbar-default navbar-fixed-top" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　    <a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li><a href="#">系列教程</a></li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="content">我是内容</div>&ndash;&gt;-->
+<!--<div class="navbar navbar-default navbar-fixed-bottom" role="navigation">-->
+    <!--　<div class="navbar-header">-->
+    <!--　	<a href="#" class="navbar-brand">慕课网</a>-->
+    <!--　</div>-->
+    <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">网站首页</a></li>-->
+        <!--<li><a href="#">系列教程</a></li>-->
+        <!--<li><a href="#">名师介绍</a></li>-->
+        <!--<li><a href="#">成功案例</a></li>-->
+        <!--<li><a href="#">关于我们</a></li>-->
+    <!--</ul>-->
+<!--</div>-->
+<!--<div class="content">我是内容</div>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+<!--<p>网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容，网页正文内容。</p>-->
+
+
+
+
+<!--响应式导航条-->
+
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar-header">
+        　<!-- .navbar-toggle样式用于toggle收缩的内容，即nav-collapse collapse样式所在元素 -->
+
+        <!--2、保证在窄屏时要显示的图标样式（固定写法）：-->
+        <!--3、并为button添加data-target=".类名/#id名"，究竞是类名还是id名呢？由需要折叠的div来决定。-->
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- 确保无论是宽屏还是窄屏，navbar-brand都显示 -->
+        <a href="#" class="navbar-brand">慕课网</a>
+    </div>
+    <!-- 屏幕宽度小于768px时，div.navbar-responsive-collapse容器里的内容都会隐藏，
+    显示icon-bar图标，当点击icon-bar图标时，再展开。屏幕大于768px时，默认显示。 -->
+
+    <!--1、保证在窄屏时需要折叠的内容必须包裹在带一个div内，
+    并且为这个div加入collapse、navbar-collapse两个类名。最后为这个div添加一个class类名或者id名。-->
+    <div class="collapse navbar-collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">网站首页</a></li>
+            <li><a href="#">系列教程</a></li>
+            <li><a href="#">名师介绍</a></li>
+            <li><a href="#">成功案例</a></li>
+            <li><a href="#">关于我们</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<!--反色导航条-->
+<!--反色导航条其实是Bootstrap框架为大家提供的第二种风格的导航条，与默认的导航条相比，-->
+<!--使用方法并无区别，只是将navbar-deafult类名换成navbar-inverse。-->
+<!--其变化只是导航条的背景色和文本做了修改。-->
+<div class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand">慕课网</a>
+    </div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="">首页</a></li>
+        <li><a href="">教程</a></li>
+        <li><a href="">关于我们</a></li>
+    </ul>
+</div>
+
+
+
+
+<!--分页导航（带页码的分页导航）-->
+<!--在Bootstrap框架中使用的是ul>li>a这样的结构，在ul标签上加入pagination方法-->
+
+<!--大小设置：-->
+
+<!--在Bootstrap框架中，也可以通过几个不同的情况来设置其大小。类似于按钮一样：-->
+
+<!--1、通过“pagination-lg”让分页导航变大；-->
+
+<!--2、通过“pagination-sm”让分页导航变小：-->
+<ul class="pagination pagination-lg">
+    <li><a href="#">&laquo;第一页</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li class="active"><a href="#">13</a></li>
+    <li><a href="#">14</a></li>
+    <li><a href="#">15</a></li>
+    <li class="disabled"><a href="#">最后一页&raquo;</a></li>
+</ul>
+
+<ul class="pagination pagination">
+    <li><a href="#">&laquo;第一页</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li class="active"><a href="#">13</a></li>
+    <li><a href="#">14</a></li>
+    <li><a href="#">15</a></li>
+    <li class="disabled"><a href="#">最后一页&raquo;</a></li>
+</ul>
+<ul class="pagination pagination-sm">
+    <li><a href="#">&laquo;第一页</a></li>
+    <li><a href="#">11</a></li>
+    <li><a href="#">12</a></li>
+    <li class="active"><a href="#">13</a></li>
+    <li><a href="#">14</a></li>
+    <li><a href="#">15</a></li>
+    <li class="disabled"><a href="#">最后一页&raquo;</a></li>
+</ul>
+
+
+
+
+
+<!--分页导航（翻页分页导航）-->
+<!--这种分页导航是看不到具体的页码，只会提供一个“上一页”和“下一页”的按钮。-->
+<!--在实际使用中，翻页分页导航和带页码的分页导航类似，为ul标签加入pager类-->
+<ul class="pager">
+    <li><a href="#">&laquo;上一页</a></li>
+    <li><a href="#">下一页&raquo;</a></li>
+</ul>
+<!--默认情况之下，翻页分页导航是居中显示，但有的时候我们需要一个居左，一个居右。-->
+
+<!--☑   previous：让“上一步”按钮居左-->
+
+<!--☑   next：让“下一步”按钮居右-->
+
+<!--具体使用的时候，只需要在li标签上添加对应类名即可-->
+<!--左右对齐-->
+<ul class="pager">
+    <li class="previous"><a href="#">&laquo;上一页</a></li>
+    <li class="next"><a href="#">下一页&raquo;</a></li>
+</ul>
+<!--禁止状态-->
+<ul class="pager">
+    <li class="disabled"><span>&laquo;上一页</span></li>
+    <li><a href="#">下一页&raquo;</a></li>
+</ul>
+
+
+
+
+<!--标签（Web页面中常常会添加一个标签用来告诉用户一些额外的信息）-->
+<!--在Bootstrap框架中特意将这样的效果提取出来成为一个标签组件，并且以“.label”样式来实现高亮显示。-->
+<!--颜色样式设置：-->
+<!--和按钮元素button类似，label样式也提供了多种颜色：-->
+
+<!--☑   label-deafult:默认标签，深灰色-->
+
+<!--☑   label-primary：主要标签，深蓝色-->
+
+<!--☑   label-success：成功标签，绿色-->
+
+<!--☑   label-info：信息标签，浅蓝色-->
+
+<!--☑   label-warning：警告标签，橙色-->
+
+<!--☑   label-danger：错误标签，红色-->
+<h3>Example heading <span class="label label-default">New</span></h3>
+<span class="label label-default">默认标签</span>
+<span class="label label-primary">主要标签</span>
+<span class="label label-success">成功标签</span>
+<span class="label label-info">信息标签</span>
+<span class="label label-warning">警告标签</span>
+<span class="label label-danger">错误标签</span>
+<a class="label label-info" href="#">标签</a>
+<br/>
+
+
+
+
+<!--徽章-->
+<!--在Bootstrap框架中，把这种效果称作为徽章效果，使用“badge”样式来实现。-->
+<!--使用方法，使用span标签来制作，然后为他加入badge类-->
+<a href="#">Inbox <span class="badge">42</span></a>
+<!--navbar-default导航条勋章-->
+<div class="navbar navbar-default" role="navigation">
+    　<div class="navbar-header">
+    　    <a href="#" class="navbar-brand">慕课网</a>
+    　</div>
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#">网站首页</a></li>
+        <li><a href="#">系列教程</a></li>
+        <li><a href="#">名师介绍</a></li>
+        <li><a href="#">成功案例<span class="badge">23</span></a></li>
+        <li><a href="#">关于我们</a></li>
+    </ul>
+</div>
+<!--nav-pills导航条勋章-->
+<ul class="nav nav-pills">
+    <li class="active"><a href="#">Home <span class="badge">42</span></a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Messages <span class="badge">3</span></a></li>
+</ul>
+<br />
+<ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
+    <li class="active">
+        <a href="#">
+            <span class="badge pull-right">42</span>
+            Home
+        </a>
+    </li>
+    <li><a href="#">Profile</a></li>
+    <li>
+        <a href="#">
+            <span class="badge pull-right">3</span>
+            Messages
+        </a>
+    </li>
+</ul>
+<br />
+<!--按钮勋章-->
+<button class="btn btn-primary" type="button">
+    Messages <span class="badge">4</span>
+</button>
+
+
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
