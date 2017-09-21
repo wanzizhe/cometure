@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            #div1{
+                background: #000;
+                padding-top: 100%;   /*百分比相对于父元素*/
+            }
+            #div2{
+                background: #ffff00;
+            }
+            #div2::after{
+                content: "";
+                display:block;
+                padding-top:100%;
+            }
+            #div3{
+                background: #00ffff;
+                overflow: hidden;
+            }
+            #div3::after{
+                content:"";
+                display:block;
+                margin-top:100%;
+            }
+            #div4{
+                background: #008CD7;
+                height:100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div id="div4"></div>
+    </body>
+</html>
