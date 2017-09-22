@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            #div1{
+                font-size:20px;
+            }
+            #div2{
+                background: #F296B2;
+                width: 10em;
+                height: 10em;
+            }
+            html{
+                font-size: 10px;
+            }
+            #div3{
+                background:#e0b9bf;
+                width: 10rem;
+                height: 10rem;
+            }
+            #p1{
+                font-size: 5vw;
+            }
+            span{
+                font-size: 5vh;
+            }
+            #p2{
+                font-size: 5vmin;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>如果你不设置父元素的font-size那么为什么所有的子元素的宽和高都是16px的倍数呢？</h1>
+        <h1>因为浏览器默认字体是16px的啊啊啊！！！</h1>
+        <!--单位：px % deg em rem vw vh vmax vmin-->
+        <!--em:相对于父元素的font-size-->
+        <div id="div1">
+            <div id="div2">
+                div2
+            </div>
+        </div>
+        <!--rem:其中r是root（根标签）是html，是相对于html的font-size-->
+        <div id="div3">
+            div3
+        </div>
+        <!--vw：相对于浏览器宽度-->
+        <!--vh：相对于浏览器高度-->
+        <!--vmax：取vw，vh中最大的-->
+        <!--vmin：取vw，vh中最小的-->
+        <p id="p1">相对于viewport宽度大小的文字</p>
+        <span>相对于viewport高度大小的文字</span>
+        <p id="p2">lalalalal</p>
+    </body>
+</html>
