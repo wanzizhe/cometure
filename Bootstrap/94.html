@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--进度条--带Label的进度条-->
+<!--但实际中，有很多时候是需要在进度条中直接用相关的数值向用户传递完成的进度值-->
+<!--实现方法：只需要在进度条中添加你需要的值-->
+<h1>进度条1</h1>
+<div class="progress">
+    <div class="progress-bar progress-bar-success"  role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%">20%</div>
+</div>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"   style="width:70%">70%</div>
+</div>
+<div class="progress">
+    <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width:30%">30%</div>
+</div>
+<div class="progress">
+    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100" style="width:15%">15%</div>
+</div>
+<!--还有一种特殊情形，当进度条处于开始位置，也就是进度条的值为0%时-->
+<h1>进度条2</h1>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+</div>
+<br/><br/>
+
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
