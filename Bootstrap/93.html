@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--进度条--层叠进度条-->
+<h5>正常层叠进度条</h5>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width:20%"></div>
+    <div class="progress-bar progress-bar-info" style="width:10%"></div>
+    <div class="progress-bar progress-bar-warning" style="width:30%"></div>
+    <div class="progress-bar progress-bar-danger" style="width:15%"></div>
+</div>
+<h5>不良效果层叠进度条</h5>
+<!--有一点需要注意，层叠进度条宽度之和不能大于100%，大于100%就会造成下面的不良效果-->
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width:20%"></div>
+    <div class="progress-bar progress-bar-info" style="width:40%"></div>
+    <div class="progress-bar progress-bar-warning" style="width:30%"></div>
+    <div class="progress-bar progress-bar-danger" style="width:45%"></div>
+</div>
+<h5>层叠条纹进度条</h5>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width:20%"></div>
+    <div class="progress-bar progress-bar-info" style="width:20%"></div>
+    <div class="progress-bar progress-bar-warning" style="width:30%"></div>
+    <div class="progress-bar progress-bar-danger" style="width:15%"></div>
+</div>
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped" style="width:20%"></div>
+    <div class="progress-bar progress-bar-info progress-bar-striped" style="width:20%"></div>
+    <div class="progress-bar  progress-bar-warning progress-bar-striped" style="width:30%"></div>
+    <div class="progress-bar progress-bar-danger progress-bar-striped" style="width:15%"></div>
+</div>
+<div class="progress">
+    <div class="progress-bar progress-bar-success" style="width:20%"></div>
+    <div class="progress-bar progress-bar-info progress-bar-striped" style="width:20%"></div>
+    <div class="progress-bar progress-bar-warning" style="width:30%"></div>
+    <div class="progress-bar progress-bar-danger progress-bar-striped" style="width:15%"></div>
+</div>
+<br/>
+<br/>
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
