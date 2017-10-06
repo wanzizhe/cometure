@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+</head>
+<body>
+<!--Bootstrap框架还为模态弹出窗提供了不同尺寸，一个是大尺寸样式“modal-lg”，-->
+<!--另一个是小尺寸样式“modal-sm”。其结构上稍做调整：-->
+<h3>大/小尺寸模态弹出框</h3>
+<!-- Large modal -->
+<button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+    大的模态弹出窗
+</button>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">模态弹出窗标题</h4>
+            </div>
+            <div class="modal-body">
+                <p>模态弹出窗主体内容</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
