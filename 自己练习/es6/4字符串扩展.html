@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arg='hello';
+        // let str='fvrstv'//拼接字符串表示很麻烦
+        // +'rrgtbvsr'+arg+'ds<h1>ferv</h1>erv'
+        // +'tbvsrtfb';
+        // document.write(str);//fvrstvrrgtbvsrtbvsrtfb
+
+
+
+        //用字符串模板``可以减少字符串拼接
+        //${}支持标签，换行，数学运算
+        // let a=5,b=6; 
+        // let arg='hello';
+        // let str1=`dfgtyhn
+        // dtyn${arg}dt<h1>5+6=${a+b}</h1>ht
+        // ynt`;
+        // document.write(str1);
+
+
+        //includes() VS indexOf()
+        //let str ='hello world';
+        // console.log(str.indexOf('l'));//l第一次出现的下标
+        // console.log(str.indexOf('x'));//没有x返回-1
+        // console.log(str.includes('l'));//true 是否包含l，返回bool型
+        //console.log(str.indexOf('hello'));//0  出现下标为0 以hello开头
+
+        //startsWith() VS endWith()
+        // let str ='啊hello world';
+        // console.log(str.startsWith('a'));//false  是否以a开头
+        // console.log(str.startsWith('啊'));//true  支持中文
+        // console.log(str.endsWith('d'));//true  是否以d结尾
+        //console.log(str.endsWith('world'));//true 是否以world结尾
+
+        
+         //模拟startWith()方法
+        //  let str ='啊hello world';
+        // function sw(str,target){
+        //     if(str.indexOf(target)==0){
+        //         return true;
+        //     }
+        //     return false;
+        // }
+        // console.log(sw(str,'啊hello'));//true
+ 
+        //模拟startEnds()方法
+        // let str ='啊hello world';
+        //     function ew(str,target){
+        //         if(str.lastIndexOf(target)==str.length-target.length){//12-5=7正好是world中w开始的位置
+        //             return true;
+        //         }
+        //       return false;
+        //     }
+        //     console.log(ew(str,'world'));//true
+
+
+        //padStart()  VS padEnd()  
+         let str ='xy';
+         console.log(str.padStart(6,'abc'));//abcaxy
+         console.log(str.padEnd(6,'abc'));//xyabca
+    
+        
+        //repeat()重复
+            // let str1='xy';
+            // console.log(str1.repeat(5));//xyxyxyxyxy   重复五次xy
+    </script>
+</body>
+</html>
+
+
+
+
+
