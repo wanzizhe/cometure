@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+
+        //    var a=5;
+        //    function foo(){
+        //    console.log(a);//undefined
+        //    var a=6;     
+           //相当于
+        // //   var a;
+        // //   console.log(a);
+        // //   a=6;
+        // //在js中局部变量处处都有定义
+        // }
+        // foo();
+
+
+        // var a=5;
+        // function foo(){
+        //    console.log(a);//5
+        //     a=6; 
+        // }
+        // foo();
+
+
+        //function在最先定义，提到最前面
+            // console.log('1=='+a);//1==function  因为function会拿到最前面先调用
+            // var a=5;
+            // function a(){
+            //     console.log('2=='+a);
+            // }
+            // a=6;
+            // console.log('3=='+a);//3==6  前面定义
+            // a();//因为在调用a();的时候a已经被赋予6，所以a已经不是function了，所以产生错误 a is not function
+        
+
+        //function的两种定义方式
+        //function在最先定义，提到最前面,所以先调用后调用都可以
+        // fn1();
+        // function fn1(){
+        //     console.log('fn1');
+        // }
+        
+
+        // //这种方法只能先声明后调用
+        // var fn2=function(){
+        //     console.log('fn2');
+        // }
+        // fn2();
+
+
+        // js没有块级作用域
+        //在里面声明的a，外面也可以调用
+        // if(true){
+        //     var a=5;
+        // }
+        // console.log(a);
+
+
+        // js没有块级作用域的弊端
+        // var a=5;
+        // function foo(){
+        //     console.log(a);//5
+        //    //有另一个人，输入如下代码
+        //    if(false){
+        //        var a=6;//undefined  相当于先var a  之后赋值为6
+        //    }
+        // }
+        // foo();
+
+
+        //  for(var i=0;i<3;i++){
+        //      console.log(i);//0,1,2
+        //  }
+        //  console.log(i);//3
+
+
+    //    let不存在变量提升
+        // console.log(a);
+        // var a=5;//undefined
+         
+        //  console.log(a);
+        //  let a=5;//报错
+ 
+
+    //    let不允许重复声明
+        // var a=5;
+        // var a=6;
+        // console.log(a);//6
+
+        // let a=5;
+        // let a=6;
+        // console.log(a);//报错
+
+
+     //    let暂时性死区
+    // 　　var a=5;
+    // function foo(){
+    //     console.log(a);//a is not defined
+    //     let a=6;
+    // }
+    // foo();
+
+
+        //  var a=5;
+        // function foo(){
+        //     console.log(a);//5
+        //    //有另一个人，输入如下代码
+        //    if(false){
+        //        let a=6;//let之作用在这一块区域内
+        //    }
+        // }
+        // foo();
+
+
+            // for(let i=0;i<3;i++){
+            //     console.log(i);//0,1,2
+            // }
+            // console.log(i);//i is not defined let为块级作用域，只在for循环里面好使
+    
+        // function foo(arg){
+        //     console.log(arg);
+        //      let arg=6;
+        //      console.log(arg);//'arg' has already been declared 变量名不能重复
+        // }
+        // foo(5);
+
+
+        //const  声明一个只读常量，一旦声明，常量的值就不能改变
+        // const a=5;
+        // a=6;
+        // console.log(a);//Assignment to constant variable.  不能改变一个常量
+
+       
+    //    const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动
+        //  const obj={
+        //      name:'zhangsan',
+        //      age:18
+        //  }
+        //   console.log(obj);//zhangsan 18
+        //   obj.name='lisi';
+        //   console.log(obj);//lisi 18
+
+        // const obj={
+        //      name:'zhangsan',
+        //      age:18
+        //  }
+        //   console.log(obj);//zhangsan 18
+        //   Object.freeze(obj);//冻结
+        //   obj.name='lisi';//冻结后不会改变
+        //   console.log(obj);//zhangsan 18
+
+        // const obj={
+        //     name:'zhangsan',
+        //     age:'18'
+        // }
+        // console.log(obj);//zhangsan 18
+        // obj={
+        //     name:'lisi'
+        // }//new Object() 指向了不同的地址空间 所以不能改变，会报错
+        // console.log(obj);
+
+        // const arr=[1,2,3,4];
+        // console.log(arr);//1,2,3,4
+        // arr.push(5);
+        // console.log(arr);//1,2,3,4,5
+
+
+        //  let arr=[];
+        //  for(var i=0;i<5;i++){
+        //      arr[i]=function(){
+        //          console.log(i);//5
+        //      }
+        //  }
+        //  arr[3]();
+
+        //  let arr=[];
+        //  for(let i=0;i<5;i++){
+        //      arr[i]=function(){
+        //          console.log(i);//3
+        //      }
+        //  }
+        //  arr[3]();
+
+
+       var oUl=document.querySelector('#ul1');
+       var aLi=oUl.getElementsByTagName('li');
+    //方法一：对象自定义属性
+    // for(var i=0;i<aLi.length;i++){
+    //     aLi[i].index=i;
+    //     aLi[i].onclick=function(){
+    //         console.log(this.index);
+    //     }
+    // }
+
+    // 方法二：let
+    // for(let i=0;i<aLi.length;i++){
+    //     aLi[i].onclick=function(){
+    //         console.log(i);
+    //     }
+    // }
+
+    //   方法三：闭包
+    // 外部函数里面定义内部函数，内部函数应用外部函数的局部变量，变量不被释放
+    for(var i=0;i<aLi.length;i++){
+        (function (idx){
+             aLi[idx].onclick=function(){
+                    console.log(idx);
+             };
+        })(i);
+    }
+
+
+    </script>
+</body>
+</html>
