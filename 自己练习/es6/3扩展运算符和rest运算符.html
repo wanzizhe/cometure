@@ -1,10 +1,124 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+         <div id="div1">div1</div>
+        <div id="div2">div2</div>
+        <div id="div3">div3</div>  
+        <script>
+            // arguments在没有形式参数的时候依然可以调用实参
+            // function foo(){
+            //      console.log(arguments[0],arguments[1]);//5,6
+            // }
+            // foo(5,6);
+     
 
-</body>
+            // 扩展运算符...
+
+            // 不确定参数
+            /* function foo(...arg) {
+             console.log(arg);//5,6,7,8
+             }
+             foo(5, 6, 7, 8);
+
+
+            //  做为数组一部分
+             let arr1 = [1, 2];
+             let arr2 = [3, ...arr1, 4]
+             console.log(arr2);//3,1,2,4  */
+
+            //数组复制
+            //  let arr1=[1,2,3,4];
+            //  let arr2=arr1;
+            //  console.log(arr1);//1,2,3,4
+            //  arr1.push(5);
+            //  console.log(arr2);//1,2,3,4,5
+
+            // 不想让arr2发生改变，怎么办
+            //  let arr1 = [1, 2, 3, 4];
+            //  let arr2 = [...arr1];
+            //  console.log(arr1);//1，2，3，4
+            //  arr1.push(5);
+            //  console.log(arr1);//1，2，3，4，5
+            //  console.log(arr2);// 1，2，3，4
+
+
+             //合并数组
+            //  concat()函数用来合并数组
+            //  let arr1 = [1, 2];
+            //  let arr2 = [3, 4]
+            //  let arr3 = arr1.concat(arr2);
+            //  console.log(arr3);//1，2，3，4
+            
+            //    let arr1 = [1, 2];
+            //  let arr2 = [3, 4]
+            //  let arr4 = [...arr1, ...arr2];
+            //  console.log(arr4); //1，2，3，4
+
+
+            //合并对象
+            //    function foo(...arg){
+            //     console.log(arg);//zhangsan 18 lisi 20
+            // }
+            // let obj1 = {
+            //     name: 'zhangsan',
+            //     age: 18
+            // };
+            // let obj2 = {
+            //     name: 'lisi',
+            //     age: 20
+            // };
+            // foo(obj1,obj2);
+
+            // let obj1 = {
+            //     name: 'zhangsan',
+            //     age: 18
+            // };
+            // let obj2 = {
+            //     name: 'lisi',
+            //     age: 20
+            // };
+            // let obj3 = {...obj1, ...obj2};
+            // console.log(obj3);//lisi 20
+
+
+            //  解构
+                // let aDiv=document.querySelectorAll("div");
+                // console.log(aDiv.constructor);//类数组 NodeList()
+
+                //  let arr=[1,2,3,4];
+                //  console.log(arr.constructor);//真正的数组 Array()
+
+                // let arr=[];
+                // for(let i=0;i<aDiv.length;i++){
+                //     arr.push(aDiv[i]);
+                // }
+                // arr.push(123);
+                // console.log(arr);//div1 div2 div3 123
+
+                //   let aDiv=document.querySelectorAll("div");
+                // console.log(aDiv.constructor);
+                // let arr=[...aDiv];//扩展运算符可以将类数组变为真正的数组
+                // arr.push(123);
+                // console.log(arr);//div1 div2 div3 123
+
+                // let aDiv=document.querySelectorAll("div");
+                // console.log(aDiv.constructor);
+                // let [div1,div2,div3]=[...aDiv];//解构和扩展运算联合应用
+                // console.log(div1,div2,div3);//div1 div2 div3
+
+
+
+                //rest运算符
+                function foo(a,b,...arg){//...arg  rest运算符只能放在最后
+                    console.log(a);//1
+                    console.log(b);//2
+                    console.log(arg);//3,4,5,6
+                }
+                foo(1,2,3,4,5,6);
+        </script>
+    </body>
 </html>
