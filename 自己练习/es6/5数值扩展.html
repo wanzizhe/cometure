@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  let num1=5;//101  
+        //  console.log(num1.toString(2));//101 把十进制的5转化为二进制的101
+
+        // let num2=101;
+        // console.log(parseInt(num2,2));//5 把二进制转化为十进制
+    
+
+    //     let num3=0B0101;//二进制 用0b或者是0B表示转化为十进制
+    //     console.log(num3);//5
+
+    //    let num4=0O666;//八进制 用0O或者0o表示转化为十进制
+    //    console.log(num4);//438
+         
+
+        // 一些方法移植到Number对象上面，行为完全保持不变，这样做的目的，是逐步减少全局性方法，使得语言逐步模块化
+    // Number.isFinite()  判断是否为数字 返回布尔型
+        //   console.log(Number.isFinite(5));//true
+        //   console.log(Number.isFinite('5'));//false
+        //   console.log(Number.isFinite(undefined));//false
+        //   console.log(Number.isFinite(null));//false
+        //   console.log(Number.isFinite(5/0));//false
+        //   console.log(Number.isFinite(NaN));//false
+   
+     //  Number.isNaN()  判断是否为NaN
+    //   console.log(window.isNaN(NaN));//true
+    //   console.log(Number.isNaN(NaN));//true
+    
+       // Number.isInteger() 判断是否为整数
+    //    console.log(Number.isInteger(5));//true
+    //    console.log(Number.isInteger(5.5));//false
+
+    //Number.parseInt()  转化为整型
+    //  Number.parseFloat()  转化为浮点型
+    //  console.log(Number.parseFloat(5.5));//5.5
+    //  console.log(Number.parseInt(5));//5
+
+
+    // console.log(Math.pow(2,53));//最大值  2的53次方
+    //   console.log(Number.MAX_SAFE_INTEGER); //最大安全值为 最大值-1
+    //   console.log(Number.MIN_SAFE_INTEGER);//最小安全值为 负的最大值-1
+    //  console.log(Number.isSafeInteger(5));//true
+
+  
+    //   Math.trunc()//去除一个数的小数部分，返回整数部分
+    //     console.log(Math.trunc(5.5));//5
+
+    // Math.sign()//判断一个数到底是正数，负数，还是零
+       console.log(Math.sign(5));//1   正数返回1
+       console.log(Math.sign(-5));//-1  负数返回-1
+       console.log(Math.sign(0));//0  0返回0
+       
+    </script>
+</body>
+</html>
