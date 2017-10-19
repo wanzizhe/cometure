@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='div1'>div1</div>
+    <script>
+        //参数默认值 与解构结合
+        // function add(x, y) {
+        //     return x + y
+        // }
+        // console.log(add(5, 6)); //11
+
+
+        // function add(x, y = 0) { //用es6给y设置默认值
+        //     return x + y
+        // }
+        // console.log(add(5)); //5
+
+
+        // function foo([a,b,c,d,e]){
+        //     console.log(a,b,c,d,e);//1,2,3,4,5
+        // }
+        // foo([1,2,3,4,5]);
+
+
+        // function foo({name,age}){
+        //       console.log(name,age);//zhangsan 18
+        // }
+        // let obj={
+        //     name:'zhangsan',
+        //     age:18
+        // }
+        // foo(obj);
+
+            //方法名.length返回没有指定默认值的参数的个数
+            // function add(x,y){
+            //     return x+y;
+            // }
+            // add(5,6);
+            // console.log(add.length);//2
+
+            // function add(x,y=0){
+            //     return x+y;
+            // }
+            // add(5,6);
+            // console.log(add.length);//1
+
+            // function add(x=0,y=0){
+            //     return x+y;
+            // }
+            // add(5,6);
+            // console.log(add.length);//0
+
+
+            //方法名.name
+            // function add(x=0,y=0){
+            //     return x+y;
+            // }
+            // add(5,6);
+            // console.log(add.name);//add 就是返回方法的名字
+
+
+            //rest参数
+            // function foo(a,b,...arg){
+            //     console.log(arg);//3,4,5,6
+            // }
+            // foo(1,2,3,4,5,6);
+
+
+            //'use strict'严格模式
+
+           //es5
+
+            //全局变量必须显示声明
+                // 'use strict';//严格模式下
+                // a=6;
+                // console.log(a);//报错a is not defined
+                
+                // a=6;//非严格模式下不会报错
+                // console.log(a);//6
+                
+            //禁止this关键字指向全局对象 构造函数必须new
+                // 'use strict';
+                // function foo(){
+                //     console.log(this);//undefined
+                // }
+                // foo();
+
+                // function foo(){
+                //     console.log(this);//window  this定义在window下面
+                // }
+                // foo();
+
+
+                // function People (name,age){
+                //     this.name=name;
+                //     this.age=age;
+                // }
+                // People('lisi',18);//在非严格模式下不会报错
+
+                // 'use strict';
+                // function People (name,age){
+                //     this.name=name;
+                //     this.age=age;
+                // }
+                // People('lisi',18);//在严格模式下报错
+
+                //  'use strict';
+                // function People (name,age){
+                //     this.name=name;
+                //     this.age=age;
+                // }
+                // let p=new People('lisi',18);//new一个对象 之后就不会报错
+
+
+
+                    //函数不能有重名的参数
+                    // 'use strict';
+                    // function foo(a,a,c){
+                    //     console.log(a,a,c);//严格模式下会报错
+                    // }
+                    // foo(4,5,6);
+
+                    // function foo(a,a,c){
+                    //     console.log(a,a,c);//5,5,6
+                    // }
+                    // foo(4,5,6);
+
+
+                    //禁止使用with语句
+                    //   let a=5;
+                    //   let obj={
+                    //       a:6
+                    //   }  
+                    //   console.log(a);//5
+
+                    // 'use strict';
+                      // let a=5;
+                    // let obj={
+                    //     a:6
+                    // }
+                    // with(obj){
+                    //     console.log(a)//报错，严格模式下不能用with
+                        // }
+
+                    // let a=5;
+                    // let obj={
+                    //     a:6
+                    // }
+                    // with(obj){
+                    //     console.log(a);//6  with是改变作用域的，不建议使用
+                    // }
+
+
+
+        //阶乘  arguments.callee()
+        // function foo(num){
+        //     if(num==1){
+        //         return 1;
+        //     }
+        //     return num*foo(num-1);
+        // }                
+        //  console.log(foo(5)); //120  
+
+        //  function foo(num){
+        //     if(num==1){
+        //         return 1;
+        //     }
+        //     return num*arguments.callee(num-1);
+        // }                
+        //  console.log(foo(5));//120
+ 
+        // 'use strict'
+        //  function foo(num){
+        //     if(num==1){
+        //         return 1;
+        //     }
+        //     return num*arguments.callee(num-1);
+        // }                
+        //  console.log(foo(5));//严格模式下会报错  少用
+
+
+
+        //es6
+        // es6规定只要函数参数使用了默认值，解构赋值，
+        // 或者是扩展运算符，那么函数内部就不能显示设定为严格模式
+        //否则会报错
+ 
+
+        //默认值
+    //    function add(x, y = 0) { 
+    //        'use strict';
+    //         return x + y
+    //     }
+    //     console.log(add(5)); //报错
+
+        //解构赋值
+        // function foo([a,b,c,d,e]){
+        //     'use strict';
+        //     console.log(a,b,c,d,e);//报错
+        // }
+        // foo([1,2,3,4,5]);
+
+        //扩展运算符
+        //  function foo(a,b,...arg){
+        //     'use strict';
+        //         console.log(arg);//报错
+        //     }
+        //     foo(1,2,3,4,5,6);
+
+
+
+        //箭头函数 =>
+        // function add(x,y){
+        //     return x+y;
+        // }
+        // console.log(add(5,6));//11
+
+        // let add2=(x,y)=>x+y;//箭头函数，左面参数，右面方法体
+        // console.log(add2(5,6));//11
+
+        // let add3=(x,y)=>{return x+y};//一句方法体不用加{}，多句方法体要加{}
+        // console.log(add2(5,6));//11
+
+
+            // let x=x=>x;//有一个叫x的函数，形参为x，返回值为x，就是输入什么，返回什么
+            // console.log(x(5));//5
+
+            // let add=(x=0,y=0)=>x+y;
+            // console.log(add(5,6));//11
+
+            // let foo=(...arg)=>console.log(arg);//1,2,3,4,5
+            // foo(1,2,3,4,5);
+
+        //    let obj={
+        //       name:'zhangsan',
+        //       age:18
+        //    }
+        //    let foo=({name,age})=>console.log(name,age);//zhangsan 18
+        //    foo(obj);
+
+
+        //箭头函数不能使用arguments
+        // let obj={
+        //     name:'zhangsan',
+        //     age:18
+        // }
+        // let foo=({name,age})=>{
+        //     console.log(arguments);//报错arguments is not defined
+        // };
+        // foo(obj);
+
+        //箭头函数不可以当作构造函数，不可以使用new命令，抛出错误
+        // function People (name,age){//构造函数
+                //     this.name=name;
+                //     this.age=age;
+                // }
+                // let p=new People('lisi',18);
+
+            // let  People =(name,age)=>{//箭头函数用于构造函数报错
+            //         this.name=name;
+            //         this.age=age;
+            //     };
+            //     let p=new People('lisi',18);
+
+
+   //箭头函数内的this对象，就是定义时所在的对象，而不是使用时所在的对象
+    //    let oDiv1=document.querySelector('#div1');
+    //    oDiv1.addEventListener('click',function(){
+    //        console.log(this);//this指向oDiv
+    //        window.setTimeout(function(){
+    //          console.log(this);//this指向window，当前对象的引用
+    //        },2000);
+    //    });
+
+
+    //    let oDiv1=document.querySelector('#div1');
+    //    oDiv1.addEventListener('click',function(){
+    //        console.log(this);//this指向oDiv
+    //        setTimeout(()=>{//用箭头函数表示
+    //          console.log(this);//this指向oDiv
+    //        },2000);
+    //    });
+         
+         let a=5;
+         var b=6;
+         console.log(window.a);//undefined  let可能不在window里
+         console.log(window.b);//5
+         var c=5;
+         let obj={
+             d:6,
+             foo:function(){
+                 console.log(this.d);//6 function中this指使用时的对象obj
+             },
+             foo2:()=>{
+                 console.log(this);//window 箭头函数指向定义时的对象
+             }
+         };
+         obj.foo();
+         obj.foo2();
+
+    </script>
+</body>
+
+</html>
