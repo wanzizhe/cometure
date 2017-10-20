@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let s1=new Set([1,2,3]);
+        //   console.log(s1);//Set(3) {1, 2, 3}
+
+        //   let s1=new Set([1,2,3,1]);
+        //   console.log(s1);//Set(3) {1, 2, 3} set()中不允许重复
+
+
+          //数组去重
+        //   let arr=[1,2,3,4,1,2,3];
+        //   let s2=new Set(arr);
+        //   console.log(s2);//Set(4) {1, 2, 3, 4}
+         
+        // let arr2=[];
+        // let arr=[1,2,3,4,1,2,3];
+        //  for(let item of arr){ //item是数组里面的值
+        //      if(!arr2.includes(item)){
+        //            arr2.push(item);
+        //      }
+        //  }
+        //  console.log(arr2);//(4) [1, 2, 3, 4]
+
+
+
+        //add(value):添加某个值  返回set结构本身
+        // let s1=new Set([1,2,3]);
+        // s1.add(5);//Set(4) {1, 2, 3, 5}
+        // s1.delete(3);//Set(3) {1, 2, 5}
+        // // s1.clear();//全部没有了
+        // console.log(s1.has(2));//true 返回布尔型，判断数组里面是否有2
+
+       
+
+       //遍历
+    //    let s1=new Set([1,2,3]);
+    //    console.log(s1.size);//3 
+    //    console.log(s1.length);//undefined
+    //    //set长度只能用size，不能用length
+    //    for(let item of s1){
+    //        console.log(item);//输出数组内容
+    //    }
+
+    //    let s1=new Set(['a','b','c']);
+    //     for(let [index,item] of s1.entries()){
+    //         console.log(`${index}:${item}`);//a:a b:b c:c
+    //         //set中索引和内容一样
+    //     }
+        
+        
+        //WeakSet   set里面放数组  WeakSet放对象但是要用add进行对象添加
+        // let wa=new WeakSet({name:'zhangsan'});
+        // console.log(wa);//报错
+
+        // let wa =new WeakSet();
+        // let obj={name:'zhangsan'};
+        // wa.add(obj);//WeakSet放对象  但是要用add进行对象添加
+        // console.log(wa);//WeakSet {{…}}
+       
+        let wa =new WeakSet();
+        let obj={name:'zhangsan'};
+        let obj1=obj;
+        wa.add(obj);
+        wa.add(obj1);
+        console.log(wa);//WeakSet {{…}} weakset和set一样，不能有重复的值
+        
+    </script>
+</body>
+</html>
