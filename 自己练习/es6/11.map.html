@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Map类似于对象，也是键值对的集合
+        // var m1=new Map();
+        //  m1.set('1','a');
+        //  m1.set('2','b');
+        //  console.log(m1);//Map(2) {"1" => "a", "2" => "b"}
+
+        //  var m1=new Map();
+        //  m1.set('1','a');
+        //  m1.set('1','a');//key不能重复 重复也没用
+        //  m1.set('2','b');
+        //  let obj={name:'zhangsan'};
+        //  m1.set('obj','c');
+        //  console.log(m1);//Map(3) {"1" => "a", "2" => "b", "obj" => "c"}
+        //  console.log(m1.size);//长度为3
+        //  console.log(m1.get('1'));//a  用get通过key取到值
+        //  console.log(m1.get('obj'));//c
+         
+         
+
+        //weakmap:只接受对象作为键名（null除外）不接受其他类型的值作为键名
+        // let wm= new WeakMap();
+        // wm.set('1','a');
+        // console.log(wm);//报错
+
+        let wm= new WeakMap();
+        wm.set({name:'lisi'},'a');
+        console.log(wm);//WeakMap {{…} => "a"}  用对象作为键名可以输出
+        
+
+          </script>
+
+</body>
+</html>
