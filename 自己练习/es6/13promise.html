@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+      //前台向后台传数据方法  Ajax form表单 get方式
+      //$get()和$post()都是jq封装好的函数
+      //$.get();//前台从后台获取数据  get方式不安全在url后面可以看见数据 
+      //get 有缓存 第二次请求会快一些
+
+     // $.post();//前台向后台发送数据  post相对安全  post没有缓存
+     
+    //  $get ('http://www.baidu.com',{//参数一  向哪里发送请求
+    //      userid:1//参数二  请求带的参数
+    //  },function(res){//参数三  后端返回给我的回掉函数  返回值在function里面
+    //      if(res==1){
+    //          console.log('success');
+    //      }else{
+    //          console.log('fail');
+    //      }
+    //  },'json');//传数据的格式 
+
+    //ajax原理
+    //1。创建对象  2.向服务器发送请求  3.服务器响应
+
+    //promise
+    //定时器方法
+    // let flag1=1;
+    // let flag2=1;
+    // let flag3=1;
+    // $.get(url1,function(){
+    //     flag=2;
+    // });
+    // $.get(url2,function(){
+    //     flag=2;
+    // });
+    // $.get(url3,function(){
+    //     flag=2;
+    // });
+    // setInterval(function(){
+    //     if(flag1==2&&flag==2&&flag3==2){
+            
+    //     }
+    // },500);
+ 
+    //promise方法  promise并不会发送ajax请求
+    //对象不受外界影响，一旦状态改变，就不会再变
+    // let p1=new Promise((reslove,reject)=>{
+    //     $.get('product-data.json',function(res){
+    //         if(res.productData.length>0){
+    //             reslove();//成功之后执行的函数
+    //         }else{
+    //             reject();//失败执行的函数
+    //         }
+    //     },'json');
+    // });
+    // //回掉平行写在这里，不会很深
+    // p1.then(()=>{//成功进入then()
+    //     console.log('成功');
+    // }).catch(()=>{//失败进入 catch()
+    //     console.log('失败');
+    // });
+
+    let p1=new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            console.log('p1');
+            reslove();
+        },1000);
+    });
+    let p2=new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            console.log('p2');
+            reslove();
+        },2000);
+    });
+    let p3=new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            console.log('p3');
+            reslove();
+        },3000);
+    });
+    //  Promise.all([p1,p2,p3]).then(()=>{
+    //         console.log('成功');//p1 p2 p3成功
+    //  }).catch(()=>{
+    //        console.log('失败');//其中有一个函数失败返回reject就失败
+    //  });
+      Promise.race([p1,p2,p3]).then(()=>{//只要有一个完成，则会返回成功或者失败，这三个函数不知道谁会先完成
+        //race主要是监听谁先完成
+            console.log('成功');//p1  成功 p2  p3
+     }).catch(()=>{
+           console.log('失败');
+     });
+
+
+
+    
+    </script>
+  
+</body>
+</html>
