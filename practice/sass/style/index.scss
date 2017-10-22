@@ -1,0 +1,142 @@
+@charset "utf-8";
+/*!这是强制注释*/
+//变量
+$color:#ff0000;
+$w:200px;
+#div1{
+    width: $w;
+    height: $w;
+     .aa{
+         width: 300px;
+         .bb{
+             height: 400px;
+             &:hover{
+                 width: 300px;
+             }
+         }
+         &-text{
+            background:#ff0000;
+        }
+    }   
+}
+#div2{
+    width: 300px;
+    height: 300px;
+    background: {
+        color:#ff0;
+        image:url(xx.jpg);
+    }
+    border: {
+        bottom: {
+            color:$color;
+            style:solid;
+        }
+    }
+}
+
+$width:width;
+#div1{
+    #{$width}:200px;
+}
+
+@mixin xx($bg:#ccc,$w:200px){
+    width:$w;
+    height: 2000px;
+    background:$bg;
+}
+#div{
+    @include xx($w:300px,$bg:#f00);
+}
+#div2{
+    @include xx(#0f0);
+}
+#div3{
+    @include xx();
+}
+#div3{
+    .aa{
+        background: #ff0;
+    }
+}
+#div4{
+    // @extend #div3;
+}
+
+@import 'base/common';
+#div2{
+    width:(100px/50);
+    height:round(10.5px);
+    background-image:'url(img/'+'xx.jpg)';
+    float:to-lower-case(LEFT);
+}
+$hw:'hello world';
+/*
+这是一个#{$hw}
+*/
+$bg:rgba(55, 0, 255, 0.842);
+#div3{
+   background-color:lighten($bg,30%);
+}
+
+
+$map:(light:#fff,dark:#000);
+#div2{
+    background-color:map-get($map,light);
+    background: map-keys($map);
+    background: map-values($map);
+    // background:map-has-key($map,light);
+    // background-color: map-merge($map, (xx: #ccc));
+}
+$icon1:'icon';
+.item-#{$icon1}{
+    width: 200px;
+}
+@function xx($bg){
+    @if($bg==1){
+        @return '#f00';
+    }@else if($bg ==2){
+        @return #ff0;
+    }@else { 
+        @return #ccc;
+    }
+}
+#div1{
+    color:xx(2);
+}
+
+
+$column:5;
+@for $i from 1 through $column{
+    .col-lg-#{$i}{
+        width:percentage($i/100)
+    }
+}
+
+$icons: error waring success;
+@each $icon in $icons{
+   .icon-#{$icon}{
+       //background-image:url('img/'+$icon+'.jpg')
+   }
+}
+
+
+$i:6;
+@while  $i>0{
+    .col-#{$i}{
+        width:percentage($i/10);
+    }
+       $i: $i - 2;
+}
+
+$map: ( light: #fff,dark: #000);
+
+@function get-color($color){
+    @if not map-has-key($map,$color){
+        @warn'$map 里面不包含key值为 #{$color}';
+        @return #ccc;
+    }
+    @return map-get($map,$color);
+}
+#div1{
+color:get-color(xx);
+};
