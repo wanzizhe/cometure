@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //sass是css预处理语言 
+        //下载ruby  之后下载sass 用命令 gem install sass
+        //cd到当前的文件夹，然后监控文件命令为 sass style/index.scss:css/index.css
+        //实时监控文件夹 style里面有的在css里面都有  watch --style:css
+
+
+        // css输出格式的命令
+        //展开输出方式  expanded
+        //sass --watch style:css --style expanded
+        //嵌套  nested  紧凑 compact 压缩 compressed
+
+
+        //注释
+        //多行注释会出现在css里面
+        /*.bb{
+             height: 400px;
+         }*/
+        //单行注释不会出现在css里面
+        //font-size: 14px;
+        //但是在压缩模式下（compressed）下面，单行和多行注释都不会出现在css里面
+        //要是想让注释出现在压缩模式下可以用强制注释 /*！*/
+
+
+        //变量
+        //用$符号定义变量，$w:200px; 只要是200px的地方都可以用$w去代替
+
+
+        //选择器嵌套
+        //index.scss中
+        // #div1 {
+        //     width: $w;
+        //     height: $w;
+        //     .aa {
+        //         width: 300 px;
+        //         .bb {
+        //             height: 400 px;
+        //         }
+        //     }
+        // }
+
+        //index.css中
+        // #div1 {
+        //     width: 200 px;
+        //     height: 200 px;
+        // }
+        // #div1 .aa {
+        //     width: 300 px;
+        // }
+        // #div1 .aa .bb {
+        //     height: 400 px;
+        // }
+
+
+
+        //&引用父类选择器
+        //&:hover 
+        //         .bb {
+        //             height: 400 px; 
+        //             &: hover {
+        //                 width: 300 px;
+        //             }
+        //         } 
+
+        // .bb {
+        //   height: 400px;
+        // }
+        // .bb:hover {
+        //   width: 300px;
+        // }
+
+
+        //  &-text
+
+        //     .aa{
+        //      width: 300px;
+        //      &-text{
+        //         background:#ff0000;
+        //              }
+        //      }   
+
+        //     .aa {
+        //      width: 300px;
+        //      }
+        //    .aa-text {
+        //          background: #ff0000;
+        //      } 
+
+
+        //属性嵌套 border：{left:0;right:0}
+        // #div2 {
+        //     width: 300 px;
+        //     height: 300 px;
+        //     background: {
+        //         color: #ff0;
+        //         image: url(xx.jpg);
+        //     }
+        // }
+
+        // #div2 {
+        //     width: 300 px;
+        //     height: 300 px;
+        //     background - color: #ff0;
+        //     background - image: url(xx.jpg);
+        // }
+
+        // border: {
+        //     bottom: {
+        //         color: $color;
+        //         style: solid;
+        //     }
+        // }
+
+        // border-bottom-color:#ff0000;
+        // border-bottom-style:solid;
+
+
+
+        //特殊变量  一般我们定义的变量都是属性值
+        // 但是如果变量作为属性名则必须加  #{}
+        // $width:width;
+        // #div1{
+        //     #{$width}:200px;//属性名为变量
+        // }
+
+        // #div1 {
+        //   width: 200px;
+        // }
+
+         //mixin混合
+        //@mixin xx($bg:#ccc,$w:200px){
+        //     width:$w;
+        //     height: 2000px;
+        //     background:$bg;
+        // }
+        // #div{
+        //     @include xx(#f00,300px);//按顺序对应,如果想调换，写成 $w:300px,$bg:#f00 这样
+        // }
+        // #div2{
+        //     @include xx(#0f0);
+        // }
+        // #div3{
+        //     @include xx();//没传参数读取上面默认参数$bg:#ccc $w:200px
+        // }
+
+
+        //继承extend和import
+        // #div3{
+        //   width: 200px;
+        //   height: 2000px;
+        //   background: #ccc;
+        // }
+        //#div3{
+        //     .aa{
+        //         background: #ff0;
+        //     }
+        // }
+        // #div4{
+        //     @extend #div3;
+        // } 
+
+
+        //#div3, #div4 {//继承 把她们分到一组
+        //   width: 200px;
+        //   height: 2000px;
+        //   background: #ccc;
+        // }
+
+        // #div3 .aa, #div4 .aa {
+        //   background: #ff0;//会继承div3里面子元素的属性   mixin没有这种特性
+        // }
+
+
+        //import 导入外界文件(例如 css重置文件)
+        // @import 'base/common';//base文件夹下面的common文件夹
+
+
+        //数字运算  + - * / ()
+        //#div2{
+        //     width:50+50px;//加运算只要有一个带px就可以，两个都带也行，减法运算也一样
+        // }
+
+        // #div2{
+        //     width:50px*50;//乘法运算只能一边有px，两边都有px会报错
+        // }
+
+        //#div2{
+        //     width:(100px/50);//除法运算必须要带括号，否则直接输出字符串，只有一面需要带单位，两面都带，一除就没有单位了
+        // }
+
+            //数学
+        //绝对值abs(-10px)
+        //四舍五入 round(10.5)//11 
+        //向上取整 ceil(10.5) //11
+        //向下取整 floor(10.5)//10
+        //百分比percentage(30px/100px);//30%
+        //最大值 max(5px,10px,3px);//10px
+        //最小值 min(5px,10px,3px);//3px
+
+
+
+        //字符串
+        //字符串拼接
+        // background-image:'url(img/'+'xx.jpg)';
+
+
+        //大小写转换 
+        //to-upper-case()//小写转化为大写
+        //to-lower-case()//大写转化为小写
+        //float:to-lower-case(LEFT);// float: left;
+
+
+        //str-index()索引从1开始，检索字符串，返回出现的索引
+        // $hw:'hello world';
+        // #div3{
+        //     width:str-index($hw,'world')+px;
+        // }
+
+        //#div3 {
+        //   width: 7px;//world中的w出现在$hw字符串中的第7位
+        // }
+
+
+        //   str-insert()插入  
+        //$hw:'hello world';
+        // #div3{
+        //     height:str-insert($hw,' web' ,6)//把字符串web插入到$hw中的第6位
+        // }
+
+        // #div3 {
+        //   height: "hello web world";
+        // }
+
+
+        // 颜色
+        //更浅：lighten($color,20%)
+        //更深: darken($color,20%)
+        // 更不透明:opacify($color,0.3)
+        //更透明:transparentize($color,0.3)
+
+        //$bg:rgba(55, 0, 255, 0.842);
+        // #div3{
+        //    background-color:lighten($bg,30%);
+        // }
+
+        //#div3 {
+        //   background-color: rgba(175, 153, 255, 0.842);
+        // }
+
+
+        //列表list
+        //length(5px 10px 15px 10px)//4 返回列表长度
+        //index(1px solid #000,solid)//2 返回取那个数的索引
+        //nth(5px 10px,2)//10px 返回取的那个索引对应的值
+        //append(5px 5px,10px)//(5px 5px 10px) 列表后面追加值
+        //join(5px 10px,15px 20px)//(5px 10px 15px 20px) 合并列表
+        //join(5px 10px,15px 20px，comma)//(5px,10px,15px,20px,) comma 逗号的意思
+
+
+            //map
+            //map-get 获取值
+        //$map:(light:#fff,dark:#000);
+        // #div2{
+        //     background-color:map-get($map,light);
+        // }
+
+        //#div2 {
+        //   background-color: #fff;
+        // }
+
+        //map-keys() 返回所有的key
+        // background: map-keys($map);
+        // background: light, dark;
+
+        //map-values() 返回值
+        // background: map-values($map);
+        // background: #fff, #000;
+
+        //map-has-key() 是否包含key 返回布尔值
+        //background:map-has-key($map,light);
+        //background: true;
+
+        //map-merget() 合并
+        // background-color: map-merge($map, (xx: #ccc));
+
+            //map-remove()移除
+        //map-remove($map,light,dark);
+
+
+
+        // 布尔
+        //<=  >=  ==  <   >  返回布尔型
+
+        // and  or  not  
+        // (5px>10px) and (10px<5px)//false
+
+
+            //interpolation
+            //${$hw}
+
+        //在注释中显示 (在注释中引入变量)
+            //$hw:'hello world';
+            // /*
+            // 这是一个#{$hw}
+            //*/
+
+        //  /*
+        // 这是一个hello world
+        // */
+        
+        //在选择器中引用
+        //$icon1:'icon';
+        // .item-#{$icon1}{
+        //     width: 200px;
+        // }
+
+        //.item-icon {
+        //   width: 200px;
+        // }
+
+        //在属性名中引用    
+        // $width:width;
+        // #div1{
+        //     #{$width}:200px;
+        // }
+       
+        //  #div1 {
+        //   width: 200px;
+        // }
+
+
+        //Data_type
+
+    //type-of(1)//number
+    //type-of(str)//string 
+    //type-of('str')//string
+    //type-of(blue)//color
+    //type-of(true)//boolean
+    //type-of( )//null
+    //type-of(1px 2px 3px)//list
+    //type-of(aa:'aa',bb:'bb')//map
+
+
+        //控制指令
+
+
+        //函数
+        // @function xx($bg){
+        //     @if($bg==1){
+        //         @return '#f00';
+        //     }@else if($bg ==2){
+        //         @return #ff0;
+        //     }@else { 
+        //         @return #ccc;
+        //     }
+        // }
+        // #div1{
+        //     color:xx(2);
+        // }
+
+        //#div1 {
+        //   color: #ff0; }
+
+
+
+            //@for from开始 to结束   小于
+            //@for from开始 through 结束  小于等于
+        //$column:5;
+        // @for $i from 1 through $column{
+        //     .col-lg-#{$i}{
+        //         width:percentage($i/100);
+        //     }
+        // }
+
+        // .col-lg-1 {
+        //   width: 1%; }
+
+        // .col-lg-2 {
+        //   width: 2%; }
+
+        // .col-lg-3 {
+        //   width: 3%; }
+
+        // .col-lg-4 {
+        //   width: 4%; }
+
+        // .col-lg-5 {
+        //   width: 5%; }
+
+
+         //each  in $list{}  循环列表的每一个值
+
+        // $icons: error waring success;
+        // @each $icon in $icons{
+        //    .icon-#{$icon}{
+        //        background-image:url('img/'+$icon+'.jpg')
+        //    }
+        // } 
+
+        // .icon-error {
+        //   background-image: url("img/error.jpg"); }
+
+        // .icon-waring {
+        //   background-image: url("img/waring.jpg"); }
+
+        // .icon-success {
+        //   background-image: url("img/success.jpg"); }
+
+
+            //while
+        // $i:6;
+        // @while  $i>0{
+        //     .col-#{$i}{
+        //         width:percentage($i/10);
+        //     }
+        //        $i: $i - 2;
+        // }
+
+
+        //.col-6 {
+        //   width: 60%; }
+
+        // .col-4 {
+        //   width: 40%; }
+
+        // .col-2 {
+        //   width: 20%; }
+
+
+
+//例子
+// $map: ( light: #fff,dark: #000);
+
+// @function get-color($color){
+//     @if not map-has-key($map,$color){
+//         @warn'$map 里面不包含key值为 #{$color}';
+//         @return #ccc;
+//     }
+//     @return map-get($map,$color);
+// }
+// #div1{
+// color:get-color(xx);
+// };
+
+
+// #div1 {
+//   color: #ccc;}
+
+
+
+
+    </script>
+</body>
+
+</html>
