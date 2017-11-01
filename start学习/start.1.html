@@ -1,47 +1,30 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
 </head>
-<body>
-<button type="button" class="btn btn-default" aria-label="Left Align">
-    <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-</button>
 
-<button type="button" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
-</button>
-@media (min-width: @screen-md-min) {
-    <div class="row">
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-        <div class="col-md-1">.col-md-1</div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">.col-md-8</div>
-        <div class="col-md-4">.col-md-4</div>
-    </div>
-    <div class="row">
-        <div class="col-md-4">.col-md-4</div>
-        <div class="col-md-4">.col-md-4</div>
-        <div class="col-md-4">.col-md-4</div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">.col-md-6</div>
-        <div class="col-md-6">.col-md-6</div>
-    </div>
-}
+<body>
+    <script type="text/javascript">
+        function sortNumber(a, b) {
+            return a - b
+        }
+
+        var arr = new Array(6)
+        arr[0] = "10"
+        arr[1] = "5"
+        arr[2] = "40"
+        arr[3] = "25"
+        arr[4] = "1000"
+        arr[5] = "1"
+
+        document.write(arr + "<br />")
+        document.write(arr.sort(sortNumber))
+    </script>
 </body>
+
 </html>
