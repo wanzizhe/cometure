@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}}   <!-- 插值 -->
+        <div v-if="isLogin">欢迎你</div>
+        <div v-else>请登录</div>
+        <div v-if="type=='A'">A</div>
+        <div v-if-else="type=='B'">B</div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //vm 是对象 Vue是类
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world!' , //数据驱动
+                isLogin:false  //v-if为false时，dom里面没有
+                type:'A'
+            }
+        }); 
+        console.log(vm);
+        console.log(vm.$el);
+        
+
+    </script>
+</body>
+
+</html>
