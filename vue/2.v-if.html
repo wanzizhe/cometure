@@ -13,8 +13,12 @@
         {{msg}}   <!-- 插值 -->
         <div v-if="isLogin">欢迎你</div>
         <div v-else>请登录</div>
+
         <div v-if="type=='A'">A</div>
-        <div v-if-else="type=='B'">B</div>
+        <div v-else-if="type=='B'">B</div>
+        <div v-else>C</div>
+
+        <div v-show="isShow">show</div>
     </div>
     <script src="vue.js"></script>
     <script>
@@ -23,8 +27,9 @@
             el:'#app',
             data:{
                 msg:'hello world!' , //数据驱动
-                isLogin:false  //v-if为false时，dom里面没有
-                type:'A'
+                isLogin:false,  //v-if为false时，dom里面没有
+                type:'A',
+                isShow:false//v-show为false时，在dom里面存在，只是样式变成了display:none
             }
         }); 
         console.log(vm);
