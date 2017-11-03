@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-text会让文本在刷新的时候不闪烁 -->
+    <div id="app">
+        <div v-text="msg"></div>
+        <div v-text="msg2"></div>  <!--v-text 不会解析标签，直接输出文本-->
+        <div v-html="msg2"></div>  <!--v-html 会解析标签，输出hhhhh，建议少用，会有安全问题-->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world!' ,
+                msg2:'<h1>hhhhhh</h1>'
+            }
+        }); 
+       
+        
+
+    </script>
+</body>
+
+</html>
