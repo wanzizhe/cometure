@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background: #0ff;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <button v-on:click="add">加1</button> -->
+        <button @click.once="add(2,$event)">加1</button> <!-- 上文的缩写   .once只加一次2-->
+        <div>{{count}}</div>
+        <!--<input type="text" @keyup.13="handler"> 回车键盘码13，证明你敲的是回车-->
+        <input type="text" @keyup.enter="handler" v-model="keyword"> <!--.enter也是回车的意思-->
+    
+        <button v-on="{ mousedown:doThis,mouseup:doThat}">button</button>
+        
+        <div class="div1" @click="clickDiv1">
+            <div class="div2" @click.stop="clickDiv2()"></div>
+        </div>
+        <a href="www.baidu.com" @click.prevent="baiduHandler()">baidu</a>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+               count:0,
+               keyword:0
+            },
+            methods:{
+                // add:function(){
+                //     this.count++;
+                // }
+                add(num,e){
+                    this.count += num;  //es6写法
+                    console.log(e); //MouseEvent
+                },
+                handler(){
+                    this.count+= parseInt(this.keyword);
+                },
+                doThis(){
+                    console.log("doThis");
+                },
+                doThat(){
+                    console.log("doThat");
+                },
+                clickDiv1(){
+                    console.log('clickDiv1');  //clickDiv1
+                },
+                clickDiv2(){
+                    console.log('clickDiv2');  //clickDiv2  clickDiv1  事件冒泡
+                    //e.stopPropagation(); //阻止了事件冒泡只输出clickDiv2  但是直接.stop也可以解决
+                },
+                baiduHandler(){
+                    //e.preventDefault();//组织浏览器默认行为
+                }
+            }
+        })
+    </script>
+</body>
+</html>
