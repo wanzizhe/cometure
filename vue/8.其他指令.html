@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        {{msg}} 
+        <div v-pre>{{msg}}</div> <!--不想解析msg的时候用v-pre（原样输出） -->
+         <!-- v-cloak 渲染完成后显示-->
+         <button @click="add">add</button>
+         <div v-once>{{count}}</div>  <!--v-once只渲染一次-->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //vm 是对象 Vue是类
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world!', 
+                count:0
+            },
+            methods:{
+                add(){
+                    this.count++;
+                }
+            }
+        }); 
+
+        
+
+    </script>
+</body>
+
+</html>
