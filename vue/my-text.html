@@ -24,9 +24,17 @@
         }
         ul li{
             height: 50px;
-            margin-bottom:10px;
+            margin-top:10px;
             background: #ccc;
             line-height: 50px;
+            padding: 0 10px;
+            cursor:pointer;
+        }
+        .proPrice{
+            float:right;
+        }
+        .red{
+            background:#f00;
         }
     </style>
 </head>
@@ -36,14 +44,17 @@
          <h1>{{msg}}</h1>
          <hr>
         <ul>
-            <li v-for="user in product" @click="add(user.price,$event)">
-                {{user.name}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{user.price}}
+             <label>name：<input type="text" v-model="name" placeholder="请输入产品名称"></label>
+             <br>
+             <label>price：<input type="text" v-model="price"></label> 
+             <button>添加</button>  
+            <li v-for="user in product" @click="add(user)" :class="{red:user.isRed}">
+                <span class="proName">{{user.name}}</span>    
+                <span class="proPrice">{{user.price}}</span>
             </li>
         </ul>
-        <div>总价：{{count}}</div>
-        <div v-if="sum%2==0"></div>
-        <div v-else="sum%2==1"></div>
-        <div>{{sum}}</div>
+        <!-- <div>总价：{{count}}</div> -->
+        <div>总价：{{sum()}}</div> <!--调用方法传值-->
     </div>
     <script src="vue.js"></script>
     <script>
@@ -52,38 +63,69 @@
             data: {
                 msg:'todolist',
                 count:0,
+                name:"",
+                price:0,
+                // isRed:false,
                 product: [{
                         name: 'product1',
-                        price: 123
+                        price: 123,
+                        isRed:false
                     },
                     {
                         name: 'product2',
-                        price: 245
+                        price: 245,
+                        isRed:false
                     },
                     {
                         name: 'product3',
-                        price: 33
+                        price: 33,
+                        isRed:false
                     },
                     {
                         name: 'product4',
-                        price: 45
+                        price: 45,
+                        isRed:false
                     },
                     {
                         name: 'product5',
-                        price: 132
+                        price: 132,
+                        isRed:false
                     },
                     {
                         name: 'product6',
-                        price: 65
+                        price: 65,
+                        isRed:false
                     },
                 ],
-               sum:0
             },
             methods:{
-                add(num,e){
-                    this.count += num; 
-                    sum++;
-                    console.log(sum);
+                add(num){
+                    num.isRed=!num.isRed;
+                    // if(num.isRed){
+                    //     this.count += num.price; 
+                    // }else{
+                    //     this.count -= num.price; 
+                    // }
+                    // console.log(num.name);
+                    //this.sum(); //在一个函数里调用外面的函数用this
+                },
+                sum(){
+                    let sum=0;
+                    this.product.forEach(function(val,idx) {
+                        if(val.isRed){
+                            sum+=val.price;
+                        }
+                    });
+                    // this.count=sum;
+                    // return this.count=sum; 上面调用方法传值，所以下面要用return
+                    return sum;
+                },
+                make(){
+                    this.product.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
                 }
             }
         })
