@@ -43,18 +43,27 @@
     <div id="app">
          <h1>{{msg}}</h1>
          <hr>
+         <label>name：<input type="text" v-model="name" placeholder="请输入产品名称"></label>
+         <br>
+         <label>price：<input type="text" v-model="price"></label> 
+         <button @click="make">添加</button>  
+         <br>
+         <label>search:<input type="text" playholder="请输入搜索关键字" v-model="keyword"></label>
+         <button @click="search">搜索</button>
+         <button @click="restore">还原</button>
         <ul>
-             <label>name：<input type="text" v-model="name" placeholder="请输入产品名称"></label>
-             <br>
-             <label>price：<input type="text" v-model="price"></label> 
-             <button>添加</button>  
-            <li v-for="user in product" @click="add(user)" :class="{red:user.isRed}">
+            <li v-for="(user,index) in product" @click="add(user)" :class="{red:user.isRed}">
+                <input type="checkbox" @click.stop="" v-model="checked" :value="index">
+                <span class="del" @click="del(index)">[X]</span>
                 <span class="proName">{{user.name}}</span>    
                 <span class="proPrice">{{user.price}}</span>
             </li>
         </ul>
         <!-- <div>总价：{{count}}</div> -->
-        <div>总价：{{sum()}}</div> <!--调用方法传值-->
+        <div>
+            <button @click="delAll">删除选中</button>
+            总价：{{sum()}}
+        </div> <!--调用方法传值-->
     </div>
     <script src="vue.js"></script>
     <script>
@@ -65,34 +74,67 @@
                 count:0,
                 name:"",
                 price:0,
+                checked:[],
+                keyword:'',
                 // isRed:false,
                 product: [{
-                        name: 'product1',
+                        name: '苹果',
                         price: 123,
                         isRed:false
                     },
                     {
-                        name: 'product2',
+                        name: '桃子',
                         price: 245,
                         isRed:false
                     },
                     {
-                        name: 'product3',
+                        name: '西瓜',
                         price: 33,
                         isRed:false
                     },
                     {
-                        name: 'product4',
+                        name: '香蕉',
                         price: 45,
                         isRed:false
                     },
                     {
-                        name: 'product5',
+                        name: '橘子',
                         price: 132,
                         isRed:false
                     },
                     {
-                        name: 'product6',
+                        name: '柿子',
+                        price: 65,
+                        isRed:false
+                    },
+                ],
+                product1: [{
+                        name: '苹果',
+                        price: 123,
+                        isRed:false
+                    },
+                    {
+                        name: '桃子',
+                        price: 245,
+                        isRed:false
+                    },
+                    {
+                        name: '西瓜',
+                        price: 33,
+                        isRed:false
+                    },
+                    {
+                        name: '香蕉',
+                        price: 45,
+                        isRed:false
+                    },
+                    {
+                        name: '橘子',
+                        price: 132,
+                        isRed:false
+                    },
+                    {
+                        name: '柿子',
                         price: 65,
                         isRed:false
                     },
@@ -126,6 +168,36 @@
                         price:this.price,
                         isRed:false
                     });
+                    this.product1.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
+                    this.name='';
+                    this.price=0; 
+                },
+                del(index){
+                    this.product.splice(index,1);
+                },
+                delAll(){
+                        let arr=this.product.filter((val,idx)=>{
+                            if(!this.checked.includes(idx)){
+                                return val;
+                            }
+                        });
+                        this.product=arr; 
+                        this.checked=[];
+                },
+                search(){
+                    let arr=this.product.filter((val,key)=>{
+                        if(val.name.includes(this.keyword)){
+                            return val;
+                        }
+                    });
+                    this.product=arr;
+                },
+                restore(){
+                    this.product=this.product1;
                 }
             }
         })
