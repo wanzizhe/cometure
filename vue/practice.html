@@ -12,7 +12,7 @@
             padding: 0;
         }
         #app {
-            width: 420px;
+            width: 450px;
             height: 400px;
             margin: 50px auto;
         }
@@ -47,15 +47,21 @@
     <div id="app">
         <h1 v-text="msg"></h1>
         <hr> 
-        <label>name:<input type="text" v-model=""></label>
-        <label>price:<input type="text"> </label>
+        <label>name:<input type="text" v-model="name" placeholder="请输入产品名称"></label>
+        <label>price:<input type="text" v-model="price"></label>
+        <button @click="make">添加</button>
+        <label>search:<input type="text" v-model="keyword" placeholder="请输入关键字"></label>
+        <button @click="search">搜索</button>
+        <button @click="restore">还原</button>
         <ul>
             <li v-for="(cargo,index) in goods" @click="add(cargo)" :class="{red:cargo.isRed}">
+                <input type="checkbox" @click.stop="" v-model="checked" :value="index">
                 <span @click.stop="del(index)">[X]</span>
                 <span v-text="cargo.name" class="gooName"></span>
                 <span v-text="cargo.price" class="gooPrice"></span>
             </li>
         </ul>
+        <button @click="delAll">删除选中项</button>
         总价：{{sum()}}
     </div>
     <script src="vue.js"></script>
@@ -64,7 +70,32 @@
             el: '#app',
             data: {
                 msg: 'shopping cart',
+                name:"",
+                price:0,
+                checked:[],
+                keyword:'',
                 goods: [{
+                    name: '衣服',
+                    price: 100,
+                    isRed:false
+                }, {
+                    name: '裤子',
+                    price: 140,
+                    isRed:false
+                }, {
+                    name: '裙子',
+                    price: 430,
+                    isRed:false
+                }, {
+                    name: '雪地靴',
+                    price: 990,
+                    isRed:false
+                }, {
+                    name: '羽绒服',
+                    price: 210,
+                    isRed:false
+                }],
+                goods1: [{
                     name: '衣服',
                     price: 100,
                     isRed:false
@@ -101,6 +132,40 @@
                 },
                 del(index){
                     this.goods.splice(index,1);
+                },
+                make(){
+                    this.goods.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
+                    this.goods1.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
+                    this.name='';
+                    this.price=0;
+                },
+                delAll(){
+                    let arr=this.goods.filter((val,idx)=>{
+                        if(!this.checked.includes(idx)){
+                            return val;
+                        }
+                    });
+                    this.goods=arr;
+                    this.checked=[];
+                },
+                search(){
+                    let arr=this.goods.filter((val,idx)=>{
+                        if(val.name.includes(this.keyword)){
+                            return val;
+                        }
+                    });
+                    this.goods=arr;
+                },
+                restore(){
+                    this.goods=this.goods1;
                 }
             }
         })
