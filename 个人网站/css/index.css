@@ -1,0 +1,430 @@
+/*header开始*/
+*{
+    padding:0;
+    margin:0;
+}
+img{
+    border:0;
+}
+li{
+    list-style:none;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+#header{
+    overflow: hidden;
+    position: relative;
+}
+.wrapper{
+    width: 80%;
+    margin:0 auto;
+    /*height: 56px;*/
+}
+/*#menu{*/
+    /*position:fixed;*/
+    /*top:0;*/
+/*}*/
+#name{
+    width: 200px;
+}
+.navbar{
+    margin-bottom: 0;
+}
+.navbar-default {
+    background-color: transparent;
+    border-color:transparent;
+}
+.navbar-nav{
+    margin-top: 5px;
+    float: left;
+}
+@media (max-width: 1533px){
+    .navbar-nav > li{
+        width: 25%;
+    }
+    .navbar-nav{
+        width: 100%;
+    }
+}
+.navbar-default .navbar-nav > .active > a{
+    font-size: 20px;
+    color: #000000;
+    font-weight: 900;
+}
+.navbar-default .navbar-nav > li > a{
+    color: #000000;
+    font-size: 20px;
+    font-weight: 900;
+}
+.navbar-default .navbar-nav > li > a:hover{
+    color: #eeeeee;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover{
+    background-color: transparent;
+    color:#eeeeee;
+}
+.navbar-toggle{
+    margin-top: 15px;
+}
+.img-responsive, .thumbnail > img, .thumbnail a > img, .carousel-inner > .item > img, .carousel-inner > .item > a > img{
+    width: 1520px;
+}
+#banner{
+    width: 100%;
+    margin:0 auto;
+}
+img{
+    width:50%;
+}
+@media (min-width: 768px){
+    .navbar-nav > li > a {
+        padding-left: 60px;
+        padding-right: 100px;
+    }
+}
+.button{
+    animation:animations2 5s ease-in-out 1s infinite;
+    cursor: pointer;
+}
+@keyframes animations2{
+    0%{opacity:0;}
+    20%{opacity:1;}
+    30%{opacity:.3;}
+    40%{opacity:1;}
+    50%{opacity:.3;}
+    60%{opacity:1;}
+    70%{opacity:.3;}
+    80%{opacity:1;}
+    100%{opacity:0;}
+}
+@media screen and (min-width: 970px){
+    .carousel-caption {
+          padding-bottom:160px;
+    }
+}
+/*header结束*/
+/*personal开始*/
+.clearfix{
+    content:"";
+    display: block;
+    clear:both;
+}
+#top{
+    width: 800px;
+    margin:0 auto;
+}
+#all{
+    width:210px;
+    float: left;
+    margin-bottom:20px;
+}
+#info{
+    font-weight: 900;
+    font-size: 15px;
+    width:100px;
+    float: left;
+    margin-top:100px;
+}
+#cont{
+    font-weight: 900;
+    font-size: 15px;
+    width:110px;
+    float:right;
+    margin-top:100px;
+}
+#desc{
+    font-weight: 900;
+    width:50%;
+    float:right;
+    margin-top:100px;
+}
+h3, .h3{
+    text-align: center;
+}
+@media (max-width: 970px){
+    #top{
+        width: 100%;
+    }
+    #all{
+        width: 30%;
+        margin-left: 20px;
+    }
+    #desc{
+        width: 50%;
+        margin-left: 20px;
+    }
+}
+@media (max-width:768px){
+    #all{
+      width: 100%;
+      margin:0 50px;
+    }
+    #cont{
+        float:left;
+    }
+    #desc{
+        width: 100%;
+        margin-top:50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+.h2{
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+#bottom{
+    margin-bottom:100px;
+}
+/*personal结束*/
+
+/*skill开始*/
+#skill{
+    margin-bottom: 100px;
+}
+.skill-info{
+    width: 900px;
+    margin:50px auto;
+}
+.m1 .progress-bar{
+    background-color:#5cb85c;
+    opacity: .4;
+}
+.m2 .progress-bar{
+    background-color:#9acfea;
+}
+.m3 .progress-bar{
+    background-color:#C4C4C4;
+    opacity: .6;
+}
+.m4 .progress-bar{
+    background-color:#e0b9bf;
+}
+.move-info1{
+    float: left;
+    width: 100px;
+}
+.move-info1 li{
+    margin-bottom: 20px;
+}
+.move1{
+    float: left;
+    width: 400px;
+}
+.img1 img{
+    width: 320px;
+    height: 200px;
+    float: left;
+}
+.play1{
+    width: 500px;
+    float: right;
+}
+.floor{
+    margin-top: 30px;
+}
+
+
+
+.move-info2{
+    float: left;
+    width: 100px;
+}
+.move-info2 li{
+    margin-bottom: 20px;
+}
+.move2{
+    float: left;
+    width: 400px;
+}
+.img2 img{
+    width: 320px;
+    height: 200px;
+    float: right;
+}
+.play2{
+    float:left;
+    margin-top: 50px;
+}
+.four{
+    margin-top: 30px;
+}
+
+
+@media(max-width:970px) {
+       .img1 img{
+           width: 230px;
+           height: 150px;
+       }
+       .play1{
+           width: 400px;
+           height: 125px;
+       }
+        .move-info1 li{
+            margin-bottom: 5px;
+            }
+        .progress{
+            margin-bottom: 5px;
+        }
+        .move1{
+            width: 300px;
+        }
+        .skill-info{
+            width: 650px;
+        }
+        .img2 img{
+            width: 230px;
+            height: 150px;
+        }
+        .play2{
+            width: 400px;
+            height: 125px;
+        }
+        .move-info2 li{
+            margin-bottom: 5px;
+        }
+        .move2{
+            width: 300px;
+        }
+}
+/*skill结束*/
+
+/*project开始*/
+.first{
+    width: 1000px;
+    margin:0 auto;
+    position:relative;
+}
+.first img{
+    float: left;
+    width: 500px;
+}
+/*.come{*/
+    /*position:absolute;*/
+    /*top: 250px;*/
+    /*left:10px;*/
+    /*width: 150px;*/
+    /*transform: translate(300px);*/
+    /*animation: animations1 2s ease infinite;*/
+/*}*/
+/*@keyframes animations1 {*/
+    /*0%{transform: translate(0);opacity: 0;}*/
+    /*20%{transform: translate(100px);opacity: .8;}*/
+    /*40%{transform: translate(150px);opacity: 1;}*/
+    /*70%{transform: translate(200px);opacity: .8;}*/
+    /*100%{transform: translate(300px);opacity: 0;}*/
+/*}*/
+.mask1{
+    width: 500px;
+    padding-top: 33.5%;
+    background: #ffffff;
+    opacity: 0;
+    float: left;
+    position: absolute;
+    top:0;
+    left:0;
+    cursor: pointer;
+}
+.marker1{
+    width: 500px;
+    padding-top: 33.5%;
+    background-color: #000;
+    opacity: .2;
+    float: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    /*transition:background-color .5s ease-in;*/
+}
+.right1{
+    width:500px;
+    float: right;
+    text-align: center;
+    margin-top: 100px;
+}
+@media (max-width: 970px){
+    .first{
+        width: 100%;
+    }
+    .first img{
+        width: 50%;
+    }
+    .mask{
+        width: 50%;
+    }
+    .marker{
+        width: 50%;
+    }
+    .right1{
+        width: 50%;
+    }
+}
+
+
+.second{
+    width: 1000px;
+    margin:0 auto;
+    position:relative;
+}
+.second img{
+    float: right;
+    width: 500px;
+}
+.mask1{
+    width: 500px;
+    padding-top: 33.5%;
+    background: #ffffff;
+    opacity: 0;
+    float: right;
+    position: absolute;
+    top:0;
+    left:0;
+    cursor: pointer;
+}
+.marker1{
+    width: 500px;
+    padding-top: 33.5%;
+    background-color: #000;
+    opacity: .2;
+    float: right;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    /*transition:background-color .5s ease-in;*/
+}
+.left1{
+    width:500px;
+    float: left;
+    text-align: center;
+    margin-top: 100px;
+}
+@media (max-width: 970px){
+    .second{
+        width: 100%;
+    }
+    .second img{
+        width: 50%;
+    }
+    .mask1{
+        width: 50%;
+    }
+    .marker1{
+        width: 50%;
+    }
+    .left1{
+        width: 50%;
+    }
+}
+
+/*project结束*/
+
+
+
+
+
+
