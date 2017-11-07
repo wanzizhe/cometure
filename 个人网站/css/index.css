@@ -1,4 +1,4 @@
-/*header¿ªÊ¼*/
+/*headerï¿½ï¿½Ê¼*/
 *{
     padding:0;
     margin:0;
@@ -14,12 +14,14 @@ body{
     padding: 0;
 }
 #header{
-    overflow: hidden;
     position: relative;
 }
 .wrapper{
     width: 80%;
     margin:0 auto;
+    position: sticky;
+    top: 0;
+    z-index: 1;
     /*height: 56px;*/
 }
 /*#menu{*/
@@ -59,11 +61,11 @@ body{
     font-weight: 900;
 }
 .navbar-default .navbar-nav > li > a:hover{
-    color: #eeeeee;
+    color: #ccc;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover{
     background-color: transparent;
-    color:#eeeeee;
+    color:#ccc;
 }
 .navbar-toggle{
     margin-top: 15px;
@@ -104,8 +106,8 @@ img{
           padding-bottom:160px;
     }
 }
-/*header½áÊø*/
-/*personal¿ªÊ¼*/
+/*headerï¿½ï¿½ï¿½ï¿½*/
+/*personalï¿½ï¿½Ê¼*/
 .clearfix{
     content:"";
     display: block;
@@ -179,9 +181,9 @@ h3, .h3{
 #bottom{
     margin-bottom:100px;
 }
-/*personal½áÊø*/
+/*personalï¿½ï¿½ï¿½ï¿½*/
 
-/*skill¿ªÊ¼*/
+/*skillï¿½ï¿½Ê¼*/
 #skill{
     margin-bottom: 100px;
 }
@@ -290,9 +292,9 @@ h3, .h3{
             width: 300px;
         }
 }
-/*skill½áÊø*/
+/*skillï¿½ï¿½ï¿½ï¿½*/
 
-/*project¿ªÊ¼*/
+/*projectï¿½ï¿½Ê¼*/
 .first{
     width: 1000px;
     margin:0 auto;
@@ -421,7 +423,7 @@ h3, .h3{
     }
 }
 
-/*project½áÊø*/
+/*projectï¿½ï¿½ï¿½ï¿½*/
 
 
 
