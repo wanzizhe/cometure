@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app {
+            width: 420px;
+            height: 400px;
+            margin: 50px auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            width: 400px;
+            height: 50px;
+            background: #ccc;
+            margin-top:10px;
+            padding:0 10px;
+            line-height: 50px;
+            cursor:pointer;
+        }
+        .gooPrice {
+            float: right;
+        }
+        .red{
+            background: #f00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-text="msg"></h1>
+        <hr> 
+        <label>name:<input type="text" v-model=""></label>
+        <label>price:<input type="text"> </label>
+        <ul>
+            <li v-for="(cargo,index) in goods" @click="add(cargo)" :class="{red:cargo.isRed}">
+                <span @click.stop="del(index)">[X]</span>
+                <span v-text="cargo.name" class="gooName"></span>
+                <span v-text="cargo.price" class="gooPrice"></span>
+            </li>
+        </ul>
+        总价：{{sum()}}
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: 'shopping cart',
+                goods: [{
+                    name: '衣服',
+                    price: 100,
+                    isRed:false
+                }, {
+                    name: '裤子',
+                    price: 140,
+                    isRed:false
+                }, {
+                    name: '裙子',
+                    price: 430,
+                    isRed:false
+                }, {
+                    name: '雪地靴',
+                    price: 990,
+                    isRed:false
+                }, {
+                    name: '羽绒服',
+                    price: 210,
+                    isRed:false
+                }]
+            },
+            methods: {
+                add(cargo){
+                    cargo.isRed=!cargo.isRed;
+                },
+                sum(){
+                    let sum=0;
+                    this.goods.forEach(function(val,idx){
+                        if(val.isRed){
+                            sum+=val.price;
+                        }
+                    });
+                    return sum;
+                },
+                del(index){
+                    this.goods.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
