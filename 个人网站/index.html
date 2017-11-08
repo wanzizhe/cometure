@@ -12,35 +12,35 @@
 
 <body>
     <div class="wrapper">
-                <div id="menu" class="clearfix">
-                    <div class="navbar navbar-default" role="navigation">
-                        <div class="navbar-header">
-                            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                                <span class="sr-only">Toggle Navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="collapse navbar-collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="active">
-                                    <a href="#">Personal Information</a>
-                                </li>
-                                <li>
-                                    <a href="#">Skill Level</a>
-                                </li>
-                                <li>
-                                    <a href="#"> Project Work</a>
-                                </li>
-                                <li>
-                                    <a href="#">Else</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+        <div id="menu" class="clearfix">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="sr-only">Toggle Navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Personal Information</a>
+                        </li>
+                        <li>
+                            <a href="#personal">Skill Level</a>
+                        </li>
+                        <li>
+                            <a href="#skill"> Project Work</a>
+                        </li>
+                        <li>
+                            <a href="#project">Else</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </div>
     <div id="header">
         <div id="banner">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -56,12 +56,13 @@
                     <div class="item active">
                         <img src="img/banner1.jpg" alt="...">
                         <div class="carousel-caption">
-                            <img src="img/b1.png" alt="" class="button" />
+                            <img src="img/b1.png" alt="" class="button"/>
                         </div>
                     </div>
                     <div class="item">
                         <img src="img/banner2.jpg" alt="...">
                         <div class="carousel-caption">
+                            <a href="#personal"></a>
                             <img src="img/b2.png" alt="" class="button" />
                         </div>
                     </div>
@@ -323,7 +324,19 @@
             </div>
         </div>
     </div>
+
     <script>
+        var oUl=document.getElementsByClassName("nav")[0];
+        var aLi=oUl.getElementsByTagName("li");
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].index=i;
+            aLi[i].onclick=function(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className="";
+                }
+                this.className="active";
+            }
+        }
     </script>
     <script src="js/jquery-1.11.2.js"></script>
     <script src="js/jquery.cookie.js"></script>
