@@ -56,7 +56,7 @@
                     <div class="item active">
                         <img src="img/banner1.jpg" alt="...">
                         <div class="carousel-caption">
-                            <img src="img/b1.png" alt="" class="button"/>
+                            <img src="img/b1.png" alt="" class="button" />
                         </div>
                     </div>
                     <div class="item">
@@ -324,17 +324,43 @@
             </div>
         </div>
     </div>
+    <div id="contact">
+        <div class=container>
+            <div id="contactme">
+                <h3>Contact Me</h3>
+                <h4>期待你的联系！</h4>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <div class="col-md-4">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <p>哈尔滨市香坊区三大动力路23号
+                        <br> 哈尔滨理工大学
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-envelope-o fa-2x"></i>
+                    <p>1278133518@qq.com</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-phone fa-2x"></i>
+                    <p> 132 - 4468 - 5061 </p>
+                </div>
+                <hr>
+                <div class="clearfix"></div>
+            </div>
 
+        </div>
+    </div>
     <script>
-        var oUl=document.getElementsByClassName("nav")[0];
-        var aLi=oUl.getElementsByTagName("li");
-        for(var i=0;i<aLi.length;i++){
-            aLi[i].index=i;
-            aLi[i].onclick=function(){
-                for(var i=0;i<aLi.length;i++){
-                    aLi[i].className="";
+        var oUl = document.getElementsByClassName("nav")[0];
+        var aLi = oUl.getElementsByTagName("li");
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                for (var i = 0; i < aLi.length; i++) {
+                    aLi[i].className = "";
                 }
-                this.className="active";
+                this.className = "active";
             }
         }
     </script>
