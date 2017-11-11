@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #app {
+            width: 470px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .price {
+            float: right;
+        }
+
+        li {
+            width: 400px;
+            height: 50px;
+            background: #ccc;
+            margin-bottom: 5px;
+            line-height: 50px;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .red {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-text="msg"></h1>
+        <hr>
+        <label>
+            name:<input type="text" placeholder="请输入名字" v-model="name">
+        </label>
+        <label>
+           price:<input type="text" v-model="price">
+        </label>
+        <button @click="make()">添加</button>
+        <ul>
+            <li v-for="(food,index) in goods" @click="add(food)" :class="{red:food.isRed}">
+                <input type="checkbox" @click.stop="" v-model="checked" :value="index">
+                <span @click="del(index)">[X]</span>
+                <span v-text="food.name"></span>
+                <span class="price" v-text="food.price"></span>
+            </li>
+        </ul>
+        <button @click="delAll()">全部删除</button>
+        总价：{{sum()}}
+        
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                msg: "My Shopping",
+                name:"",
+                price:0,
+                checked:[],
+                goods: [{
+                        name: '香蕉',
+                        price: 20,
+                        isRed: false
+                    }, {
+                        name: '苹果',
+                        price: 25,
+                        isRed: false
+                    },
+                    {
+                        name: '梨',
+                        price: 13,
+                        isRed: false
+                    },
+                    {
+                        name: '火龙果',
+                        price: 43,
+                        isRed: false
+                    },
+                    {
+                        name: '橙子',
+                        price: 21,
+                        isRed: false
+                    }
+                ],
+
+            },
+            methods: {
+                add(food) {
+                    food.isRed = !food.isRed;
+                },
+                sum() {
+                    let sum = 0;
+                    this.goods.forEach(function (val, idx) {
+                        if (val.isRed) {
+                            sum += val.price;
+                        }
+                    });
+                    return sum;
+                },
+                del(index) {
+                    this.goods.splice(index, 1);
+                },
+                make(){
+                    this.goods.push({
+                        name:this.name,
+                        price:this.price,
+                        isRed:false
+                    });
+                    this.name="";
+                    this.price=0;
+                },
+                delAll(){
+                    let arr=this.goods.filter((val,idx)=>{
+                        if(!this.checked.includes(idx)){
+                            return val;
+                        }
+                    });
+                    this.goods=arr;
+                        this.checked=[];
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>
