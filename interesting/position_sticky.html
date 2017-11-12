@@ -1,53 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    /*position: sticky; 因为设定的阈值是 top:0 ，这个值表示当元素距离页面视口（Viewport， 也就是fixed定位的参照）顶部距离大于 0px 时，元素以 relative 定位表现， 而当元素距离页面视口小于 0px
+    时，元素表现为 fixed 定位，也就会固定在顶部。 */ 
+    /* position:sticky 的生效是有一定的限制的，总结如下： 
+    1.须指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。并且 top 和 bottom 同时设置时，top 生效的优先级高，left 和 right 同时设置时，left 的优先级高。
+     2.设定为 position:sticky 元素的任意父节点的 overflow 属性必须是 visible，否则 position:sticky 不会生效。 这里需要解释一下： 如果 position:sticky 元素的任意父节点定位设置为 overflow:hidden，则父容器无法进行滚动，所以 position:sticky 元素也不会有滚动然后固定的情况。
+        如果 position:sticky 元素的任意父节点定位设置为 position:relative | absolute | fixed，则元素相对父元素进行定位，而不会相对 viewprot 定位。
+     3.达到设定的阀值。这个还算好理解，也就是设定了position:sticky 的元素表现为 relative 还是 fixed 是根据元素是否达到设定了的阈值决定的。 */
     <style>
-     /*position: sticky;  因为设定的阈值是 top:0 ，这个值表示当元素距离页面视口（Viewport，
-     也就是fixed定位的参照）顶部距离大于 0px 时，元素以 relative 定位表现，
-     而当元素距离页面视口小于 0px 时，元素表现为 fixed 定位，也就会固定在顶部。 */
-
-     /* position:sticky 的生效是有一定的限制的，总结如下：
-1.须指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。
-并且 top 和 bottom 同时设置时，top 生效的优先级高，left 和 right 同时设置时，left 的优先级高。
-
-2.设定为 position:sticky 元素的任意父节点的 overflow 属性必须是 visible，否则 position:sticky 不会生效。
- 这里需要解释一下：
-如果 position:sticky 元素的任意父节点定位设置为 overflow:hidden，则父容器无法进行滚动，所以 position:sticky 元素也不会有滚动然后固定的情况。
-如果 position:sticky 元素的任意父节点定位设置为 position:relative | absolute | fixed，则元素相对父元素进行定位，而不会相对 viewprot 定位。
-
-3.达到设定的阀值。这个还算好理解，也就是设定了 position:sticky 的元素表现为 relative 还是 fixed 是根据元素是否达到设定了的阈值决定的。 */
         .container {
             background: #eee;
             width: 600px;
             height: 1000px;
-            margin: 0 auto; 
+            margin: 0 auto;
         }
 
         .sticky-box {
-            /* position: -webkit-sticky; */
+            position: -webkit-sticky;
             position: sticky;
             height: 60px;
             margin-bottom: 30px;
             background: #ff7300;
             top: 0px;
         }
+
         div {
             font-size: 30px;
             text-align: center;
             color: #fff;
-            line-height: 60px; 
+            line-height: 60px;
         }
     </style>
 </head>
+
 <body>
-        <div class="container">
-                <div class="sticky-box">内容1</div>
-                <div class="sticky-box">内容2</div>
-                <div class="sticky-box">内容3</div>
-        </div>
+    <div class="container">
+        <div class="sticky-box">内容1</div>
+        <div class="sticky-box">内容2</div>
+        <div class="sticky-box">内容3</div>
+    </div>
 </body>
+
 </html>
