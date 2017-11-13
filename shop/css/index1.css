@@ -147,4 +147,42 @@ h1 {
     left:200px;
 }
 /* special-sale结束 */
-
+#product{
+    margin-top:80px;
+}
+.product-con{
+    width: 342px;
+    height: 442px;
+    border:1px solid #ccc;
+    float:left;
+    margin-left:20px;
+    margin-top:20px;
+}
+.product-con img{
+    width: 248px;
+    height: 248px;
+    border:1px solid #ccc;
+    display: block;
+}
+#product-info{
+    height: 194px;
+    width: 322px;
+    background: #ddd;
+    padding-left:20px;
+}
+#product-info h3{
+   padding:10px 0;
+}
+#product-info input{
+    width: 150px;
+    height: 28px;
+}
+#product-info button{
+    width: 138px;
+    height: 44px;
+    border-radius:10px;
+    border:0;
+    background:#ed864a; 
+    margin:15px 0;
+    cursor: pointer;
+}
