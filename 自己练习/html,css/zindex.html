@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0;
+            position:absolute;
+            top:0;
+            left:0;
+            z-index:-1;/*在不用z-index的时候，div2在div1上面，给div1加上z-index属性之后，
+            div1离眼睛更近一些，所以div1在上面了  z-index属性只能给已经定位的元素加（可以为负值）*/
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #0ff;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>
