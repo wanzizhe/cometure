@@ -2,9 +2,10 @@
 
 #header {
     width: 1520px;
-    height: 600px;
-    background: url(../img/banner.jpg) no-repeat -100px 0px;
-    overflow: hidden;
+    height: 720px;
+    background: url(../img/banner.jpg) no-repeat -300px 0;
+    overflow: hidden; 
+    background-size:cover;
 }
 
 .wrapper {
@@ -147,8 +148,11 @@ h1 {
     left:200px;
 }
 /* special-sale结束 */
+
+/* product开始 */
 #product{
     margin-top:80px;
+    height: 1000px;
 }
 .product-con{
     width: 342px;
@@ -162,7 +166,8 @@ h1 {
     width: 248px;
     height: 248px;
     border:1px solid #ccc;
-    display: block;
+    display: inline-block;
+    vertical-align: top;
 }
 #product-info{
     height: 194px;
@@ -186,3 +191,59 @@ h1 {
     margin:15px 0;
     cursor: pointer;
 }
+.product-con span{
+    width: 52px;
+    height: 30px;
+    background-color: #fa558f;
+    float:right;
+    text-align: center;
+    line-height: 30px;
+}
+/* product结束 */
+
+
+/* problem开始 */
+#problem{
+    width: 1519px;
+    height: 400px;
+    background: url(../img/banner2.jpg) no-repeat 0px 0px;
+    background-size:cover;
+}
+#problem ul{
+    float:left;
+    margin-right:100px;
+    margin-top:50px;
+}
+#problem li{
+    color:#fff;
+    list-style:circle;
+    margin:10px 0;
+}
+#pro-info{
+    margin-left:120px;
+}
+/* problem结束*/
+
+
+
+/* footer开始 */
+#footer{
+    width: 1519px;
+    height: 32px;
+    background: #fa558f;
+    color:#fff;
+    padding:30px 0;
+}
+#footer h2{
+    display:inline-block;
+}
+#footer span{
+    float:right;
+}
+
+
+
+
+
+
+/* footer结束 */
