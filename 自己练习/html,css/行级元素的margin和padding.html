@@ -5,8 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #000;
+        }
+        span{
+            margin-left: 50px;
+            margin-top: 50px;
+            display:block;  /*行级元素设置margin  左右好使，上下不好使，需要把行级元素变成块级元素才可以*/
+        }
+    </style>
 </head>
 <body>
-    
+    <div></div>
+    <span>aaaaaaaaa</span>
 </body>
 </html>
