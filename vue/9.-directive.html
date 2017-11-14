@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1 v-wanzizhe="aa">hhhhhh</h1>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // Vue.directive('wanzizhe', function (el, binding, vnode) {
+        //     console.log(el); //<h1>hhhhhh</h1>  dom对象
+        //     console.log(binding);//对象
+        //     console.log(vnode); //虚拟dom结点
+        //     el.style.background=binding.value;
+        // });
+
+
+         //钩子函数是自动调用的，到什么时候调用哪个函数，我们直接把功能写在函数里就可以自动调用了
+        Vue.directive('wanzizhe',{     //自定义指令
+            bind(el,binding,vnode){   //bind 只调用一次，指令第一次绑定到元素时调用
+                console.log('bind');
+                el.style.background=binding.value;
+            },
+            inserted(){    //被绑定元素插入父节点时调用
+                console.log('inserted');
+            },
+            update(){     //被绑定元素所在模板更新时调用,可能在更新之前调用
+                console.log(update);  
+            },
+            componentUpdated(){  //component组件  更新完成之后调用
+                console.log(componentUpdated);
+            },
+            unbind(){  //销毁的时候调用
+                console.log(unbind);
+            }
+        });
+        new Vue({
+            el: '#app'  ,
+            data:{
+                aa:'green'
+            }
+        });
+    </script>
+</body>
+
+</html>

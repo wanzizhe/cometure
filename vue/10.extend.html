@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+     <!-- 手动挂载 -->
+     <!-- <div id="div1"></div>
+    <script src="vue.js"></script>
+    <script>
+        //extend扩展实例构造器
+        var authorExtend = Vue.extend({
+            template: '<p><a :href="authorUrl">{{authorName}}</a></p>',
+            data() { //extend中data是一个方法需要return
+                return {
+                    authorUrl: 'http://www.baidu.com',
+                    authorName: 'wanzizhe'
+                };
+            }
+        });
+        new authorExtend().$mount('#div1');  //整个template代替了#div1  手动挂载情况比较少
+    </script> -->
+
+
+
+
+
+    <!--自己写一个组件-->
+    <div id="app">
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+    <my-component></my-component>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        //extend扩展实例构造器
+        var authorExtend = Vue.extend({
+            template: '<p><a :href="authorUrl">{{authorName}}</a></p>',
+            data() { //extend中data是一个方法需要return
+                return {
+                    authorUrl: 'http://www.baidu.com',
+                    authorName: 'wanzizhe'
+                };
+            }
+        });
+        new Vue({
+            el:'#app',
+            components:{
+                myComponent:authorExtend   //组件其实是一个标签
+            }
+        });
+
+        
+    </script> 
+
+    
+</body>
+
+</html>
