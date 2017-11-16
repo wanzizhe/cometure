@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <wanzizhe :cc="msg3"></wanzizhe>
+        <!-- 代表template里面的一堆东西-->
+        <my-component :aa="msg" :bb="msg2"></my-component>
+    </div>
+
+
+    <div id="app2">
+        <!--这里可以调用全局组件 -->
+        <wanzizhe :cc="msg3"></wanzizhe>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // 定义全局组件，组件就是一个标签
+        Vue.component('wanzizhe', {
+            // 对外必须是一个标签
+            template: `
+                <div>   
+                    <h1>{{cc}}</h1>
+                    <div>divdivdiv</div>
+                </div>
+                `,
+                props:['cc']
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '这是一个局部组件',
+                msg2: 'hello',
+                msg3:'这是一个全局组件'
+            },
+            components: {
+                myComponent: {
+                    template: `<h1>{{aa}}---{{bb}}</h1>`,
+                    props: ['aa', 'bb']
+                }
+            }
+        });
+        new Vue({
+            el: '#app2',
+            data:{
+                msg3:'这是一个全局组件----'
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+            <!-- <h1 v-show="isShow">hhhh</h1> 
+            <h2 v-show="isShow">aaaa</h2> -->
+
+        <template v-if="isShow">  <!--  template标签，不占用dom节点，只是想在h1和h2外面包一个标签 
+        template只支持v-if属性，因为v-show是把元素变为display：none，而template不算是一个真实属性-->
+            <h1>hhhh</h1>
+            <h2>aaaa</h2>
+        </template>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isShow: false
+            }
+        });
+    </script>
+</body>
+
+</html>
