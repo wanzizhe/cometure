@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 组件嵌套 -->
+    <div id="app">
+        <div @click="add">div</div>   <!--这里add函数好使，因为div并不是我们自己定义的-->
+       <wanzizhe :msg="aa" @click.native="add"></wanzizhe>   <!-- 组件是自定义的时候，想选定用.native-->
+        <div>{{num}}</div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        let web = { //定义组件
+            template: `<h1>{{info}}</h1>`,
+            props:['info'],
+        };
+        let web1 = { //定义组件
+            template: `
+            <div>
+                <h1>这是父组件</h1>
+                <fe :info="msg"></fe> 
+             </div>
+            `, //fe表示web组件
+            props:['msg'],
+            components: {
+                fe: web //在web1里面调用web，起名叫fe
+            },
+        }
+        new Vue({
+            el: '#app',
+            data:{
+                aa:'这是子组件',
+                num:1
+            },
+            methods:{
+                add(){
+                    this.num++;
+                }
+            },
+            components: { // 调用组件
+                wanzizhe: web1
+            }
+        });
+    </script>
+</body>
+
+</html>
