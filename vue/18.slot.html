@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <wanzizhe>
+                <h1 slot="username">张三</h1>
+                <span slot="age">18</span>
+        </wanzizhe>
+    </div>
+   <template id="temp">    <!-- template标签一般这么用-->
+        <!-- <div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+            <div>123</div>
+             <div>123</div>
+        </div> -->
+        <div>
+            <div>
+               名字：<slot name="username"></slot>  <!-- slot占位符 -->
+            </div>
+            <div>
+                年龄：<slot name="age"></slot> 
+            </div>
+        </div>
+    </template>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            components:{
+                wanzizhe:{
+                    template:'#temp'   //通过id寻找
+                }
+            }           
+        });
+    </script>
+</body>
+</html>
