@@ -89,6 +89,8 @@ h1 {
     float:left;
     margin-left: -190px;
     display: none;
+    position: relative;
+    z-index: 1;
 }
 
 .secondLi:hover #makeup-con {
