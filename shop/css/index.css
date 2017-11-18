@@ -165,7 +165,7 @@ h1 {
     height: 442px;
     border:1px solid #ccc;
     float:left;
-    margin-left:20px;
+    margin-right:30px;
     margin-top:20px;
 }
 .product-con img{
@@ -246,10 +246,5 @@ h1 {
 #footer span{
     float:right;
 }
-
-
-
-
-
 
 /* footer结束 */
