@@ -7,6 +7,7 @@ import './assets/css/reset.css'
 import './assets/js/rem.js'
 
 Vue.config.productionTip = false
+global.API_PROXY = 'https://bird.ioliu.cn/v1/?url=' //跨域问题，服务器代理方法
 
 /* eslint-disable no-new */
 new Vue({

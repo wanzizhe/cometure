@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <common-header></common-header>
-    <router-view></router-view>
-    <common-footer></common-footer>
-  </div>
+<div>
+<common-header></common-header>
+<router-view></router-view>
+<common-footer></common-footer>
+</div>
 
 </template>
 
@@ -21,4 +21,3 @@ export default {
 <style scoped>
 
 </style>
-
