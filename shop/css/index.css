@@ -73,7 +73,7 @@ h1 {
     background: #3c3b3b;
 }
 
-#nav .firstLi {
+#nav .selected {
     background: #3c3b3b;
 }
 #nav li a{
@@ -93,7 +93,7 @@ h1 {
     z-index: 1;
 }
 
-.secondLi:hover #makeup-con {
+.white:hover #makeup-con {
     display: block;
 }
 
@@ -231,22 +231,3 @@ h1 {
     margin-left:120px;
 }
 /* problem结束*/
-
-
-
-/* footer开始 */
-#footer{
-    width: 1519px;
-    height: 32px;
-    background: #fa558f;
-    color:#fff;
-    padding:30px 0;
-}
-#footer h2{
-    display:inline-block;
-}
-#footer span{
-    float:right;
-}
-
-/* footer结束 */
