@@ -1,12 +1,77 @@
 /* login开始 */
-#login-info{
+#register{
     height: 400px;
 }
 #login-content{
     width: 570px;
     height: 264px;
+    margin-top:30px;
+    float:left;
+}
+#login-info{
+    margin-top:50px;
+}
+#login-content p{
+    font-size: 18px;
+    color:#5d5959;
+    margin:20px 0 10px 0;
+}
+#login-content input{
+    width: 400px;
+    height: 38px;
+    outline: none;
+    text-indent: 10px;
+    font-size:18px;
+}
+#login-content button{
+    width:110px;
+    height: 40px;
+    font-size:19px;
+    border-radius: 5px;
+    border:0;
+    color:#fff;
+    background: #ed864a;
+    margin:20px 0;
+    cursor:pointer; 
+    outline:none;
+}
+#login-content button:hover{
+    color:#000;
+    border:1px solid #000;
+}
+#login-content a{
+    text-decoration: underline;
+    color:#a29ba1;
 }
 
 
-
+#no-num{
+    width: 570px;
+    height: 150px;
+    float:right;
+}
+#no-num h3{
+    color:#ed864a;
+    margin:10px 0;
+}
+#no-num span{
+    color:#a29ba1;
+}
+#no-num button{
+    margin:20px 0;
+    width:110px;
+    height: 40px;
+    font-size:15px;
+    border-radius: 5px;
+    border:0;
+    background: #fff;
+    border:1px solid #000;
+    cursor:pointer; 
+    outline:none;
+}
+#no-num button:hover{
+    color:#fff;
+    background: #ed864a;
+    border:1px solid #fff;
+}
 /* login结束*/
