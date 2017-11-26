@@ -1,0 +1,88 @@
+/* registration开始 */
+
+#registration {
+    margin-top: 60px;
+    height: 530px;
+}
+
+.reg-cont h2 {
+    margin-bottom: 20px;
+}
+
+.reg-info {
+    float: left;
+}
+
+.reg-info span {
+    color: #999;
+}
+
+.reg-info a {
+    color: #5d5959;
+}
+
+.reg-info a:hover {
+    color: #ed864a;
+    text-decoration: underline;
+}
+
+.reg-frame span {
+    color: #5d5959;
+}
+
+.reg-frame {
+    width: 555px;
+    height: 300px;
+}
+
+.reg-frame input {
+    width: 400px;
+    height: 38px;
+    float: right;
+    margin: 10px 0;
+    outline: none;
+    text-indent: 10px;
+    font-size: 16px;
+    border-color: 1px solid #999;
+}
+
+.reg-frame span {
+    float: left;
+    width: 150px;
+    margin: 20px 0;
+}
+
+.reg-info button {
+    width: 444px;
+    height: 44px;
+    background: #ed864a;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+    border-radius: 5px;
+    margin: 20px 50px;
+}
+
+.reg-info button:hover {
+    border: 1px solid #000;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+}
+
+.reg-quality {
+    width: 520px;
+    height: 296px;
+    float: right;
+}
+
+.reg-title {
+    margin: 10px 0;
+    color: #ed864a;
+}
+
+.reg-word {
+    color: #999;
+}
+
+/* registration结束 */
