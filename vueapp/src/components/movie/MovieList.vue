@@ -1,7 +1,7 @@
 <template>
 <div  class="movie-list">
   <ul>
-    <li v-for="movie in movieList" :key="movie.id" class="movie">
+    <li v-for="movie in moveList" :key="movie.id" class="movie">
       <div class="movie-img">
         <img :src="movie.img" alt="">
       </div>
@@ -17,56 +17,81 @@
     <img src="../../assets/img/loading.gif" alt="">
   </div>
 </div>
-</template>
 
+</template>
 <script>
-import Axios from "axios";//引入package.json里面的axios （npm install axios --save）
+import Axios from "axios"; //引入package.json里面的axios （npm install axios --save）
 export default {
-  data(){   //这里的data一定是函数
+  data() {
+    //这里的data一定是函数
     return {
-      movieList:[],
-      loadingShow:true
-    }
+      moveList: [],
+      loadingShow: true
+    };
   },
-  mounted(){//钩子函数写在这，请求数据
-      let url1=API_PROXY + "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset="+this.movieList.length
+  mounted() {//钩子函数写在这vue自动调用，请求数据，数据加载完成才会执行这个函数
+    this.loadData();//封装完函数最开始应该先调用一次
+    //监听滚动条事件
+  window.onscroll = () => {
+    let clientHeight=document.documentElement.clientHeight;//可视区域高度（比内容要矮）
+    let scrollTop=document.documentElement.scrollTop;//滚动条高度
+    let scrollHeight=document.documentElement.scrollHeight;//整个高度，可视区域+滚动条高度=整个高度 可证明滚动条到底了
+    if(clientHeight + scrollTop == scrollHeight){
+        console.log('到底了');
+        this.loadingShow=true;//因为前面用的是箭头函数，所以能取到vue对象下的loadingShow
+       }
+    };
+  },
+  methods:{
+    loadData(){//每次滚动条到底都要再请求10条，于是把请求封装成函数loadDate
+      let url1 =
+      API_PROXY +
+      "http://m.maoyan.com/movie/list.json?type=hot&limit=10&offset=" +
+      this.moveList.length;
     // url1表示猫眼电影的远程服务接口
     //从服务端获取信息所以用get()，向服务端发送信息用post()
     //Axios返回一个promise对象，成功执行then(),失败执行catch()
-    let url2="/static/moviedata.json"//绝对地址，本地的电影数据json文件
+    let url2 = "/static/moviedata.json"; //static静态资源文件，webpack打包时不会被压缩，直接拷贝，绝对地址，本地的电影数据json文件
     Axios.get(url2)
-    .then(res=>{
-      // console.log(res);
-      this.loadingShow=false;
-      let list=res.data.data.movies;
-      let data=list.slice(
-        this.movieList.length,this.movieList.length+10
-      )
-    })
-    .catch(()=>{})
+      .then(res => {
+        // console.log(res);
+        this.loadingShow = false;
+        //假分页
+        let list = res.data.data.movies;
+        this.moveList = list.slice(0, 10);
+      })
+      .catch(() => {});
+    }
   }
-}
+};
 </script>
-
 <style scoped>
-.movie{
-  display:flex;
-  padding:0.2rem 0.2rem;
-  border:1px solid#ccc;
+.movie-list {
+  margin: 1rem 0;
 }
-.movie-img{
- flex-grow:1;
- margin-right:0.2rem;
- width: 0;
+.movie {
+  display: flex;
+  padding: 0.2rem;
+  border-bottom: 1px solid #ccc;
 }
-.movie-info{
- flex-grow:2;
- width: 0;
+.movie-img {
+  flex-grow: 1;
+  width: 0;
+  margin-right: 0.2rem;
 }
-.movie-list{
- margin:1rem 0;
+.movie-img img {
+  width: 100%;
 }
-.movie-name{
-  font-weight:bolder;
+.movie-info {
+  flex-grow: 2;
+  width: 0;
+}
+.movie-name {
+  font-weight: bolder;
+}
+.loading {
+  text-align: center;
 }
 </style>
+
+
