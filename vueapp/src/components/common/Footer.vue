@@ -1,6 +1,6 @@
 <template>
     <ul class="footer">
-        <li>电影</li>
+        <li><router-link to="/movie/movieList">电影</router-link>  </li>
         <li>音乐</li>
         <li>书籍</li>
         <li>图书</li>
