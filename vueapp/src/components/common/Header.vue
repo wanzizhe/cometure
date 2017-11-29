@@ -1,7 +1,9 @@
 <template>
-  <div class="header">
+   <div class="header" :style="{background:bg}"> <!--:相对于对象来说的，所以要加大括号-->
     <button class="home" @click="goHome">首页</button>
-    <h2 class="title">Movie</h2>
+    <h2 class="title">
+        <slot name="title">默认值</slot>
+    </h2>
   </div>
 </template>
 
@@ -11,7 +13,8 @@ export default {
     goHome() {
        this.$router.push('/');
     }
-  }
+  },
+  props:['bg']
 };
 </script>
 
@@ -19,13 +22,13 @@ export default {
 .header {
   width: 100%;
   background-color: rgb(33, 150, 243);
-  height: 1rem;
+  height: 1.1rem;
   position: fixed;
   top: 0;
   line-height: 1rem;
 }
 .home {
-  background-color: rgb(33, 150, 243);
+  background-color: transparent;
   border: 0;
   color: #fff;
   float: left;

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            margin:0 auto;
+            position:relative;
+        }
+
+        #imgs li{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        #imgs img{
+            width: 400px;
+            height: 300px;
+        }
+        #tabs li{
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            float: left;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+            margin:0 2px;
+        }
+        #tabs{
+            position:absolute;
+            right:20px;
+            bottom:20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="imgs">
+            <li v-for="(item,index) in imgs">
+                <img :src="item" alt="">
+            </li>
+        </ul>
+        <ul id=tabs>
+            <li v-for="(item,index) in imgs.length">{{item}}</li>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el:'#container',
+            data:{
+                imgs:[
+                    'https://img3.doubanio.com/lpic/s24468373.jpg',
+                    'https://img3.doubanio.com/lpic/s6989253.jpg',
+                    'https://img3.doubanio.com/lpic/s27102925.jpg'
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -46,13 +46,13 @@ export default {
     // 监听滚动条事件
     window.onscroll = () => {
       let clientHeight = document.documentElement.clientHeight;//可视区域高度（比内容要矮）
-      let scrollTop = document.documentElement.scrollTop||document.body.scrollTop;//滚动条高度
+      let scrollTop = Math.ceil(document.documentElement.scrollTop||document.body.scrollTop);//滚动条高度
       let scrollHeight = document.documentElement.scrollHeight;//整个高度，可视区域+滚动条高度=整个高度 可证明滚动条到底了
-      if (clientHeight + scrollTop <= scrollHeight) {
-        console.log('到底了');
+      if (clientHeight + scrollTop == scrollHeight) {
+        // console.log('到底了');
         this.loadingShow = true;//因为前面用的是箭头函数，所以能取到vue对象下的loadingShow
         if (!this.tip) {
-         console.log('加载了loadData()');
+        //  console.log('加载了loadData()');
           this.loadData();//加载成功10条之后继续加载数据
         } else {
           this.loadingShow = false;
@@ -70,7 +70,7 @@ export default {
     //从服务端获取信息所以用get()，向服务端发送信息用post()
     //Axios返回一个promise对象，成功执行then(),失败执行catch()
     // url2表示本地的电影数据json文件
-      let url2 = "/static/moviedata.json";//static静态资源文件，webpack打包时不会被压缩，直接拷贝，绝对地址，本地的电影数据json文件
+      let url2 = "/static/data/moviedata.json";//static静态资源文件，webpack打包时不会被压缩，直接拷贝，绝对地址，本地的电影数据json文件
       Axios.get(url2)
         .then(res => {
           // console.log(res);
