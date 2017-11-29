@@ -44,6 +44,9 @@
             right:20px;
             bottom:20px;
         }
+        #tabs .selected{
+            background: orange;
+        }
     </style>
 </head>
 <body>
@@ -54,7 +57,9 @@
             </li>
         </ul>
         <ul id=tabs>
-            <li v-for="(item,index) in imgs.length">{{item}}</li>
+            <li v-for="(item,index) in imgs.length" :class="{selected:index == nowIndex}" @mouseover="changeImg(index)">
+                {{item}}
+            </li>
         </ul>
     </div>
     <script src="vue.js"></script>
@@ -66,7 +71,13 @@
                     'https://img3.doubanio.com/lpic/s24468373.jpg',
                     'https://img3.doubanio.com/lpic/s6989253.jpg',
                     'https://img3.doubanio.com/lpic/s27102925.jpg'
-                ]
+                ],
+                nowIndex : 0
+            },
+            methods:{
+                changeImg(index){
+                    this.nowIndex = index;
+                }
             }
         });
     </script>
