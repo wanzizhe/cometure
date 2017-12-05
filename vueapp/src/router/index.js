@@ -9,6 +9,9 @@ import MusicList from '@/components/music/MusicList'
 import MusicAlbums from '@/components/music/MusicAlbums'
 import Book from '@/components/book/Book'
 import Photo from '@/components/photo/Photo'
+import PhotoList from '@/components/photo/PhotoList'
+import PhotoDetail from '@/components/photo/PhotoDetail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -22,32 +25,39 @@ export default new Router({
       path: '/movie',
       component: Movie,
       children: [{
-          path: 'movielist',
+          path: 'movieList',
           component: MovieList
         },
         {
-          path: 'moviedetail/:movieId',
+          path: 'movieDetail/:movieId',
           component: MovieDetail
         }
       ]
-    },{
+    }, {
       path: '/music',
       component: Music,
-      redirect:'/music/musiclist',
-      children:[{
-          path:'musiclist',
-          component:MusicList
-        },{
-          path:'musicAlbums/:musicId',
-          component:MusicAlbums
-        }
-      ]
-    },{
+      redirect: '/music/musicList',
+      children: [{
+        path: 'musicList',
+        component: MusicList
+      }, {
+        path: 'musicAlbums/:musicId',
+        component: MusicAlbums
+      }]
+    }, {
       path: '/book',
       component: Book
-    },{
+    }, {
       path: '/photo',
-      component: Photo
+      component: Photo,
+      redirect: '/photo/photoList',
+      children: [{
+        path: 'PhotoList',
+        component: PhotoList
+      }, {
+        path: 'photoDetail',
+        component: PhotoDetail
+      }]
     }
   ]
 })
