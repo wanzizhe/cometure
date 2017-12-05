@@ -55,7 +55,7 @@ export default new Router({
         path: 'PhotoList',
         component: PhotoList
       }, {
-        path: 'photoDetail',
+        path: 'photoDetail/:index',
         component: PhotoDetail
       }]
     }
