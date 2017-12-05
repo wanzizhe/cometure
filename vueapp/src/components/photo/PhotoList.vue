@@ -20,6 +20,7 @@ export default {
     Axios.get("/static/data/photodata.json").then(res => {
       // console.log(res);
       this.photoList = res.data.photoData;
+      //存到vuex里面
     }).catch();
   }
 };

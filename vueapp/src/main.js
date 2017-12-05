@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import './assets/css/reset.css'
 import './assets/js/rem.js'
+import store from '@vuex/store' //@指的是src
 
 Vue.config.productionTip = false
 global.API_PROXY = 'https://bird.ioliu.cn/v1/?url=' //跨域问题，服务器代理方法
@@ -13,6 +14,7 @@ global.API_PROXY = 'https://bird.ioliu.cn/v1/?url=' //跨域问题，服务器�
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })
