@@ -21,6 +21,7 @@ export default {
       // console.log(res);
       this.photoList = res.data.photoData;
       //存到vuex里面
+      this.$store.dispatch('setPhotoList',res.data.photoData);
     }).catch();
   }
 };

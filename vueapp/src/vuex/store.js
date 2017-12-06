@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex)
+Vue.use(Vuex)//use全局应用Vuex
 
 const state = {  //状态的，改变的东西存在这里
   photoList: []
@@ -16,7 +16,7 @@ const getters = { //相当于computed
 
 };
 
-const actions = {
+const actions = {  //异步的，固定写法
   setPhotoList({commit}, status){
         commit('setPhotoList',status);
   }
