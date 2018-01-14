@@ -1,14 +1,42 @@
 #new-info{
     width: 1140px;
     height: 614px;
+    margin-top:50px;
 }
 #picture{
     width: 494px;
     height: 557px;
     float:left;
+    overflow: hidden;
 }
 #pic-info{
     width: 570px;
     height: 616px;
     float:left;
+    margin-left:50px;
+}
+.big-pic img{
+    width: 480px;
+    height: 400px;
+    padding:6px;
+    border:1px solid #ccc;
+}
+.small-pic{
+    width: 1000px;
+}
+.small-pic img{
+    width: 150px;
+    height: 125px;
+    padding:3px;
+    border:1px solid #ccc;
+    margin-right:5px;
+}
+.lip{
+    color:#ccc;
+    font-size:14px;
+}
+.lip-num{
+    color:#fa558f;
+    font-size:25px;
+    margin:20px 0;
 }
