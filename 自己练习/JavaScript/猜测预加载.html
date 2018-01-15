@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+    <head runat="server">
+        <title>测试js的执行顺序</title>
+        <script language="javascript" type="text/javascript">
+            var a = "这是一段在Header里面的JS代码";
+            alert(a);
+        </script>
+    </head>
+    <body onload="javscript:alert('这是在body的Onload事件中的代码！');">
+        <form id="form1" runat="server">
+            <div>
+                <p>测试一下js的执行顺序
+                </p>
+            </div>
+        </form>
+        <script language="javascript" type="text/javascript">
+            var a = "这是body最后的JS代码";
+            alert(a);
+        </script>
+    </body>
+</html>
+<script>
+    alert("我是html后面的script");
+</script>
+<!-- 输出结果为：（1）弹出：这是一段在Header里面的JS代码
+（2）弹出：这是body最后的JS代码
+（3）弹出：我是html后面的script 的同时页面显示 测试一下js的执行顺序
+（4）最后弹出：这是在body的Onload事件中的代码！
+这时候就有疑问了，为什么（3）中的测试一下js的执行顺序 在（2）这是body最后的JS代码之后才
+显示在页面上的呢？
+这就是浏览器猜测预加载功能！！！
+在遇到第一个<script>标签的时候，被阻塞，但是这是预加载器（Speculative loader）继续“阅读”
+文档，发现了第二个body中的<script>标签，并试图加载它，在第一个<script>标签加载完成之后，
+解析器发现了第二个body中的<script>标签，由于预加载器已经把它加载下来了，放在了浏览器的缓
+存里，所以会被立即执行，之后，浏览器才会收到渲染请求<p>测试一下js的执行顺序</p> 显示在页
+面上。 -->
