@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+    <head runat="server">
+        <title>测试js的执行顺序</title>
+        <script language="javascript" type="text/javascript">
+            var a = "这是一段在Header里面的JS代码";
+            alert(a);
+        </script>
+    </head>
+    <body onload="javscript:alert('这是在body的Onload事件中的代码！');">
+        <form id="form1" runat="server">
+            <div>
+                <p>测试一下js的执行顺序
+                </p>
+            </div>
+        </form>
+        <script language="javascript" type="text/javascript">
+            var a = "这是一段页面最后的JS代码";
+            alert(a);
+        </script>
+    </body>
+</html>
