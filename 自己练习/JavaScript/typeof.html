@@ -64,6 +64,19 @@
             console.log(false);
         }
 
+        //函数两种声明方式
+        //第一种
+        // fn1();可以先调用再声明
+        function fn1(){
+            console.log("fn1");
+        }
+        fn1();
+
+        //第二种，函数直接量，先定义后调用
+        var fn2 = function(){
+            console.log("fn2");
+        }
+        fn2();//不可以先调用，会报错
 
     </script>
 </body>
