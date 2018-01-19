@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 5;
+        console.log(typeof (a + 3) );//8 number
+        console.log(typeof (a + "3") );//53 string
+        console.log(typeof (a - 3) );//2 number
+        console.log(typeof (a - "3") );//2 number
+        console.log(typeof (a - "k"));//NaN number
+        // typeof返回的值是一个字符串，字符串里面的值是 number，Boolean，，，
+
+        console.log(5 / 0);//infinity
+
+        var l =true;//true相当于1
+        console.log(l * 2);//2
+        var l =false;//false相当于0
+        console.log(l * 2);//0
+
+        //在别的基本类型后面+"",就会转化成字符串类型。
+        var b = false;
+        console.log(false + "");//false
+        console.log(typeof (false + "") );//string,把布尔型（false）转化成了字符串类型、
+
+        // prompt函数
+        var result = prompt("请输入","Hello");//prompt函数两个参数第一个参数是提示语(必须的)，第二个参数是默认值(可选的)
+        console.log(result);
+
+        //window是一个全局的对象，我们定义的所有东西都在里面(函数，变量等等)
+        var result = window.prompt("请输入","Hello");
+        console.log(result);
+        var w = "123";
+        console.log(window.w);
+        window.alert(123);
+
+        //switch case 不仅判断值，还判断类型是否相同
+        var condition = prompt("请输入");
+        console.log(typeof(condition));//无论输入什么类型都会返回string类型
+        switch(condition) {
+            case "4"://值和类型都要得到匹配才可以，基本上都是单点分支，如果是范围还是应该用if
+                alert("c的值为4");
+                break;
+            case "3":
+                alert("c的值为3");
+                break;
+            case "2":
+                alert("c的值为2");
+                break;
+            default:
+                alert("默认值");    
+        }
+
+        //if else 只判断值是否相等
+        var condition = prompt("请输入");
+        if(condition == 2){//condition是strng类型，但是也和数字类型的2在数值上相等
+            console.log(true);
+        }else{
+            console.log(false);
+        }
+
+
+    </script>
+</body>
+</html>
