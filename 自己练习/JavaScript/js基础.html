@@ -96,6 +96,14 @@
             console.log(y);
         }
         add(4);//4 undefined(其中形参y相当于只定义并未赋值)
+
+        //函数返回值
+        function add(x, y){
+            return x + y;//返回值
+        }
+        var result =add(4, 4);
+        console.log(result + 4);//12   在函数外部需要函数的内部结果的时候可以用返回值return
+
     </script>
 </body>
 </html>

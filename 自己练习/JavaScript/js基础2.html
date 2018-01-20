@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //作用域问题
+        var result;//这个result是全局的
+        function add(x, y) {
+            result = x + y;
+        }
+        add(4, 3);
+        console.log(result); //7
+
+        function add(x, y) {
+            var result;//这个result定义在函数里面（局部的），所以作用域在函数里面，外面取不到
+            result = x + y;
+        }
+        add(4, 3);
+        console.log(result); //result is not defined
+
+        //定义数组
+        //第一种方法
+        var arr = [1,2,3];//从数组中取值
+        // console.log(arr[0]);//1
+        // console.log(arr[1]);//2
+        // console.log(arr[2]);//3  
+        for(var i=0; i<arr.length; i++){
+            console.log(arr[i]);
+        }   
+        //第二种方法
+        var arr2 =  new Array();
+        arr[0] = 1;
+        arr[1] = 2;
+        arr[2] = 3;
+        console.log(arr[2]);//3
+        console.log(arr[3]);//undefined
+
+        //对象
+        var obj1 = new Object();
+        obj1.name = "zhangsan";
+        obj1.age = 18;
+        obj1.eat =function(){
+            alert("eat");
+        }
+        console.log(obj1.name);//zhangsan
+        console.log(obj1.eat());//调用方法要加括号
+
+        var father = {
+            name : "lisan",
+            age : 50
+        };
+        var student = {
+            name : "lisi",
+            age : 18,
+            dad : father,//student对象的一个属性还是对象
+            coding : function(){
+                alert("code code");
+            }
+        };
+        console.log(student.coding());
+        console.log(student.dad.name);//lisan
+        console.log(student["age"]);//18 通过数组符号里面写属性（一定要带引号）也可以调用属性
+        console.log(student["dad"]);
+
+        //for in 循环
+        var arr = ["a", "b", "c"];
+        for(var p in arr){
+            console.log(p);//0 1 2 下标索引
+            console.log(p + ":" + arr[p]);//输出索引和值
+        }
+
+        var obj = {
+            name : "zhangsan",
+            age : 18,
+            school : "黑大"
+        }
+        for (var p in obj){
+            console.log(p + ":" + obj["p"]);//p为变量，所以应该用中括号
+            // console.log(p + ":" + obj.p); 不可以 属性值都为undefined 因为obj对象中并没有属性名为p的属性
+        }
+    </script>
+</body>
+
+</html>
