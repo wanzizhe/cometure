@@ -82,6 +82,20 @@
             console.log(x + y);
         }
         add(2, 3);//实际参数
+
+        //实参多，形参少，还想在函数中取到外面的实参用arguments,arguments的参数从0开始数
+        function add(){
+            console.log(arguments[0]);
+            console.log(arguments[1]);            
+        }
+        add(4, 4);//4 4
+
+        //实参少，形参多
+        function add(x, y){
+            console.log(x);
+            console.log(y);
+        }
+        add(4);//4 undefined(其中形参y相当于只定义并未赋值)
     </script>
 </body>
 </html>
