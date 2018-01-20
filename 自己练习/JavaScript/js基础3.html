@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 基本数据类型：五种  存放在栈当中，先入后出
+        //引用数据类型：内置对象（Boolean，array，math，正则，global等），自定义对象，DOM对象  存放在堆当中
+        var a = 5;
+        var b = a;
+        b = 6;
+        alert(a);//5
+
+        var obj1 = {
+            name : "zhangsan",
+            age : 18
+        }
+        var obj2 = obj1;
+        obj2.name = "lisi";
+        alert(obj1.name);//lisi
+    </script>
+</body>
+</html>
