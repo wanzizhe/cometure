@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //在for循环中，第二个条件有多个的时候，以最后那么为准！！！
+        var k;
+        for (var i = 0, j = 0; j < 6,i < 5; i++, j++){
+            k = i + j;
+            console.log(i + "--" + j + "--" + k);//4--4--8
+        }
+        console.log(k);//8
+
+        var k;
+        for (var i = 0, j = 0; j < 5,i < 6; i++, j++){
+            k = i + j;
+            console.log(i + "--" + j + "--" + k);//5--5--10
+        }
+        console.log(k);//10
+    </script>
+</body>
+
+</html>
