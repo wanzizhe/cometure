@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="back.html">history</a>
+    <button id="forward">前进</button>
+    <script>
+        //history.back()返回
+        //history.forword()前进
+       //history.go(1)跳到哪里
+        var oFor = document.getElementById("forward");
+        oFor.onclick = function(){
+            history.forward("back.html");
+        }
+    </script>
+</body>
+</html>

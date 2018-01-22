@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在控制台输出 navigator.userAgent返回浏览器信息 
+        //"Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36"
+        function toTaoBao(){
+            if (navigator.userAgent.indexOf("iPhone") != -1){
+                location.href = "https://m.taobao.com";//跳转到地址
+            }else{
+                location.href = "https://www.taobao.com";
+            }
+        }
+        toTaoBao();
+        //location.host  获得主机名字   www.taobao.com
+        //location.post  获得端口号   8080
+        //location.protocol  获得协议  https：
+        //indexOf()函数介绍，从头到尾检索字符串，如果包含字符串则返回第一次出现字符串的下标，如果没有返回-1
+        //indexOf()函数大小写敏感
+        var str = "hello world";
+        console.log(str.indexOf("world"));//6
+        console.log(str.indexOf("World"));//-1
+
+    </script>
+</body>
+</html>
