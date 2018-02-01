@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        /*              display：none    opacity:0   visibility:hidden
+        占据空间            不占据         占据          占据
+        回流与渲染           触发          不触发        只重绘渲染不会回流
+        子代继承性           不继承         继承         继承
+        子代反继承性          否             否          是（visibility:visible）           
+        transform效果       无效            有效        有效
+        绑定的事件           无效           有效         无效
+         */
         *{
             margin: 0;
             padding: 0;
@@ -21,6 +29,11 @@
 
             /* visibility: hidden;  div1消失，占据空间，但是事件消失*/
             /* visibility:visible显示 */
+            visibility: hidden;  /*transform对于visibility: hidden好使*/
+            -moz-transform:rotate(-5deg);
+            -webkit-transform:rotate(-5deg);
+            -ms-transform:rotate(-5deg);
+            transform:rotate(-5deg);
         }
         #div2{
             background: #00ff00;
