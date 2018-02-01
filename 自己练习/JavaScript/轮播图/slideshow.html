@@ -129,7 +129,9 @@
             }
             changeImg();
         };
-
+        oLeft.onselectstart=oRight.onselectstart=function(){
+            return false;
+        };
         function changeImg() {
             for (var i = 0; i < aLi.length; i++) {
                 aLi[i].className = "";

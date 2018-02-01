@@ -10,18 +10,28 @@
     <script>
         //定时器分为两种：setInterval  setTimeout   interval间隔  timeout延迟
         //setInterval定时器会无限执行下去，除非你clearInterval了它的返回值timer
-        var i = 0;
-        var timer = setInterval(function(){
-            console.log(i++);
-            if(i > 5){
-                clearInterval(timer);
-            }
-        },1000);
-        
+        // var i = 0;
+        // var timer = setInterval(function(){
+        //     console.log(i++);
+        //     if(i > 5){
+        //         clearInterval(timer);
+        //     }
+        // },1000);
+        // console.log(typeof timer);//number,定时器的返回值是number类型的
+
+        // //setTimeout定时器相当于延迟，返回值也是number型
         // var timer1 = setTimeout(function(){
         //     console.log(i++);//只输出一个零之后就结束了，不能无限执行下去
         // },1000);
         // clearTimeout(timer1);//清除定时器，在定时器还没开启之前就清除了，所以连零都没有输出
-    </script>
+
+        //例题
+        //js是单线程的
+        var timer=setTimeout(function(){
+            console.log(1);
+        },0);//跳出当前执行队列，等后面的执行完成之后再执行
+        console.log(2);
+        console.log(3);//231
+    </script>    
 </body>
 </html>
