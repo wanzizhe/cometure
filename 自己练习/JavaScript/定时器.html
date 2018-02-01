@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定时器分为两种：setInterval  setTimeout   interval间隔  timeout延迟
+        //setInterval定时器会无限执行下去，除非你clearInterval了它的返回值timer
+        var i = 0;
+        var timer = setInterval(function(){
+            console.log(i++);
+            if(i > 5){
+                clearInterval(timer);
+            }
+        },1000);
+        
+        // var timer1 = setTimeout(function(){
+        //     console.log(i++);//只输出一个零之后就结束了，不能无限执行下去
+        // },1000);
+        // clearTimeout(timer1);//清除定时器，在定时器还没开启之前就清除了，所以连零都没有输出
+    </script>
+</body>
+</html>
