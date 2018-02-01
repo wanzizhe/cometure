@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">divdiv</div>
+    <script>
+        console.log(this);//window
+
+        var oDiv = document.getElementById("div1");
+        oDiv.onclick=function(){
+            console.log(this);//div那个对象
+        }
+
+        window.setInterval(function(){
+            console.log(this);//window,定时器是window下面的
+        },1000);
+
+        function fn(){
+            console.log(this);//window，方法和变量都是定义在window下面的
+        }
+        fn();
+    </script>
+</html>
