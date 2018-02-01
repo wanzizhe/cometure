@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body> 
+    <img src="c1.jpg" alt="" id="img">
+    <script>
+        //把代码写在body最下面和写在window.onload=function(){}里面有什么区别？
+        //写在body最下面的代码会比window.onload=function(){}里面的先执行，
+        //因为写在body最下面的代码等到dom结构加载完成（每个标签加载完）之后执行
+        //在window.onload=function(){}里面的代码要等到标签以及标签里面的资源文件
+        // （图片，外部引入的css，js 文件）全部加载完成之后再会执行
+        //举一个例子：获取图片的宽度(offsetWidth)直接写在<script>标签里面在清除缓存的时候得到图片宽度为0，
+        //因为写在body最下面的代码等到dom结构加载完成，其实只是每个标签加载完，其中的图片并没有下载完成
+        //而把代码写在window.onload=function(){}里面，在图片下载完成之后就可以获取图片宽度了
+            var oImg = document.getElementById("img");
+            console.log(oImg.offsetWidth);//0
+            window.onload = function (){
+                console.log(oImg.offsetWidth);//149
+            }
+        //如果你就是不想用window.onload的话，可以写成这样(所有带有src属性的元素都有onload事件)
+            oImg.onload = function(){
+                console.log(oImg.offsetWidth);//149
+            }
+    </script>
+</body>
+</html>
