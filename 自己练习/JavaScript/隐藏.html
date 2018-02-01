@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        #div1{
+            background: #ff0000;
+             /* display: none;  div1消失且不占空间，事件消失 */
+
+            /* opacity: 0;
+            filter: alpha(opacity=0);  div1消失，占据空间，事件还在*/
+
+            /* visibility: hidden;  div1消失，占据空间，但是事件消失*/
+            /* visibility:visible显示 */
+        }
+        #div2{
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        oDiv1.onclick = function(){
+            alert(123);
+        };
+    </script>
+</body>
+</html>

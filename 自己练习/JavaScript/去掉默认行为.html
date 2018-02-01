@@ -7,10 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="www.baidu.com" id="baidu">百度</a>
+        <a href="http://www.baidu.com" id="baidu">baidu</a>
     <script>
         var oUrl = document.getElementById("baidu");
         oUrl.onclick = function (){
+            alert("123");
             return false;//return false 可以阻止a标签默认跳转行为
         }
     </script>

@@ -19,11 +19,11 @@
         //而把代码写在window.onload=function(){}里面，在图片下载完成之后就可以获取图片宽度了
             var oImg = document.getElementById("img");
             console.log(oImg.offsetWidth);//0
-            window.onload = function (){
+            window.onload = function (){//等到window下面所有元素都加载完之后再执行
                 console.log(oImg.offsetWidth);//149
             }
-        //如果你就是不想用window.onload的话，可以写成这样(所有带有src属性的元素都有onload事件)
-            oImg.onload = function(){
+        //如果你就是不想用window.onload的话，可以写成这样(所有带有src属性例如：图片，的元素都有onload事件)
+            oImg.onload = function(){//等到oImg对象加载完成之后执行
                 console.log(oImg.offsetWidth);//149
             }
     </script>
