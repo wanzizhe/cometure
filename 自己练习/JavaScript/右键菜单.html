@@ -50,7 +50,7 @@
         document.oncontextmenu = function (e) {
             e = e || window.event;//事件对象
             oMenu.style.display = "block";
-            oMenu.style.top = e.clientY + "px";
+            oMenu.style.top = e.clientY + "px";//对象.style.属性 只能给元素赋值，在内敛样式中增添css样式，是不能取值的
             oMenu.style.left = e.clientX + "px";
             console.log(oMenu.style.top);
             console.log(oMenu.style.left);
