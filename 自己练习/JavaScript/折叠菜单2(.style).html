@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 200px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #container h3 {
+            background: #000;
+            color: #fff;
+        }
+
+        #container .menu {
+            display: none;
+        }
+
+        .menu li:hover {
+            background: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul>
+            <li>
+                <h3>管理区</h3>
+                <ul class="menu">
+                    <li>111</li>
+                    <li>222</li>
+                    <li>333</li>
+                </ul>
+            </li>
+            <li>
+                <h3>交流区</h3>
+                <ul class="menu">
+                    <li>111</li>
+                    <li>222</li>
+                    <li>333</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var oCon = document.getElementById("container");
+        var aH3 = oCon.getElementsByTagName("h3");
+        var aUl = oCon.getElementsByClassName("menu");
+        for (var i = 0; i < aH3.length; i++) {
+            aH3[i].index = i;
+            aH3[i].onclick = function () {
+                // if (aUl[this.index].style.display == "none") {
+                //     aUl[this.index].style.display = "block";
+                // } else {
+                //     aUl[this.index].style.display = "none";
+                // }
+
+                if (aUl[this.index].style.display == "block") {
+                    aUl[this.index].style.display = "none";
+                } else {
+                    aUl[this.index].style.display = "block";
+                }
+            };
+            //js中对象.style.属性只能赋值(赋值是把css赋给内敛样式)，不能取值！！！
+            //上面的判断如果是上面那种情况，因为if中取不到值，所以为false，执行else，
+            //最开始是闭合，点击一下之后还是闭合，之后if中才可以取到刚刚的赋值（none）
+            //if为true，执行if中的代码，反过来第二种方法则可以。
+        }
+    </script>
+</body>
+
+</html>
