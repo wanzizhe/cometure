@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1">hhhhh</h1>
+    <p>pppppp</p>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+    </ul>
+    <script>
+        //对于这么多兼容性问题，我们需要封装方法
+        //第一个方法：找到该元素的兄弟（元素节点）
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType != 1) //elem可能是null
+            return elem;
+        }
+        console.log(next(oH1)); //返回兄弟节点<p>pppppp</p>
+
+        //第二个方法：找到该元素的第一个孩子节点（元素节点）
+        function first(elem) {
+            elem = elem.firstChild;
+            return elem.nodeType == 1 ? elem : next(elem);
+        }
+        console.log(first(oUl1)); //返回第一个孩子节点<li>001</li>
+    </script>
+</body>
+
+</html>
