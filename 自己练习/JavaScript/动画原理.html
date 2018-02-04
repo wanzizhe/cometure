@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style lang="">
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        #div1{
+
+        #div1 {
             width: 200px;
             height: 200px;
             background: #f00;
+            position: relative;
+            left: 0;
+            top: 0;
         }
     </style>
 </head>
+
 <body>
     <button>move</button>
     <div id="div1"></div>
+    <script src="../../js/javascript/wichung-1.0.js"></script>
     <script>
-        var oBtn = document.getElementsByTagName("button");
+        //动画原理其实是一个定时器
+        var oBtn = document.getElementsByTagName("button")[0];
         var oDiv = document.getElementById("div1");
-        oBtn.onclick = function (){
-
+        oBtn.onclick = function () {
+            var timer = setInterval(function () {
+                oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+                oDiv.style.top = oDiv.offsetTop + 10 + "px";
+                if(oDiv.offsetLeft > 500){
+                    oDiv.style.left = 0;
+                    oDiv.style.top = 0;
+                    clearInterval(timer);
+                }
+            }, 30);
+            // animate(oDiv,{
+            //     top:200
+            // },function(){
+            //     animate(oDiv,{
+            //         left:200
+            //     })
+            // });
         };
     </script>
 </body>
+
 </html>

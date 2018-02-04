@@ -34,10 +34,15 @@
         }
         aSmallImg[nowindex].className = "selected";
         if(nowindex == 0){
-            oSmallPic.style.left = "0";
+            // oSmallPic.style.left = "0";
+            animate(oSmallPic,{
+                left : 0
+            });
         }else{
-            console.log("1")
-            oSmallPic.style.left = -(aSmallImg[0].offsetWidth + 10) +"px";
+            // oSmallPic.style.left = -(aSmallImg[0].offsetWidth + 10) +"px";
+            animate(oSmallPic,{
+                left : -(aSmallImg[0].offsetWidth + 10)
+            });    
         }
     }
 })();
