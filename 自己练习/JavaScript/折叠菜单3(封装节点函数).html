@@ -66,7 +66,7 @@
         for (var i = 0; i < aH3.length; i++) {
             aH3[i].index = i;
             aH3[i].onclick = function () {
-                var aUl = next(this);
+                var aUl = next(this);//应用next()函数进行下一个兄弟的查找
                 if (aUl.style.display == "block") {
                     aUl.style.display = "none";
                 } else {

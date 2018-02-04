@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #f00;
+            padding:10px;
+            border:1px solid #fff;
+            margin:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        console.log(oDiv1.offsetWidth);//获取元素宽度222 offsetWidth包含 内容+padding+border
+        console.log(oDiv1.offsetHeight);//获取元素高度222
+        oDiv1.offsetWidth = "500px";//不好使
+        oDiv1.style.width="500px";//好使，改变了元素的宽度
+        //offsetWidth 只能取值(取到的值没有单位)，不能赋值
+        //对象.style.属性  能赋值，取值只能取到内联样式的值
+    </script>
+</body>
+</html>
