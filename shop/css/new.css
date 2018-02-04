@@ -8,6 +8,7 @@
     height: 557px;
     float:left;
     overflow: hidden;
+    position: relative;
 }
 #pic-info{
     width: 570px;
@@ -15,21 +16,28 @@
     float:left;
     margin-left:50px;
 }
-.big-pic img{
+#big-pic img{
     width: 480px;
     height: 400px;
     padding:6px;
     border:1px solid #ccc;
 }
-.small-pic{
+#small-pic{
     width: 1000px;
+    position: relative;
+    left:0;
+    top:0;
 }
-.small-pic img{
+#small-pic .selected{
+    border:1px solid #000;
+}
+#small-pic img{
     width: 150px;
     height: 125px;
     padding:3px;
     border:1px solid #ccc;
     margin-right:5px;
+    cursor: pointer;
 }
 .lip{
     color:#ccc;
@@ -39,4 +47,21 @@
     color:#fa558f;
     font-size:25px;
     margin:20px 0;
+}
+#picture .arrow{
+    position: absolute;
+    top:200px;
+    background: #000;
+    color:#fff;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height:30px;
+    cursor: pointer;
+}
+#left{
+    left:10px;
+}
+#right{
+    right:10px;
 }
