@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+        }
+
+        #div1 {
+            background: #f00;
+            top: 0;
+        }
+
+        #div2 {
+            background: #0f0;
+            top: 200px;
+        }
+
+        #div3 {
+            background: #00f;
+            top: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var oDiv2 = document.getElementById("div2");
+        var oDiv3 = document.getElementById("div3");
+
+        function drag(elem) {//封装函数，就可以实现多元素传参
+            elem.onmousedown = function (e) {
+                e = e || window.event;
+                oDivX = e.clientX - elem.offsetLeft;
+                oDivY = e.clientY - elem.offsetTop;
+                document.onmousemove = function (e) {
+                    e = e || window.event;
+                    elem.style.left = e.clientX - oDivX + "px";
+                    elem.style.top = e.clientY - oDivY + "px";
+                };
+            };
+            document.onmouseup = function () {
+                document.onmousemove = null;
+            };
+        }
+        drag(oDiv1);
+        drag(oDiv2);
+        drag(oDiv3);        
+    </script>
+</body>
+
+</html>
