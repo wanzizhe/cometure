@@ -2,6 +2,7 @@
     width: 1140px;
     height: 614px;
     margin-top:50px;
+    position: relative;
 }
 #picture{
     width: 494px;
@@ -10,11 +11,39 @@
     overflow: hidden;
     position: relative;
 }
+#magnify img{
+    position: absolute;
+    top:0;
+    left:0;
+}
+#magnify{
+    width: 480px;
+    height: 400px;
+    position: absolute;
+    overflow: hidden;
+    left: 500px;
+    top: 0px;
+    display: none; 
+}
+#drag{
+    width: 200px;
+    height: 200px;
+    background: #cccccc;
+    opacity:.5;
+    filter:alpha(opacity(50));
+    position: absolute;
+    top:0;
+    left:0;
+    display:none;
+}
 #pic-info{
     width: 570px;
     height: 616px;
     float:left;
     margin-left:50px;
+}
+#big-pic{
+    position: relative;
 }
 #big-pic img{
     width: 480px;
