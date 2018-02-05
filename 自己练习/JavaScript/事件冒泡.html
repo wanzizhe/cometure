@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 500px;
+            height: 500px;
+            background: #ff0000;
+        }
+
+        #div2 {
+            width: 300px;
+            height: 300px;
+            background: #0f0;
+        }
+
+        #div3 {
+            width: 200px;
+            height: 200px;
+            background: #00f;
+        }
+    </style>
+</head>
+
+<body id="body">
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+    <script>
+        //事件冒泡是浏览器的默认行为，从里向外，不是所有事件都有事件冒泡：onload，onfocus,onblur等没有事件冒泡
+        var oDiv1 = document.getElementById("div1");
+        var oDiv2 = document.getElementById("div2");
+        var oDiv3 = document.getElementById("div3");
+        var oBody = document.getElementById("body");
+        var oHtml = document.getElementById("html");
+        // oDiv1.onclick = function (){
+        //     alert("oDiv1");
+        // };
+        // oDiv2.onclick = function (){
+        //     alert("oDiv2");
+        // };
+        // oDiv3.onclick = function (){
+        //     alert("oDiv3");
+        // };
+        // oBody.onclick = function (){
+        //     alert("oBody");
+        // };
+        // oHtml.onclick = function (){
+        //     alert("oHtml");
+        // };//事件冒泡，依次从里面向外输出
+
+
+        // oDiv1.onclick = function (){
+        //     alert("1");
+        // }; 
+        // oDiv1.onclick = function (){
+        //     alert("2");
+        // }; //这时，点击oDiv1时会弹出2，因为后定义的覆盖了之前的，为了解决这个问题，
+        //可以用另外一种绑定事件的方法 addEventLisenter()这个方法适合标准浏览器，它有三个参数，第一个是事件(不带on)，第二个是事件处理函数，
+        //第三个是Boolean类型的一个值，默认值是false，false为事件冒泡，true为事件捕获
+        //在IE下的方法叫attachEvent(),它有两个参数，第一个是事件（带on），第二个是事件处理函数（在下面有具体的介绍）
+        //IE只支持事件冒泡，不支持事件捕获
+
+
+        // oDiv1.addEventListener("click",function(){
+        //     alert(1);
+        // }); 
+        // oDiv1.addEventListener("click",function(){
+        //     alert(2);
+        // }); //这时。点击oDiv1时会先弹出1，之后弹出2，用addEventListener绑定事件不会被覆盖，按绑定顺序依次执行
+        //但是addEventListener有兼容性问题，不兼容IE
+
+
+        // oDiv1.addEventListener("click", function () {
+        //     alert("oDiv1");
+        // },false);
+        // oDiv2.addEventListener("click", function () {
+        //     alert("oDiv2");
+        // },false);
+        // oDiv3.addEventListener("click", function () {
+        //     alert("oDiv3");
+        // },false);//false为事件冒泡，从事件源往外，点击 oDiv3时，输出顺序是oDiv3，oDiv2，oDiv1
+
+
+        // oDiv1.addEventListener("click", function () {
+        //     alert("oDiv1");
+        // }, true);
+        // oDiv2.addEventListener("click", function () {
+        //     alert("oDiv2");
+        // }, true);
+        // oDiv3.addEventListener("click", function () {
+        //     alert("oDiv3");
+        // }, true); //true为事件捕获，从外到最里面的事件源，点击oDiv3时，输出顺序是oDiv1，oDiv2，oDiv3
+
+
+        // oDiv1.addEventListener("click", function () {
+        //     alert("oDiv1");
+        // }, false);
+        // oDiv2.addEventListener("click", function () {
+        //     alert("oDiv2");
+        // }, false);
+        // oDiv3.addEventListener("click", function () {
+        //     alert("oDiv3");
+        // }, false);
+
+        // oDiv1.addEventListener("click", function () {
+        //     alert("oDiv1");
+        // }, true);
+        // oDiv2.addEventListener("click", function () {
+        //     alert("oDiv2");
+        // }, true);
+        // oDiv3.addEventListener("click", function () {
+        //     alert("oDiv3");
+        // }, true);//点击oDiv3，输出顺序为，123321，可以说明，事件先捕获，后冒泡
+
+
+        //如何阻止事件冒泡？ 标准浏览器：e.stopPropagation()
+        // oDiv1.addEventListener("click", function (e) {
+        //     alert("oDiv1");
+        //     console.log(this);//这时的this指的是<div id="div1"></div>
+        //     e.stopPropagation();
+        // }, false);
+        // oDiv2.addEventListener("click", function (e) {
+        //     alert("oDiv2");
+        //     e.stopPropagation();            
+        // }, false);
+        // oDiv3.addEventListener("click", function (e) {
+        //     alert("oDiv3");
+        //     e.stopPropagation();            
+        // }, false);//点击oDiv1弹出oDiv1，点击oDiv2弹出oDiv2，点击oDiv3弹出oDiv3，阻止了事件冒泡行为
+
+
+        //在IE下的方法叫attachEvent(),它有两个参数，第一个是事件（带on），第二个是事件处理函数
+        //IE只支持事件冒泡，不支持事件捕获
+        // oDiv1.attachEvent("onclick",function(){
+        //     console.log(this);//这时的this指的是window，这是IE的错误，
+        //     alert(1);
+        // });
+        // oDiv1.attachEvent("onclick",function(){
+        //     alert(2);
+        // });
+        // oDiv1.attachEvent("onclick",function(){
+        //     alert(3);
+        // });//弹出顺序为3,2,1,给同一个事件源绑定同样的事件，不会被覆盖，但是弹出顺序是相反的
+
+
+        //IE下阻止事件冒泡用 window.event.cancelBubble = true
+        // oDiv1.attachEvent("onclick",function(){
+        //     console.log(this);//这时的this指的是window，这是IE的错误，
+        //     window.event.cancelBubble = true;
+        //     alert("oDiv1");
+        // });
+        // oDiv2.attachEvent("onclick",function(){
+        //     window.event.cancelBubble = true;
+        //     alert("oDiv2");
+        // });
+        // oDiv3.attachEvent("onclick",function(){
+        //     window.event.cancelBubble = true;
+        //     alert("oDiv3");
+        // });//事件冒泡oDiv3，oDiv2，oDiv1，
+
+
+        //对于标准浏览器和IE浏览器之间的兼容性问题，我们封装函数
+        function addEvent(elem,type,handler){
+            if(elem.addEventListener){
+                elem.addEventListener(type,handler);
+            }else if(elem.attachEvent){
+                elem.attachEvent(type,handler);
+            }else{
+                elem["on"+ type] = handler;
+            }
+        }
+        addEvent(oDiv1,"click",function(){
+            alert(1);
+        })
+    </script>
+</body>
+
+</html>

@@ -26,6 +26,20 @@
             return elem.nodeType == 1 ? elem : next(elem);
         }
         console.log(first(oUl1)); //返回第一个孩子节点
+
+        //对于标准浏览器和IE浏览器之间对于事件冒泡的兼容性问题，我们封装函数
+        function addEvent(elem,type,handler){
+            if(elem.addEventListener){
+                elem.addEventListener(type,handler);
+            }else if(elem.attachEvent){
+                elem.attachEvent(type,handler);
+            }else{
+                elem["on"+ type] = handler;
+            }
+        }
+        addEvent(oDiv1,"click",function(){
+            alert(1);
+        })
     </script>
 </body>
 

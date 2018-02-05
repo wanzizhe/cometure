@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            name : "zhangsan",
+            age : 18
+        };
+        console.log(obj.name);//zhangsan
+        console.log(obj["name"]);//zhangsan  对象和数组相对应
+
+        var obj1 = {
+            name : "zhangsan1",
+            age : 20
+        };
+        var p = "name";
+        console.log(obj1[p]);//zhangsan1   如果你所要取的属性是一个变量，那么必须是 对象[属性]
+        for(p in obj1){
+            console.log(p);//name age
+            console.log(obj1[p]);//zhangsan1 20
+        }
+    </script>
+</body>
+
+</html>
