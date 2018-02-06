@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style lang="">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 320px;
+            height: 200px;
+            border: 1px solid #000;
+            overflow: hidden;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #nav {
+            width: 880px;
+            height: 100px;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+
+        #nav li {
+            list-style: none;
+            width: 100px;
+            height: 100px;
+            background: #000;
+            margin-right: 10px;
+            color: #fff;
+            float: left;
+        }
+        #btn{
+            width:80px;
+            margin:150px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="btn">
+            <button id="left">向左</button>
+            <button id="right">向右</button>
+        </div>
+    </div>
+    <script>
+        (function(){
+            var oNav = document.getElementById("nav");
+            var oLeft = document.getElementById("left");
+            var oRight = document.getElementById("right");
+            oNav.innerHTML += oNav.innerHTML;
+            var speed = 10;
+            setInterval(function(){
+                oNav.style.left = oNav.offsetLeft- speed +"px";
+                if(-oNav.offsetLeft >= oNav.offsetWidth/2){
+                    oNav.style.left = 0;
+                }
+                if(oNav.offsetLeft > 0){
+                    oNav.style.left = -oNav.offsetWidth/2 + "px";
+                }
+            },100)
+            oLeft.onclick = oRight.onclick = function(){
+                if(this == oLeft){
+                    speed = 10;
+                } 
+                else{
+                    speed = -10;
+                }               
+            };
+        })();
+    </script>
+</body>
+
+</html>
