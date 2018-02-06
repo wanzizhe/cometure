@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="add">增加</button>
+    <ul id="nav">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+    <script>
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var aAdd = document.getElementById("add");
+        //利用事件冒泡解决新添加元素的事件绑定问题
+        aAdd.onclick = function(){
+            var oLi = document.createElement("li");//创建DOM对象
+            oLi.innerHTML = Math.random();
+            oNav.appendChild(oLi);//把创建的对象追加到父元素里面
+
+            // var sLi = "<li>"+Math.random()+"</li>";
+            // oNav.innerHTML += sLi;//这种方法性能更好
+        };
+
+        // for(var i=0;i<aLi.length;i++){
+        //     aLi[i].onclick = function (){
+        //         console.log(this.innerHTML);
+        //     }
+        // }//后插入元素并没有绑定点击事件
+
+
+        oNav.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            console.log(target.innerHTML);
+        };
+    </script>
+</body>
+</html>

@@ -142,7 +142,7 @@
         // }, false);//点击oDiv1弹出oDiv1，点击oDiv2弹出oDiv2，点击oDiv3弹出oDiv3，阻止了事件冒泡行为
 
 
-        //在IE下的方法叫attachEvent(),它有两个参数，第一个是事件（带on），第二个是事件处理函数
+        //在IE下的阻止后定义函数覆盖之前定义函数的方法叫attachEvent(),它有两个参数，第一个是事件（带on），第二个是事件处理函数
         //IE只支持事件冒泡，不支持事件捕获
         // oDiv1.attachEvent("onclick",function(){
         //     console.log(this);//这时的this指的是window，这是IE的错误，
@@ -158,7 +158,6 @@
 
         //IE下阻止事件冒泡用 window.event.cancelBubble = true
         // oDiv1.attachEvent("onclick",function(){
-        //     console.log(this);//这时的this指的是window，这是IE的错误，
         //     window.event.cancelBubble = true;
         //     alert("oDiv1");
         // });
@@ -169,7 +168,7 @@
         // oDiv3.attachEvent("onclick",function(){
         //     window.event.cancelBubble = true;
         //     alert("oDiv3");
-        // });//事件冒泡oDiv3，oDiv2，oDiv1，
+        // });//点击oDiv1弹出oDiv1，点击oDiv2弹出oDiv2，点击oDiv3弹出oDiv3，阻止了事件冒泡行为
 
 
         //对于标准浏览器和IE浏览器之间的兼容性问题，我们封装函数

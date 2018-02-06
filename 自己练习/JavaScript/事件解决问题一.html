@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="nav">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+        <li>007</li>
+        <li>008</li>
+        <li>009</li>
+        <li>010</li>
+    </ul>
+    <script>
+        //正常方法
+        var oNav = document.getElementById("nav");
+        // var aLi = oNav.getElementsByTagName("li");
+        // for(var i=0;i<aLi.length;i++){
+        //     aLi[i].onclick = function (){
+        //         console.log(this.innerHTML);
+        //     }
+        // }
+
+
+        //利用事件冒泡解决问题：事件代理/事件委托,利用事件冒泡原理，把子元素事件统一给父元素绑定
+        //事件冒泡：浏览器是默认事件冒泡的，我们可以用addEventListener函数的第三个参数来控制事件冒泡和事件捕获
+        //false是事件冒泡，为默认值，true为事件捕获，先捕获，后冒泡
+        //怎么阻止事件冒泡呢？标准浏览器e.stopPropagation(),IE用window.event.cancelBubble=true
+        //早期IE通过attachEvent()绑定事件冒泡，但是attachEvent()的问题是 ，绑定事件顺序是相反的，并且this的指向是window
+        oNav.onclick = function (e){
+            var target = e.target||window.event.srcElement;
+            console.log(target.innerHTML);
+        }
+
+    </script>
+</body>
+</html>
