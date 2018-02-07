@@ -25,7 +25,7 @@
 
         //任务二：取到h1的兄弟元素
         var oH1 = document.getElementById("h1");
-        console.log(oH1.nextSibling);//有兼容性问题
+        console.log(oH1.nextSibling.nodeType);//有兼容性问题
         //在chrome下为3(文本节点其实是后面的回车),在IE8下为1(元素节点)
         console.log(oH1.nextElementSibling);//有兼容性问题
         //在chrome下返回兄弟节点<p>pppppp</p>，在IE8下为undefined

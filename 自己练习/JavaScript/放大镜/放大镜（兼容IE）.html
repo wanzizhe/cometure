@@ -65,7 +65,7 @@
         var oBig = document.getElementById("big");
         var oBigImg = oBig.getElementsByTagName("img")[0];
         var oMark = document.getElementById("mark");
-        oMark.onmouseover = function(){
+        oMark.onmouseover = function(){//所有事件都给遮罩层mark绑定
             console.log("oSmall.onmouseover")
             oDrag.style.display="block";
             oBig.style.display="block";
