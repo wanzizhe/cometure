@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // if (i = 5) {
+        //     alert("i等于5");
+        // } else {
+        //     alert("i不等于5");
+        // }
+
+        // var i = 0;
+        // do {
+        //     i += 2;
+        // } while (i < 10);
+        // alert(i);
+
+        // var count = 10;
+        // var i = 0;
+        // while (i < count) {
+        //     i++;
+        //     alert(i);
+        // }
+
+    //    var obj = {
+    //        name :"",
+    //        age ,
+    //        school :"heida"
+    //    }
+    //     for (var name in obj) {
+    //         console.log(name);
+    //     }
+
+    var condition = prompt("请输入");
+        console.log(typeof(condition));//无论输入什么类型都会返回string类型
+        switch(condition) {
+            case "4"://值和类型都要得到匹配才可以，基本上都是单点分支，如果是范围还是应该用if
+                alert("c的值为4");
+                break;
+            case "3":
+                alert("c的值为3");
+                break;
+            case "2":
+                alert("c的值为2");
+                break;
+            default:
+                alert("默认值");    
+        }
+    </script>
+</body>
+
+</html>
