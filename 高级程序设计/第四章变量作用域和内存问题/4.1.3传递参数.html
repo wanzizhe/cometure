@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(num) {
+            num += 10;
+            return num;
+        }
+        var count = 20;
+        var result = add(count);
+        alert(count); //20,没有发生变化
+        alert(result); //30
+        alert(add instanceof Object);//true
+
+        var arr = [1,2,3];
+        alert(arr instanceof Array);//true
+    </script>
+</body>
+
+</html>
