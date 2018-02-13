@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var colors = ["red","blue","green",undefined];
+        var a = colors.toString();
+        alert(typeof a);//string
+        var b = colors.valueOf();
+        alert(typeof b);//object
+        alert(b instanceof Array);//true
+        var c = colors.toLocaleString();
+        alert(typeof c);//string
+        console.log(colors[3]);
+        console.log(colors.join("|"));
+
+        // var colors = ["red", "blue", "green"];
+        // alert(colors.join());
+    </script>
+</body>
+
+</html>
