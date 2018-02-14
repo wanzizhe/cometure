@@ -10,19 +10,25 @@
 
 <body>
     <script>
-        var colors = ["red","blue","green",undefined];
-        var a = colors.toString();
-        alert(typeof a);//string
-        var b = colors.valueOf();
-        alert(typeof b);//object
-        alert(b instanceof Array);//true
-        var c = colors.toLocaleString();
-        alert(typeof c);//string
-        console.log(colors[3]);
-        console.log(colors.join("|"));
+        // var colors = ["red","blue","green",undefined];
+        // var a = colors.toString();
+        // alert(typeof a);//string
+        // var b = colors.valueOf();
+        // alert(typeof b);//object
+        // alert(b instanceof Array);//true
+        // var c = colors.toLocaleString();
+        // alert(typeof c);//string
+        // console.log(colors[3]);
+        // console.log(colors.join("|"));
 
         // var colors = ["red", "blue", "green"];
         // alert(colors.join());
+
+        var numbers = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+        var everyResult = numbers.every(function (item, index, array) {
+            return (item > 2);
+        });
+        alert(everyResult);
     </script>
 </body>
 
