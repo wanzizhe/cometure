@@ -30,6 +30,9 @@
         console.log(oH1.nextElementSibling);//有兼容性问题
         //在chrome下返回兄弟节点<p>pppppp</p>，在IE8下为undefined
 
+        //任务三：获取ul下面的所有孩子节点
+        console.log(oUl1.childNodes);//(7) [text, li, text, li, text, li, text]  7个包含文本节点（也就是空格）
+        console.log(oUl1.children);//(3) [li, li, li]  只找到直接子代，li里面再有别的并不会找到，3个孩子是一个数组  所有浏览器都支持！！！
         //对于这么多兼容性问题，我们需要封装方法
         //第一个方法：找到该元素下面的兄弟（元素节点）
         function next(elem){
