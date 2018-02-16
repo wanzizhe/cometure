@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var someDate = new Date(Date.parse("May 25,2004"));
+        console.log(someDate); //Tue May 25 2004 00:00:00 GMT+0800 (中国标准时间)
+        var someDate2 = new Date("May 25,2004");
+        console.log(someDate2); //Tue May 25 2004 00:00:00 GMT+0800 (中国标准时间)
+
+        var someDate3 = new Date(Date.parse("January 32,2007")); //超出范围的无效日期
+        console.log(someDate3); //Invalid Date  无效日期
+
+        //GMT时间2000年1月1日午夜零时  
+        var y2k = new Date(Date.UTC(2000, 0));
+        console.log(y2k); //Sat Jan 01 2000 08:00:00 GMT+0800 (中国标准时间)
+        //GMT时间2005年5月5日下午5:55:55  
+        var allFives = new Date(Date.UTC(2005, 4, 5, 17, 55, 55));
+        console.log(allFives); //Fri May 06 2005 01:55:55 GMT+0800 (中国标准时间)
+
+        //取得开始时间  
+        var start = Date.now();
+        //调用函数  
+        doSomething();
+        //取得停止时间  
+        var stop = Date.now();
+        result = stop - start;
+        console.log(result);//返回表示调用这个方法时的日期和时间的毫秒数
+        function doSomething(){
+            alert(1);
+        }
+    </script>
+</body>
+
+</html>
