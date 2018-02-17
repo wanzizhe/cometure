@@ -25,13 +25,47 @@
         //     console.log(re.test("catastrophe"));
         // }
 
-        var pattern1 = /\[bc\]at/i;
+        // var pattern1 = /\[bc\]at/i;
 
-        alert(pattern1.global);
-        alert(pattern1.ignoreCase);
-        alert(pattern1.lastIndex);
-        alert(pattern1.multiline);
-        alert(pattern1.source);
+        // alert(pattern1.global);
+        // alert(pattern1.ignoreCase);
+        // alert(pattern1.lastIndex);
+        // alert(pattern1.multiline);
+        // alert(pattern1.source);
+
+        // var pattern = new RegExp("\\[bc\\]at", "gi");
+        // alert(pattern.toString());
+        // alert(pattern.toLocaleString());
+        // alert(pattern.valueOf());
+
+        // var text = "this has been a short summer";
+        // var pattern = /(.)hort /g;
+        // if (pattern.test(text)) {
+        //     alert(RegExp.input);
+        //     alert(RegExp.leftContext);
+        //     alert(RegExp.rightContext);
+        //     alert(RegExp.lastMatch);
+        //     alert(RegExp.lastParen);
+        //     alert(RegExp.multiline);
+        // }
+
+        // var text = "this has been a short summer";
+        // var pattern = /(.)hort/g; //匹配任何一个字符串后跟hort，而且把第一个字符放在一个捕获组中
+        // if (pattern.test(text)) {
+        //     alert(RegExp.$_); //this has been a short summer
+        //     alert(RegExp["$`"]); //this has been a 
+        //     alert(RegExp["$'"]); //summer
+        //     alert(RegExp["$&"]); //short
+        //     alert(RegExp["$+"]); //s
+        //     alert(RegExp["$*"]); //false ???
+        // }
+
+        var text = "this has been a short summer";
+        var pattern = /(..)or(.)/g;
+        if (pattern.test(text)) {
+            alert(RegExp.$1); //sh
+            alert(RegExp.$2); //t
+        }
     </script>
 </body>
 
