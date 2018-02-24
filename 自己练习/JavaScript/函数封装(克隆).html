@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //克隆
+        var o1 = {
+            name : "zhangsan",
+            age : 18,
+            brother : {
+                name : "lisi"
+            }
+        };
+        function cloneObj(obj){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof obj[p] === "object"){
+                    newObj[p] = cloneObj(obj[p]);
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+        var o2 = cloneObj(o1);
+        console.log(o2.brother.name);
+    </script>
+</body>
+</html>
