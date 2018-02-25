@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+
+    <ul id="ul1">
+        <li>01</li>
+        <li>02</li>
+    </ul>
+
+    <script>
+        //有问题！！！IE8和IE8之前都不可以
+        var oBtn = document.querySelector("#btn"); //querySelector括号里面写选择器,id选择器,返回一个对象
+        oBtn.onclick = function () {
+            alert("click");
+        }
+
+        var aLi = document.querySelectorAll("li"); //标签选择器，选中所有li，返回一个数组
+        for (var i = 0; i < aLi.length; i++) {
+            aLi.onclick = function () {
+                alert(this.innerHTML);
+            }
+        }
+    </script>
+</body>
+
+</html>

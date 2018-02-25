@@ -23,7 +23,7 @@
         console.log(oUl1.firstElementChild);//有兼容性问题
         //在chrome下返回第一个孩子节点<li>001</li>，在IE8下为undefined
 
-        //任务二：取到h1的兄弟元素
+        //任务二：取到h1的下一个兄弟元素（取到元素前一个兄弟previousSibling和previousElementSibling）
         var oH1 = document.getElementById("h1");
         console.log(oH1.nextSibling.nodeType);//有兼容性问题
         //在chrome下为3(文本节点其实是后面的回车),在IE8下为1(元素节点)
@@ -33,23 +33,39 @@
         //任务三：获取ul下面的所有孩子节点
         console.log(oUl1.childNodes);//(7) [text, li, text, li, text, li, text]  7个包含文本节点（也就是空格）
         console.log(oUl1.children);//(3) [li, li, li]  只找到直接子代，li里面再有别的并不会找到，3个孩子是一个数组  所有浏览器都支持！！！
+        
+        
         //对于这么多兼容性问题，我们需要封装方法
-        //第一个方法：找到该元素下面的兄弟（元素节点）
+        //找到该元素下面的兄弟（元素节点）
         function next(elem){
             do{
-                elem=elem.nextSibling;
+                elem=elem && elem.nextSibling;
             }while(elem && elem.nodeType != 1)//elem可能是null
             return elem;
         }
         console.log(next(oH1));//返回兄弟节点<p>pppppp</p>
+        
+        //找到元素之前的兄弟
+        function prev(elem){
+            do{
+                elem=elem && elem.previousSibling;
+            }while(elem && elem.nodeType != 1)
+            return elem;
+        }
+        console.log(prev(oUl1));
 
-        //第二个方法：找到该元素的第一个孩子节点（元素节点）
+        //找到该元素的第一个孩子节点（元素节点）
         function first(elem){
-            elem = elem.firstChild;
-            return elem.nodeType == 1? elem:next(elem);
+            elem = elem && elem.firstChild;
+            return elem && elem.nodeType == 1? elem:next(elem);
         }
         console.log(first(oUl1));//返回第一个孩子节点<li>001</li>
 
+        //找到该元素的最后一个孩子节点
+        function last(elem){
+           elem = elem && elem.lastChild;
+           return elem && elem.nodeType == 1? elem: prev(elem);
+        }
 
 
 

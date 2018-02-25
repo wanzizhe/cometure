@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn"></button>
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="aa">item 2</li>
+        <li class="aa">item 3</li>
+    </ul>
+    <script>
+        // var oBtn = getById("btn");
+        // function getById(sid){
+        //     return document.getElementById(sid);
+        // }
+
+        // function getByClass(className,context){
+        //     context = context || document;
+        //     return context.getElementsByClassName(className);
+        // }
+        // var aLi = getByClass("aa",getById("ul1"));//ul1下面的两个class="aa"的li
+
+        // function getByTag(tagName,context){
+        //     context = context || document;
+        //     return context.getElementsByTagName(tagName);
+        // }
+
+
+        function $(selector,context){
+            context = context || document;
+            switch(selector.charAt(0)){
+                case "#"://id
+                return document.getElementById(selector.substring(1));
+                break;
+                case "."://class
+                return context.getElementsByClassName(selector.substring(1));
+                break;
+                default:
+                return context.getElementsByTagName(selector);
+                break;
+            }
+        }
+        $("");//selector = #xx | .xx |xx
+    </script>
+</body>
+</html>

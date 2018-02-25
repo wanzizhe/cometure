@@ -10,10 +10,10 @@
 
 <body>
     <script>
-        //找到该元素的兄弟（元素节点）
+        //找到该元素的下一个兄弟（元素节点）
         function next(elem) {
             do {
-                elem = elem.nextSibling;
+                elem = elem && elem.nextSibling;
             } while (elem && elem.nodeType != 1) //elem可能是null
             return elem;
         }
@@ -22,8 +22,8 @@
 
         //找到该元素的第一个孩子节点（元素节点）
         function first(elem) {
-            elem = elem.firstChild;
-            return elem.nodeType == 1 ? elem : next(elem);
+            elem = elem && elem.firstChild;
+            return elem && elem.nodeType == 1 ? elem : next(elem);
         }
         console.log(first(oUl1)); //返回第一个孩子节点
 

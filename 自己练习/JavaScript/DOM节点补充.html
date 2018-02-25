@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div">
+        <div id="div1">div1</div>
+        <h1>hhhhhh</h1>
+        <p>ppppppp</p>
+    </div>
+    <script>
+        var oDiv = document.querySelector("#div");
+        //找到孩子节点
+        console.log(oDiv.childNodes); //NodeList(5)包括回车空格
+        console.log(oDiv.children); //只取到h1和p，任何浏览都可以使用
+
+        //找到父亲节点
+        console.log(oDiv.parentNode); //取到body，oDiv的父元素是body，但是取到body还有一种方法是document.body
+        var oH1 = document.querySelector("h1");
+        console.log(oH1.parentNode); //父元素div
+        console.log(oH1.offsetParent); //也是父元素，找到的是离他最近的已经定位的父元素
+
+        //元素操作：向div中插入一个span
+        var oSpan = document.createElement("span");
+        oSpan.innerHTML = "ssssss";
+        // oDiv.appendChild(oSpan);//把oSpan插入到最后
+
+        //把oSpan插入到任意位置
+        // oDiv.insertBefore(oSpan,oH1);//把oSpan插入到oH1前面
+
+        //替换节点，把oH1替换成oSpan,replaceChild(新，旧)
+        // oDiv.replaceChild(oSpan,oH1);
+
+        //删除一个元素，删除div里面的oH1
+        // oDiv.removeChild(oH1);
+
+
+
+
+        //删除给定元素（自己下不去手，那就找自己的爹，全部删掉）
+        /**
+         *删除给定元素
+         *@param elem 
+         */
+        function remove(elem){
+            elem.parentNode.removeChild(elem);
+        }
+        // remove(oH1);//删掉div里面的oH1
+
+
+        //找到所有兄弟节点，封装获取所有当前元素的元素节点的方法
+        //通过h1找到div1和p
+        /**
+         *
+         *@param elem 当前元素
+         *@return {Array} 返回当前元素的元素节点
+         */
+         function siblings(elem) {
+            var arr = [];
+            var elements = elem.parentNode.children;
+            for(var i = 0; i < elements.length; i++){
+                if(elements[i] != elem){
+                    arr.push(elements[i])
+                }
+            }
+            return arr;
+        }
+        console.log(siblings(oH1));
+
+        //在给定元素之前插入新元素
+        function before(elem,newNode){
+            elem.parentNode.insertBefore(newNode,elem);
+        }
+
+        //在给定元素之后插入新元素
+        function after(elem,newNode){
+            if(elem.nextSibling){
+                before(elem.nextSibling,newNode);
+            }else{
+                elem.parentNode.appendChild(newNode);
+            }
+        }
+        after(oH1,oSpan);
+
+    </script>
+</body>
+
+</html>
