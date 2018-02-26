@@ -13,7 +13,24 @@
         <li class="aa">item 2</li>
         <li class="aa">item 3</li>
     </ul>
+    <h1 class="aa"></h1>   
+    <p class="aa"></p>
     <script>
+        function getByClass(className,context){
+            context =context || document;
+            var result = [];
+            var arr = document.getElementsByTagName("*");
+            var re = new RegExp("\\b"+className+"\\b");
+            for(var i = 0;i < arr.length;i++){
+                if(re.test(arr[i].className)){
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        var oUl = document.getElementById("ul1");
+        var aLi = getByClass("aa");
+        console.log(aLi);
         // var oBtn = getById("btn");
         // function getById(sid){
         //     return document.getElementById(sid);
@@ -38,7 +55,7 @@
                 return [document.getElementById(selector.substring(1))];//希望返回和下面两种一样的数组类型
                 break;
                 case "."://class
-                return context.getElementsByClassName(selector.substring(1));
+                return getByClass(selector.substring(1),context);
                 break;
                 default:
                 return context.getElementsByTagName(selector);

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "abcdefcg";
+        console.log(str.indexOf("c"));//2  c在字符串中首次出现位置的索引，indexOf后只能用字符串
+        console.log(str.lastIndexOf("c"));//6  从后往前找到第一个c
+
+        console.log(str.search("c"));//2 但是search后面可以写正则表达式也可以写字符串
+        console.log(str.search(/c/));//2 括号内是正则表达式
+
+        console.log(str.match(/c/g));//["c","c"] 在全局环境下匹配c，返回一个数组，支持正则表达式
+    </script>
+</body>
+</html>

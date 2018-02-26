@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建正则表达式的两种方法：
+        var reg = /pattern/;
+        var reg = new RegExp("pattern");
+
+        var reg = /c{2}/;//匹配两个连续的c，匹配不到返回null
+        var reg = /c{3,4}/;//匹配c，c的个数大于等于3，小于等于4，有5个c也只会匹配4个
+        var reg = /c{1,}/;//匹配c的个数，大于等于1，没有上限
+
+        //* 表示0次或者多次，等同于{0,}
+        //+ 表示1次或者多次，等同于{1,}
+        //？ 表示0次或者1次，等同于{0,1}
+
+        var reg = /c{3,4}/;//贪婪的，5个c，会匹配4个
+        var reg = /c{1,}?/;//在后面再加一个？，禁止贪婪，少匹配，所以只匹配一个c
+
+        //^开头  结尾$
+        var reg = /^c/;//匹配以c开头的
+
+        //点“.”会匹配除了换行符/n之外的所有字符
+        var reg = /./;
+        str = "cainiao";//只会匹配一个c
+        var reg = /.+/;
+        str = "blueidea——经典论坛 好_。"//除了换行全都匹配，blueidea——经典论坛 好_。
+
+        //如果想匹配其他字符. + ?需要转义字符\  \.  \+  \?
+
+        //或  |
+        var reg = /a|b/;//匹配a或者b，哪个都行
+
+        var reg = /^b|c.+/;//以b开头或者是c.+
+        var reg = /^(b|c).+/;//以b或c开头的.+
+
+        //[abc]表示a或者b或者c中的任意一个字符
+        var reg = /^[abc]/;//以a或者b或者c中的任意一个开头
+
+        var reg = /[^abc]/;//取反，匹配不能是a，不能是b，不能是c,的一个字符
+        str = "blueidea";//l 开头b不能匹配，所以匹配下一个l
+        //[^0-9]非数字  [^a-z]非小写字母
+
+        //变量的命名方式 以字母开头，后面跟多个字母数字或者是下划线
+        var reg = /^[a-zA-Z][a-zA-Z0-9_]+/;
+
+        //  \b是边界的意思  \B 表示非边界
+        var reg = /\bc/;//匹配左边界是c的
+        str = "cainiao";//匹配到左边界的c
+        str = "ab cd";//也会匹配到c
+        var reg = /c\b/;//匹配右边界是c的
+        //中文特别！！！
+        str = "维生素c";//中文特殊，也会匹配到右边界的c
+
+        //  \d匹配数字  \D匹配非数字
+        var reg = /\d/;
+        str = "cainiao8";//匹配数字8
+        
+        var reg = /\D/;
+        str = "cainiao8";//匹配非数字的一个 返回c
+
+        //  \s匹配空白 \S匹配非空白
+        var reg = /\s.+/;//匹配出来 is a text String
+        var reg = /\S+/;//匹配出来This
+        str = "This is a text String";
+        reg.test(str);//可以匹配的时候返回true，没有匹配返回false
+
+        // \w表示单词字符，等同于字符集[a-zA-Z0-9]
+        // \W表示非单词字符，等同于字符集[^a-zA-Z0-9]
+        //反向引用：/(\w)\1/  \1和前面匹配上的\w相同，这个匹配bb
+        //          /(\w)(\w)\2\1/  前面两个\w是有顺序的，这个匹配出来woow
+
+
+    </script>
+</body>
+</html>
