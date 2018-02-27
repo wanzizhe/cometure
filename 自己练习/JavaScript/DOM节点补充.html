@@ -98,6 +98,26 @@
             return str.replace(/^\s+|\s+$/g,"");
         }
 
+        //获取css样式
+        function css(elem,attr,value){
+            if(value){//给value传值了
+                 elem.style[attr] = value;   
+            }else{
+                if(typeof attr === "string"){
+                    return elem.style[attr];
+                }
+            }
+        }
+
+        function getStyle(elem,attr){
+            if(elem.currentStyle){
+                return elem.currentStyle[attr];//IE 其中属性名可能每个浏览器不同，可以.getAttribute("驼峰式")  例如：backgroundColor
+            }else if(window.getComputedStyle){
+                return getComputedStyle(elem,false)[attr];//标准浏览器，可以.getPropertyValue("不能写驼峰式，正常写") 例如：background-color
+            }else{
+                return elem.style[attr];
+            }
+        }
     </script>
 </body>
 
