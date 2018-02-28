@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+    <script>
+        var oBtn = document.querySelector("#btn");
+        // oBtn.onclick = function(){//绑定事件
+        //     alert(111);
+        // }
+        // oBtn.onclick = null;//移除事件
+
+
+        // oBtn.addEventListener("click",function(){
+        //     alert(111);
+        // },false)
+        // oBtn.removeEventListener("click",function(){
+        //     alert(111);
+        // },false)//这种情况下并不能移除，因为绑定和移除的是两个函数，把函数提出来可以解决
+
+        function fn1() { //把函数提出来，添加和移除的就是同一个函数了
+            alert(111);
+        }
+        // oBtn.addEventListener("click", fn1, false) //标准
+        // oBtn.removeEventListener("click", fn1, false) //都好使
+
+        // oBtn.attachEvent("onclick", fn1); //IE
+        // oBtn.detachEvent("onclick", fn1); //都好使
+
+
+
+        //addEventListener和attachEvent兼容封装
+        function addEvent(elem, type, fn) {
+            if (elem.addEventListener) { //标准
+                elem.addEventListener(type, fn, false);
+            } else if (elem.attachEvent) { //IE 
+                elem[type + fn] = function () {
+                    fn.call(elem); //解决attachEvent函数this指向window问题
+                }
+                elem.attachEvent("on" + type, elem[type + fn]);
+            } else {
+                elem["on" + type] = fn;
+            }
+        }
+
+        //removeEventListener和datchEvent兼容封装
+        function removeEvent(elem, type, fn) {
+            if (elem.removeEventListener) {
+                elem.removeEventListener(type, fn, false);
+            } else if (elem, detachEvent) {
+                elem.detachEvent("on" + type, elem[type + fn]);
+            } else {
+                elem["on" + type] = null;
+            }
+        }
+
+        // addEvent(oBtn,"click",fn1);
+        // removeEvent(oBtn,"click",fn1);//最开始移除的时候IE不好使，因为绑定和移除的并不是一个，把绑定的函数提出来赋给对象属性，可以传到移除函数中将其移除
+
+        function fn2() {
+            alert(222);
+        }
+        addEvent(oBtn, "click", fn1);
+        addEvent(oBtn, "click", fn2);
+
+        removeEvent(oBtn, "click", fn1); //IE中会输出111，这个函数没起作用，因为elem.ff那个函数在addEvent时被赋值两次，第二次fn1把第一次fn1覆盖，所以移除的时候，只移除了fn2，detachEvent中的elem.ff只是fn2，并没有fn1，解决方法是：属性名ff不能出现重复！！所以换成了[type+fn]
+        removeEvent(oBtn, "click", fn2);
+    </script>
+</body>
+
+</html>
