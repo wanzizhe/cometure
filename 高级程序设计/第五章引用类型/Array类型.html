@@ -10,16 +10,17 @@
 
 <body>
     <script>
-        // var colors = ["red","blue","green",undefined];
-        // var a = colors.toString();
-        // alert(typeof a);//string
-        // var b = colors.valueOf();
-        // alert(typeof b);//object
-        // alert(b instanceof Array);//true
-        // var c = colors.toLocaleString();
-        // alert(typeof c);//string
-        // console.log(colors[3]);
-        // console.log(colors.join("|"));
+        var colors = ["red","blue","green",null];
+        var a = colors.toString();
+        alert(typeof a);//string
+        var b = colors.valueOf();
+        alert(typeof b);//object
+        alert(b instanceof Array);//true
+        var c = colors.toLocaleString();
+        alert(typeof c);//string
+        console.log(colors[3]);
+        console.log(colors.join("|"));
+        console.log(a);
 
         // var colors = ["red", "blue", "green"];
         // alert(colors.join());
@@ -30,17 +31,17 @@
         // });
         // alert(everyResult);
 
-        var person = {
-            name: "a"
-        };
-        var people = [{
-            name: "a"
-        }, {
-            age: 30
-        }];
-        var morePeople = [person];
-        alert(people.indexOf(person)); //-1 people是数组，person是对象
-        alert(morePeople.indexOf(person)); //0
+        // var person = {
+        //     name: "a"
+        // };
+        // var people = [{
+        //     name: "a"
+        // }, {
+        //     age: 30
+        // }];
+        // var morePeople = [person];
+        // alert(people.indexOf(person)); //-1 people是数组，person是对象
+        // alert(morePeople.indexOf(person)); //0
     </script>
 </body>
 
