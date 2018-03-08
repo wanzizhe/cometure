@@ -70,6 +70,24 @@
         p:empty{
             color:aquamarine;
         }
+
+        #div2{
+            width: 200px;
+            border:1px solid #000; 
+        }
+        /* 伪类是真实存在的(:hover,:first-child等)，伪对象(伪元素)并不是真实存在的() */
+        /* 伪对象选择器选中第一行 */
+         #div2::first-line{ 
+            background:#f00;
+        }
+        /* 伪对象选择器选中第一个字母 */
+        #div2::first-letter{
+            background:#0f0;
+        }
+        /* 右键选中元素的颜色 */
+        #div2::selection{
+            background: #f00;
+        }
     </style>
 </head>
 
@@ -81,7 +99,7 @@
     <h3>这是一个标题</h3>
     <p>p4</p>
     <p>p5</p>
-    <input type="text">
+     <input type="text" placeholder="请输入用户名"> <!--placeholder兼容性问题严重，一般浏览器都不支持->
     <input type="radio"> 
     <input type="external text">   
     <input type="text-one">
@@ -106,6 +124,9 @@
     </div>
 
     <p></p>
+
+
+    <div id= "div2">wfn eajrvb seuj nfvajer fnvja er gva eegtw4  thwrtnfg nojf nviue hrjgearg</div>
 </body>
 
 </html>

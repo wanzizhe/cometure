@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 通过after和before插入的元素是行级元素，必须有content属性*/
+        #div1::after{
+            content:"aaa";
+            background: #f00;
+            width: 200px;
+            height: 200px;
+        }
+        #div1::before{
+            content:"bbb";
+        }
+
+        /* 在每一个地址后面插入herf的值 */
+        a::after{
+            content:attr(href);
+        }
+
+        /* 解决元素塌陷问题,想让谁不塌陷，给谁加.clearfix */
+        #ul1 li{
+            list-style: none;
+            float: left;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        div
+    </div>
+    <a href="www.baidu.com">baidu</a><br>
+    <a href="www.taobao.com">taobao</a><br>
+    <a href="www.jingdong.com">jingdong</a><br>
+
+    <ul id="ul1" class="clearfix">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>        
+    </ul>
+</body>
+</html>
