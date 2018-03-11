@@ -39,14 +39,105 @@
         // var stringValue = "hello world";
         // alert(stringValue[1]); //"e"
 
-        var colors = ["red", "green", "blue", "yellow", "purple"];
-        var color2 = colors.slice(1);
-        var color3 = colors.slice(1, 4);
-        alert(colors);
-        alert(color2); //green,blue,yellow,purple 从位置1到最后  
-        alert(colors);        
-        alert(color3); //green,blue,yellow 从位置1到位置3，因为不包括结束位置的值
-        alert(colors);        
+        // var colors = ["red", "green", "blue", "yellow", "purple"];
+        // var color2 = colors.slice(1);
+        // var color3 = colors.slice(1, 4);
+        // alert(colors);
+        // alert(color2); //green,blue,yellow,purple 从位置1到最后  
+        // alert(colors);        
+        // alert(color3); //green,blue,yellow 从位置1到位置3，因为不包括结束位置的值
+        // alert(colors);       
+
+        // var stringValue = "hello";
+        // var result = stringValue.concat(" world");
+        // alert(result);
+        // alert(stringValue);
+
+        // var stringValue = "hello ";
+        // var result = stringValue.concat("world", "!");
+        // alert(result);
+        // alert(stringValue);
+
+        // var stringValue = "hello world";
+        // alert(stringValue.slice(3)); //""
+        // alert(stringValue.substring(3)); //""
+        // alert(stringValue.substr(3)); //""
+        // alert(stringValue.slice(3, 7)); //""
+        // alert(stringValue.substring(3, 7)); //""
+        // alert(stringValue.substr(3, 7)); //""
+
+        // var stringValue = "hello world";
+        // alert(stringValue.indexOf("o")); //4
+        // alert(stringValue.lastIndexOf("o")); //7
+
+        // var stringValue = "Lorem ipsum dolor sit amet, consectetur adipisicing elit";
+        // var positions = new Array();
+        // var pos = stringValue.indexOf("e");
+
+        // while (pos > -1) {
+        //     positions.push(pos);
+        //     pos = stringValue.indexOf("e", pos + 1);
+        // }
+        // alert(positions); //"3,24,32,35,52"
+
+        // var stringValue = "     hello world    ";
+        // var trimmedStringValue = stringValue.trim();
+        // alert(stringValue);//"     hello world    "
+        // alert(trimmedStringValue);//"hello world"
+
+        // var stringValue = "hello world";
+        // alert(stringValue.toLocaleUpperCase()); //
+        // alert(stringValue.toUpperCase()); //
+        // alert(stringValue.toLocaleLowerCase()); //
+        // alert(stringValue.toLowerCase()); //
+
+        // var text = "cat, bat, sat, fat";
+        // var pattern = /.at/;
+
+        // //与pattern.exec(text)相同
+        // var matches = text.match(pattern);
+        // alert(matches);//["cat"]
+        // alert(matches.index);//0
+        // alert(matches[0]);//"cat"
+        // alert(pattern.lastIndex);//0
+
+
+        // var text = "cat, bat, sat, fat";
+        // var pos = text.search(/at/);
+        // alert(pos);
+
+        // var text = "cat, bat, sat, fat";
+        // // var result = text.replace("at", "ond");
+        // // alert(result);
+
+        // result = text.replace(/at/g, "ond");
+        // alert(result);
+
+        // var text = "cat, bat, sat,fat";
+        // result = text.replace(/(.at)/g, "word ($1)");
+        // alert(result);//word (cat),word (bat),word (sat),word (fat)
+
+        // var colorText = "red,blue,green,yellow";
+        // var colors1 = colorText.split(",");
+        // var colors2 = colorText.split(",", 2);
+        // var colors3 = colorText.split(/[^\,]+/);
+        // alert(colors3);
+
+        var stringValue = "yellow";
+        // alert(stringValue.localeCompare("brick")); //1
+        // alert(stringValue.localeCompare("yellow")); //0
+        // alert(stringValue.localeCompare("zoo")); //-1
+        function datermineOrder(value) {
+            var result = stringValue.localeCompare(value);
+            if (result < 0) {
+                alert("The string 'yellow' comes before the string " + value + ".");
+            } else if (result > 0) {
+                alert("The string 'yellow' comes after the string " + value + ".");
+            } else {
+                alert("The string 'yellow' is equal to the string " + value + ".");
+            }
+        }
+        datermineOrder("brick");
     </script>
 </body>
 
