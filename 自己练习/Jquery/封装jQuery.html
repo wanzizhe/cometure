@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">click</button>
+
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="aa">item 2</li>
+        <li class="aa">item 3</li>
+    </ul>
+
+    <ul id="ul2">
+        <li>item 1</li>
+        <li class="bb">item 2</li>
+        <li class="bb">item 3</li>
+    </ul>
+
+    <div id="div1">
+        <h1 id="h1">hhhhh</h1>
+        <p>hehehehe</p>
+    </div>
+    <script>
+        // function aa(){
+        //     return {
+        //         mm : function(){
+        //             alert("haha");
+        //         }
+        //     }
+        // }
+        // var bb = aa();//那么现在bb等于函数aa的返回值，就是那个对象
+        // bb.mm();//通过对象.方法，调用bb对象中的mm方法
+        function getStyle(elem, attr) {
+            if (elem.currentStyle) { //IE
+                return elem.currentStyle[attr];
+            } else if (window.getComputedStyle) {
+                return getComputedStyle(elem, false)[attr];
+            } else {
+                return elem.style[attr];
+            }
+        }
+
+        function getByClass(className, context) {
+            context = context || document;
+            return context.getElementsByClassName(className);
+        }
+
+        function addEvent(elem, type, fn) {
+            if (elem.addEventListener) { //标准
+                elem.addEventListener(type, fn, false);
+            } else if (elem.attachEvent) { //IE 
+                elem[type + fn] = function () {
+                    fn.call(elem); //解决attachEvent函数this指向window问题
+                }
+                elem.attachEvent("on" + type, elem[type + fn]);
+            } else {
+                elem["on" + type] = fn;
+            }
+        }
+
+        function $(selector, context) {
+            var elements = [];
+            context = context || document;
+            switch (selector.charAt(0)) {
+                case "#": //id
+                    var elements = [document.getElementById(selector.substring(1))];
+                    break;
+                case ".": //class
+                    var elements = getByClass(selector.substring(1), context);
+                    break;
+                default:
+                    var elements = context.getElementsByTagName(selector);
+                    break;
+            }
+            return {
+                click: function (fn) {
+                    for (var i = 0; i < elements.length; i++) {
+                        addEvent(elements[i], "click", fn);
+                    }
+                    return this; //返回$对象
+                },
+                mouseover: function (fn) {
+                    for (var i = 0; i < elements.length; i++) {
+                        addEvent(elements[i], "mouseover", fn);
+                    }
+                    return this;
+                },
+                mouseout: function (fn) {
+                    for (var i = 0; i < elements.length; i++) {
+                        addEvent(elements[i], "mouseout", fn);
+                    }
+                    return this;
+                },
+                css: function (attr, value) {
+                    if (value) { //如果给value传了值
+                        for (var i = 0; i < elements.length; i++) {
+                            elements[i].style[attr] = value;
+                        }
+                        return this;
+                    } else {
+                        if (typeof attr === 'string') {
+                            return getStyle(elements[0], attr);
+                        } else {
+                            for (var p in attr) {
+                                switch (p) {
+                                    case 'width':
+                                    case 'height':
+                                    case 'padding':
+                                    case 'paddingLeft':
+                                    case 'paddingRight':
+                                    case 'paddingTop':
+                                    case 'paddingBottom':
+                                        value = /\%/.test(attr[p]) ? attr[p] : Math.max(parseInt(attr[p]), 0) +
+                                            'px';
+                                        break;
+                                    case 'left':
+                                    case 'top':
+                                    case 'bottom':
+                                    case 'right':
+                                    case 'margin':
+                                    case 'marginLeft':
+                                    case 'marginRight':
+                                    case 'marginTop':
+                                    case 'marginBottom':
+                                        value = /\%/.test(attr[p]) ? attr[p] : parseInt(attr[p]) + 'px';
+                                        break;
+                                    default:
+                                        value = attr[p];
+                                }
+                                for (var i = 0; i < elements.length; i++) {
+                                    elements[i].style[p] = value;
+                                }
+                            }
+                            return this;
+                        }
+                    }
+                },
+                next: function () {
+                    var elem = elements[0]
+                    do {
+                        elem = elem && elem.nextSibling;
+                    } while (elem && elem.nodeType != 1) //elem可能是null
+                    return elem;
+                }
+            };
+        }
+
+        $("#btn").click(function () { //说明$("#btn")函数的返回值是一个对象，其中包括click方法
+            alert("haha");
+        });
+        //这种jQuery写法通过$符号，传过来一个选择器，选中元素，之后添加事件，在事件参数中指定事件的处理函数
+
+
+        // $(".aa").mouseover(function(){
+        //     this.style.background = "#f00";
+        // });
+        // $(".aa").mouseout(function(){
+        //     this.style.background = "#fff";
+        // });
+
+        //链式操作，取一次DOM，同时绑定多个事件
+        $(".aa").mouseover(function () {
+            this.style.background = "#f00";
+        }).mouseout(function () { //这种链式操作要想好使，那么mouseover函数应该返回的是对象$(".aa")，调用其中的mouseout方法
+            this.style.background = "#ff0";
+        });
+
+
+        $(".bb").css("width", "200px"); //将.bb的所有元素的宽设置成200px
+        $(".bb").css("width"); //$(".bb")是一堆元素，获取第一个元素的宽
+        $(".bb").css({
+            width: 200,
+            height: 50,
+            background: "#0ff"
+        }).click(function () {
+            alert("hahaa");
+        });
+
+
+        console.log($("#h1").next());
+    </script>
+</body>
+
+</html>
