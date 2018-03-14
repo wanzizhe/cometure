@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 类：具有相同的属性和方法的对象的集合
+        // var cat1 = {
+        //     name : mimi1,
+        //     age : 3,
+        //     eat : function(){
+
+        //     }
+        // };
+        // var cat2 = {
+        //     name : mimi2,
+        //     age : 3,
+        //     eat : function(){
+
+        //     }
+        // };
+        // var cat3 = {
+        //     name : mimi3,
+        //     age : 3,
+        //     eat : function(){
+
+        //     }
+        // };
+
+
+        // //定义函数名首字母大写了，那是一个类，也可以叫Cat构造函数
+        // function Cat(){
+        //     this.name = "mimi";//给猫这个类定义属性
+        //     this.eat = function(){
+
+        //     };//给猫这个类定义方法
+        // }
+        // //我们如何使用这个类呢
+        // var cat1 = new Cat();//new的东西就是类，就是对象，cat1是这个类的实例对象，类是虚的，但是那个实例对象是具体的
+        // var cat2 = new Cat();
+        // alert(cat1.name);
+        // alert(cat2.name);//都输出mimi,不想都输出一样的，可以传参
+
+
+        //可以传参
+        // function Cat(name){
+        //     this.name = name;
+        //     this.eat = function(){
+        //          alert(this.name + " is eating");   
+        //     }
+        // }
+        // var cat1 = new Cat("mimi");
+        // var cat2 = new Cat("xiaohua");//有问题，就是每次new的时候都会重复执行eat方法，都是猫，行为应该一样，可以提出去
+        // // alert(cat1.name);
+        // // alert(cat2.name);
+        // cat2.eat();
+
+            // var fn = function (){
+            //     alert(this.name + " si eating");
+            // }
+            // function Cat(name){
+            //     this.name = name;
+            //     this.eat = fn;//两次new指向同一个对象函数，保证内存不会被浪费
+            // }
+            // var cat1 = new Cat("mimi");
+            // var cat2 = new Cat("xiaohua");
+            // cat1.eat();
+
+            //上面的方法可以，但是好像定义了两个函数，一个fn一个Cat，要是有多个函数，会很散乱，看不出来是一个类
+            //解决方法是把方法定义在原型下面
+              function Cat(name){
+                  this.name = name;
+                  this.eat = function(){
+                      alert("hhhhh")
+                  };//和原型中的方法产生了冲突，但是，输出“hhhhh”
+              }  
+              //prototype原型，相当于做月饼的模子，你在原型中改了什么，那基于它new出来的对象就有什么，用来实现继承，cat1，cat2会继承prototype中的方法
+              //原型有一个原型链的概念，当你去调用一个对象下面的属性或者方法的时候，会先看自己的构造函数中有没有这个方法或属性，如果没有，再去原型去找，如果原型没有，再去这个对象的父类中去找，一直往上找，找到终极父类（Object）
+              Cat.prototype.eat = function (){
+                  alert(this.name + " is eating");
+              }
+              var cat1 = new Cat("mimi");
+              var cat2 = new Cat("xiaohua");
+              cat1.eat();
+              //总结：当你定义一个函数的时候，将属性放在构造函数中（因为属性不需要new不会浪费内存空间），方法放在原型下面
+    </script>
+</body>
+</html>
