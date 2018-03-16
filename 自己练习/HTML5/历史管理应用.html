@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul li{
+            width: 50px;
+            height:50px;
+            list-style: none;
+            float: left;
+        }
+        div{
+            height:200px;
+        }
+        #div1{
+            margin-top:500px;
+            background: #f00;
+        }
+        #div2{
+            background: #0f0;
+        }
+        #div3{
+            background: #00f;
+            margin-bottom: 1000px;
+        }
+        .clearfix::after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1" class="clearfix">
+        <li><a href="#div1">link 1</a></li>
+        <li><a href="#div2">link 2</a></li>
+        <li><a href="#div3">link 3</a></li>
+    </ul>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+</body>
+</html>
