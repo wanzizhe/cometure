@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    <button id="btn">click</button>
+    <div class="aa">1
+        <p>ppppp</p>
+    </div>
+    <div class="aa">2</div>
+    <ul id="ul1">
+        <li id="li1">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+
     <script src="jquery-1.11.2.js"></script>
     <script>
-        // $("#btn").click(function(){
-        //     alert("button");
-        // }).mouseover(function(){
-        //     this.style.background = "#f00";
-        // }).css({
-        //     width:200,
-        //     height:100,
-        //     background:"#0ff"
-        // });
+        $(function () {
+            // $(".aa > p").css("background","red");
 
-        $("#btn").on("click",function(){
-            alert("hhhh");
-        })
+            // $("#li1 + li").css("background","red");//+是紧挨着的后面的一个兄弟
+            // $("#li1 ~ li").css("background","red");//~是后面的所有兄弟
+
+            // $("#ul1 li:eq(0)").css("background","red");//第一个li
+            // $("#ul1 li:eq(-1)").css("background","green")//最后一个li
+
+            $("#ul1 li:even").css("background","red");//even是偶数
+            $("#ul1 li:odd").css("background","blue");//odd是奇数
+        });
     </script>
 </body>
+
 </html>
