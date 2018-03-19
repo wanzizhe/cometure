@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>你的爱好是什么？</h1>
+    <input type="checkbox" name="hobby">篮球
+    <input type="checkbox" name="hobby">足球
+    <input type="checkbox" name="hobby">排球
+    <input type="checkbox" name="hobby">乒乓球
+    <br>
+    <button id="check-all">全选</button>
+    <button id="check-not">全不选</button>
+    <button id="check-reserve">反选</button>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function () {
+            var $checkbox = $("input[type = checkbox]"); //用很多次的变量应该提出来，减少DOM查找
+            $("#check-all").on("click", function () {
+                //$checkbox.attr("checked", true);//若要检索和更改DOM属性，比如checked，selected，disabled的时候只能用prop
+                $checkbox.prop("checked", true);
+            });
+            $("#check-not").on("click", function () {
+                $checkbox.prop("checked", false);
+            });
+            $("#check-reserve").on("click", function () {
+                 $checkbox.each(function (index, elem) {//.each方法，遍历每一个元素，参数第一个是索引，第二个是元素本身
+                //     if ($(this).prop("checked") == false) {
+                //         $(this).prop("checked", true);
+                //     } else {
+                //         $(this).prop("checked", false);
+                //     }
+
+                  //原生方法
+                  this.checked = !this.checked;
+                 });
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>
