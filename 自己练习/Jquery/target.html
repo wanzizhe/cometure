@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            height: 2000px;
+        }
+        #ul1{
+            height:30px;
+        }
+        #ul1 li{
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background:#ccc;
+            float:left;
+        } 
+        div{
+            height: 200px;
+        }
+        #div1{
+            background: #ff0;
+        }
+        #div2{
+            background: #0ff;
+        }
+        #div3{
+            background: #f0f;
+        }
+        /* #div3:target{  
+            background:#00f;
+        } */
+        /* css中，当div3是target目标点的时候就会变成蓝色 */
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li><a href="#div1">标题1</a></li>
+        <li><a href="#div2">标题2</a></li>
+        <li><a href="#div3">标题3</a></li>
+    </ul>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        //$("#div3:target").css("background","#00f");//单写这个不好使，因为在你还没点div3的时候，代码已经执行完了，当你点div3，div3成为target的时候，代码已经执行完成，就不会变色
+        $(function(){
+            $("#ul1:eq(-1)").on("click",function(){
+                $("#div3:target").css("background","#00f");//这样可以，在点击的时候才会执行变色
+            })            
+        });
+        
+    </script>
+</body>
+</html>
