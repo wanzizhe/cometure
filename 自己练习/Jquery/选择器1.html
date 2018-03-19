@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    用户名：<input type="text"><br>
+    密码：<input type="password"><br>
+    性别：<input type="radio" name="sex">男
+          <input type="radio" name="sex">女<br>
+    爱好：<input type="checkbox" name="hobby">篮球
+          <input type="checkbox" name="hobby">足球
+          <input type="checkbox" name="hobby">排球<br>    
+     <input type="submit">  <!--可以提交信息-->
+    <button type="button">提交</button>    <!--按钮也可以提交信息，但是设置type="button"，就可以按按钮不提交信息-->
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(":button").css("background","red");//选中了type="button"的button，变为红色
+    </script>
+</body>
+</html>
