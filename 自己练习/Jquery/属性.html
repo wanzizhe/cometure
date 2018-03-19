@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">div</div>
+    <input type="text" id="username" value="zhangsan">
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        //原生方法设置属性
+        // var oDiv = document.getElementById("div1");
+        // oDiv.aa="123";
+        // console.log(oDiv.aa);//可以取到oDiv.aa的属性，但是在html代码中并没有加上这个属性，不会加载到DOM中
+
+        // oDiv.setAttribute("bb","456");//这种方法会在html代码中div后面加上这个属性bb="456"，会加载到DOM中
+        // console.log(oDiv.getAttribute("bb"));//getAttribute方法会获取到之前setAttribute中设置的属性
+    
+        //jQuery方法操作
+        $(function(){
+            var $div = $("#div1");
+            $div.attr("cc","789");//相当于原生的setAttribute，这是属性，并且DOM中可以看见
+            $div.removeAttr("cc");//remove之后，输出属性是undefined
+            console.log($div.attr("cc"));//相当于getAttribute，一个参数为取值
+
+            $div.prop("dd","000");//相当于原生的对象.属性，可以取到属性dd，但是不会加载到DOM结构中
+            $div.removeProp("dd");//remove之后，输出属性是undefined
+            console.log($div.prop("dd"));
+
+            console.log($("#username").val());//输出zhangsan,没有参数的时候，val()是用来取值的
+            $("#username").val("wanzizhe");//给val()传入参数之后，就是用来设置值的
+        });
+    
+    </script>
+</body>
+</html>
