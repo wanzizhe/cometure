@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">div</div>
+    <script src = "jquery-1.11.2.js"></script>
+    <script>
+        //原生方法
+         var oDiv = document.getElementById("div1");
+        oDiv.onclick = function(){
+            //alert(oDiv.innerHTML);
+            alert($(oDiv).html());//把js对象转化为jQuery对象
+        }
+
+        //jQuery方法
+        var $div = $("#div1");
+        $div.on("click",function(){
+            //alert($div.innerHTML);//jQuery对象要用jQuery对象的方法，不能用原生js的方法
+            //alert($div[0].innerHTML);//除非把jQuery对象转换成js对象
+
+            //alert($div.html());//jQuery对象的方法是html(),取到对象中的内容
+        })
+
+        //js对象转化为jQuery对象在外面加$()
+        //jQuery对象转化为js对象加 [0]  或者 .get(0)
+    </script>
+</body>
+</html>

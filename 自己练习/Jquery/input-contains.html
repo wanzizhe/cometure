@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="search" value="">
+    <ul id="ul1">
+        <li>iphone</li>
+        <li>huawei</li>
+        <li>xiaomi</li>
+    </ul>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function () {
+            $("#search").on("keyup", function () {
+                if (this.value != "") {
+                    $("#ul1 li:contains(" + this.value + ")").css("background", "red"); //记得要拼接字符串，不能直接把this.value写在contains中，那样只是字符串并不会解析
+                }else{
+                    $("#ul1 li").css("background","transparent");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

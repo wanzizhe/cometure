@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        /* nth-child是从1开始数的，所以传入1选中的是第一个孩子*/
+         #ul1 li:nth-child(2n+1){   /*2n选中的是偶数,2n+1选中的是奇数*/
+            background:red;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +27,18 @@
         <li>5</li>
     </ul>
 
+    <div>
+        <span>Corey,</span>
+        <span>Yehuda,</span>
+        <span>Adam,</span>
+        <span>Todd</span>
+    </div>
+    <div>
+        <b>Nobody,</b>
+        <span>Jörn,</span>
+        <span>Scott,</span>
+        <span>Timo</span>
+    </div>
     <script src="jquery-1.11.2.js"></script>
     <script>
         $(function () {
@@ -44,6 +62,22 @@
             //$("#ul1 li:not(#li1)").css("background","#0ff");//not是过滤选择器，括号中传入选择器
             //$("#ul1 li:not(:even)").css("background","#0ff");
             //$("#ul1 li:not(:eq(2))").css("background","#0ff");
+
+            //$("#ul1 li:contains(3)").css("background","#ccc");//内容包括3的会被选中
+
+            //可见性选择器  :hidden  :visible
+            //:hidden 元素被认为是隐藏的四种情况：1.它们的css的display是none
+            //                                 2.他们是type="hidden"的表单元素(input)
+            //                                 3.它们的宽和高都显示的设置为0
+            //                                 4.一个祖先元素是隐藏的，因此该元素是不会在页面上显示的
+            //其余的都属于:visible 
+
+            //子元素筛选
+            //$("#ul1 li:first-child").css("background", "red"); //记住是ul下面li的第一个孩子   
+            $("div span:first-child").css("background", "red");//div下面第一个孩子是span的变为红色(只选中了一个）
+            $("div span:first-of-type").css("background", "red");//div下面第一个类型为span的变为红色(选中两个)       
+        
+        
         });
     </script>
 </body>
