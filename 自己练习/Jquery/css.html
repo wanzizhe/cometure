@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            background:red;
+        }
+        .bb{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            //原生方法添加class属性
+            // var oDiv = document.getElementById("div1");
+            // oDiv.className = "aa bb";
+
+            //jQuery方法，只有返回jQuery对象的才能进行链式操作.addClass
+            //$("#div1").addClass("aa").addClass("bb");
+
+            //.css()方法,参数可以为对象
+            //$("#div1").css("background","green");//给一个属性增加一个值
+            // $("#div1").css({//给多个属性增加多个值
+            //     background : "red",
+            //     color : "green",
+            //     fontSize : "20px"//如果属性名带杠杠-则转化为驼峰式  font-size转化为fontSize
+            // });
+            // $("#div1").css("width",function(){//属性是经过逻辑运算得到的返回值
+            //     return 200;//将结果付给前面属性名
+            // });
+
+            //console.log($("#div1").hasClass("aa"));//判断元素是否具有aa属性，返回布尔型值，所以不能链式操作
+            //$("#div1").removeClass("aa");//移除指定css样式
+            $("#div1").on("click",function(){
+                $(this).toggleClass("aa");//没有aa就加上，有aa就去掉
+            });
+        });
+    </script>
+</body>
+</html>
