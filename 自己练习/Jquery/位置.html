@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 400px;
+            height: 400px;
+            background:red;
+            position: relative;
+            top:100px;
+            left:100px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:green;
+            position: relative;
+            top:50px;
+            left:50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        //js原生方法
+        // var oDiv1 = document.getElementById("div1");
+        // var oDiv2 = document.getElementById("div2");
+        // console.log(oDiv1.offsetLeft);//离它最近的已经定位的祖先元素之间的距离
+        // console.log(oDiv2.offsetLeft);
+        // console.log(oDiv2.offsetParent);//div1这个对象，离他最近的已经定位的祖先元素
+        
+
+        //jQuery方法
+        $(function(){
+            var $div2 = $("#div2");
+            console.log($div2.offset());//top:150 left:150 距离文档的距离
+            console.log($div2.position());//top:50 left:50 距离离他最近的祖先元素的距离，相当于原生的offsetLeft和offsetTop
+            console.log($div2.offsetParent());//返回div1这个jQuery对象，相当于原生的offsetParent
+        });
+    </script>
+</body>
+</html>
