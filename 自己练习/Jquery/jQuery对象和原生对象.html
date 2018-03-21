@@ -21,7 +21,7 @@
         var $div = $("#div1");
         $div.on("click",function(){
             //alert($div.innerHTML);//jQuery对象要用jQuery对象的方法，不能用原生js的方法
-            //alert($div[0].innerHTML);//除非把jQuery对象转换成js对象
+            alert($div.get(0).innerHTML);//除非把jQuery对象转换成js对象
 
             //alert($div.html());//jQuery对象的方法是html(),取到对象中的内容
         })

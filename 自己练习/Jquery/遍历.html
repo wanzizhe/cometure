@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="ul1">
+        <li>01</li>
+        <li>02
+            <ul>
+                <li>aa</li>
+                <li>bb</li>
+            </ul>
+        </li>
+        <li class="33">03</li>
+        <li>04</li>
+        <li>05</li>
+    </ul>
+    <div id="div">div</div>
+    <div id="div1">div1
+        <div id="div2">div2
+            <div id="div3">div3</div>
+        </div>
+    </div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        // var oDiv = document.getElementById("div1");
+        // console.log(oDiv.children);//原生方法只能找到亲子代，div2
+        $(function () {
+            //$("#ul1 li:eq(-1)").addClass("aa");//eq选择器,这个效率相对于高一些
+            //$("#ul1 li").eq(1).addClass("aa");//eq方法
+
+            //$("#ul1 li:even").addClass("aa");
+            //$("#ul1 li").filter(":even").addClass("aa");//效果相同
+            //$("#ul1 li").not(":even").addClass("aa");//和filter相反
+
+            //$("#ul1 li").has("ul").addClass("aa");//包括ul的那个li会被选中
+            // $("#ul1").on("click",function(e){
+            //     //console.log(e.target); //事件源，点击的那个，jQuery中没有兼容性问题
+            //     var $target = $(e.target);
+            //     if($target.is("li")){//is方法返回的是布尔类型的值
+            //         $target.css("background","green");
+            //     }
+            // });
+
+            //$("#ul1 li").add("#div").addClass("aa");//将ul1下面的li以及后加的div背景都变成红色，add函数扩充了结果集
+            // $("#ul1 li").eq(0).next().andSelf().addClass("aa");//andSeft方法，是包括他自己，也是扩大了结果集
+
+            //console.log($("#div").html()); //获取div中的内容
+            //console.log($("#div").contents()); //获取一个jQuery对象
+
+            //end()相当于回退到上一步
+            //$("#div1").children("#div2").addClass("aa").children("#div3").css("background","green").end().end().css("background","yellow");   
+
+            //$("#div1").children("#div3").css("background","#0ff");//这个不起作用，因为children选中的是亲子代，jQuery方法可以传入选择器，选中特定的那个亲子代元素，从里往外找对应的是closest()方法，开始于当前元素，包括它自己
+            //$("#div1").find("#div3").css("background","#f0f");//这个起作用，因为find选中的是后代所有元素，从里往外找对应的是parents()方法，开始于父元素，不包括它自己，直接向上寻找父元素
+              
+              //$("#ul1 .33").next().css("background","red");//next()方法找到之后的一个兄弟
+              //$("#ul1 .33").nextAll().css("background","red");//nextAll()选中之后的所有元素
+
+              $("#ul1 .33").siblings().css("background","red");//会找到除了.33之外的所有兄弟，前面后面的都会找到，
+        });
+    </script>
+</body>
+
+</html>

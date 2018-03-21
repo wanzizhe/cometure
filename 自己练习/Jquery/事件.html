@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: red;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2"></div>
+    </div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            //绑定事件用on  移除事件用off
+            //mouseover事件是鼠标划入事件，会触发事件冒泡，mouseout鼠标滑出同样
+            // $("#div1").on("mouseover",function(){
+            //     console.log("div1 mouseover");
+            // });
+            // $("#div2").on("mouseover",function(){
+            //     console.log("div2 mouseover");
+            // });
+            
+            //mouseenter事件也是鼠标划入事件，但是它不支持事件冒泡，mouseleave鼠标滑出同样
+            //  $("#div1").on("mouseenter",function(){
+            //     console.log("div1 mouseenter");
+            // });
+            // $("#div2").on("mouseenter",function(){
+            //     console.log("div2 mouseenter");
+            // });
+
+
+            // $("#div1").hover(function(){//不支持事件冒泡
+            //     console.log("划入");//相当于mouseenter
+            // },function(){
+            //     console.log("划出");//相当于mouseleave
+            // });
+
+            $("#div1").on("click","#div2",function(){//实际真正绑定事件的元素是on的第三个参数div2
+                console.log("123");
+            });
+        });
+    </script>
+</body>
+</html>
