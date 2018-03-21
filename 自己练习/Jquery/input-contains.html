@@ -20,7 +20,8 @@
         $(function () {
             $("#search").on("keyup", function () {
                 if (this.value != "") {
-                    $("#ul1 li:contains(" + this.value + ")").css("background", "red"); //记得要拼接字符串，不能直接把this.value写在contains中，那样只是字符串并不会解析
+                    $("#ul1 li").css("background","transporter")
+                    $("#ul1 li:contains(" + this.value.toLowerCase() + ")").css("background", "red"); //记得要拼接字符串，不能直接把this.value写在contains中，那样只是字符串并不会解析
                 }else{
                     $("#ul1 li").css("background","transparent");
                 }

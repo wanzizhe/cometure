@@ -24,15 +24,16 @@
     <div id="top">top</div>
     <script src="jquery-1.11.2.js"></script>
     <script>
-        //js原生方法
+        // js原生方法
         // var oTop = document.getElementById("top");
         // oTop.onclick = function(){
         //     var timer = setInterval(function(){
         //         var iScrollTop = document.body.scrollTop||document.documentElement.scrollTop;
         //         if(iScrollTop <= 0){
         //             clearInterval(timer);
+        //         }else{
+        //             window.scrollTo(0,iScrollTop -= 50);//这个事件是滚动到，第一参数是水平距离，第二个参数是垂直距离
         //         }
-        //         window.scrollTo(0,iScrollTop -= 50);//这个事件是滚动到，第一参数是水平距离，第二个参数是垂直距离
         //     },50);
         // }
 
@@ -40,12 +41,18 @@
         $(function(){
             var $top = $("#top");
             $top.on("click",function(){
+                var target;
+                if($("html").scrollTop()){
+                    target = $("html");
+                }else{
+                    target = $("body");
+                }
                 var timer = setInterval(function(){
-                    var iScrollTop = $("html").scrollTop();
+                    var iScrollTop = target.scrollTop();
                     if(iScrollTop <= 0){
                         clearInterval(timer);
                     }
-                    $("html").scrollTop(iScrollTop -= 50);
+                    target.scrollTop(iScrollTop -= 50);
                 },50);
             });
         });

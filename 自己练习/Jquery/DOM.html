@@ -8,18 +8,36 @@
 </head>
 <body>
     <div id="div1">divdivdiv</div>
+    <div id="container">
+        <div class="aa">123</div>
+        <div class="aa">456</div>
+        <div class="aa">789</div>
+    </div>
     <script src="jquery-1.11.2.js"></script>
     <script>
         $(function(){
             var $div1 = $("#div1");
             var $div2 = $("<div id='div2'></div>");//jQuery中创建一个元素
-            //$div2.appendTo($div1);//子元素appendTo父元素，之后如果链式操作，是对div2起作用
-            //$div1.append($div2);//父元素append()子元素，之后如果链式操作，是对div1起作用
+            //$div2.appendTo($div1);//子元素appendTo父元素，之后如果链式操作，是对div2起作用,在内容的后面添加元素
+            //$div1.append($div2);//父元素append()子元素，之后如果链式操作，是对div1起作用，在内容的后面添加元素
+            //$div1.prepend($div2);//在内容的前面插入，div2插入到了divdivdiv的前面
+            //$div1.after($div2);//在div1的后面插入一个div2这个兄弟，并不是在里面
+            //$div2.insertAfter($div1);//和after()函数相同，只不过是看之后链式操作的主体是谁
 
             //console.log($div1.html());//取到div中的内容
             //$div1.html("123456");//把div中的内容替换成123456
-            $div1.html("<h1>hhhhh</h1>");//会将其解析为h1标签
-            $div1.text("<h1>hhhhh</h1>");//不会解析标签，直接显示在页面上
+            // $div1.html("<h1>hhhhh</h1>");//会将其解析为h1标签
+            // $div1.text("<h1>hhhhh</h1>");//不会解析标签，直接显示在页面上
+
+            //$div1.empty();//只移除了div1元素中的内容，div1元素还在
+            //$div1.remove();//直接移除了div1这个元素
+
+            //$("<h1>hhhh</h1>").replaceAll($(".aa"));//将所有.aa都换成h1
+           //$(".aa").replaceWith("<h1>aaaa</h1>");//将所有.aa都换成h1  
+
+           //$(".aa").wrap("<div>ppppp</div>");//在每个.aa的div外面都包裹一层div
+           //$(".aa").wrapAll("<div>ppppp</div>");//在所有.aa的div外面包裹一个大的div
+            $(".aa").wrapInner("<div>ppppp</div>");//在每个.aa的div里面放一个div
         });
     </script>
 </body>
