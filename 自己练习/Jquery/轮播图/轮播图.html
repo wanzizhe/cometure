@@ -83,10 +83,51 @@
     </div>
     <script src="../jquery-1.11.2.js"></script>
     <script>
-        $(function(){
-            $("#menu li").on("mouseover",function(){
-                $()
+        $(function () {
+            var nowindex = 0;
+            var $lis = $("#menu li");
+            var $imgs = $("#imgs img");
+            var $arr = $("#arrows div");
+            var timer;
+            $lis.on("mouseover", function () {
+                nowindex = $(this).index();
+                // $(this).addClass("selected").siblings().removeClass("selected");
+                // $imgs.eq($(this).index()).addClass("selected").siblings().removeClass("selected");
+                changeImg();
             });
+            $arr.on("click", function () {
+                if ($(this).attr("id") == "left") {
+                    nowindex--;
+                    if (nowindex == -1) {
+                        nowindex = $lis.length - 1;
+                    }
+                } else {
+                    nowindex++;
+                    if (nowindex == $lis.length) {
+                        nowindex = 0;
+                    }
+                }
+                // $lis.eq(nowindex).addClass("selected").siblings().removeClass("selected");
+                // $imgs.eq(nowindex).addClass("selected").siblings().removeClass("selected");  
+                changeImg();
+            });
+            play();
+            $("#container").hover(function () {
+                clearInterval(timer);
+            }, function () {
+                play();
+            });
+
+            function play() {
+                timer = setInterval(function () {
+                    $("#right").trigger("click");
+                }, 500);
+            }
+
+            function changeImg() {
+                $lis.eq(nowindex).addClass("selected").siblings().removeClass("selected");
+                $imgs.eq(nowindex).addClass("selected").siblings().removeClass("selected");
+            }
         });
     </script>
 </body>
