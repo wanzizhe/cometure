@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>slideshow</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #container {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #imgs img {
+            display: none;
+        }
+
+        #imgs .selected {
+            display: block;
+        }
+
+        #menu li,
+        #arrows div {
+            width: 20px;
+            height: 20px;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-left: 5px;
+        }
+
+        #menu {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+
+        #menu .selected {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="img/1.jpg" alt="" class="selected">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul id="menu">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <div id="left">&lt;</div>
+            <div id="right">&gt;</div>
+        </div>
+    </div>
+    <script src="../jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            $("#menu li").on("mouseover",function(){
+                $()
+            });
+        });
+    </script>
+</body>
+
+</html>

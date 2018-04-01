@@ -65,6 +65,7 @@
         $(function () {
             $("h3").on("click", function () {
                 $(this).next().stop(false,true).slideToggle();
+                // stop()函数有两个参数都是布尔值，第一个参数指示是否取消已列队动画(默认值false,一般为false)，第二个参数指示是否当前动画立即完成(默认值false)
             });
         });
     </script>
