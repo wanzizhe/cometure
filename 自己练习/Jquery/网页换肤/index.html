@@ -32,12 +32,28 @@
 
 
 	<script src="js/jquery-1.11.2.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 	<script>
 		$(function () {
+			if($.cookie("skin")){
+				var skin = $.cookie("skin");
+				changeSkin(skin);
+				// $("#cssfile").attr("href","css/"+ skin+".css");
+				// $("#" + skin).addClass("selected").siblings().removeClass("selected");				
+			}
 			$("#skin li").on("click",function(){
-				$("#cssfile").attr("href","css/"+ $(this).attr("id")+".css");
-				$(this).addClass("selected").siblings().removeClass("selected");
+				$.cookie("skin","$(this).attr('id')",{expires : 30});
+				changeSkin($(this).attr("id"));
+				// //切换css文件
+				// $("#cssfile").attr("href","css/"+ $(this).attr("id")+".css");
+				// //切换精灵图
+				// $(this).addClass("selected").siblings().removeClass("selected");
 			});
+
+			function changeSkin(skin){
+				$("#cssfile").attr("href","css/"+ skin+".css");
+				$("#" + skin).addClass("selected").siblings().removeClass("selected");
+			}
 		});
 	</script>
 </body>

@@ -12,7 +12,39 @@
         // date.setDate(date.getDate() + 7);
         // document.cookie = "name = wanzizihe; expires = "+date.toUTCString();
         // document.cookie = "age = 18";
-        console.log(document.cookie);
+        console.log(document.cookie);//name=wanzizhe; age=18;
+
+        //封装函数
+
+        //添加cookie
+        function addCookie(key,val,expires){//expires表示保质期
+        var str =  key + "=" + val;
+            if(expires){
+                var date = new Date();
+                date.setDate(date.getDate() + expires)
+                str += ";expires=" + date.toUTCString();//toUTCString()把date转化为string类型
+            }
+            document.cookie = str;
+        }
+
+        //获取cookie
+        //得到的是name=wanzizhe; age=18;
+        function getCookie(key){
+            var arr = document.cookie.split(";");
+            for(var i = 0; i < arr.length; i++){
+                var temp = arr[i].split("=");
+                if(temp[0].trim() == key){
+                    return temp[1];
+                }
+            }
+        }
+
+        //删除cookie(过期时间设置为当前时间之后的时间，就可以删除指定信息)
+        function delCookie(key){
+            var date = new Date();
+            date.setDate(date.getDate() - 100);
+            document.cookie = key + "=abc;expires=" + date.toUTCString();
+        }
     </script>
 </body>
 </html>
