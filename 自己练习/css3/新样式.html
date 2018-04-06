@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            /* text-shadow文本阴影，有四个参数，水平，垂直，模糊程度，颜色 */
+            -webkit-text-shadow:10px 10px 5px rgba(255,0,0,0.5);  /*rgba表示颜色，最后的a表示透明度取值范围是0~1*/
+            -moz-text-shadow:10px 10px 5px rgba(255,0,0,0.5);  /*rgba表示颜色，最后的a表示透明度取值范围是0~1*/
+            -ms-text-shadow:10px 10px 5px rgba(255,0,0,0.5);  /*rgba表示颜色，最后的a表示透明度取值范围是0~1*/
+            -o-text-shadow:10px 10px 5px rgba(255,0,0,0.5);  /*rgba表示颜色，最后的a表示透明度取值范围是0~1*/
+            text-shadow:10px 10px 5px rgba(255,0,0,0.5);  /*rgba表示颜色，最后的a表示透明度取值范围是0~1*/
+            text-shadow:10px 10px 5px rgba(255,0,0,0.5),20px 20px 5px rgba(255,255,0,0.5);   /*可以设置多阴影，用逗号分隔*/
+        }
+        #div2{
+            border:1px solid;
+            width: 500px;
+
+            white-space: nowrap; /*nowrap不包过，也就是不换行*/
+             overflow: hidden; /*溢出隐藏*/
+             text-overflow: ellipsis; /*超出文本变成省略号，ellipsis省略号*/
+        }
+        #div3{
+            width: 200px;
+            border:1px solid;
+             word-break: break-all; /*强制使英文字母进行换行*/
+        }
+        #div4{
+            width: 200px;
+            height: 200px;
+            background:red;
+            border-radius:50px;
+            /* box-shadow文本阴影，有五个参数，水平，垂直，模糊程度，外延值，颜色 */
+            box-shadow: 10px 10px 10px 10px rgba(255,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">divdivdiv</div>、
+    <div id="div2">高危儿GV伤风败俗我让他薄膜in看见你恩ring三日内比赛乳糖不耐受为他今天发布</div>
+    <div id="div3">wefmawerlmgwoierngajfdsvbekrtbsedtrfbsrgf</div>
+    <div id="div4"></div>
+</body>
+</html>
