@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            /* 标准盒模型，宽度是内容的宽度，加padding和border整个元素会变大*/
+            width: 200px;
+            height: 200px;
+            background:red;
+            padding:10px;
+            border:10px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        alert(oDiv1.offsetWidth);//offsetWidth包括内容+padding+border
+    </script>
+</body>
+</html>
+<!-- 
+标准盒模型：width=content（内容宽度）
+混杂/怪异盒模型：width=content+padding+border 
+标准盒模型 -> 混杂盒模型  去掉文档开头的<!DOCTYPE html>
+怪异盒模型 -> 标准盒模型  box-sizing: border-box;
+ -->

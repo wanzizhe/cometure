@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            /* display: flex; */
+            display:-webkit-box;
+            /* -webkit-box-orient: vertical;  垂直排列 */
+            /* -webkit-box-direction: reverse;  相反顺序*/
+
+            /* 垂直对其 */
+            -webkit-box-align: end;
+        }
+        #left{
+            height: 500px;
+            background: red;
+            /* flex-grow: 1; */
+             width:500px; /*如果给其中一个子元素固定的高度，那么其余的孩子分配父元素的剩余空间*/
+            /* 任意顺序 */
+            /* -webkit-box-ordinal-group: 2; */
+        }
+        #center{
+            height: 600px;
+            background: green;
+            /* flex-grow: 1; */
+            -webkit-box-flex:1;
+             /*width: 0; 当其中的内容使得份数不一致的时候可以设置此属性*/
+             /* 任意顺序 */
+            /* -webkit-box-ordinal-group: 1;              */
+        }
+        #bottom{
+            height: 700px;
+            background:blue;
+            /* flex-grow: 1; */
+            -webkit-box-flex:1;            
+            /* width: 0; */
+            /* 任意顺序 */
+            /* -webkit-box-ordinal-group: 3; */
+        }
+    </style>
+</head>
+<body>
+    <!-- 弹性盒模型是分配父元素的剩余空间！！！ -->
+    <div id="main">
+        <div id="left">left</div>
+        <div id="center">
+            <h1>hhhhhh</h1>
+        </div>
+        <div id="bottom">
+            <h1>kkkkkkkkkkkkkkk</h1>
+        </div>
+    </div>
+</body>
+</html>
