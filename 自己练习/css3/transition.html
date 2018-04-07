@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* transition: width 2s linear , background 2s linear; */
+
+            /*transition:all 2s linear 2s;  改变的属性名  过度时间  过度样式  延迟时间*/
+            
+            /* 集合属性，也可以分开写 */
+            transition-property: all;
+            transition-duration: 2s;
+            transition-timing-function: linear;
+            transition-delay: 2s;
+        }
+        /* css改变属性触发transition */
+        /* #div1:hover{
+            width: 500px;
+            background:greenyellow;
+        } */
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        // js改变属性触发transition
+        var oDiv = document.getElementById("div1");
+        oDiv.onclick = function(){
+            this.style.width="500px";
+        }
+    </script>
+</body>
+</html>
