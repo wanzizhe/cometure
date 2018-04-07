@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+            animation : xx 2s ease 1s forwards;  /*调用关键帧  执行时间  执行动画  延迟时间  forwards是保持动画结束的样子（infinite执行无限次）*/
+        }
+        /* 先定义关键帧 */
+        @keyframes xx {
+            0% {
+                width:200px;
+            }
+            50%{
+                width: 400px;
+            }
+            100%{
+                width: 500px;
+            }
+        }
+        @keyframes yy {
+            from{
+
+            }to{
+                
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+</body>
+
+</html>
