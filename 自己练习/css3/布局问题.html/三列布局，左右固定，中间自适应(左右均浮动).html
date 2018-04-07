@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left{
+            width: 200px;
+            height:500px;
+            background: darkviolet;
+            float:left;
+        }
+        #center{
+            height:500px;
+            background:darkorange;
+            margin:0 210px;
+        }
+        #right{
+            width: 200px;
+            height: 500px;
+            background: darkturquoise;
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div id="left">left</div>
+    <!-- 右边要写在中间，因为要不然左边左浮，中间上去了，右边会上不去的 -->
+    <div id="right">right</div>
+    <div id="center">center</div>    
+</body>
+</html>

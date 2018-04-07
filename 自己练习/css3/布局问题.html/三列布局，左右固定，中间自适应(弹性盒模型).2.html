@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            display:flex;
+        }
+        #left {
+            width: 200px;
+            height: 500px;
+            background: darkviolet;
+        }
+
+        #center {
+            height: 500px;
+            background: darkorange;
+            flex-grow:1;
+        }
+
+        #right {
+            width: 200px;
+            height: 500px;
+            background: darkturquoise;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="left">left</div>
+        <div id="center">center</div>
+        <div id="right">right</div>
+    </div>
+</body>
+
+</html>
