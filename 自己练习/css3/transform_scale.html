@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border:2px dashed;
+            margin: 100px auto;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:red;
+            /* transform:scale(2);  放大为原来的两倍 */
+            /* transform:scale(-2);  放大两倍但是倒过来了，旋转了180度 */
+            /* 只放大X或者只放大Y */
+            transform:scaleX(2);
+            transform:scaleY(2);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div2
+        </div>
+    </div>
+</body>
+</html>

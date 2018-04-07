@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            border:2px dashed;
+            margin: 100px auto;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:red;
+            /* transform: translate(100px,50px); 水平垂直都移动*/
+            /* transform:translateX(200px);设置了X或者是Y之后，就只移动其中一个 */
+            transform:translateY(50px);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div2
+        </div>
+    </div>
+</body>
+</html>
