@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 500px;
+            margin: 100px auto;
+            position: relative;
+        }
+        .change{
+            border: 5px solid #fff;
+            transition:all 0.5s linear;     
+            box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.5) ;  
+            position:absolute;
+            top:0;
+            left:0;     
+        }
+        #top{
+            transform:rotate(20deg);
+        }
+        #bottom{
+            transform:rotate(-20deg);       
+        }
+
+        #top:hover,#bottom:hover{
+            transform:rotate(0deg);
+            box-shadow: 5px 5px 10px 6px rgba(0,0,0,0.7);    
+            transform:scale(1.2);   
+            /* 只有定位元素才能设置z-index */
+            z-index:1;           
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <img src="imgs/img01.jpg" alt="" id="top" class="change">
+        <img src="imgs/img02.jpg" alt="" id="bottom" class="change">
+    </div>
+</body>
+
+</html>
