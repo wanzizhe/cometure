@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            border:2px dashed;
+            margin:100px auto;
+            /* 视角perspective加在父元素上时*/
+            perspective: 1000px;
+            perspective-origin: 50% -800px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background:red;
+            /* 视角原点加在子元素上时 */
+            transform: perspective(1000px) rotateX(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div</div>
+    </div>
+</body>
+</html>
