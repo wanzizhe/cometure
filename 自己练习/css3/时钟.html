@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #contain {
+            width: 400px;
+            height: 400px;
+            border: 1px solid;
+            border-radius: 50%;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #clock li {
+            position: absolute;
+            top: 0;
+            left: 200px;
+            width: 2px;
+            height: 10px;
+            background: #000;
+            list-style: none;
+            transform-origin: 0 200px;
+        }
+
+        #clock li:nth-child(5n+1) {
+            height: 20px;
+        }
+
+        #hour {
+            width: 7px;
+            height: 60px;
+            background: #000;
+            position: absolute;
+            top: 140px;
+            left: 196px;
+        }
+
+        #minute {
+            width: 5px;
+            height: 80px;
+            background: #999;
+            position: absolute;
+            top: 120px;
+            left: 198px;
+        }
+
+        #second {
+            width: 3px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top: 100px;
+            left: 199px;
+        }
+
+        #contain div {
+            transform-origin: bottom;
+        }
+
+        /* #clock li:nth-child(1){
+            transform: rotate(0deg);
+        }
+        #clock li:nth-child(2){
+            transform: rotate(6deg);
+        }
+        #clock li:nth-child(3){
+            transform: rotate(12deg);
+        }
+        #clock li:nth-child(4){
+            transform: rotate(18deg);
+        }
+        #clock li:nth-child(5){
+            transform: rotate(24deg);
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="contain">
+        <ul id="clock">
+            <!-- <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li> -->
+        </ul>
+        <div id="hour"></div>
+        <div id="minute"></div>
+        <div id="second"></div>
+    </div>
+    <script>
+        var oClock = document.getElementById("clock");
+        var aLi = "";
+        var oHour = document.getElementById("hour");
+        var oMinute = document.getElementById("minute");
+        var oSecond = document.getElementById("second");
+        for (var i = 0; i < 60; i++) {
+            aLi += "<li style='transform : rotate(" + 6 * i + "deg)'></li>";
+        }
+        oClock.innerHTML = aLi;
+
+        clock();
+        setInterval(clock,1000);
+        function clock() {
+            var now = new Date();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            oHour.style.transform = "rotate(" + (hour * 30 + minute/6 *30) + "deg)";
+            oMinute.style.transform = "rotate(" + (minute * 6 + second/60 * 6) + "deg)";
+            oSecond.style.transform = "rotate(" + second * 6 + "deg)";
+        }
+    </script>
+</body>
+
+</html>
