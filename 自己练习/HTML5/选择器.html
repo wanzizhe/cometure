@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        document.getElementById("id");
+        document.getElementsByTagName("div");
+
+        document.getElementsByName("username"); //兼容性问题
+        document.getElementsByClassName("aa"); //兼容性问题
+
+        function getByClass(className, context) {
+            context = context || document;
+            var result = [];
+            var arr = document.getElementsByTagName("*");
+            var re = new RegExp("\\b" + className + "\\b");
+            for (var i = 0; i < arr.length; i++) {
+                if (re.test(arr[i].className)) {
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>
