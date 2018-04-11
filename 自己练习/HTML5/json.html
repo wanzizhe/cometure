@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        json : javascript object notation
+        是一种数据格式，用来前台和后台传值用  json就是一个字符串
+        解决JSON兼容性问题可以去官网 http://json.org 下载json2.js
+     -->
+    <script>
+        var obj1 = {
+            name: "wanzizhe",
+            age : 18
+        }
+        console.log(obj1);//obj1对象
+        var str1 = JSON.stringify(obj1);//JSON.stringify把对象转化为JSON字符串
+        console.log(str1);//JSON格式的字符串 {"name":"wanzizhe","age":18}
+
+        var obj2 = JSON.parse(str1);//JSON.parse把JSON字符串转化为对象
+        console.log(obj2);
+
+        //基本数据类型
+        var a = 5;
+        var b = a;
+        a = 6;
+        console.log(b);//5  改变了a的值，并不影响b 基本数据类型存储在栈中
+
+        var obj3 = {
+            name : "zhangsan",
+            age : 18,
+            father :{
+                name : "zhanger"
+            }
+        }
+        // var obj4 = obj3;
+        // obj3.name = "lisi"
+        //console.log(obj4.name);//lisi  obj3改变了obj4就改变了，因为引用数据类型存在堆当中，指向一个共同的对象
+        
+        //想要改变obj3，而obj4并不改变，需要深克隆
+        //深克隆方法一：自己封装的cloneObj()函数
+        //var obj4 = cloneObj(obj3);
+        //obj3.name = "lisi";//深克隆之后，改变obj3中的对象属性，并不会影响obj4，因为obj4已经是obj3深克隆后的另一个对象
+        //console.log(obj4.name);
+
+        //深克隆方法二：JSON
+        var str5 = JSON.stringify(obj3);//把obj3先转化为字符串
+        var obj5 = JSON.parse(str5);//把obj3的字符串再转化为对象
+        obj3.name = "lisi";//虽然obj3改变了，但是，JSON已经完成了深克隆，所以obj5并不会改变
+        console.log(obj5.name);//zhangsan
+
+
+        //深克隆
+        function cloneObj(obj){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof obj[p] === "object"){
+                    newObj[p] = arguments.callee(obj[p]);//递归调用
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+
+        eval("alert(1);");//eval可以解析字符串（非常不安全）
+        JSON.parse("alert(1);");//JSON.parse只能解析符合json格式的字符串
+    </script>
+</body>
+
+</html>
