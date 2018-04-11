@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--自定义属性是data-开头 jq中有特定的方法取到这个属性-->
+    <div id="div1" data-aa-bb="789"></div>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        oDiv1.aa = "123";
+        console.log(oDiv1.aa);//相当于jq中的prop，在DOM结构中看不见
+
+        oDiv1.setAttribute("bb","456");
+        console.log(oDiv1.getAttribute("bb"));//相当于jq中的attr，能在DOM结构中看见
+
+        // jquery方法
+        console.log($("#div1").data("aaBb"));//括号里面可以写 "aa-bb"或者是"aaBb"可以输出属性data-aa-bb的值789
+    
+        //html5方法
+        console.log(oDiv1.dataset.aaBb);//789  oDiv1.dataset取到的是键值对（对象）
+    </script>
+</body>
+</html>
