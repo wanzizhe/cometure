@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <div id="div1" class="aa">div1
+        <div class="aa">div2</div>
+        <div class="aa">div3</div>        
+    </div>
     <script>
 
         document.getElementById("id");
@@ -29,6 +33,20 @@
             }
             return result;
         }
+        //html5 新选择器querySelector  querySelectorAll
+        var oDiv1 = document.querySelector("#div1");//找到div1
+        console.log(oDiv1);
+        var oDiv2 = document.querySelector("#div1 .aa");//找到第一个.aa，因为有两个.aa只能找到第一个，
+        console.log(oDiv2);
+        var oDiv3 = document.querySelectorAll("#div1 .aa");//会找到两个.aa
+        console.log(oDiv3);
+
+        // oDiv1.className +=" cc";        
+        console.log(oDiv1.className);//aa bb 字符串
+        // console.log(oDiv1.classList.add("cc"));//对象,add添加class为cc的
+        //oDiv1.classList.remove("bb");//删除oDiv1中的class为bb的
+        oDiv1.classList.toggle("bb")//toggle开关，没有class bb的时候加上，有class bb 的是时候去掉
+        
     </script>
 </body>
 
