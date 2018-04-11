@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- defer边解析边下载，都解析完成之后才会执行，理论上能保证顺序 -->
+    <script src="js1.js" defer></script>
+    <!-- async边解析边下载，下载完成之后立即执行，不能保证加载顺序 -->
+    <script src="js1.js" async></script>
+    
+</head>
+<body>
+    <!-- js是单线程的，只有等alert（阻塞的）加载完成之后，才会显示红色div -->
+    <div style="width: 200px;height: 200px;background:red;"></div>
+
+    <!-- js1下载执行完成才会继续下载执行js2之后js3 -->
+    <!--<script src="js1.js"></script>
+     <script src="js2.js"></script>
+    <script src="js3.js"></script>     -->
+</body>
+</html>
