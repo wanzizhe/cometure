@@ -21,9 +21,11 @@
                 arr.push(Math.floor(Math.random() * 10));
             }
             oResult.innerHTML = arr;
+            // lication.hash是url后面加的东西
             location.hash=Math.random();
             obj[location.hash] = arr;
         });
+        // 点击前后按钮会触发window.onhashchange事件
         window.onhashchange = function (){
             oResult.innerHTML = obj[location.hash];
         }
