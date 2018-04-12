@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn(arg){
+            alert("hello" + arg);
+        }
+    </script>
+    <!-- jsonp跨域原理：利用script标签的src属性 加载另外一个域的文件，通过src后面跟参数用get方式把这个值从一个域传到另一个域，传一个方法的名字（callback）
+         在b中通过调用方法名字（callback），其中方法的参数把数据传回到a-->
+    <!-- a域向b域发送请求  ?表示get方式的请求，带参数，参数的属性是name值是zhangsan -->
+    <!-- 函数的名字统一叫callback -->
+    <script src="http://www.b.com/text1.php?name=zhangsan&age=18&callback=fn"></script>
+</body>
+</html>

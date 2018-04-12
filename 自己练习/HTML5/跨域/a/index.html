@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    a
+    <!-- <script src="jquery-1.11.2.js"></script> -->
+    <!-- cdn加速  具有src属性的不存在跨域问题-->
+    <script
+    src="http://code.jquery.com/jquery-1.12.4.min.js"
+    integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>">
+    <script>
+        //发送请求用get，第一个参数：发送请求的url地址,第二个：发送请求的参数
+        $.get("http://www.b.com/index.html",{
+            name:"zhangsan"
+        });
+    </script>
+</body>
+</html>
