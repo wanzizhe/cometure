@@ -54,8 +54,8 @@
     <script>
         //$("#div3:target").css("background","#00f");//单写这个不好使，因为在你还没点div3的时候，代码已经执行完了，当你点div3，div3成为target的时候，代码已经执行完成，就不会变色
         $(function(){
-            $("#ul1:eq(-1)").on("click",function(){
-                $("#div3:target").css("background","#00f");//这样可以，在点击的时候才会执行变色
+            $("#ul1 li:eq(-1)").on("click",function(){
+                $("#div3:target").css("background","red");//这样可以，在点击的时候才会执行变色
             })            
         });
         
