@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+        }
+
+        #cvs {
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- canvas设置大小是在属性标签中写，默认是300*150 -->
+    <canvas id="cvs" width="500px" height="400px"></canvas>
+    <script>
+        window.onload = function () {
+            var oCvs = document.getElementById("cvs");
+            var ctx = oCvs.getContext("2d"); //画布
+            ctx.beginPath();//开始绘画，重新起笔
+            ctx.moveTo(100, 100);
+            ctx.lineTo(300, 300);
+            ctx.lineTo(250, 100);
+            ctx.strokeStyle = "red"; //颜色
+            ctx.lineWidth = 4;//线变粗了
+            ctx.lineCap = "round";//线的端部是圆的
+            ctx.stroke(); //stroke描边
+        };
+    </script>
+</body>
+
+</html>
