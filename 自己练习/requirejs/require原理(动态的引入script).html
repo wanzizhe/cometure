@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">add</button>
+    <script>
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            // 动态插入script标签
+            var oScript = document.createElement("script");
+            oScript.src = "xx.js";
+            document.body.appendChild(oScript);
+        }
+        //defer:IE提出，边解析边下载，解析完成之后才会执行，保证顺序 
+         //async：标准，边解析边下载，下载完成之后立即执行，不能保证顺序
+    </script>
+</body>
+</html>
