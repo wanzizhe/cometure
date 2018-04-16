@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.carousel-container {
+    width: 520px;
+    height: 280px;
+    position: relative;
+}
+
+.carousel-imgs img {
+    display: none;
+}
+
+.carousel-imgs .selected {
+    display: block;
+}
+
+.carousel-menu li,
+.carousel-arrows div {
+    width: 20px;
+    height: 20px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 20px;
+    float: left;
+    margin-left: 5px;
+}
+
+.carousel-menu {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.carousel-arrows {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.carousel-menu .selected {
+    background: orange;
+}
