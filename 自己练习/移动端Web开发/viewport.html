@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 写了这句话，网页在移动端才会正常显示，viewport视口  device-width设备宽度 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background:red;
+            /* em   rem   默认字体大小16px，最小不要小于12px */
+            font-size:16px;
+        }
+        #div2{
+            font-size:2em;  /*em是父元素font-size的倍数*/
+            width: 5em; /*宽和高也可以用em(所有用px的都能用em)，也是相对于父元素font-size来说的，*/
+            height:5em;
+            background:green;
+        }
+        #div3{
+             font-size: 2em; /*在子元素不设置font-size的时候相对于父元素的，子元素设置了，就相对于子元素的font-size*/
+            width: 1em;
+            height: 1em;
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1
+        <div id="div2">
+            div2
+            <div id="div3">
+                div3
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 切换css文件 -->
+    <!-- <link rel="stylesheet" href="css1.css" media="(min-width:500px)"> -->
+    <!--<link rel="stylesheet" href="css2.css" media="print"> 在打印的时候，div1就会变成绿色 -->
+    <!-- <link rel="stylesheet" href="css2.css" media="(max-width:499px)"> -->
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+        }
+        /* 
+        breakpoint:1200 992 768
+        1200 ：现在主流设备
+        992：之前的老设备
+        768：兼容ipad 
+        
+        */
+        /* 切换代码段 */
+        /* 不同宽度 */
+        /* @media(min-width: 500px){
+            #div1{
+                background:red;
+            }
+        }
+        @media(max-width: 499px){
+            #div1{
+                background:green;
+            }
+        } */
+
+        /* 横屏，竖屏 */
+        @media(orientation:landscape){  /*横屏*/
+            #div1{
+                /* background:red; */
+            }
+        }
+        @media(orientation: portrait){ /*竖屏*/
+            #div1{
+                /* background:green; */
+            }
+        }
+
+        /* DPR不同 */
+        @media(-webkit-device-pixel-ratio:2){  /*DPR是2*/
+            #div1{
+                background:red;
+            }
+        }
+        @media(-webkit-device-pixel-ratio:3){   /*DPR是3*/
+            #div1{
+                background:green;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+   <div id="div1"></div>
+</body>
+</html>
