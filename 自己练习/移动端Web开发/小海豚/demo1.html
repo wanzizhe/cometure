@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h3{
+            width: 960px;
+            height: 100px;
+            background:#ccc;
+            color:#fff;
+            text-align: center;
+            line-height: 100px;
+            margin:30px auto;
+        }
+        #left{
+            width: 630px;
+            background:#0f0;
+            float:left;
+            margin-right:30px;
+        }
+        #right{
+            width: 300px;
+            background:#0ff;  
+            /* float:right;           */
+            float:left;
+        }
+        article{
+            width: 960px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        section{
+            height: 300px;
+            display: table;
+        }
+        p{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .clearfix::after{
+            content:"";
+            display: block;
+            clear:both;
+        }
+        figure{
+            width: 960px;
+            height: 540px;
+            background:url(img/01.jpg);
+            background-size:cover;
+            margin:0 auto;
+        }
+         @media(max-width:959px){
+            h3,article,figure{
+                width:100%;
+            }
+            #left{
+                width: 67%;
+                margin-right:3%;
+            }
+            #right{
+                width: 30%;
+            }
+            figure{
+                background-image: url(img/01_s_2x.jpg);
+                height: 0;
+                padding-top:56.25%;  /*高/宽*/
+           }
+        }
+        @media(max-width:479px){
+            #left,#right{
+                width: 100%;
+            }
+            figure{
+                background-image:url(img/01_s.jpg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>页头</h3>
+    </header>
+    <nav>
+        <h3>导航</h3>
+    </nav>
+    <figure>
+    </figure>
+    <article class="clearfix">
+        <section id="left">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus
+                vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam
+                quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </section>
+        <section id="right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sem erat, egestas quis luctus ut, rhoncus
+                vitae risus. Integer venenatis libero sit amet sapien dictum, quis bibendum mi volutpat. Cras pretium quam
+                quis magna facilisis, eget feugiat nisi lacinia.</p>
+        </section>
+    </article>
+    <footer>
+        <h3>页脚</h3>
+    </footer>
+</body>
+</html>
