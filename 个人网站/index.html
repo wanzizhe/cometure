@@ -6,14 +6,44 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0"
     />
     <title>个人网站</title>
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="css/index.css" />
 </head>
 
 <body>
     <div class="wrapper">
         <div id="menu" class="clearfix">
-            <div class="navbar navbar-default" role="navigation">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="" class="navbar-brand">wanzizhe</a>
+                    </div>
+                    <!-- 把需要变成按钮的内容包裹在div里面 -->
+                    <div class="collapse navbar-collapse" id="responsive-navbar">
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href="">Personal Information</a>
+                            </li>
+                            <li>
+                                <a href="">Skill Level</a>
+                            </li>
+                            <li>
+                                <a href="">Project Work</a>
+                            </li>
+                            <li>
+                                <a href="">Else</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                         <span class="sr-only">Toggle Navigation</span>
@@ -38,7 +68,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <div id="header">
@@ -364,9 +394,10 @@
             }
         }
     </script>
-    <script src="js/jquery-1.11.2.js"></script>
-    <script src="js/jquery.cookie.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
 
 </body>
