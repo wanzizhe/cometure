@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model="msg">
+        <div>{{msg}}</div> -->
+
+        <!-- 用户名 -->
+        <form action="">
+            <label for="">用户名：<input type="text" v-model="username"></label>
+            <label for="">用户名lazy：<input type="text" v-model.lazy="username"></label>
+            <label for="">用户名number：<input type="number" v-model.number="username"></label>
+            <label for="">用户名trim：<input type="text" v-model.trim="username"></label>            
+            <div>{{username}}</div>
+        </form>
+
+        <!-- 单选框 -->
+        性别：
+        <input type="radio" v-model="sex" name="sex" value="男">男
+        <input type="radio" v-model="sex" name="sex" value="女">女
+         <div>{{sex}}</div> <!--取得的是input中的value值-->
+
+         <!-- 多选框 -->
+         爱好：
+         <input type="checkbox" v-model="hobby" value="足球">足球
+         <input type="checkbox" v-model="hobby" value="蓝球">蓝球
+         <input type="checkbox" v-model="hobby" value="排球">排球   
+         <div>{{hobby}}</div>   
+         
+         <!-- 下拉菜单 -->
+         <select name="" id="" v-model="school">
+             <option value="黑大">黑大</option>
+             <option value="农大">农大</option>
+             <option value="林大">林大</option>
+             <option value="理工">理工</option>             
+         </select>
+         <div>{{school}}</div>
+
+         <!-- 大文本域 -->
+        <textarea name="" id="" cols="30" rows="10" v-model="text"></textarea>
+         <div>{{text}}</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                msg:'',
+                username:'',
+                sex:'',
+                hobby:[],//多选框会与很多值，所以是数组
+                school:'',
+                text:''
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- 数组的循环对应关系(数组值，索引)  v-bind:key='index-->
+            <li v-for='(school,index) in list' v-bind:key='index'>
+                {{school}}--{{index}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for='item in sortArr'>
+                {{item}}
+            </li>
+        </ul>
+        <ul>
+            <!-- 对象的循环对应关系 (属性值，属性名，索引) -->
+            <li v-for='(key,val,index) in obj' v-bind:key='index'>
+                {{key}}:{{val}}:{{index}}
+            </li>
+        </ul>
+        <ul>
+            <!-- user是一个对象 -->
+            <li v-for='user in usersort'>
+                {{user.name}}--{{user.age}}--{{user.school}}
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['林大', '黑大', '农大', '理工'],
+                arr: [5, 2, 8, 11, 9, 3],
+                obj: {
+                    name: 'wanzizhe',
+                    age: 18,
+                    school: '理工'
+                },
+                users: [
+                    {
+                    name: 'wanzizhe',
+                    age: 18,
+                    school: '理工'
+                },{
+                    name: 'wanzizhe1',
+                    age: 20,
+                    school: '林大'
+                },{
+                    name: 'wanzizhe2',
+                    age: 22,
+                    school: '农大'
+                }
+                 ]
+            },
+            // 计算属性，相当于在data中加入一个新的属性，所以不能重名
+            computed: {
+                sortArr: function () {
+                    // this相当于vm这个对象
+                    return this.arr.sort(function (a, b) {
+                        return a - b;
+                    })
+                },
+                usersort:function(){
+                    return this.users.sort(function(a,b){
+                        return b.age-a.age;
+                    })
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .div1 {
+            width: 400px;
+            height: 400px;
+            background: red;
+        }
+        .div2{
+            width: 200px;
+            height: 200px;
+            background:green;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <button v-on:click="add">加1</button> -->
+        <!-- 简写形式  函数中写实参-->
+        <button @click="add(2,$event)">加1</button>
+        <div>{{count}}</div>
+        <input type="text" @keyup.enter='handler' v-model='keywords'>
+        <!-- 一个元素绑定多个事件 -->
+        <button v-on="{mousedown:doThis,mouseup:doThat}">mouse</button>
+        <div class="div1" @click="clickDiv1">
+            <!-- <div class="div2" @click="clickDiv2($event)"> -->
+            <div class="div2" @click.stop="clickDiv2">                
+
+            </div>
+        </div>
+        <!-- <a href="http://www.baidu.com" @click="baidu($event)">baidu</a> -->
+        <a href="http://www.baidu.com" @click.prevent="baidu">baidu</a>        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                count: 0,
+                keywords: 0
+            },
+            methods: {
+                // add:function(){
+                //     this.count++;
+                // }
+                // 上面实参，在这里用num形参接收
+                add(num, e) {
+                    this.count += num;
+                    console.log(e);
+                },
+                handler() {
+                    this.count += parseInt(this.keywords);
+                },
+                doThis() {
+                    console.log("doThis");
+                },
+                doThat() {
+                    console.log("doThat");
+                },
+                clickDiv1(){
+                    console.log("clickDiv1");
+                },
+                clickDiv2(e){
+                    console.log("clickDiv2");
+                    // e.stopPropagation();
+                },
+                baidu(e){
+                    // e.preventDefault();
+                    
+                }
+
+            }
+        });
+    </script>
+</body>
+
+</html>

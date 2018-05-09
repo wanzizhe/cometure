@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!-- v-if如果为false，dom结果中不会加载这个结构 -->
+        <div v-if="isLogin">你好，万子哲</div>
+        <!-- v-else -->
+        <div v-else>请登录</div>
+        <!-- v-else-if -->
+        <div v-if="type=='A'">A</div>
+        <div v-else-if="type=='B'">B</div>
+        <div v-else='C'>C</div>
+
+        <!--v-show如果为false，dom结构中也会有此结构，只不过display:none  -->
+        <div v-show="isShow">show</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world123!',
+                isLogin:false,
+                type:'A',
+                isShow:true
+            }
+        });
+    </script>
+</body>
+</html>

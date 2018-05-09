@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 400px;
+            margin:100px auto;
+        }
+        h1{
+            text-align: center;
+        }
+        li{
+            list-style: none;
+            height: 50px;
+            background: #ccc;
+            margin:5px 0;
+        }
+        .right{
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>todolist</h1>
+        <hr>
+        <ul >
+            <li v-for="(user) in product">
+                <span class="left">{{user.name}}</span>
+                <span class="right">{{user.price}}</span>
+            </li>
+        </ul>
+        总价：{{total}}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                product:[
+                    {
+                        name:'香蕉',
+                        price:23
+                    },
+                    {
+                        name:'苹果',
+                        price:56
+                    },
+                    {
+                        name:'橘子',
+                        price:99
+                    },
+                    {
+                        name:'西瓜',
+                        price:34
+                    },
+                    {
+                        name:'鸭梨',
+                        price:50
+                    }
+                ],
+                total:0
+            },
+            methods:{
+
+            }
+        });
+    </script>    
+</body>
+</html>
