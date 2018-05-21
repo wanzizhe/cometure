@@ -1,28 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="div1">divdiv</div>
     <script>
-        console.log(this);//window
+        // console.log(this);//window
+
+        // var oDiv = document.getElementById("div1");
+        // oDiv.onclick = function () {
+        //     console.log(this); //div那个对象
+
+        //     setInterval(function () {
+        //         console.log(this); //window,定时器是window下面的
+        //     }, 1000);
+        // }
+
+        // var oDiv = document.getElementById("div1");
+        // oDiv.onclick = function() {
+        //     console.log(this); //div那个对象
+
+        //     setInterval(() => { 
+        //         console.log(this); //window,定时器是window下面的
+        //     }, 1000);
+        // }
 
         var oDiv = document.getElementById("div1");
-        oDiv.onclick=function(){
-            console.log(this);//div那个对象
+        oDiv.onclick = () => {
+            console.log(this);//window,定义时的对象是window，使用时的对象是oDiv
         }
 
-        window.setInterval(function(){
-            console.log(this);//window,定时器是window下面的
-        },1000);
+        // function fn(){
+        //     console.log(this);//window，方法和变量都是定义在window下面的
+        // }
+        // fn();
 
-        function fn(){
-            console.log(this);//window，方法和变量都是定义在window下面的
+
+
+        //js中this的四种用法
+        //第一种，在一般函数方法中使用this指代全局对象
+        var x = 4;
+
+        function text() {
+            alert(this.x);
         }
-        fn();
+        text(); //4
+
+
+        //第二种 ，作为对象方法调用，this 指代上级对象
+        var myObject = {
+            value: 100
+        };
+        myObject.getValue = function () {
+            console.log(this.value); // 输出 100
+
+            // 输出 { value: 100, getValue: [Function] }，
+            // 其实就是 myObject 对象本身
+            console.log(this);
+
+            return this.value;
+        };
+
+        console.log(myObject.getValue()); // => 100
+
+        //第三种，作为构造函数调用，this 指代new 出的对象
+        var SomeClass = function () {
+            this.value = 100;
+        }
+
+        var myCreate = new SomeClass();
+
+        console.log(myCreate.value); // 输出100
+
+        //第四种，apply 和 call 调用以及 bind 绑定：指向绑定的对象
+        var myObject = {
+            value: 100
+        };
+
+        var foo = function () {
+            console.log(this);
+        };
+
+        foo(); // 全局变量 global
+        foo.apply(myObject); // { value: 100 }
+        foo.call(myObject); // { value: 100 }
+
+        var newFoo = foo.bind(myObject);
+        newFoo(); // { value: 100 }
     </script>
+
 </html>

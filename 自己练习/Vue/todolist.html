@@ -1,78 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        #app{
+
+        #app {
             width: 400px;
-            margin:100px auto;
+            margin: 100px auto;
         }
-        h1{
+
+        h1 {
             text-align: center;
         }
-        li{
+
+        li {
             list-style: none;
             height: 50px;
             background: #ccc;
-            margin:5px 0;
+            margin: 5px 0;
+            padding: 0 10px;
+            line-height: 50px;
         }
-        .right{
-            float:right;
+
+        .right {
+            float: right;
+        }
+
+        .red {
+            background: red;
+        }
+
+        .del {
+            float: left;
+            cursor: pointer;
+        }
+        input[type="checkbox"]{
+            float:left;
+            margin:20px 0;
         }
     </style>
 </head>
+
 <body>
     <div id="app">
         <h1>todolist</h1>
-        <hr>
-        <ul >
-            <li v-for="(user) in product">
+        <hr> 名称：
+        <input type="text" placeholder="请输入商品名称" v-model="name">
+        <br> 价格：
+        <input type="text" placeholder="0" v-model="price">
+        <button @click="add">添加</button>
+        <ul>
+            <li v-for="(user,index) in product" @click="select(user)" :class="{red:user.isred}">
+                <input type="checkbox" @click.stop="">
+                <span class="del" @click="del(index)">[X]</span>
                 <span class="left">{{user.name}}</span>
                 <span class="right">{{user.price}}</span>
             </li>
         </ul>
-        总价：{{total}}
+        总价：{{total}} 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script>
         new Vue({
-            el:'#app',
-            data:{
-                product:[
-                    {
-                        name:'香蕉',
-                        price:23
+            el: '#app',
+            data: {
+                product: [{
+                        name: '香蕉',
+                        price: 23,
+                        isred: false
                     },
                     {
-                        name:'苹果',
-                        price:56
+                        name: '苹果',
+                        price: 56,
+                        isred: false
                     },
                     {
-                        name:'橘子',
-                        price:99
+                        name: '橘子',
+                        price: 99,
+                        isred: false
                     },
                     {
-                        name:'西瓜',
-                        price:34
+                        name: '西瓜',
+                        price: 34,
+                        isred: false
                     },
                     {
-                        name:'鸭梨',
-                        price:50
+                        name: '鸭梨',
+                        price: 50,
+                        isred: false
                     }
                 ],
-                total:0
+                total: 0,
+                name: "",
+                price: 0
             },
-            methods:{
-
+            methods: {
+                // 点击变红，再点击变回来
+                select(user) {
+                    user.isred = !user.isred;
+                    // if(user.isred){
+                    //     this.total+=user.price;
+                    // }else{
+                    //     this.total-=user.price;
+                    // }
+                    this.sum();
+                },
+                // 总价
+                sum() {
+                    let sum = 0;
+                    this.product.forEach(function (val, idx, arr) {
+                        if (val.isred) {
+                            sum += parseInt(val.price);
+                        }
+                    });
+                    this.total = sum;
+                },
+                //添加
+                add() {
+                    this.product.push({
+                        name: this.name,
+                        price: this.price,
+                        isred: false
+                    });
+                    this.name = '';
+                    this.price = 0;
+                },
+                //删除
+                del(index) {
+                    this.product.splice(index,1);
+                }
             }
         });
-    </script>    
+    </script>
 </body>
+
 </html>
