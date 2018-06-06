@@ -1,60 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style lang="">
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        #small,#big{
+
+        #small,
+        #big {
             width: 400px;
             height: 400px;
-            float:left;
+            float: left;
         }
-        #small{
-            position:relative;
+
+        #small {
+            position: relative;
         }
-        #mark{
-            width:100%;
-            height:100%;
+
+        #mark {
+            width: 100%;
+            height: 100%;
             background: #f00;
-            opacity:0;
-            filter:alpha(opacity(0));
-            position:absolute;
-            top:0;
-            left:0;
+            opacity: 0;
+            filter: alpha(opacity(0));
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-        #big{
+
+        #big {
             overflow: hidden;
-            display:none;
+            display: none;
         }
-        #big img{
-            position:relative;
-            top:0;
-            left:0;
+
+        #big img {
+            position: relative;
+            top: 0;
+            left: 0;
         }
-        #drag{
+
+        #drag {
             width: 200px;
             height: 200px;
             background: #ccc;
-            opacity:0.5;
-            filter:alpha(opacity=50);
-            position:absolute;
-            top:0;
-            left:0;
-            display:none;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
         }
     </style>
 </head>
+
 <body>
     <div id="small">
         <img src="img/small.jpg" alt="">
         <div id="drag"></div>
-         <div id="mark"></div> <!--兼容IE，防止闪烁，要加遮罩层，虽然遮罩层透明度为0，但是也要有背景颜色-->
+        <div id="mark"></div>
+        <!--兼容IE，防止闪烁，要加遮罩层，虽然遮罩层透明度为0，但是也要有背景颜色-->
     </div>
     <div id="big">
         <img src="img/big.jpg" alt="">
@@ -65,46 +75,46 @@
         var oBig = document.getElementById("big");
         var oBigImg = oBig.getElementsByTagName("img")[0];
         var oMark = document.getElementById("mark");
-        oMark.onmouseover = function(){//所有事件都给遮罩层mark绑定
+        oMark.onmouseover = function () { //所有事件都给遮罩层mark绑定
             console.log("oSmall.onmouseover")
-            oDrag.style.display="block";
-            oBig.style.display="block";
+            oDrag.style.display = "block";
+            oBig.style.display = "block";
         };
-        oMark.onmouseout = function(){
+        oMark.onmouseout = function () {
             console.log("oSmall.onmouseout")
-            oDrag.style.display="none";
-            oBig.style.display="none";
+            oDrag.style.display = "none";
+            oBig.style.display = "none";
         };
         // oDrag.onmouseover = function (){
         //     console.log("oDrag.onmouseover");
         // }
-        oMark.onmousemove = function(e){
+        oMark.onmousemove = function (e) {
             console.log("oSmall.onmousemove");
-            e = e||windew.event;
-            var top = e.clientY - oDrag.offsetHeight/2;
-            var left = e.clientX - oDrag.offsetWidth/2;           
-            if(left <= 0){
+            e = e || windew.event;
+            var top = e.clientY - oDrag.offsetHeight / 2;
+            var left = e.clientX - oDrag.offsetWidth / 2;
+            if (left <= 0) {
                 left = 0;
             }
-            if(top <= 0){
+            if (top <= 0) {
                 top = 0;
             }
             var maxX = oSmall.offsetWidth - oDrag.offsetWidth;
             var maxY = oSmall.offsetHeight - oDrag.offsetHeight;
-            if(left >= maxX){
+            if (left >= maxX) {
                 left = maxX
             }
-            if(top >= maxY){
+            if (top >= maxY) {
                 top = maxY;
             }
             oDrag.style.top = top + "px";
-            oDrag.style.left = left + "px"; 
-            var smallX = left/maxX;
-            var smallY = top/maxY;            
-            oBigImg.style.left = -(oBigImg.offsetWidth - oBig.offsetWidth)*smallX + "px";
-            oBigImg.style.top= -(oBigImg.offsetHeight - oBig.offsetHeight)*smallY + "px";
+            oDrag.style.left = left + "px";
+            var smallX = left / maxX;
+            var smallY = top / maxY;
+            oBigImg.style.left = -(oBigImg.offsetWidth - oBig.offsetWidth) * smallX + "px";
+            oBigImg.style.top = -(oBigImg.offsetHeight - oBig.offsetHeight) * smallY + "px";
         };
-
     </script>
 </body>
+
 </html>
