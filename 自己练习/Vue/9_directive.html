@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-wanzizhe="aa">hhhhh</h1>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        //自定义指令
+        Vue.directive('wanzizhe',function(el,binding,vnode){
+            console.log(el);//指令当前所绑定的元素，可以直接用来操作的DOM，真实DOM
+            console.log(binding);//一个对象：包括name，value等很多
+            console.log(vnode);//VNode 一个对象，虚拟DOM对象
+            el.style.background=binding.value;
+        });
+        new Vue({
+            el:"#app",
+            data:{
+                aa:'green'
+            }
+        });
+    </script>    
+</body>
+</html>
