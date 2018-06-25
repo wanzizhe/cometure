@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var :  variable
+        // var a = 5;
+        // console.log(a);
+
+        // a = 5;
+        // console.log(a);
+
+
+
+        //局部变量处处都有定义
+        // var a = 5;
+        // function foo(){
+        //     console.log(a);//undefined    
+        //     var a = 6;
+
+        //     //相当于
+        //     // var a;  变量提升
+        //     // console.log(a);
+        //     // a = 6;
+        // }
+        // foo();
+
+
+        // var a = 5;
+        // function foo(){
+        //     console.log(a);//5   
+        //     a = 6;
+        // }
+        // foo();
+
+
+        //函数定义的两种方式
+        // fn1();
+
+        // function fn1() {
+        //     console.log('fn1');
+        // }
+
+
+        // fn2(); //报错   fn2 is not a function
+        // var fn2 = function () {
+        //     console.log('fn2');
+        // } //相当于先var fn2      之后调用       之后赋值    所以调用undefiend当然会报错
+
+
+
+        console.log("1==" + a);//function a()  指向a这个函数
+        var a = 5;
+        function a() {//function级别要比变量高，被提到最前面
+            console.log("2==" + a);
+        }
+        a = 6;
+        console.log("3==" + a);//6
+        a();//a is not a function    这时候的a是6，已经不是之前的function了
+    </script>
+</body>
+
+</html>
