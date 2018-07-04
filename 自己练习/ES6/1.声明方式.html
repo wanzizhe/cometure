@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <ul id="ul1">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
     <script>
         //var :  variable
         // var a = 5;
@@ -56,14 +61,204 @@
 
 
 
-        console.log("1==" + a);//function a()  指向a这个函数
-        var a = 5;
-        function a() {//function级别要比变量高，被提到最前面
-            console.log("2==" + a);
+        // console.log("1==" + a);//function a()  指向a这个函数
+        // var a = 5;
+        // function a() {//function级别要比变量高，被提到最前面
+        //     console.log("2==" + a);
+        // }
+        // a = 6;
+        // console.log("3==" + a);//6
+        // a();//a is not a function    这时候的a是6，已经不是之前的function了
+
+
+
+        //js是没有块级作用域的
+        // if(true){
+        //     var a = 5;
+        // }
+        // console.log(a);//5
+
+
+        //没有作用域的坏处，局部可能覆盖全局
+        // var a = 5;
+        // function foo(){
+        //     console.log(a);//undefined
+        //     //别人写的逻辑代码
+        //     if(false){
+        //         var a = 6;
+        //     }
+        // }
+        // foo();
+
+        // for (var i = 0; i < 3; i++) {
+        //     console.log(i);// 0 1 2
+        // }
+        // //js没有块级作用域，所以在外面也能取到for循环里面定义的i
+        // console.log(i);//3
+
+
+        //ES6 新声明方式——let
+        //let和var第一个区别  let没有变量提升
+
+        // console.log(a);//undefined   因为var定义变量会提升
+        // var a = 5;
+
+        // console.log(b);
+        // let b = 6;//b is not defined   因为let没有变量提升
+
+        //let和var第二个区别  let不能重复命名
+        // var a = 5;
+        // var a = 6;
+        // console.log(a);//6   var 可以重复命名
+
+        // let a = 5;
+        // let a = 6;
+        // console.log(a);//Identifier 'a' has already been declared   let 不可能重复命名
+
+
+        //抛出异常要怎么写
+        // var a = 5;
+        // if (a == 5) {
+        //     throw new Error('a之前已经赋值，不可以重复赋值哦');
+        // }
+
+        //let和var第三个区别  let有暂时性死区
+        // var a = 5;
+        // function foo(){//函数foo中就属于暂时性死区，因为在函数foo中不能再次定义名为a的变量了
+        //     console.log(a);
+        //     let a = 6;
+        // }
+        // foo();
+
+
+        //let和var第四个区别  let有块级作用域
+        // let a = 5;
+
+        // function foo() {
+        //     console.log(a); //5   因为let有块级作用域
+        //     if (false) {
+        //         let b = 6;
+        //     }
+        // }
+        // foo();
+
+
+        // for (let i = 0; i < 3; i++) {
+        //     console.log(i); //0 1 2
+        // }
+        // console.log(i); //not defined  因为let有块级作用域，外面取不到
+
+
+        // function foo(arg) {
+        //     console.log(arg);//5
+        //     var arg = 6;
+        //     console.log(arg);//6
+        // }
+        // foo(5);
+
+        // function foo(arg) {
+        //     console.log(arg); //Identifier 'arg' has already been declared(arg 已经被定义过了)    let不能重名  
+        //     {
+        //         let arg = 6; //和形参重名都叫arg
+        //         console.log(arg);//解决办法是，用一个大括号把这两行代码包起来，创造一个作用域
+        //     }
+
+        // }
+        // foo(5);
+
+
+        //ES6 新声明方式——const声明一个只读常量，一旦声明，常量的值就不能改变
+
+        //  const a = 5;
+        //  const a = 6;
+        //  console.log(a);//Identifier 'a' has already been declared  const不能重名，只能有一个
+
+
+        //const实际上保证的，并不是变量的值不得改动，而是变量指向的那个内存地址不得改动
+        // const obj = {
+        //     name: 'zhangsan',
+        //     age: 18
+        // }
+        // console.log(obj);//{name: "zhangsan", age: 18}
+
+        //这种改变相当于创建了一个新对象  new  Object()  内存地址发生了改变，会报错
+        // obj = {
+        //     name: 'lisi'
+        // }
+        // console.log(obj);//Assignment to constant variable 会报错 
+
+
+        //这种改变是对象中name属性的值发生改变，是可以的，因为改变之前和之后是相同的内存地址
+        // obj.name = 'lisi';
+        // console.log(obj);//{name: "lisi", age: 18}
+
+
+        //用数组证明const可以改变
+        //  const arr = [0, 1, 2, 3, 4];
+        //  arr.push(5);
+        //  console.log(arr);// [0, 1, 2, 3, 4, 5]   const是可以改变的呀
+
+
+        //就是想让对象不发生改变可以用 Object.freeze(obj)
+
+        // Object.freeze(obj);
+        // obj.age = 33;
+        // console.log(obj);//{name: "zhangsan", age: 18}   对象不会改变
+
+
+        // var arr = [];
+        // for (var i = 0; i < 5; i++) {
+        //     //  aLi[i].index = i;
+        //     // aLi[i].onclick = function(){
+        //     //     console.log(this.index);
+        //     // }; 
+        //     arr[i] = function () {
+        //         console.log(i);
+        //     };
+        // }
+        // arr[3](); //5
+
+        let arr = [];
+        for (let i = 0; i < 5; i++) {
+            //  aLi[i].index = i;
+            // aLi[i].onclick = function(){
+            //     console.log(this.index);
+            // }; 
+            arr[i] = function () {
+                console.log(i);
+            };
         }
-        a = 6;
-        console.log("3==" + a);//6
-        a();//a is not a function    这时候的a是6，已经不是之前的function了
+        arr[3](); //3
+
+
+
+        //题目：给每一个li绑定点击事件，点击每一个li的时候，弹出对应的索引  
+        var oUl = document.getElementById('ul1');
+        var aLi = oUl.getElementsByTagName('li');
+        //第一种的方法   var
+        // for (var i = 0; i < aLi.length; i++) {
+        //     aLi[i].index = i;
+        //     aLi[i].onclick = function () {
+        //         console.log(this.index);
+        //     }
+        // }
+
+        //第二种方法    let
+        // for (let i = 0; i < aLi.length; i++) {
+        //     aLi[i].onclick = function () {
+        //         console.log(i);
+        //     }
+        // }
+
+
+        //第三种方法   闭包
+        for (var i = 0; i < aLi.length; i++) {
+            (function (idx) {
+                aLi[idx].onclick = function () {
+                    console.log(idx);
+                }
+            })(i);
+        }
     </script>
 </body>
 
