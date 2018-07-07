@@ -251,7 +251,7 @@
         // }
 
 
-        //第三种方法   闭包
+        //第三种方法   闭包  外部函数里面定义内部函数，内部函数应用外部函数的局部变量，变量不被释放
         for (var i = 0; i < aLi.length; i++) {
             (function (idx) {
                 aLi[idx].onclick = function () {

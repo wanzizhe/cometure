@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //解构赋值：从数组和对象中提取值，对变量进行赋值
+
+        //一.数组的解构赋值
+
+        //正常的
+        // let arr = [1, 2, 3];
+        // let a = arr[0];
+        // let b = arr[1];
+        // let c = arr[2];
+        // console.log(a, b, c); //输出数组arr中的每一项  1 2 3
+
+        //数组解构：通过数组下标对应
+        // let [a, b, c] = [1, 2, 3];
+        // console.log(a, b, c);//1 2 3
+
+        // let [a,b,[c,d],e]= [1,2,[3,4],5];
+        // console.log(a,b,c,d,e);//1 2 3 4 5
+
+        // let [a, b, [c], e] = [1, 2, [3, 4], 5];
+        // console.log(a, b, c, e); //1 2 3 5  因为没有对应4的，所以4被舍弃  不会改变其原有类型
+
+        // let [a, b, c, e] = [1, 2, [3, 4], 5];
+        // console.log(a, b, c, e);//1 2 [3,4] 5
+
+        // let [a, b, [c,d], e] = [1, 2, [3], 5];
+        // console.log(a, b, c, d, e);//1 2 3 undefined 5   d只定义了，并没有给值
+
+        // let [a, b, [c,d=4], e] = [1, 2, [3], 5];
+        // console.log(a, b, c, d, e);//可以给d设置默认值 1 2 3 4 5
+
+        // let [a, b, [c,d=4], e] = [1, 2, [3,8], 5];
+        // console.log(a, b, c, d, e);//1 2 3 8 5  惰性 虽然传入默认值，但是之后赋值，取之后赋值的
+
+        // function foo(){
+        //     console.log(123);
+        // }
+        // let [a = foo()] = [1];//什么都不会输出，因为a的默认值是foo函数，但是之后又赋值，现在a=1
+
+
+
+
+        //二.对象的解构赋值
+
+        //正常的
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18
+        // };
+        // let name = obj.name;
+        // let age = obj.age;
+        // console.log(name,age);//zhangsan  18
+
+        //对象解构：是通过名字对应的
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18
+        // };
+        // let {name,age} = obj;
+        // console.log(name,age);//zhangsan  18
+
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18
+        // };
+        // let {name1,age1} = obj;
+        // console.log(name1,age1);//undefined  undefined  因为对象解构是通过名字对应的，名字不一样所以是undefined
+
+        let obj = {
+            name:'zhangsan',
+            age:18
+        };
+        let {age,name} = obj;
+        console.log(age,name);//通过名字对应  18  zhangsan
+    </script>
+</body>
+
+</html>
