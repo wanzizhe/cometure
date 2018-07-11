@@ -77,12 +77,144 @@
         // let {name1,age1} = obj;
         // console.log(name1,age1);//undefined  undefined  因为对象解构是通过名字对应的，名字不一样所以是undefined
 
-        let obj = {
-            name:'zhangsan',
-            age:18
-        };
-        let {age,name} = obj;
-        console.log(age,name);//通过名字对应  18  zhangsan
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18
+        // };
+        // let {age,name} = obj;
+        // console.log(age,name);//通过名字对应  18  zhangsan
+
+        //我想把对象中属性的名字改变
+        // let obj = {
+        //     name: 'zhangsan',
+        //     age:18
+        // };
+        // let {name:name1,age:age1} = obj; //将原有属性名通过：改成自己想用的名字
+        // console.log(name1,age1);//zhangsan 18
+
+
+        //三.字符串的解构赋值
+
+        //正常的
+        //   let str = 'hello';
+        //   let a = str[0];//类似于数组
+        //   console.log(a);//h
+
+        // let str = 'hello';
+        // let [a, b, c, d, e] = str; //字符串解构类似数组解构
+        // console.log(a, b, c, d, e); //h e l l o
+
+
+
+        //应用一：函数参数的解构赋值
+
+        //正常的
+        // function add(x, y) {
+        //     console.log(x + y);
+        // }
+        // add(5, 6); //11
+
+        //如果参数是一个数组，运用解构
+        // function add([x, y]) {
+        //     console.log(x + y);
+        // }
+        // let arr = [5, 6];
+        // add(arr);//11
+
+        //如果参数是一个对象，运用解构
+        // function foo({name, age}){
+        //     console.log(name,age)
+        // }
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18
+        // };
+        // foo(obj);//zhangsan 18
+
+        // function foo({name, age, school = '黑大'}){//传入默认值
+        //     console.log(name,age,school)
+        // }
+        // let obj = {
+        //     name:'zhangsan',
+        //     age:18,
+        //     school:'哈尔滨理工大学'//后传入的覆盖默认值
+        // };
+        // foo(obj);//zhangsan 18
+
+
+        //应用二：函数返回值的解构
+
+        //函数返回值为数组
+        // function foo() {
+        //     let arr = ['aa', 'bb', 'cc'];
+        //     return arr;
+        // }
+        // let [a, b, c] = foo();
+        // console.log(a, b, c); //aa bb cc
+
+        //函数返回值为对象
+        // function foo() {
+        //     let obj = {
+        //         name: 'zhangsan',
+        //         age: 18,
+        //         school: '哈尔滨理工大学'
+        //     };
+        //     return obj;
+        // }
+        // let {name, age, school} = foo();
+        // console.log(name, age, school);//zhangsan 18 哈尔滨理工大学
+
+
+        //应用三：变量互换
+        //再定义一个变量，开辟新空间(不推荐)
+        // let a = 5;
+        // let b = 6;
+        // let c = a;
+        // a = b;
+        // b = c;
+        // console.log(a, b); //6 5
+
+        //求和
+        // let a = 5;
+        // let b = 6;
+        // a = a + b;//a = 11
+        // b = a - b;//b = 5
+        // a = a - b;//a = 6
+        // console.log(a,b);//6 5
+
+        //把它们定义成一个数组
+        // let a = 5;
+        // let b = 6;
+        // let arr = [a, b];
+        // console.log(arr[1],arr[0]);//6 5    
+
+        //比较聪明的做法
+        // let a = 5;
+        // let b = 6;
+        // a = [b, b = a][0];
+        // console.log(a, b);
+
+        //运用解构
+        // var a = 5;
+        // var b = 6;
+        // var [a, b] = [b, a]
+        // console.log(a, b);
+
+
+        //应用四：JSON应用
+        // let json = '{"a":"hello", "b":"world"}';//json类型的字符串
+        // let obj = JSON.parse(json);//将json字符串转化为对象，下面进行对象解构
+        // let {a, b} = obj;
+        // console.log(a, b);//hello world
+
+
+        //小坑！！！
+        let {a} = {a:1};
+        console.log(a);//正常输出1
+
+        let a = 2;
+        ({a} = {a:1});//解构有初始值的时候，要在最外面加一个括号，不加就会出错
+        console.log(a)
     </script>
 </body>
 

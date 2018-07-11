@@ -218,17 +218,17 @@
         // }
         // arr[3](); //5
 
-        let arr = [];
-        for (let i = 0; i < 5; i++) {
-            //  aLi[i].index = i;
-            // aLi[i].onclick = function(){
-            //     console.log(this.index);
-            // }; 
-            arr[i] = function () {
-                console.log(i);
-            };
-        }
-        arr[3](); //3
+        // let arr = [];
+        // for (let i = 0; i < 5; i++) {
+        //     //  aLi[i].index = i;
+        //     // aLi[i].onclick = function(){
+        //     //     console.log(this.index);
+        //     // }; 
+        //     arr[i] = function () {
+        //         console.log(i);
+        //     };
+        // }
+        // arr[3](); //3
 
 
 
@@ -236,29 +236,41 @@
         var oUl = document.getElementById('ul1');
         var aLi = oUl.getElementsByTagName('li');
         //第一种的方法   var
-        // for (var i = 0; i < aLi.length; i++) {
-        //     aLi[i].index = i;
-        //     aLi[i].onclick = function () {
-        //         console.log(this.index);
-        //     }
-        // }
+        for (var i = 0; i < aLi.length; i++) {
+            // console.log(i);
+            aLi[i].index = i;
+            aLi[i].onclick = function () {
+                console.log(this.index);
+            }
+        }
 
         //第二种方法    let
-        // for (let i = 0; i < aLi.length; i++) {
-        //     aLi[i].onclick = function () {
-        //         console.log(i);
-        //     }
-        // }
+        for (let i = 0; i < aLi.length; i++) {
+            // console.log(i);
+            aLi[i].onclick = function () {
+                console.log(i);
+            }
+            // aLi[0].onclick = function () {
+            //     console.log(i);
+            // }
+            // aLi[1].onclick = function () {
+            //     console.log(i);
+            // }
+            // aLi[2].onclick = function () {
+            //     console.log(i);
+            // }//let有块级作用域，每次循环都生成一个块级作用域，每次循环的值只能在当前块级作用域使用，所以每次点击取到的i是循环中的每一个i
+               //var 没有块级作用域，虽然每次循环也都生成点击函数，但是之后的i会将之前的i覆盖，所以到最后只是最后的i的值
+        }
 
 
         //第三种方法   闭包  外部函数里面定义内部函数，内部函数应用外部函数的局部变量，变量不被释放
-        for (var i = 0; i < aLi.length; i++) {
-            (function (idx) {
-                aLi[idx].onclick = function () {
-                    console.log(idx);
-                }
-            })(i);
-        }
+        // for (var i = 0; i < aLi.length; i++) {
+        //     (function (idx) {
+        //         aLi[idx].onclick = function () {
+        //             console.log(idx);
+        //         }
+        //     })(i);
+        // }
     </script>
 </body>
 
