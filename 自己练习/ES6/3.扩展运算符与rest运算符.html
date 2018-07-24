@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //扩展运算符 ...
+        //应用一：不确定参数
+        // function foo() {
+        //     console.log(arguments[0],arguments[1]);//5,6
+        // }
+        // foo(5, 6);//在参数确定的情况下可以用arguments来取到参数
+
+        //在参数不确定的时候，可以用扩展运算符...
+        // function foo(...arg){
+        //     console.log(arg);//数组[5,6,7]
+        // }
+        // foo(5, 6, 7);//参数不确定的情况下
+
+
+
+        //应用二：作为数组一部分
+        // let arr1 = [1, 2];
+        // let arr2 = [3, ...arr1, 4];//想把数组arr1放到数组arr2中
+        // console.log(arr2);//输出数组[3, 1, 2, 4]
+
+
+        //应用三：数组复制
+        // let arr1 = [1, 2, 3, 4];
+        // let arr2 = arr1;
+        // arr1.push(5);
+        // console.log(arr2);//会发生改变，输出数组[1,2,3,4,5]，引用数据类型存放在堆内存中
+
+        // let arr1 = [1, 2, 3, 4];
+        // let arr2 = [...arr1];//运用扩展运算符相当于把arr1插入到一个空数组中再赋值给arr2，相当于两个数组，不占相同的内存空间
+        // arr1.push(5);
+        // console.log(arr2);//[1,2,3,4]
+
+
+
+        //应用四：合并数组
+        // let arr1 = [1, 2];
+        // let arr2 = [3, 4];
+        // // let arr3 = arr1.concat(arr2);//es5的合并数组的方法concat
+        // // console.log(arr3);//[1,2,3,4]
+        // let arr4 = [...arr1, ...arr2];//用扩展运算符实现数组合并
+        // console.log(arr4);//[1,2,3,4]
+
+
+        //应用五：合并对象
+        // function foo(...arg){
+        //     console.log(arg);
+        // }
+        let obj1 = {
+            name:'zhangsan',
+            age:18
+        }
+        let obj2 = {
+            name:'lisi',
+            age:20
+        }
+        //foo(obj1,obj2);//一个数组里面有两个对象
+        let obj3 = {...obj1,...obj2};
+        console.log(obj3);//obj2会覆盖obj1输出 {name:'lisi',age:20}
+
+
+
+        //应用六：解构
+        
+    </script>
+</body>
+
+</html>
