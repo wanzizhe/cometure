@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello React!</title>
+  <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+  <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+  <!-- 更新元素渲染 -->
+  <!-- 目前更新界面的唯一办法是创建一个新的元素，然后将它传入 ReactDOM.render() -->
+  <div id="example"></div> <!--在此 div 中的所有内容都将由 React DOM 来管理，所以我们将其称之为 "根" DOM 节点。-->
+  <script type="text/babel">
+    // function tick(){
+    //    const element = (
+    //       <div>
+    //         <h1>react3更新元素渲染</h1>
+    //         <h2>现在是{new Date().toLocaleTimeString()}.</h2>
+    //       </div> 
+    //    ); 
+    //    ReactDOM.render(
+    //     element,
+    //     document.getElementById('example')
+    //    );
+    // }
+    // setInterval(tick,1000);
+
+
+
+    //我们可以将要展示的部分封装起来，以下实例用一个函数来表示:
+    // function Clock(props){
+    //     return (
+    //       <div>
+    //         <h1>react3更新元素渲染</h1>
+    //         <h2>现在是{props.date.toLocaleTimeString()}.</h2>
+    //       </div> 
+    //     );
+    // }
+    // function tick(){
+    //   ReactDOM.render(
+    //     <Clock date={new Date()}/>,
+    //     document.getElementById('example')
+    //   );
+    // }
+    // setInterval(tick,1000);
+
+
+
+    //除了函数外我们还可以创建一个 React.Component 的 ES6 类，该类封装了要展示的元素，
+    //需要注意的是在 render() 方法中，需要使用 this.props 替换 props：
+    class Clock extends React.Component{
+      render(){
+        return(
+          <div>
+            <h1>react3更新元素渲染</h1>
+            <h2>现在是{this.props.date.toLocaleTimeString()}.</h2>
+          </div>
+        );
+      }
+    }
+    function tick(){
+      ReactDOM.render(
+        <Clock date = {new Date()}/>,
+        document.getElementById('example')
+      );
+    }
+    setInterval(tick,1000);
+  </script>
+</body>
+
+</html>
