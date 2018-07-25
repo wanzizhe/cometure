@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        // ReactDOM.render(
+        //     <h1>{1+1}</h1>,//表达式写在花括号 {} 中
+        //     document.getElementById('example')
+        // );
+
+
+        var i =1;
+        ReactDOM.render(
+            <h1>{i==1?'true':'false'}</h1>,//在 JSX 中不能使用if else语句，但可以使用三元运算表达式来替代。
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
