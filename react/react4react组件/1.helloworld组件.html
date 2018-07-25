@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        //封装一个输出 "Hello World！" 的组件
+        
+        //使用函数定义一个组件
+        // function HelloMessage(props){
+        //     return <h1>hello,world!</h1>;
+        // }
+
+        // const element = <HelloMessage />;//用户自定义组件
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('example')
+        // );
+
+        //使用 ES6 class 来定义一个组件
+        // class Welcome extends React.Component{
+        //     render(){
+        //         return <h1>hello</h1>
+        //     }
+        // }
+        // const element = <Welcome />;
+        // ReactDOM.render(
+        //     element,
+        //     document.getElementById('example')
+        // );
+
+        //如果我们需要向组件传递参数，可以使用 this.props 对象
+        function HelloMessage(props){
+            return <h1> hello {props.name}</h1>
+        }
+        const element = <HelloMessage name="wanzizhe"/>
+        ReactDOM.render(
+            element,
+            document.getElementById("example")
+        );
+    </script>
+</body>
+</html>
