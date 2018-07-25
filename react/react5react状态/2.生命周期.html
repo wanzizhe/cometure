@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        //clock组件包括构造函数，组件输出到DOM时的钩子函数，销毁时的钩子函数，tick()方法和render()方法
+        class Clock extends React.Component{
+            constructor(props){
+                super(props);
+                this.state = {date : new Date()};
+            }
+
+            //componentDidMount()与componentWillUnmount()方法被称作生命周期钩子。
+            
+            //在组件输出到 DOM 后会执行 componentDidMount() 钩子，我们就可以在这个钩子上设置一个定时器。
+            //第三步：当Clock的输出插入到DOM中时，React调用componentDidMount()生命周期钩子，其中，Clock组件要求浏览器设置一个定时器，每秒钟调用
+            //一次tick()
+            componentDidMount() {
+                //this.timerID为计算器的ID
+                this.timerID = setInterval(
+                    ()=>this.tick(),
+                    1000
+                );
+            }
+            
+            //我们可以在 componentWillUnmount() 钩子中卸载计算器
+            //第五步：一旦Clock组件被从DOM中移除，React会调用componentWillUnmount()这个钩子函数，定时器被清除
+            componentWillUnmount() {
+                clearInterval(this.timerID);
+            }
+            
+            //第四步：浏览器每秒钟调用tick()方法，在其中，Clock组件通过使用包含当前时间的对象调用setState()来调度UI更新。通过调用setState()，
+            //React知道状态已经改变，并再次调用render()方法来确定屏幕上应当显示什么，这一次，render()方法中的this.state.date将不同，所以
+            //渲染输出将包含更新时间，并相应地更新DOM
+            tick() {
+                this.setState({
+                    date: new Date()
+                });
+            }
+            
+            //第二步：React然后调用Clock组件的render()方法，这是React了解屏幕上应该显示什么内容，然后React更新DOM以匹配Clock的渲染输出
+            render(){
+                return(
+                    <div>
+                        <h1>hello world</h1>
+                        <h2>现在是{this.state.date.toLocaleTimeString()}</h2>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            //第一步：当<Clock/>被传递给ReactDOM.render()时，React调用Clock组件的构造函数。由于Clock需要显示当前时间，所以使用包含当前时间的
+            //的对象来初始化this.state(), this.state = {date : new Date()};,稍后更新此状态
+            <Clock />,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>

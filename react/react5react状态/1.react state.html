@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        //创建一个名称扩展为 React.Component 的 ES6 类，在 render() 方法中使用 this.state 来修改当前的时间。
+        //添加一个类构造函数来初始化状态 this.state，类组件应始终使用 props 调用基础构造函数。
+        class Clock extends React.Component{
+            constructor(props){
+                super(props);
+                this.state={date:new Date()};
+            }
+            render(){
+                return(
+                    <div>
+                        <h1>现在时间是</h1>
+                        <h2>{this.state.date.toLocaleTimeString()}.</h2>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <Clock/>,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
