@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+    class HelloMessage extends React.Component{
+        render(){
+            return (
+                <h1>hello,{this.props.name}</h1>
+            );
+        }
+    }
+
+    //通过组件类的 defaultProps 属性为 props 设置默认值
+    HelloMessage.defaultProps = {
+        name:'wanzizhe'
+    };
+
+    const element = <HelloMessage/>
+    ReactDOM.render(
+        element,
+        document.getElementById('example')
+    );
+    </script>
+</body>
+</html>
