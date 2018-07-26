@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        //React元素的事件处理和DOM元素的不同:
+        //React 事件绑定属性的命名采用驼峰式写法，而不是小写。
+        //如果采用 JSX 的语法你需要传入一个函数作为事件处理函数，而不是一个字符串(DOM 元素的写法)
+
+        //HTML写法
+        <button onlick="activateLasers()">激活按钮</button>
+
+        //react写法(驼峰命名，传入一个函数作为事件处理函数)
+        <button onClick={activateLasers}>激活按钮</button>
+
+
+        //在 React 中另一个不同是你不能使用返回 false 的方式阻止默认行为， 你必须明确的使用 preventDefault。
+        //在 HTML 中阻止链接默认打开一个新页面，可以这样写
+        <a href="#" onclick="console.log('点击我'); return false;">点击</a>
+    </script>
+</body>
+</html>
