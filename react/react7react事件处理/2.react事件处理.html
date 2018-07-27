@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+        // class Toggle extends React.Component {
+        //     constructor(props) {
+        //         super(props);
+        //         this.state = {isToggleOn:true};//state状态可变，定义初始状态
+        //         this.handleClick = this.handleClick.bind(this);//将函数handleClick绑定到这里的this(Toggle)，这样可以在函数handleClick中取到state
+        //         console.log(this);//Toggle
+        //     }    
+
+        //     handleClick(){
+        //         this.setState(prevState =>({
+        //             isToggleOn: !prevState.isToggleOn
+        //         }) );
+        //     }
+
+        //     render(){
+        //         return (
+        //             <button onClick= {this.handleClick} >
+        //             {this.state.isToggleOn ? 'ON' : 'OFF'}
+        //             </button>
+        //         );
+        //     }
+        // }
+
+        // ReactDOM.render(
+        //     <Toggle />,
+        //     document.getElementById('example')
+        // );
+
+
+        //如果不想用bind，可以通过属性初始化器语法来正确绑定函数
+        // class LoggingButton extends React.Component {
+        //     handleClick = () => {
+        //         console.log('this is:', this);//LoggingButton
+        //     }
+        //     render () {
+        //           return (
+        //               <button onClick = {this.handleClick}>
+        //               Click me
+        //               </button>
+        //           );              
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <LoggingButton />,
+        //     document.getElementById('example')
+        // );
+
+
+        //如果你没有使用属性初始化器语法，你可以在回调函数中使用 箭头函数
+        class LoggingButton extends React.Component {
+            handleClick() {
+                console.log('this is:', this);
+            }
+ 
+            render() {
+                //  这个语法确保了 `this` 绑定在  handleClick 中
+                return (
+                    <button onClick={(e) => this.handleClick(e)}>
+                         Click me
+                    </button>
+                );
+            }
+        }
+        ReactDOM.render(
+            <LoggingButton />,
+            document.getElementById('example')
+        );
+    </script>
+</body>
+</html>
