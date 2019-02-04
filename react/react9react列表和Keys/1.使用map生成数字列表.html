@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>React 实例</title>
+<script src="https://cdn.bootcss.com/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.bootcss.com/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <div id="example"></div>
+
+    <script type="text/babel">
+        // const numbers = [1, 2, 3, 4, 5];
+        // const listItems = numbers.map((numbers) =>
+        //     <li>{numbers}</li>
+        // );
+
+        // ReactDOM.render(
+        // <ul>{listItems}</ul>,
+        // document.getElementById('example')
+        // );
+
+
+//将上面的重构成一个组件，组件接收数组参数，每个列表元素分配一个 key，
+//不然会出现警告 a key should be provided for list items，意思就是需要包含 key
+        function NumberList(props) {
+            const numbers = props.numbers;
+            const listItems = numbers.map((number) =>
+            {/**给每一个li分配唯一的key，key可以帮助React识别哪些元素发生了变化**/}
+                <li key={number.toString()}>
+                {number}
+                </li>
+            );
+            return (
+                <ul>{listItems}</ul>
+            );
+        }
+
+        const numbers = [1, 2, 3, 4, 5];
+        ReactDOM.render(
+            <NumberList numbers={numbers} />,
+            document.getElementById('example')
+        );
+    </script>
+
+</body>
+</html>

@@ -12,7 +12,7 @@
                 background: #3c3b3b;
                 position: relative;
                 perspective: 1000px;
-               perspective-origin: 50% 50%;
+                perspective-origin: 50% 50%;
             }
             #contain{
                 width:200px;
@@ -20,7 +20,8 @@
                 /*不给contain设置高的时候看不见方框的顶部*/
                 margin:200px auto;
                 transform-style: preserve-3d;
-                animation: play 2s ease infinite;
+                /* background:#f00; */
+                /* animation: rotate 2s linear infinite; */
             }
             #contain div{
                 width: 200px;
@@ -50,7 +51,7 @@
             #six{
                 transform:translateZ(100px)
             }
-            @-webkit-keyframes play {
+            @-webkit-keyframes rotate {
                 from {
                 }
                 to {
