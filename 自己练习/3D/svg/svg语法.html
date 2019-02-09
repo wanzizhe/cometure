@@ -90,6 +90,39 @@
 
 
     <!-- <path>标签用于制路径。 -->
+    <!-- M：移动到（moveto） -->
+    <!-- L：画直线到（lineto） -->
+    <!-- Z：闭合路径 -->
+    <svg width="300" height="180">
+        <path d="
+                      M 18,3
+                      L 46,3
+                      L 46,40
+                      L 61,40
+                      L 32,68
+                      L 3,40
+                      L 18,40
+                      Z
+                    "></path>
+    </svg>
+    <!-- <path>的d属性表示绘制顺序，它的值是一个长字符串，每个字母表示一个绘制动作，后面跟着坐标。 -->
+
+
+    <!-- <text>标签用于绘制文本。 -->
+    <svg width="300" height="180">
+        <text x="50" y="25">Hello World</text>
+    </svg>
+    <!-- <text>的x属性和y属性，表示文本区块基线（baseline）起点的横坐标和纵坐标。文字的样式可以用class或style属性指定。 -->
+
+
+    <!-- <use>标签用于复制一个形状。 -->
+    <svg viewbox="0 0 30 10" xmlns="http://www.w3.org/2000/svg">
+        <circle id="myCircle" cx="5" cy="5" r="4" />
+
+        <use href="#myCircle" x="10" y="0" fill="blue" />
+        <use href="#myCircle" x="20" y="0" fill="white" stroke="blue" />
+    </svg>
+    <!-- <use>的href属性指定所要复制的节点，x属性和y属性是<use>左上角的坐标。另外，还可以指定width和height坐标。 -->
 </body>
 
 </html>
