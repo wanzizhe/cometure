@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        .stage {
+            /* must be explicit, for contrast */
+            background: white;
+
+            /* weirdness happens when edges hit */
+            padding: 30px;
+
+            /* autoprefixer helping here */
+            /* &:nth-child(2) {
+                filter: contrast(20);
+            } */
+        }
+        .stage1{
+            filter: contrast(20);
+        }
+        .dot {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            /* needs to be very contrasty color. Some light gray won't work */
+            background: black;
+            filter: blur(15px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <svg>
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5"/>
+            <feColorMatrix in="blur" result="colormatrix"
+              type="matrix"
+              values="1 0 0 0 0
+                      0 1 0 0 0
+                      0 0 1 0 0
+                      0 0 0 18 -8" />
+            <feBlend in="SourceGraphic" in2="colormatrix"/>
+          </filter>
+        </defs>
+      </svg> -->
+    <div class="stage">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="stage stage1">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+</body>
+
+</html>
