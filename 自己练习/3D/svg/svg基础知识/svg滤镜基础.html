@@ -12,23 +12,16 @@
           <filter id="dropshadow" x="0" y="0" width="200%" height="200%">
               <!--<feOffset>用来移动滤镜的位置（阴影的偏移）我们使用in="SourceAlpha"可以使模糊是黑色，
                 如果使用in="SourceGraphic"那么阴影是原始元素的颜色（<feBlend>中就是如此）  -->
-              <feOffset result="offsetResult" in="SourceAlpha" dx="20" dy="20" />
+              <feOffsedt result="offsetResult" in="SourceAlpha" dx="20" dy="20" />
               <!-- <feGaussianBlur>这个滤镜用来制作高斯模糊的效果，这里我们通过 in 来调用之前<feOffset>移动滤镜位置的结果(result)，
                 stdDeviation来指定模糊程度，值越大模糊效果越强-->
               <feGaussianBlur result="blurResult" in="offsetResult" stdDeviation="5" />
+              <!-- feBlend是为了把原始元素放在模糊了的结果之上 -->
               <feBlend in="SourceGraphic" in2="blurResult" mode="normal" />
           </filter>
         </defs>
+        <!-- 定义好滤镜后，将这个SVG滤镜对象放到HTML中，方便在元素中来使用它。 -->
         <rect width="300" height="100" x="200" y="100" fill="green" filter="url(#dropshadow)" />
       </svg>
-      用feOffset来移动滤镜的位置；
-
-使用了feGaussianBlur这个滤镜来制作高斯模糊的效果，其中stdDeviation来指定模糊程度，值越大，模糊的效果越强。我们可以使用引用前一个result指定的属性。
-
-在高斯模糊滤镜效果中，通过in来调用了feOffset移动输入源的效果的结果。
-
-然后使用了feBlend是为了把原始元素放在模糊了的结果之上。使用in="SourceAlpha"可以使模糊是黑色的。如果我们使用的是in="SourceGraphic"，那么“阴影”将是原始元素的颜色。
-
-定义好滤镜后，将这个SVG滤镜对象放到HTML中，方便在元素中来使用它。
 </body>
 </html>
