@@ -73,26 +73,35 @@
 </head>
 
 <body>
+    <!-- 蒙面模糊效果的特点 -->
+    <!-- 用作单个图像
+        是非破坏性的（即它不会永久改变您的原始JPEG或PNG）
+        可以使用一行文本应用或删除
+        可以通过几乎任何形状的面具来施加。
+        在现代浏览器中得到了相对较好的支持 -->
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
         <defs>
+            <!-- 创建一个新的过滤器，然后您可以将其应用于任何页面元素 - 图像，文本，面板等等 -->
             <filter id="blurlayer" width="110%" height="100%">
+                <!-- 颜色调节 -->
                 <feColorMatrix type="matrix" values=".7    0   0   0   0
                       0    .7   0   0   0
                       0    0   .7   0   0
                       0    0   0   1   0 " />
                       <!-- 模糊滤镜 -->
                 <feGaussianBlur stdDeviation="4" result="blur" />
-                <!-- 滤镜的模板 -->
+                <!-- 滤镜的蒙版（就是你想显示的模糊的形状） xlink:href后面的地址是通过图形代码生成的（图像->代码->地址）-->
                 <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4NCiA8Zz4NCiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPg0KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iNDAyIiB3aWR0aD0iNTgyIiB5PSItMSIgeD0iLTEiLz4NCiAgPGcgZGlzcGxheT0ibm9uZSIgb3ZlcmZsb3c9InZpc2libGUiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGlkPSJjYW52YXNHcmlkIj4NCiAgIDxyZWN0IGZpbGw9InVybCgjZ3JpZHBhdHRlcm4pIiBzdHJva2Utd2lkdGg9IjAiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiLz4NCiAgPC9nPg0KIDwvZz4NCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8cGF0aCBjYW52YXM9Im5vbmUiIGNhbnZhcy1vcGFjaXR5PSIxIiBpZD0ic3ZnXzQiIGQ9Im03NDkuMjMyNDksMzAwLjQzMDMxbDAsLTEuNDlsMS4wMDAwMSwxLjQ5bC0xLjAwMDAxLDB6IiBzdHJva2Utb3BhY2l0eT0ibnVsbCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZT0ibnVsbCIgZmlsbD0iIzAwMDAwMCIvPg0KICA8cGF0aCBpZD0ic3ZnXzUiIGQ9Im0xMTAuOTQ3NDgsMjk0Ljk0MDNsMCwtMTk1LjAwMDAxbDMwNCwxOTUuMDAwMDFsLTMwNCwweiIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2U9Im51bGwiIGZpbGw9IiMwMDAwMDAiLz4NCiA8L2c+DQo8L3N2Zz4="
                     x="0" y="0" height="300px" result="mask" preserveAspectRatio="none" />
-                <!-- 将模糊滤镜和模板组合在一起 -->
+                <!-- 将模糊滤镜和蒙版组合在一起 -->
                 <feComposite in2="mask" in="blur" in3="rect2" operator="in" result="comp" />
                 <!-- 告诉过滤器如何处理这个蒙版模糊 -->
                 <feMerge result="merge">
+                        <!-- 图像本身 -->
                         <feMergeNode in="SourceGraphic" />
+                        <!-- 模糊滤镜和蒙版的组合-->
                         <feMergeNode in="comp" />
-                       
                    </feMerge> 
             </filter>
         </defs>
@@ -103,7 +112,7 @@
     <section class="banner">
 
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-
+            <!-- 模糊滤镜和蒙版的组合的应用 -->
             <image filter="url(#blurlayer)" x="0" y="0" width="100%" height="500px" xlink:href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNVChEoT9emzHkN_HLcG8ulHG6xpeBwWlx6jULSzu54S67kTlcQ" />
 
         </svg>
