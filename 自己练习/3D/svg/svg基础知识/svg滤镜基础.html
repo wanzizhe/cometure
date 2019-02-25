@@ -12,7 +12,7 @@
           <filter id="dropshadow" x="0" y="0" width="200%" height="200%">
               <!--<feOffset>用来移动滤镜的位置（阴影的偏移）我们使用in="SourceAlpha"可以使模糊是黑色，
                 如果使用in="SourceGraphic"那么阴影是原始元素的颜色（<feBlend>中就是如此）  -->
-              <feOffsedt result="offsetResult" in="SourceAlpha" dx="20" dy="20" />
+              <feOffset result="offsetResult" in="SourceAlpha" dx="20" dy="20" />
               <!-- <feGaussianBlur>这个滤镜用来制作高斯模糊的效果，这里我们通过 in 来调用之前<feOffset>移动滤镜位置的结果(result)，
                 stdDeviation来指定模糊程度，值越大模糊效果越强-->
               <feGaussianBlur result="blurResult" in="offsetResult" stdDeviation="5" />

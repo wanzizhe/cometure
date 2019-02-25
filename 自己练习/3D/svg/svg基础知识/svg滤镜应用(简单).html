@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background: silver;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        svg {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .banner {
+            height: 280px;
+            margin: 2em 5% 0;
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+            overflow: hidden;
+            position: relative;
+        
+        }
+
+        .textcontainer {
+            background: rgba(0, 0, 25, 0);
+            font-size: 3em;
+            padding: .5em 0;
+            position: relative;
+            z-index: 1000;
+            line-height: .5em;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 1);
+            top: 1.5em;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 1em;
+            line-height: 1.5em;
+            font-weight: 400;
+            margin: 0;
+            z-index: 100;
+            text-shadow: 0 0 8px rgba(0, 0, 0, .3);
+        }
+
+        .byline {
+            font-size: .3em;
+            line-height: 1.5em;
+            font-family: Merriweather;
+            margin: .75em;
+            z-index: 100;
+            text-shadow: 0 0 8px rgba(0, 0, 0, .3);
+        }
+    </style>
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+        <defs>
+            <filter id="blurlayer" width="110%" height="100%">
+                <feColorMatrix type="matrix" values=".7    0   0   0   0
+                      0    .7   0   0   0
+                      0    0   .7   0   0
+                      0    0   0   1   0 " />
+                <feGaussianBlur stdDeviation="4" result="blur" />
+
+
+                <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4NCg0KIDxnPg0KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+DQogIDxyZWN0IGZpbGw9IiNmZmZmZmYiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI0ODIiIHdpZHRoPSI2NDIiIHk9Ii0xIiB4PSItMSIvPg0KICA8ZyBkaXNwbGF5PSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgeT0iMCIgeD0iMCIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSIgaWQ9ImNhbnZhc0dyaWQiPg0KICAgPHJlY3QgZmlsbD0idXJsKCNncmlkcGF0dGVybikiIHN0cm9rZS13aWR0aD0iMCIgeT0iMCIgeD0iMCIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSIvPg0KICA8L2c+DQogPC9nPg0KIDxnPg0KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+DQogIDxyZWN0IGlkPSJzdmdfMTMiIGhlaWdodD0iMTM1Ljc5MTI2IiB3aWR0aD0iMzI4LjQyNTM3IiB5PSIyMzMuMDkyMDEiIHg9Ijc0LjIwNzI5IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlPSIjMDAwMDAwIiBmaWxsPSIjMGMwYzBjIi8+DQogPC9nPg0KPC9zdmc+"
+                    x="0%" y="0" height="300px" result="mask" preserveAspectRatio="none" />
+
+                <feComposite in2="mask" in="blur" operator="in" result="comp" />
+
+                <feMerge result="merge">
+                    <feMergeNode in="SourceGraphic" />
+                    <feMergeNode in="comp" />
+                </feMerge>
+
+            </filter>
+        </defs>
+    </svg>
+
+
+
+    <section class="banner">
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+            <image filter="url(#blurlayer)" x="0" y="0" width="100%" height="500px" xlink:href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKNVChEoT9emzHkN_HLcG8ulHG6xpeBwWlx6jULSzu54S67kTlcQ" />
+
+        </svg>
+
+        <div class="textcontainer">
+            <h1 class="">The Cloud Collection 2017</h1>
+            <p class="byline ">Beautiful. Elegant. Homewares.</p>
+        </div>
+    </section>
+</body>
+
+</html>
