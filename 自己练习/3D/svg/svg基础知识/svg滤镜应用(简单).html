@@ -81,14 +81,14 @@
                       0    .7   0   0   0
                       0    0   .7   0   0
                       0    0   0   1   0 " />
+                      <!-- 模糊滤镜 -->
                 <feGaussianBlur stdDeviation="4" result="blur" />
-
-
-                <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNjQwIiBoZWlnaHQ9IjQ4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4NCg0KIDxnPg0KICA8dGl0bGU+YmFja2dyb3VuZDwvdGl0bGU+DQogIDxyZWN0IGZpbGw9IiNmZmZmZmYiIGlkPSJjYW52YXNfYmFja2dyb3VuZCIgaGVpZ2h0PSI0ODIiIHdpZHRoPSI2NDIiIHk9Ii0xIiB4PSItMSIvPg0KICA8ZyBkaXNwbGF5PSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgeT0iMCIgeD0iMCIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSIgaWQ9ImNhbnZhc0dyaWQiPg0KICAgPHJlY3QgZmlsbD0idXJsKCNncmlkcGF0dGVybikiIHN0cm9rZS13aWR0aD0iMCIgeT0iMCIgeD0iMCIgaGVpZ2h0PSIxMDAlIiB3aWR0aD0iMTAwJSIvPg0KICA8L2c+DQogPC9nPg0KIDxnPg0KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+DQogIDxyZWN0IGlkPSJzdmdfMTMiIGhlaWdodD0iMTM1Ljc5MTI2IiB3aWR0aD0iMzI4LjQyNTM3IiB5PSIyMzMuMDkyMDEiIHg9Ijc0LjIwNzI5IiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlPSIjMDAwMDAwIiBmaWxsPSIjMGMwYzBjIi8+DQogPC9nPg0KPC9zdmc+"
+                <!-- 滤镜的模板 -->
+                <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogPGc+DQogIDx0aXRsZT5iYWNrZ3JvdW5kPC90aXRsZT4NCiAgPHJlY3QgZmlsbD0ibm9uZSIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjMwMiIgd2lkdGg9IjEwMjYiIHk9Ii0xIiB4PSItMSIvPg0KIDwvZz4NCg0KIDxnPg0KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+DQogIDxyZWN0IGlkPSJzdmdfMSIgaGVpZ2h0PSIxMzMiIHdpZHRoPSIxMDI0IiB5PSI4NC41IiB4PSIwIiBmaWxsLW9wYWNpdHk9Im51bGwiIHN0cm9rZS1vcGFjaXR5PSJudWxsIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlPSJudWxsIiBmaWxsPSIjMDAwMDAwIi8+DQogPC9nPg0KPC9zdmc+"
                     x="0%" y="0" height="300px" result="mask" preserveAspectRatio="none" />
-
+                <!-- 将模糊滤镜和模板组合在一起 -->
                 <feComposite in2="mask" in="blur" operator="in" result="comp" />
-
+                <!-- 告诉过滤器如何处理这个蒙版模糊 -->
                 <feMerge result="merge">
                     <feMergeNode in="SourceGraphic" />
                     <feMergeNode in="comp" />
