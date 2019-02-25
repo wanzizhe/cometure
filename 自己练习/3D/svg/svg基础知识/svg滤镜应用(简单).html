@@ -84,16 +84,16 @@
                       <!-- 模糊滤镜 -->
                 <feGaussianBlur stdDeviation="4" result="blur" />
                 <!-- 滤镜的模板 -->
-                <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iMTAyNCIgaGVpZ2h0PSIzMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+DQogPGc+DQogIDx0aXRsZT5iYWNrZ3JvdW5kPC90aXRsZT4NCiAgPHJlY3QgZmlsbD0ibm9uZSIgaWQ9ImNhbnZhc19iYWNrZ3JvdW5kIiBoZWlnaHQ9IjMwMiIgd2lkdGg9IjEwMjYiIHk9Ii0xIiB4PSItMSIvPg0KIDwvZz4NCg0KIDxnPg0KICA8dGl0bGU+TGF5ZXIgMTwvdGl0bGU+DQogIDxyZWN0IGlkPSJzdmdfMSIgaGVpZ2h0PSIxMzMiIHdpZHRoPSIxMDI0IiB5PSI4NC41IiB4PSIwIiBmaWxsLW9wYWNpdHk9Im51bGwiIHN0cm9rZS1vcGFjaXR5PSJudWxsIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlPSJudWxsIiBmaWxsPSIjMDAwMDAwIi8+DQogPC9nPg0KPC9zdmc+"
-                    x="0%" y="0" height="300px" result="mask" preserveAspectRatio="none" />
+                <feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNTgwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4NCiA8Zz4NCiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPg0KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iNDAyIiB3aWR0aD0iNTgyIiB5PSItMSIgeD0iLTEiLz4NCiAgPGcgZGlzcGxheT0ibm9uZSIgb3ZlcmZsb3c9InZpc2libGUiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiIGlkPSJjYW52YXNHcmlkIj4NCiAgIDxyZWN0IGZpbGw9InVybCgjZ3JpZHBhdHRlcm4pIiBzdHJva2Utd2lkdGg9IjAiIHk9IjAiIHg9IjAiIGhlaWdodD0iMTAwJSIgd2lkdGg9IjEwMCUiLz4NCiAgPC9nPg0KIDwvZz4NCiA8Zz4NCiAgPHRpdGxlPkxheWVyIDE8L3RpdGxlPg0KICA8cGF0aCBjYW52YXM9Im5vbmUiIGNhbnZhcy1vcGFjaXR5PSIxIiBpZD0ic3ZnXzQiIGQ9Im03NDkuMjMyNDksMzAwLjQzMDMxbDAsLTEuNDlsMS4wMDAwMSwxLjQ5bC0xLjAwMDAxLDB6IiBzdHJva2Utb3BhY2l0eT0ibnVsbCIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZT0ibnVsbCIgZmlsbD0iIzAwMDAwMCIvPg0KICA8cGF0aCBpZD0ic3ZnXzUiIGQ9Im0xMTAuOTQ3NDgsMjk0Ljk0MDNsMCwtMTk1LjAwMDAxbDMwNCwxOTUuMDAwMDFsLTMwNCwweiIgc3Ryb2tlLW9wYWNpdHk9Im51bGwiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2U9Im51bGwiIGZpbGw9IiMwMDAwMDAiLz4NCiA8L2c+DQo8L3N2Zz4="
+                    x="0" y="0" height="300px" result="mask" preserveAspectRatio="none" />
                 <!-- 将模糊滤镜和模板组合在一起 -->
-                <feComposite in2="mask" in="blur" operator="in" result="comp" />
+                <feComposite in2="mask" in="blur" in3="rect2" operator="in" result="comp" />
                 <!-- 告诉过滤器如何处理这个蒙版模糊 -->
                 <feMerge result="merge">
-                    <feMergeNode in="SourceGraphic" />
-                    <feMergeNode in="comp" />
-                </feMerge>
-
+                        <feMergeNode in="SourceGraphic" />
+                        <feMergeNode in="comp" />
+                       
+                   </feMerge> 
             </filter>
         </defs>
     </svg>
