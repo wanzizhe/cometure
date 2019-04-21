@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        circle {
+            stroke-width: 5;
+            stroke: #f00;
+            fill: #ff0;
+        }
+
+        circle:hover {
+            stroke: #090;
+            fill: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg id="mysvg" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 800 600" preserveaspectratio="xMidYMid meet">
+        <circle id="mycircle" cx="400" cy="300" r="50" />
+    </svg>
+    <script>
+        // DOM操作 
+        var mycircle = document.getElementById('mycircle');
+
+        mycircle.addEventListener('click', function (e) {
+            console.log('circle clicked - enlarging');
+            mycircle.setAttribute('r', 60);
+        }, false);
+        // 获取 SVG DOM 
+        // 注意，如果使用<img>标签插入 SVG 文件，就无法获取 SVG DOM。
+        // 使用<object>（添加一个对象，data属性定义引用对象数据的url）、
+        // <iframe>（会创建包含另外一个文档的内联框架（即行内框架）,src属性规定在 iframe 中显示的文档的 URL）、
+        // <embed>（定义嵌入的内容，比如插件，必须有src属性）标签插入 SVG 文件，可以获取 SVG DOM。
+        var svgObject = document.getElementById('object').contentDocument;
+        var svgIframe = document.getElementById('iframe').contentDocument;
+        var svgEmbed = document.getElementById('embed').getSVGDocument();
+    </script>
+</body>
+
+</html>

@@ -18,12 +18,14 @@
               position:relative;
               margin: 200px auto;
               transform-style: preserve-3d;
-              transition: all 1s linear;
+              /* 点击旋转的过度 */
+              transition: all 1s linear; 
           }
             #contain img{
                 width: 125px;
                 height: 125px;
                 position: absolute;
+                /* 旋转偏移的过度 */
                 transition: all 1s linear;
             }
         </style>
@@ -33,23 +35,23 @@
      <script>
 //         图片预处理
          var oContain=document.getElementById("contain");
-         var picture=0;
+         var picture=0;//计数器
         for(var i=0;i<9;i++){
-            var oImg=new Image();
-            oImg.onload=function(){
+            var oImg=new Image();//创建图片对象
+            oImg.onload=function(){//有src属性的标签都有onload事件
                 picture++;
                 if(picture==9){
                     loadSuccess();
                 }
             };
-            oImg.src="images/"+ (i+1)+".jpg";
+            oImg.src="images/"+ (i+1)+".jpg";//IE6中必须把src写在onload事件之后
             oContain.appendChild(oImg);
         }
          function loadSuccess(){
                var aImg=document.getElementsByTagName("img");
              for(i=0;i<aImg.length;i++){
                  aImg[i].style.transform="rotateY("+(i+1)*40+"deg) translateZ(200px)";
-                 aImg[i].style.transitionDelay = i * 100 + "ms";
+                 aImg[i].style.transitionDelay = i * 100 + "ms";//过度开始前延迟时间
              }
             }
            var num=0;

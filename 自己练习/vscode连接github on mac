@@ -1,0 +1,6 @@
+在mac上vscode连接github
+1.首先在终端cd到文件，然后输入命令ssh-keygen生成ssh-key，如果有提示，一直按回车 
+2.之后出现Your public key has been saved in /Users/wanzizhe/.ssh/id_rsa.pub.证明key就在这个文件里
+3.cd到这个文件，输入命令cat id_rsa.pub，即可查看文件的内容是以ssh-rsa开头的key，进行复制粘贴
+4.打开github中的Settings下的SSH and GPG keys中进行SSH keys的添加，将刚刚复制的keys复制进行添加
+5.为了证实有没有连接成功，可以输入ssh -T git@github.com，之后看到Hi wanzizhe! You've successfully authenticated, but GitHub does not provide shell access.的提示证明连接成功
