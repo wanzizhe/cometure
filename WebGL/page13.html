@@ -7,13 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <script> 
-    (function(){
-        var x=y=1;
-    })(); 
-    console.log(y);
-    console.log(x);
-    </script>
+    <form oninput="x.value = parseInt(a.value) + parseInt(b.value)">0
+        <input type="range" id="a" value="10">100
+        +<input type="number" id="b" value="50">
+        =<output name="x" for="a b"></output>
+    </form>
 </body>
 </html>
 
