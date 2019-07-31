@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <meta charset="utf-8"><link rel="icon" href="https://jscdn.com.cn/highcharts/images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            body,.result_content {
+                background: #000!important;
+            }
+        </style>
+        <script src="https://code.highcharts.com.cn/highcharts/highcharts.js"></script>
+        <script src="https://code.highcharts.com.cn/highcharts/highcharts-more.js"></script>
+        <!-- <script src="https://code.highcharts.com.cn/highcharts/modules/exporting.js"></script> -->
+        <script src="https://code.highcharts.com.cn/highcharts/modules/solid-gauge.js"></script>
+    </head>
+    <body>
+        <div id="container" style="width: 500px; height: 400px; margin: 0 auto">
+        </div>
+        <script>
+            // 去掉这里的注释就是类似 Apple Watch 上的效果了
+            if (!Highcharts.theme) {
+                Highcharts.setOptions({
+                    chart: {
+                        backgroundColor: 'black'
+                    },
+                    colors: ['#2279FF', '#01EAFF', '#FF565B', '#9E46EC'],
+                    title: {//圆上方标题颜色
+                        style: {
+                            color: '#0CCDD6'
+                        }
+                    },
+                    tooltip: {//圆中心提示字的颜色
+                        style: {
+                            color: '#A5B3EA'
+                        }
+                    }
+                });
+            }
+            Highcharts.chart('container', {
+                chart: {
+                    type: 'solidgauge',
+                    marginTop: 0//图表顶部外边缘和绘图区域之间的边距
+                },
+                title: {
+                    text: 'Activity',
+                    style: {
+                        fontSize: '24px'
+                    }
+                },
+                tooltip: {//数据提示框
+                    // borderWidth: 1,
+                    backgroundColor: 'none',
+                    shadow: false,
+                    style: {
+                        fontSize: '10px'
+                    },
+                    pointFormat: '{series.name}<span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+                    positioner: function (labelWidth) {
+                        return {
+                            x: 250 - labelWidth / 2,
+                            y: 190
+                        };
+                    },
+                },
+                pane: {
+                    startAngle:360,
+                    endAngle: 0,
+                    background: [
+                    { 
+                        outerRadius: '137%',
+                        innerRadius: '113%',
+                        backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+                        borderWidth: 0
+                    }, { 
+                        outerRadius: '112%',//面板背景外半径
+                        innerRadius: '88%',//面板背景的内半径
+                        backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+                        borderWidth: 0
+                    }, { 
+                        outerRadius: '87%',
+                        innerRadius: '63%',
+                        backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+                        borderWidth: 0
+                    }, { 
+                        outerRadius: '62%',
+                        innerRadius: '38%',
+                        backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[3]).setOpacity(0.3).get(),
+                        borderWidth: 0
+                    }]
+                },
+                yAxis: {
+                    min: 0,
+                    max: 100,
+                    lineWidth: 0,
+                    tickPositions: []
+                },
+                plotOptions: {
+                    solidgauge: {
+                        clip: false,
+                        borderWidth: '35px',
+                        dataLabels: {
+                            enabled: false
+                        },
+                        linecap: 'round',
+                        stickyTracking: false
+                    }
+                },
+                series: [{
+                    name: '申请中',
+                    borderColor:Highcharts.getOptions().colors[0],
+                    data: [{
+                        color: Highcharts.getOptions().colors[0],
+                        radius: '125%',
+                        innerRadius: '125%',
+                        y: 70
+                    }]
+                }, {
+                    name: '未预警',
+                    borderColor: Highcharts.getOptions().colors[1],
+                    data: [{
+                        color: Highcharts.getOptions().colors[1],
+                        radius: '100%',
+                        innerRadius: '100%',
+                        y: 60
+                    }]
+                }, {
+                    name: '已预警',
+                    borderColor: Highcharts.getOptions().colors[2],
+                    data: [{
+                        color: Highcharts.getOptions().colors[2],
+                        radius: '75%',
+                        innerRadius: '75%',
+                        y: 50
+                    }]
+                }, {
+                    name: '已撤控',
+                    borderColor: Highcharts.getOptions().colors[3],
+                    data: [{
+                        color: Highcharts.getOptions().colors[3],
+                        radius: '50%',
+                        innerRadius: '50%',
+                        y: 35
+                    }]
+                }]
+            }
+            );
+        </script>
+    </body>
+</html>

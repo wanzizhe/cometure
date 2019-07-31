@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1 class="page-title">Receipt with 3D fold effect</h1>
+
+        <article class="receipt">
+            <section class="receipt__half upper">
+                <p>Receipt</p>
+                <h1>$59.98</h1>
+                <p class="sm">04.06.2019 - 09:47</p>
+                
+                <div class="receipt__content">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Faded jeans</td>
+                                <td>$39.99</td>
+                            </tr>
+                            <tr>
+                                <td>Sleeveless shirt</td>
+                                <td>$19.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <section class="receipt__half lower">
+                <button>More info</button>
+            </section>
+        </article>
+        
+        
+    <script>
+        const receipt = document.querySelector('.receipt')
+        const button = document.querySelector('button')
+
+        const toggleReceipt= () => {
+            receipt.classList.toggle('active')
+            
+            if(receipt.classList.contains('active')) {
+                button.innerHTML = 'Less info'
+            } else {
+                button.innerHTML = 'More info'
+            }
+        }
+
+        button.addEventListener('click', toggleReceipt)
+    </script>
+    <script src="style.scss"></script>
+</body>
+</html>
