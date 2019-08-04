@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .container {
+            position: relative;
+            width: 100px;
+            height: 250px;
+
+            margin: 100px auto;
+            background: black;
+            overflow: hidden;
+        }
+
+        .lineX1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: red;
+            animation: runX 2s 0s;
+        }
+
+        .lineX2 {
+            position: absolute;
+            visibility: hidden;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: red;
+            animation: runX2 2s 2s;
+                
+        }
+
+        .lineH {
+            position: absolute;
+            visibility: hidden;
+            top: 0;
+            right: 0;
+            width: 2px;
+            height: 50px;
+            background: red;
+            animation:runY 2s 1s;
+        }
+
+        .lineH2 {
+            position: absolute;
+            visibility: hidden;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            height: 50px;
+            background: red;
+            animation: runY2 2s 3s;
+        }
+
+        @keyframes runX {
+            100% {
+                transform: translate(100px);
+            }
+        }
+
+        @keyframes runX2 {
+            0% {
+                visibility: visible;
+            }
+            100% {
+                transform: translateX(-100px);
+            }
+        }
+
+        @keyframes runY {
+            0% {
+                visibility: visible;
+            }
+            100% {
+                transform: translateY(250px);
+            }
+        }
+
+        @keyframes runY2 {
+            0% {
+                visibility: visible;
+            }
+            100% {
+                transform: translateY(-250px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lineX1"></div>
+        <div class="lineH"></div>
+        <div class="lineX2"></div>
+        <div class="lineH2"></div>
+        
+
+        <div class="content">
+            西瓜
+        </div>
+    </div>
+</body>
+</html>
