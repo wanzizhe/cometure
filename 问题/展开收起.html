@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ font-size:14px;}
+.ico{ background:url(http://mat1.gtimg.com/www/icon/favicon2.ico) no-repeat center ; cursor:pointer; display:inline-block; text-indent:-999px; width:28px;}
+.closeTag{background:#F60; cursor:pointer;}
+
+ul{ width:500px; border:1px solid #FC6; list-style:none;}
+ul li{ margin:15px; line-height:30px; text-indent:30px;}
+
+</style>
+</head>
+<script>
+    //toggle点评
+    function toggleWords(obj)
+    {
+        var childs = obj.parentNode.childNodes;
+        var longstr,shortstr,textnode;
+        
+        for(var i=0,len=childs.length;i<len;i++)
+        {http://www.baidu.com/img/bdlogo.gif
+            //需要操作的文本节点
+            if(childs[i].nodeType == 3 && textnode == undefined)
+            {
+                textnode = childs[i];
+            }
+            //详细信息
+            if(childs[i].nodeType == 1 && childs[i].name == 'long')
+            {
+                longstr = childs[i].value;
+            }
+            
+            //简短信息
+            if(childs[i].nodeType == 1 && childs[i].name == 'short')
+            {
+                shortstr = childs[i].value;
+            }
+        }
+        
+        if(longstr == undefined || shortstr == undefined || textnode == undefined)
+        {
+            return ;
+        }
+
+        if(obj.innerHTML == '展开')
+        {
+            textnode.nodeValue = longstr;
+            obj.innerHTML = '收起';
+            obj.className = 'ico closeTag';
+        }else{
+            textnode.nodeValue = shortstr;
+            obj.innerHTML = '展开';
+            obj.className = 'ico';
+        }
+    }
+</script>
+
+<body>
+<dd >
+<ul>
+    <li>
+        腾讯娱乐讯 2012年第一届"两天微电影大赛"完美收官...<span class="ico" onclick="toggleWords(this); return false;">展开</span>
+        <input name="long" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官后，时隔一年， 在中国电视艺术家协会支持下，上海戏剧学院和新西兰华语媒体再度联合主办的&quot;2013年第二届两天微电影大赛&quot; 近日在上海正式启动，此次他们另辟蹊径，面对海内外所有电影爱好者，旨在开启微电影时代的全民化。" />
+        <input name="short" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官..." />
+    </li>
+    <li>
+        腾讯娱乐讯 2012年第一届"两天微电影大赛"完美收官...<span class="ico" onclick="toggleWords(this); return false;">展开</span>
+        <input name="long" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官后，时隔一年， 在中国电视艺术家协会支持下，上海戏剧学院和新西兰华语媒体再度联合主办的&quot;2013年第二届两天微电影大赛&quot; 近日在上海正式启动，此次他们另辟蹊径，面对海内外所有电影爱好者，旨在开启微电影时代的全民化。" />
+        <input name="short" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官..." />
+    </li> 
+    <li>
+        腾讯娱乐讯 2012年第一届"两天微电影大赛"完美收官...<span class="ico" onclick="toggleWords(this); return false;">展开</span>
+        <input name="long" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官后，时隔一年， 在中国电视艺术家协会支持下，上海戏剧学院和新西兰华语媒体再度联合主办的&quot;2013年第二届两天微电影大赛&quot; 近日在上海正式启动，此次他们另辟蹊径，面对海内外所有电影爱好者，旨在开启微电影时代的全民化。" />
+        <input name="short" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官..." />
+    </li>
+    <li>
+        腾讯娱乐讯 2012年第一届"两天微电影大赛"完美收官...<span class="ico" onclick="toggleWords(this); return false;">展开</span>
+        <input name="long" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官后，时隔一年， 在中国电视艺术家协会支持下，上海戏剧学院和新西兰华语媒体再度联合主办的&quot;2013年第二届两天微电影大赛&quot; 近日在上海正式启动，此次他们另辟蹊径，面对海内外所有电影爱好者，旨在开启微电影时代的全民化。" />
+        <input name="short" type="hidden" value="腾讯娱乐讯 2012年第一届&quot;两天微电影大赛&quot;完美收官..." />
+    </li>     
+</ul>
+</dd>
+</body>
+</html>
