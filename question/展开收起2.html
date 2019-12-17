@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>展开收起Demo</title>
+    <style>
+            #content {
+                width: 50%; 
+                background-color: #ccc;
+                line-height: 26px;
+            }
+            a {
+                text-decoration: none;
+                color: red;
+            }
+        </style>
+</head>
+<body>
+    <div id="content">
+       以前会Photoshop和Dreamweaver就可以制作网页，现在只掌握这些已经远远不够了。
+    </div>
+    <script>
+        (function init(){
+        const len = 60;      //默认显示字数
+        let ctn = document.getElementById("content");  //获取div对象
+        let content = ctn.innerHTML;                   //获取div里的内容
+
+        let span = document.createElement("span");     //创建<span>元素
+        let a = document.createElement("a");           //创建<a>元素
+        span.innerHTML = content.substring(0,len);     //span里的内容为content的前len个字符
+
+        a.innerHTML = content.length>len?"... 展开":"";  ////判断显示的字数是否大于默认显示的字数    来设置a的显示        
+        a.href = "javascript:void(0)";//让a链接点击不跳转
+
+        a.onclick = () => {
+            if(a.innerHTML.indexOf("展开")>0){      //如果a中含有"展开"则显示"收起"
+                a.innerHTML = "<<&nbsp;收起";
+                span.innerHTML = content;
+            }else{
+                a.innerHTML = "... 展开";
+                span.innerHTML = content.substring(0,len);
+            }
+        }
+        // 设置div内容为空，span元素 a元素加入到div中
+        ctn.innerHTML = "";
+        ctn.appendChild(span);
+        ctn.appendChild(a);
+     })();
+    </script>
+</body>
+</html>

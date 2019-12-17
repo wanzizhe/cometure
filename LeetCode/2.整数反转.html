@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两数之和</title>
+</head>
+<body>
+    <script>
+        var reverse = function(x) {
+            let MAX = Math.pow(2, 31) - 1
+            let MIN = -1 * Math.pow(2, 31)
+            let str = x.toString();
+            let strArr = [];
+            if(str.indexOf('-') != -1){
+                for (let everyStr of str ) {
+                    strArr.push(everyStr);
+                }
+                let restNum = strArr.length;
+                strArr = strArr.splice(1,strArr.length);
+                strArr = strArr.reverse().toString();
+                strArr = strArr.replace(RegExp(',','g'),'');
+                strArr = '-' + strArr;
+                if(strArr <= MIN || strArr >= MAX){
+                    strArr = 0;
+                }
+                return strArr;
+            }else {
+                for (let everyStr of str ) {
+                    strArr.push(everyStr);
+                }
+                let restNum = strArr.length;
+                strArr = strArr.splice(0,strArr.length);
+                strArr = strArr.reverse().toString();
+                strArr = strArr.replace(RegExp(',','g'),'');
+                if(strArr <= MIN || strArr >= MAX){
+                    strArr = 0;
+                }
+                return strArr;
+            }
+        };
+        reverse(1534236469);
+        reverse(-456);
+    </script>
+</body>
+</html>
