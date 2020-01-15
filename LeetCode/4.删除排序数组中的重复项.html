@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两数之和</title>
+</head>
+<body>
+    <script>
+        var longestCommonPrefix = function(strs) {
+            var result = "";
+            if(!strs.length) return result;
+            for(let i = 0; i < strs[0].length; i++){//循环数组循环每个字符串
+                for(let j = 1; j < strs.length; j++){//循环数组
+                    if(strs[j][i] != strs[0][i]){
+                        return result;
+                    }
+                }
+                result += strs[0][i];
+            }
+        };
+        longestCommonPrefix([""])
+        console.log(longestCommonPrefix([""]))
+    </script>
+</body>
+</html>

@@ -8,26 +8,108 @@
 </head>
 <body>
     <script>
+        // var isValid = function(s) {
+        //     let strArr = [];
+        //     for (let everyStr of s){
+        //         strArr.push(everyStr);
+        //     }
+        //     let strArrLength = strArr.length;
+        //     let templateArr = ['[]','{}','()'];
+        //     let exist = [];
+        //     let existAgain = [];
+        //     if (strArrLength % 2 == 0){
+        //         if(templateArr.indexOf(strArr[0] + strArr[1]) != -1){
+        //             for(let i = 0; i < strArrLength; i += 2){
+        //                 for(let j = i + 1; j <= i + 1; j += 2){
+        //                     let strij = strArr[i] + strArr[j];
+        //                     if(templateArr.indexOf(strij) == -1){
+        //                         exist.push('false');
+        //                     }else{
+        //                         exist.push('true');
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         let strIndex = strArrLength-1;
+        //         if(templateArr.indexOf(strArr[0] + strArr[strIndex]) != -1){
+        //             for(let p = 0; p < strArrLength/2; p ++){
+        //             for(let q = p + strIndex; q <= p + strIndex; strIndex -= 2){
+        //                     let strpq = strArr[p] + strArr[q];
+        //                     if(templateArr.indexOf(strpq) == -1){
+        //                         existAgain.push('false');
+        //                     }else{
+        //                         existAgain.push('true');
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //         if(exist.length){
+        //             if(exist.indexOf('false') !=-1){
+        //                 console.log(false);
+        //                 return false;
+        //             }else{
+        //                 console.log(true);
+        //                 return true;
+        //             }
+        //         }
+        //         if(existAgain.length){
+        //             if(existAgain.indexOf('false') !=-1){
+        //                 console.log(false);
+        //                 return false;
+        //             }else{
+        //                 console.log(true);
+        //                 return true;
+        //             }
+        //         }
+        //         if(s != "" && templateArr.indexOf(strArr[0] + strArr[1]) === -1){
+        //             console.log(false);
+        //             return false;
+        //         }
+        //         if(s === ""){
+        //             console.log(true);
+        //             return true;
+        //         }
+        //     }else{
+        //         console.log(false);
+        //         return false;
+        //     }
+        // };
+        // isValid("");
+
         var isValid = function(s) {
-            let strArr = [];
-            for (let everyStr of s){
-                strArr.push(everyStr);
+            let str = {
+                '(' : ')',
+                '{' : '}',
+                '[' : ']'
             }
-            let strArrLength = strArr.length;
-            if (strArrLength % 2 == 0){
-                for(let i = 0; i < strArrLength; i += 2){
-                    for(let j = 1; j < strArrLength; j += 2){
-                        if(){
-                            
-                        }
+            let arr = [];
+            for(let i = 0; i < s.length; i ++){
+                if(str[s[i]]){
+                    arr.push(str[s[i]]);
+                }else {
+                    if(!arr.length || s[i] != arr.pop()){
+                        return false;
                     }
                 }
-            }else{
-                console.log(false);
-                return false;
             }
+            return !arr.length;
+
+
+
+            // for (var char of s) {
+            //     if(char in str) {
+            //         arr.push(char)
+            //     } else {
+            //         if( !arr.length || char != str[arr.pop()]) {
+            //             console.log(false);
+            //             return false
+            //         }
+            //     }
+            // }
+            // console.log(!arr.length);
+            // return !arr.length
         };
-        isValid("{[]}");
+        isValid("()[]{[]}[");
     </script>
 </body>
 </html>

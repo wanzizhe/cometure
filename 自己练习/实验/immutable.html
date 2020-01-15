@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {};
+        obj.a = 1;
+        obj['b'] = 2;
+        // Object.assign(obj, {a:3});
+        // console.log(obj); // {a:3,b:2}
+
+        const newObj = Object.assign({}, obj, {a:3});
+        // const newObj = {...obj, { a: 1 }};//并不支持
+        console.log(obj)// {a:1,b:2} 没有改变
+        console.log(newObj);// {a:3,b:2}
+    </script>
+</body>
+</html>
