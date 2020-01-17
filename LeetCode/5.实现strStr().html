@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>两数之和</title>
+</head>
+<body>
+    <script>
+        var strStr = function(haystack, needle) {
+            // if((haystack === '' && needle === '') || needle === ''){
+            //     return 0
+            // }else{
+            //     for(let i = 0; i < haystack.length; i++){
+            //         for(let j = 0; j < needle.length; j++){
+            //             if(haystack[i] === needle[j]){
+            //                 if(haystack[i++] === needle[j++]){
+
+            //                 }
+            //             }
+            //         }
+            //     }
+            //     return -1;
+            // }
+
+            if (needle==="") return 0
+            for(var i=0;i<haystack.length;i++){
+                if(haystack[i]===needle[0]){
+                    var flag = true;
+                    for (var j=1;j<needle.length;j++){
+                        if (haystack[i+j]!=needle[j]){
+                            flag = false
+                            break;
+                        }
+                    }
+                    if (flag) return i
+                }
+            }
+            return -1
+
+            // if (needle === "") return 0
+            // for (var i = 0; i < haystack.length; i++) {
+            //     if (haystack[i] === needle[0]) {
+            //         if (haystack.substring(i, i + needle.length) === needle) return i;
+            //     }
+            // }
+            // return -1
+        };
+        strStr('llaaa', 'abb');
+        console.log(strStr('llaaa', 'abb'));
+    </script>
+</body>
+</html>
