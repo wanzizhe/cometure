@@ -1,3 +1,3 @@
 "use strict";
-console.log('你好ts1111223333');
-var str = "你好1111";
+console.log('你好ts');
+var str = "你好";

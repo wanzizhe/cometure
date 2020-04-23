@@ -1,3 +1,3 @@
-console.log('你好ts111122');
+console.log('你好ts');
 
-let str:string = "你好1111"
+let str:string = "你好"
