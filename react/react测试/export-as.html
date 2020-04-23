@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // 导出多个使用别名
+    import {
+    sampleA as funE,
+    sampleB as funF,
+    sampleC
+    } from './export.html'
+    // 或者
+    import sample, {
+    sampleA as funE,
+    sampleB as funF
+    } from './export.html'
+
+    funE('333')	// 333
+        funF('555')	// 555
+        sampleC('666')	// 666
+        sample('default') // default
+    </script>
+</body>
+</html>

@@ -75,6 +75,15 @@ function Test ({ width, height }){
   );
 }
 
+function ChildList(props) {
+    let {num} = props;
+    if(num == 1){
+        return <div>1111111111</div>
+    }else {
+        return <div>222222222222</div>
+    }
+  }
+
 class Foldable extends Component {
   constructor( props ) {
       super( props );
@@ -83,9 +92,10 @@ class Foldable extends Component {
   componentDidMount(){
       console.log(this.props.options)
   }
+
   render() {
     return(
-      <Test {...this.props.options} />
+        <ChildList num={1}/>
     );
   }
 }
