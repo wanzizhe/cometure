@@ -96,11 +96,12 @@
     // 1.第一种定义数组的方式
 
     
-     /*
-        var arr:number[]=[11,22,33];
+     
+        // var arr:string[]=['11','22','33'];
+        // var arr:number[]=[11,22,33];
 
-        console.log(arr);
-     */
+        // console.log(arr);
+     
     
 
     //2.第二种定义数组的方式

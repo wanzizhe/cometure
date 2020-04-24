@@ -74,11 +74,9 @@ console.log(flag);
 // 数组类型（array）  ts中定义数组有两种方式
 // var arr=['1','2'];  //es5定义数组
 // 1.第一种定义数组的方式
-/*
-   var arr:number[]=[11,22,33];
-
-   console.log(arr);
-*/
+// var arr:string[]=['11','22','33'];
+// var arr:number[]=[11,22,33];
+// console.log(arr);
 //2.第二种定义数组的方式
 /*
 
