@@ -1,88 +1,15 @@
-import React, { Component,useState }from 'react';
+import React, { Component}from 'react';
 import './App.css';
-import img from './img/img.jpg'
+import Spreadsheet from 'x-data-spreadsheet';
 
-function Test ({ width, height }){
-  const [
-    foldAngle,
-    setFoldAngle,
-  ] = useState(0);
-  
-  //上半部分和下半部分共享的样式
-  const sharedStyles = {
-    width,
-    height: height / 2
-  };
-
-  return (
-    <div style={{ perspective: 500,margin: 200}}>
-
-      {/* 上半部分 */}
-      <div style={{
-          ...sharedStyles,
-          overflow: 'hidden',
-        }}>
-         <img
-          src={img}
-          alt="a neon Chinese alley"
-          style={{
-            width,
-            height,
-          }}
-        />
-      </div>
-
-      {/* 下半部分 */}
-      <div
-        style={{
-          ...sharedStyles,
-          backgroundSize: `${width}px ${height}px`,
-          backgroundImage: `url(${img})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: `0px 100%`,
-          transform: `rotateX(${foldAngle}deg)`,
-          transformOrigin: 'center top',
-          // willChange: 'transform',
-          transformStyle: 'preserve-3d',
-        }}
-      >
-        <div style={{
-            position: 'absolute',
-            top: 0, left: 0, right: 0, bottom: 0,
-            background:
-              // 'hsla(0, 100%, 100%, 0.9)',
-              'rgba(255,255,255,0.9)',
-            backfaceVisibility: 'visible',
-            transform:
-              'rotateX(180deg) translateZ(.5px)',
-          }}></div>
-      </div>
-
-      <br />
-      <label htmlFor="slider">Fold ratio:</label>
-      <input
-        id="slider"
-        type="range"
-        min={0}
-        max={180}
-        value={foldAngle}
-        onChange={ev =>
-          setFoldAngle(ev.target.value)
-        }
-        style={{ width }}
-      />
-    </div>
-  );
-}
-
-function ChildList(props) {
-    let {num} = props;
-    if(num == 1){
-        return <div>1111111111</div>
-    }else {
-        return <div>222222222222</div>
-    }
-  }
+// function ChildList(props) {
+//     let {num} = props;
+//     if(num == 1){
+//         return <div>1111111111</div>
+//     }else {
+//         return <div>222222222222</div>
+//     }
+//   }
 
 class Foldable extends Component {
   constructor( props ) {
@@ -90,12 +17,47 @@ class Foldable extends Component {
   }
 
   componentDidMount(){
-      console.log(this.props.options)
+    const s = new Spreadsheet(document.getElementById('xss-demo'), {
+        mode: 'edit', // edit | read
+        showToolbar: true,
+        showGrid: true,
+        showContextmenu: true,
+        view: {
+          height: () => document.documentElement.clientHeight,
+          width: () => document.documentElement.clientWidth,
+        },
+        row: {
+          len: 100,
+          height: 25,
+        },
+        col: {
+          len: 26,
+          width: 100,
+          indexWidth: 60,
+          minWidth: 60,
+        },
+        style: {
+          bgcolor: '#ffffff',
+          align: 'left',
+          valign: 'middle',
+          textwrap: false,
+          strike: false,
+          underline: false,
+          color: '#0a0a0a',
+          font: {
+            name: 'Helvetica',
+            size: 10,
+            bold: false,
+            italic: false,
+          },
+        },
+      }).loadData({});
   }
 
   render() {
     return(
-        <ChildList num={1}/>
+        // <ChildList num={1}/>
+        <div id="xss-demo"></div>
     );
   }
 }

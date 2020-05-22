@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var bar = {
+        //     myName: 'time.geekbang.com',
+        //     printName: function (){
+        //         console.log(myName)
+        //     }
+        // }
+        // function foo(){
+        //     let myName = "极客时间"
+        //     return bar.printName
+        // }
+        // let myName = "极客帮"
+        // let _printName = foo()
+        // _printName()
+        // bar.printName();
+
+        // 改成闭包，可以访问到内部的myName
+        // function foo () {
+        //     var myName = 'time.geekbang.com';
+        //     var printName ={
+        //         print : function (){ //内部函数用外部函数的变量
+        //             console.log(myName)
+        //             return myName;
+        //         }
+        //     }
+        //     return printName;
+        // }
+        // var myName = '1111111111';
+        // var bar = foo();
+        // bar.print()
+
+        //箭头函数
+        var bar = {
+            myName: 'time.geekbang.com',
+            //箭头函数，this指向window，这时候this.myName是外面的myName是let还是var的问题了，
+            //正常的函数，this指向调用他的bar，这时候this.myName是当前bar对象中的myName
+            printName : function () {
+                console.log(this.myName)
+                console.log(this);
+                var bar2 = () => {
+                    console.log(this);
+                    console.log(myName);//输出myName和this无关，请不要弄混！！！只是去外面找声明的myName变量
+                }
+                bar2();
+            }
+        }
+        // function foo(){
+        //     let myName = "极客时间"
+        //     return bar.printName  //返回了对象bar下面的printName方法
+        // }
+        var myName = "极客帮"
+        // let _printName = foo()
+        // _printName()
+        bar.printName(); //调用
+
+        // var myObj = {
+        //     name
+        // }
+    </script>
+</body>
+</html>

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import FoldableImage from './App';
 import Foldable from './App';
 import text from './test.ts';
 import registerServiceWorker from './registerServiceWorker';

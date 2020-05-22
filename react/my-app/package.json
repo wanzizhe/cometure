@@ -6,7 +6,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "1.1.4",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "x-data-spreadsheet": "^1.1.1"
   },
   "scripts": {
     "start": "react-scripts start",

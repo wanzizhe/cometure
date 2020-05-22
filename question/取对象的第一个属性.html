@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let a = {
+        //     a:1,
+        //     b:2, 
+        //     c:3
+        // }
+
+        // showName()
+        // var showName = function(){console.log(2)}
+        // function showName() {console.log(1)}
+
+        // let myname = '极客时间';
+        // {
+        //     console.log(myname);
+        //     let myname = '即可帮'
+        // }
+
+        // function foo(){
+        //     var a = 1;
+        //     let b = 2;
+        //     {
+        //         let b = 3;
+        //         var c = 4;
+        //         let d = 5;
+        //         console.log(a);
+        //         console.log(b);
+        //     }
+        //     console.log(b);
+        //     console.log(c);
+        //     console.log(d);
+        // }
+        // foo();
+
+
+        // function bar () {
+        //     var myName = '极客世界'
+        //     let test1 = 100;
+        //     if(1){
+        //         let myName = "chrome浏览器"
+        //         console.log(test)
+        //     }
+        // }
+        // function foo() {
+        //     var myName = "极客帮"
+        //     let test = 2;
+        //     {
+        //         let test = 3;
+        //         bar()
+        //     }
+        // }
+        // var myName = "极客时间"
+        // let myAge = 10;
+        // let test = 1;
+        // foo();
+
+        var nums = '1234??**9990';
+        var array=nums.split("");
+        if(array.length != 11){
+            console.log('格式有误')
+        }else{
+            for(var i = 0; i < 11; i ++) {
+            if(array[i] === '*' ){
+                    array[i] = '?'
+                }
+            }
+        }
+        console.log(array, 'array');
+        console.log(array.toString().replace(/,/g,''), 'array');
+    </script>
+</body>
+</html>
