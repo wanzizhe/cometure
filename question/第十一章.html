@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let bar = {
+        //     myName: '极客帮',
+        //     test1: 1
+        // }
+        // function foo() {
+        //     this.myName = '极客时间'
+        // }
+        // foo.call(bar);
+        // console.log(bar);//{myName: "极客时间", test1: 1}
+        // console.log(myName);//myName is not defined
+
+        // var myObj = {
+        //     name: '极客时间',
+        //     showThis: function(){
+        //         console.log(this);//{name: "极客时间", showThis: ƒ}
+        //     }
+        // }
+        // myObj.showThis()
+
+        // var myObj = {
+        //     name: '极客时间',
+        //     showThis: function(){
+        //         this.name='极客帮'
+        //         console.log(this);//window
+        //     }
+        // }
+        // var foo = myObj.showThis;
+        // foo();
+
+        // function CreateObj () {
+        //     this.name = '极客时间';
+        //     this.age = 18;
+        //     console.log(this,'this');
+        // }
+        // var myObj = new CreateObj();
+        // myObj.name = '极客';
+        // myObj.age = 20;
+        // console.log(myObj, 'myObj');
+
+        // var  myObj = {
+        //     name: '极客时间',
+        //     showTime: function(){
+        //         console.log(this);
+        //         var self = this;
+        //         function bar () {
+        //             self.name = '极客'
+        //             console.log(self)
+        //         }
+        //         bar();
+        //     }
+        // }
+        // myObj.showTime();
+        // console.log(myObj.name);
+        // console.log(window.name);
+
+        var  myObj = {
+            name: '极客时间',
+            showTime: function(){
+                console.log(this);
+                var bar = () => {
+                    this.name = '极客邦'
+                    console.log(this)
+                }
+                bar();
+            }
+        }
+        myObj.showTime();
+        console.log(myObj.name);
+        console.log(window.name);
+    </script>
+</body>
+</html>
