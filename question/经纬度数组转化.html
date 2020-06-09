@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = [[32.09368856633315, 104.46905011081307], [32.09368856633315, 104.46905011081307],[32.09368856633315, 104.46905011081307],[32.09368856633315, 104.46905011081307]];
+        let b = '32.09368856633315 104.46905011081307,32.09368856633315 104.46905011081307,32.09368856633315 104.46905011081307,32.09368856633315 104.46905011081307';
+
+        // let b = [];
+        // a.map((ia)=>{
+        //     let ib = ia.toString().replace(/,/g," ");
+        //     b.push(ib);
+        // })
+        // console.log(b.toString(), 'b')
+        let arr = b.split(',');
+        console.log(arr);
+        console.log(arr[0].split(' ')[0]);
+    </script>
+</body>
+</html>

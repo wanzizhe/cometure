@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        .style2{
+            background: violet;
+        }
+    </style>
+</head>
+<body>
+        <table border="1" id="tb_table">
+            <tr>
+                <th>Month</th>
+                <th>Savings</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$100</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$1000</td>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>$10000</td>
+            </tr>
+        </table>
+        <script>
+               var table = document.getElementById("tb_table");
+               var rows = table.rows;//获取所有行
+               console.log("length",rows.length) //表格行
+               for(var i=1; i < rows.length; i++){
+                 var row = rows[i];//获取每一行
+                 var id = row.cells[0].innerHTML;//获取具体单元格
+                 console.log("id",id)
+               }
+                var tabelErevy = document.getElementsByTagName('tr')[2];//你可以判断内容，然后获取当前的异常数据那一行，就比如我写的2
+                tabelErevy.setAttribute("class", "style2");//增加css样式，就是写入一个class，在上面
+        </script>
+</body>
+</html>
