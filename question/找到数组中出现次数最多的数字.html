@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function maxNum () {
+            let arr = [1,2,3,4,5,5,6];
+            let max = null;
+            let num = 0;
+            let saveNum = 0;
+            for(let i = 0; i < arr.length; i++){
+                num = 0//每次比较完一个数字都将记录出现次数的num清零
+                for(let j = 0; j < arr.length; j++){
+                    if(arr[i] == arr[j]){
+                        num++;
+                    }
+                    if(num > saveNum){
+                        saveNum = num;
+                        max = arr[i];
+                    }
+                }
+            }
+            console.log(max);
+        }
+        // maxNum();
+
+        //思路是用一层for循环，将数组存成，1-1，2-1，3-1，4-1，5-2，6-1的形式，
+        // 之后再循环取后面数字较大的那个对应的前面的数字
+        function maxNum2 () {
+            let arr = [1,2,3,4,5,5,6,6,6,6];
+            let obj = {};
+            let max = null;
+            let num = 0;
+            let maxNum = null;
+            for(let i = 0; i < arr.length; i++){
+                obj[arr[i]] ?  obj[arr[i]] += 1 : obj[arr[i]] = 1;
+                if(obj[arr[i]] > num){
+                    num = obj[arr[i]];
+                    maxNum = arr[i];
+                }
+            }
+            console.log(obj, 'obj')
+            // for(eve in obj){
+            //     if(obj[eve] > num){
+            //         num = obj[eve];
+            //         maxNum = eve;
+            //     }
+            // }
+            console.log(maxNum, 'maxNum')
+        }
+        maxNum2();
+    </script>
+</body>
+</html>
