@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let str = 'the sky is blue';
+        let strArr = str.split(' '); //变成数组
+        let reStrArr = strArr.reverse(); //数组倒序
+        let reStr = reStrArr.toString(); //变成字符串
+        let strLast = reStr.replace(/,/g , " "); //去掉字符串中的逗号
+        console.log(strLast, 'strLast') //blue is sky the
+    </script>
+</body>
+</html>
