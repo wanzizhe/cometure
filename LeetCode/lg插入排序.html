@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sort(arr){
+            let beforeArr = []
+            //首先手里要有一张牌
+            beforeArr.push(arr[0]);
+            //每次抓的牌和手里已经有的牌进行对比
+            for(let i = 0; i < arr.length; i ++){
+                for(let j = beforeArr.length - 1; j >= 0; j--){
+                    //新抓的牌跟手里的牌，进行从后往前的比对，大于手里的牌就放在手里牌的后面
+                    if(arr[i] > beforeArr[j]){
+                        beforeArr.splice(j+1, 0, arr[i]);
+                        break;
+                    }
+                    //从后往前的比对要是都不大于，那就是j===0的时候，就是比对到第一个的时候，
+                    //则把牌放在最前面，证明这张牌最小
+                    if(j === 0){
+                        beforeArr.unshift(arr[i]);
+                    }
+                }
+            }
+            return beforeArr;
+        }
+        let arr = [4,3,2,1,9,7,5]
+        sort(arr);
+        console.log(sort(arr));
+        // let a = ['George','John','Thomas','James','Adrew','Martin'];
+        // a.splice(2,0,'William');
+        // console.log(a);
+    </script>
+</body>
+</html>

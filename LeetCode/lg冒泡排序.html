@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //冒泡排序，最好的情况(顺序情况)时间复杂度是O(n),最坏的情况(逆序情况)时间复杂度是O(n*n)
+        //每次将最大的那个冒泡到最后一位
+        function bubbling (arr){
+            let mid = 0;
+            //减一的目的是最后一项的索引不需要再跟加一的进行比较了，因为加一那个也没有是undefined
+            for(let j = 0; j < arr.length - 1; j ++){
+                //减J是充分利用之前排好序的倒数最大的j个字母，根本不需要再次重复进行比较了
+                for(let i = 0; i < arr.length - 1 - j; i ++){
+                    if(arr[i] > arr[i + 1]){
+                        mid = arr[i];
+                        arr[i] = arr[i + 1];
+                        arr[i + 1] = mid;
+                    }
+                    console.log(arr,'最里面每次arr');
+                }
+                console.log(arr,'外面每次arr');
+            }
+            return arr
+        }
+        bubbling([3,2,1]);
+        // console.log(bubbling([3,2,1]));
+    </script>
+</body>
+</html>

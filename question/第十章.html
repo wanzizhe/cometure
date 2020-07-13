@@ -43,11 +43,11 @@
             myName: 'time.geekbang.com',
             //箭头函数，this指向window，这时候this.myName是外面的myName是let还是var的问题了，
             //正常的函数，this指向调用他的bar，这时候this.myName是当前bar对象中的myName
-            printName : function () {
+            printName : function () {  
                 console.log(this.myName)
                 console.log(this);
-                var bar2 = () => {
-                    console.log(this);
+                var bar2 = () => { //不会产生自己的作用域，取决于它的外层函数
+                    console.log(this); //this指向bar2的词法作用域
                     console.log(myName);//输出myName和this无关，请不要弄混！！！只是去外面找声明的myName变量
                 }
                 bar2();
