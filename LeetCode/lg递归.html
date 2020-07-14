@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="oneI"/>
+    <span id="oneS"></span>
+    <input id="secondI"/>
+    <span id="secondS"></span>
+    <script>
+        //递归： 函数自己调用自己
+        //由递归引发的setTimeout问题
+        //问题一： 用setTimeout包裹的递归不会报错栈溢出
+        // foo = () => {
+        //     console.log('1111111111');
+        //     setTimeout(()=>{foo()}, 0);
+        // }
+        // foo();
+
+        //问题二：  onkeydown的时候还获取不到最后的value，所以只能获取除了最后一位，之前的输入内容
+        // document.getElementById('oneI').onkeydown = function() {  
+        //     document.getElementById('oneS').innerHTML = document.getElementById('secondI').value;   
+
+        // };   
+        // 加上了setTimeout，会等到onkeydown执行完成之后，再获取最后的value，就可以获取到最新的输入内容了
+        // document.getElementById('secondI').onkeydown = function() {   
+
+        //     setTimeout(function() {   
+
+        //     document.getElementById('secondS').innerHTML = document.getElementById('secondI').value;   }, 0);
+
+        // };
+
+        // 1-10的和
+        // let total = null;
+        // for(let i = 0; i <=10; i ++){
+        //     total += i;
+        // }
+        // console.log(total);
+
+        //递归求1-10的和
+        function sum (n){
+            if(n > 10){
+                return 0;
+            }
+            return n + sum(n + 1)
+        }
+        let total = sum(1)
+        console.log(total)
+    </script>
+</body>
+</html>

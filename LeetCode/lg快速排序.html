@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //[12,8,15,16,1,24]
+        //先找中间项
+        //把它从数组中删除
+        //获取到该项  15
+        //准备左边数组和右边数组，拿出每一项跟中间项(15)对比，小于15的放左面，大于15的放在右边
+        //[12,8,1]    [16, 24]
+        //左边没排序好，重复之前操作，继续取中间值，然后比较小的放左面，大的放右边
+        function quick(arr){
+            if(arr.length <= 1){
+                return arr;
+            }
+            let middle = parseInt(arr.length / 2);
+            let midNum = arr.splice(middle, 1)[0];
+            let leftArr = [];
+            let rightArr = [];
+            for(let i = 0; i < arr.length; i ++){
+                if(arr[i] < midNum){
+                    leftArr.push(arr[i])
+                }else{
+                    rightArr.push(arr[i])
+                }
+            }
+            return quick(leftArr).concat(midNum, quick(rightArr))
+        };
+        let arr = [1,2,3,4,5];
+        arr = quick(arr);
+        console.log(arr);
+
+        // function quick(ary){
+        //     if(ary.length <= 1){
+        //         return ary;
+        //     }
+        //     let middleIndex = Math.floor(ary.length / 2);
+        //     let middleValue = ary.splice(middleIndex, 1)[0];
+        //     let leftArr = [];
+        //     let rightArr = [];
+        //     for(let i = 0; i < ary.length; i ++){
+        //         let item = ary[i];
+        //         item < middleValue ? leftArr.push(item): rightArr.push(item);
+        //     }
+        //     console.log(middleValue, 'middleValue');
+        //     return quick(leftArr).concat(middleValue, quick(rightArr))
+        // };
+        // let ary = [1,2,3,4,5];
+        // let arr = quick(ary);
+        // console.log(arr);
+    </script>
+</body>
+</html>
