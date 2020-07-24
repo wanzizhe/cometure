@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function foo() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                resolve(123);
+                }, 2000)
+            })
+        }
+        function* test() {
+            console.log('start');
+            let a = yield foo(); 
+            console.log('a', a);
+            let b = yield 2;
+            console.log('b', b);
+            console.log('end');
+        }
+        // let g = test();
+        // console.log(g)
+        // console.log(g.next());
+        // console.log(g.next(foo()));
+        // console.log(g.next(2));
+
+        function generateAutoRun(gen) {
+            let g = gen();
+            function next(value) {
+                let res = g.next(value);    //执行next()
+                if (res.done) return;   //结束
+                next(res.value);    //从第二个next开始，给上一个的yield返回值
+            }
+            next();
+        }
+        generateAutoRun(test);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class PromiseA {
+            constructor(init) {
+                var resolve=(val)=>{
+                    setTimeout(() => {
+                        this.resolveCallback(val);
+                    }, 0)
+                }
+                var reject=(val)=>{
+                    setTimeout(() => {
+                        this.rejectCallback(val);
+                    }, 0)
+                }
+                init(resolve, reject);
+            }
+            then(onFulfill,onReject) {
+                this.resolveCallback=onFulfill;
+                this.rejectCallback=onReject;
+                return this;
+            }
+        }
+        new PromiseA(function (resolve, reject){
+            // setTimeout(() => {
+                resolve("hello,from promise 1");
+                reject("hello,from promise 2");
+            // },2000)
+        }).then(function (msg){
+            console.log(msg);
+        }, function (msg){
+            console.log(msg);
+        })
+    </script>
+</body>
+</html>
