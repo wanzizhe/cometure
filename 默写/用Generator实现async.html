@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p1 = new Promise((resolve) => {
+            console.log('p1先');
+            setTimeout(() => {
+                console.log(1);
+                resolve(1)
+            }, 2000)
+        })
+        let p2 = new Promise((resolve) => {
+            console.log('p2后');
+            setTimeout(() => {
+                console.log(2);
+                resolve(2)
+            }, 1000)
+        })
+
+        function* test() {
+            let a = yield p1;
+            console.log(a,'a---')
+            let b = yield p2;
+            console.log(b,('b---'));
+        }
+
+        function asyncTogenerate(gen) {
+            let g = gen();
+            function step(value) {    //递归调用next
+                // 处理 yield 返回值问题
+                let info = g.next(value);  //一步一步执行p1,p2，并给a,b 赋值p1,p2
+                if (info.done) {   //执行完return掉
+                    return;
+                } else {
+                    // step(info.value);
+                    // 把 yield 后面的东西(info.value) 直接 resolve，传给下一个step，给a,b赋值
+                    Promise.resolve(info.value).then((res) => {
+                        // 下一个 yield 下一个 递归
+                        step(res); 
+                    })
+                }
+            }
+            step();  //递归开始
+        }
+        asyncTogenerate(test);
+    </script>
+</body>
+</html>

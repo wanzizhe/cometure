@@ -35,6 +35,10 @@
                 let res = g.next(value);    //执行next()
                 if (res.done) return;   //结束
                 next(res.value);    //从第二个next开始，给上一个的yield返回值
+                // Promise.resolve(res.value).then((res) => {
+                //         // 下一个 yield 下一个 递归
+                //         next(res); 
+                //     })
             }
             next();
         }
