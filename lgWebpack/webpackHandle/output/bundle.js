@@ -100,7 +100,6 @@ __webpack_require__.r(__webpack_exports__);
 console.log(_about_md__WEBPACK_IMPORTED_MODULE_2__["default"], 'about');
 const heading = Object(_heading_js__WEBPACK_IMPORTED_MODULE_0__["default"])();
 document.body.append(heading);
-document.body.innerHTML = _about_md__WEBPACK_IMPORTED_MODULE_2__["default"];
 
 /***/ }),
 /* 1 */
