@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<link>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -10,10 +10,10 @@
     <!-- type="module" 这种用法是ES Modules 中提出的标准， 用来区分加载的是普通脚本还是JS模块 -->
 
     <!-- 打包之前，引入模块有export default 或者是import，所以要加type="module"来告诉浏览器这是个ES6模块-->
-    <!-- 会出现跨域问题，解决办法在浏览器收藏文件里 -->
-    <script type="module" src="src/index.js"></script> 
+    <!-- 会出现跨域问题，解决办法在浏览器收藏文件里的文章 -->
+    <!-- <script type="module" src="src/main.js"></script>  -->
 
     <!-- 打包后不再有export default 或者是import，就是一个普通的js文件，不需要type="module" -->
-    <script src="dist/main.js"></script> 
+    <script src="output/bundle.js"></script> 
 </body>
 </html>
