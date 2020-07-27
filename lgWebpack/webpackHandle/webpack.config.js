@@ -3,6 +3,7 @@ const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const RemoveCommentsPlugin = require('./remove-comments-plugin.js');
 module.exports = {
     entry: './src/main.js', //./不可以省略
     output: {
@@ -10,6 +11,11 @@ module.exports = {
         path: path.join(__dirname, 'output'),
       },
     mode: 'none',
+    //webpack-dev-server这边更改浏览器实时刷新，将构建好的文件输出作为服务器的资源文件
+    devServer:{
+        //将没有打包的静态资源告诉服务器
+        contentBase: 'static'
+    },
     module: {
         rules:[
             // css-loader只会把css模块加载到js代码中，而并没有使用这个模块
@@ -45,11 +51,13 @@ module.exports = {
             filename: 'about.html'
         }),
         //CopyWebpackPlugin将webpack打包后需要一并复制的文件（静态资源文件，icon）放在输出目录中
-        new CopyWebpackPlugin({
-            patterns: [{
-                from: 'static/1.jpeg',
-                to: 'output'
-            }]
-        })
+        //一般用于上线的打包，因为平时复制文件可能会影响打包效率
+        // new CopyWebpackPlugin({
+        //     patterns: [{
+        //         from: 'static/1.jpeg',
+        //         to: 'output'
+        //     }]
+        // }),
+        new RemoveCommentsPlugin()
     ]
 }

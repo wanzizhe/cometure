@@ -22,7 +22,7 @@
 
         // AMD (Asynchronous Module Definition) 异步模块定义规范   require.js  弊端：同一个js文件请求很多文件，运行效率低
         // define(['jquery','./module2.js'模块依赖路径], function($, module2){return {start: function(){模块}}})  函数为模块提供私有空间，加载和定义模块
-        // require(['./modules/module1.js'], function(module1){module1.start()})   加载模块  自动穿件<script>标签去请求资源
+        // require(['./modules/module1.js'], function(module1){module1.start()})   加载模块  自动创建<script>标签去请求资源
     
         //CMD    sea.js    淘宝出品
 
