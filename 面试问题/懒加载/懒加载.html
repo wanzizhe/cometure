@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            height: 1500px;
+            background:#ff0;
+            width: 30%;
+        }
+        .img{
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">1111111111111111111</div>
+    <img class="img"/>
+    <img class="img"/>
+    <script>
+        //方法一：
+        let cilentH = document.documentElement.clientHeight;
+        let imgs = document.getElementsByTagName('img');
+        window.onscroll = function () {
+            let scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(scrollT, 'scrollT');
+            for(let i = 0; i < imgs.length; i++) {
+                let offsetT = imgs[i].offsetTop;
+                console.log(offsetT, 'offsetTop');
+                if(offsetT - scrollT <= cilentH){
+                    imgs[i].setAttribute('src', `./${i + 1}.jpg`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片懒加载</title>
+    <style>
+        img {
+            display: block;
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+    <img data-src="./picture/1.jpg" alt="">
+    <img data-src="./picture/2.jpg" alt="">
+</body>
+<script>
+        var imgs = document.querySelectorAll('img');
+
+        //offsetTop是元素与offsetParent的距离，循环获取直到页面顶部
+        function getTop(e) {
+            var T = e.offsetTop;
+            while(e = e.offsetParent) {
+                T += e.offsetTop;
+            }
+            return T;
+        }
+
+        function lazyLoad(imgs) {
+            var H = document.documentElement.clientHeight;//获取可视区域高度
+            var S = document.documentElement.scrollTop || document.body.scrollTop;
+            for (var i = 0; i < imgs.length; i++) {
+                if (H + S > getTop(imgs[i])) {
+                    imgs[i].src = imgs[i].getAttribute('data-src');
+                }
+            }
+        }
+
+        window.onload = window.onscroll = function () { //onscroll()在滚动条滚动的时候触发
+            lazyLoad(imgs);
+        }
+</script>
+</html> -->
