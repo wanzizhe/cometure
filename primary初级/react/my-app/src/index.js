@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Foldable from './App';
+import Example from './App';
 import text from './test.ts';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -11,7 +11,7 @@ let option = {
 }
 console.log(text,'text')
 ReactDOM.render(
-    <Foldable options = {option}/>   
+    <Example options = {option}/>   
     , document.getElementById('root')
 );
 registerServiceWorker();
