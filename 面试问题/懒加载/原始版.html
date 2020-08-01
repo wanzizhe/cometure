@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            height: 1500px;
+            background:#ff0;
+            width: 30%;
+        }
+        .img{
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">1111111111111111111</div>
+    <img class="img"/>
+    <img class="img"/>
+    <script>
+        //方法一：
+        //视口高度
+        let cilentH = document.documentElement.clientHeight;
+        let imgs = document.getElementsByTagName('img');
+        window.onscroll = function () {
+            //滚动高度
+            let scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+            for(let i = 0; i < imgs.length; i++) {
+                //在没有父元素的情况下子元素的offsetTop就是距离html文本的距离
+                let offsetT = imgs[i].offsetTop;
+                if(offsetT - scrollT <= cilentH){
+                    if(!imgs[i].src){
+                        imgs[i].setAttribute('src', `./${i + 1}.jpg`);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
