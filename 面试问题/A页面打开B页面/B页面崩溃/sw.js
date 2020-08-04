@@ -8,7 +8,7 @@ function checkCrash() {
   for (var id in pages) {
     let page = pages[id]
     if ((now - page.t) > CRASH_THRESHOLD) {
-      // 上报 crash
+      // 上报 crash\
       console.log("页面发生崩溃")
       delete pages[id]
     }

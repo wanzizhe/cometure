@@ -2,6 +2,11 @@
 <head>
 </head>
 <body>
+    <!-- 1.页面 B 每 5S 给自己的 Service Worker 发送一次心跳，记录一个状态 running 并更新时间戳。
+    正常关闭的时候通知 Service Worker 清除这个状态。
+    2.如果网页 Crash 了，running 将不会被清除，且时间戳也不会再更新。Service Worker 每 10s 
+    查看一遍时间戳，如果发现“状态是 running 且 时间戳有一段时间未更新了”，
+    则说明这个网页 B 发生崩溃了。 -->
     <div>这是 B crash 页面</div>
     <button onclick='handleCrash()'>点击我使页面崩溃</button>
     <script>
@@ -18,6 +23,7 @@
             navigator.serviceWorker.register('./sw.js', {
                 // scope: './'
             }).then(function (registration) {
+                console.log(registration, 'registration');
                 if (navigator.serviceWorker.controller !== null) {
                     let HEARTBEAT_INTERVAL = 5 * 1000; // 每五秒发一次心跳
                     let sessionId = "uuid()";
