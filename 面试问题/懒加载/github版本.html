@@ -104,20 +104,33 @@
     </script> -->
     <script>
         // 方法二
+        //获取元素
         function query(tag) {
             return Array.from(document.getElementsByTagName(tag));
         }
         var observer = new IntersectionObserver(
             (changes) => {
+                console.log(changes, 'changes');
                 changes.forEach((change) => {
-                    if (change.intersectionRatio > 0) {
-                        var img = change.target;
-                        img.src = img.dataset.src;
-                        observer.unobserve(img);
-                    }
+                    //intersectionRatio是目标元素的可见比例，即 intersectionRect 占 boundingClientRect 的比例，
+                    //完全可见时为 1 ，完全不可见时小于等于 0
+                    // if(change.boundingClientRect.top - change.intersectionRect.top - change.rootBounds.height < 100){
+                    //     var img = change.target;
+                    //     img.src = img.dataset.src;
+                    //     //停止观察
+                    //     observer.unobserve(img);
+                    // }else{
+                        if (change.intersectionRatio > 0) {
+                            var img = change.target;
+                            img.src = img.dataset.src;
+                            //停止观察
+                            observer.unobserve(img);
+                        }
+                    // }
                 })
             }
         )
+        //开始观察
         query('img').forEach((item) => {
             observer.observe(item);
         })
