@@ -13,8 +13,21 @@ module.exports = {
     mode: 'none',
     //webpack-dev-server这边更改浏览器实时刷新，将构建好的文件输出作为服务器的资源文件
     devServer:{
-        //将没有打包的静态资源告诉服务器
-        contentBase: 'static'
+        //将没有打包的静态资源告诉devServer，这样在服务器上才能访问到，就会想起来插件中的CopyWebpackPlugin
+        //CopyWebpackPlugin就是将静态资源导出到打包后的文件中（其实一般都是上线之前才会用到）
+        // contentBase: 'static',
+        //proxy代理，解决开发阶段跨域问题，把后端的接口代理到本地开发服务器地址上
+        //配置完这个之后，本地访问http://localhost:8080/api/users就相当于访问了https://api.github.com/api/users
+        //本来人家的接口是没有api的所以，咱们还要将代理地址中的api进行重写去掉
+        proxy: {
+            '/api': {
+                target: 'https://api.github.com', //后端接口的服务器地址
+                pathRewrite: {
+                    '^/api': ''  //将代理地址中的/api替换成空, 本地访问http://localhost:8080/api/users就相当于访问了https://api.github.com/users
+                },
+                changeOrigin: true //确保代理服务器请求后端服务器的主机名是api.github.com(实际请求地址)，而不是localhost:8080（服务器无法确定网站出处）
+            }
+        }
     },
     module: {
         rules:[

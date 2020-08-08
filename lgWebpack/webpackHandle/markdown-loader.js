@@ -3,7 +3,7 @@ module.exports = source => {
     //source就是.md文件里面的内容
     console.log(source);
     //html字符串
-    const html = marked(source)
+    const html = marked(source);
     //返回值就是最终被打包的内容，应该是一段js代码
     // return 'hello makrdown loader';
     // return 'console.log("hello makrdown loader")';
