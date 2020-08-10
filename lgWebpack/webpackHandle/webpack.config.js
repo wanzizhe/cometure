@@ -15,7 +15,7 @@ module.exports = {
     devServer:{
         //将没有打包的静态资源告诉devServer，这样在服务器上才能访问到，就会想起来插件中的CopyWebpackPlugin
         //CopyWebpackPlugin就是将静态资源导出到打包后的文件中（其实一般都是上线之前才会用到）
-        // contentBase: 'static',
+        contentBase: 'static',
         //proxy代理，解决开发阶段跨域问题，把后端的接口代理到本地开发服务器地址上
         //配置完这个之后，本地访问http://localhost:8080/api/users就相当于访问了https://api.github.com/api/users
         //本来人家的接口是没有api的所以，咱们还要将代理地址中的api进行重写去掉
@@ -29,6 +29,10 @@ module.exports = {
             }
         }
     },
+    // devtool: 'source-map',//source-map设置
+    //eval模式，是将打包好的代码放在eval函数中，然后通过注释sourceURL来指明这段代码的文件路径
+    //速度很快，但是只能定位到文件位置，不能定位到行列信息
+    devtool: 'eval',
     module: {
         rules:[
             // css-loader只会把css模块加载到js代码中，而并没有使用这个模块
