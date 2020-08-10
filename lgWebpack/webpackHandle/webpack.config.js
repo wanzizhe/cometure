@@ -12,6 +12,7 @@ module.exports = {
       },
     mode: 'none',
     //webpack-dev-server这边更改浏览器实时刷新，将构建好的文件输出作为服务器的资源文件
+    //之前用webpack的watch模式和browser-sync也可以实现，更改代码页面自动刷新，但是性能低（webpack写入磁盘，browser-sync读取）
     devServer:{
         //将没有打包的静态资源告诉devServer，这样在服务器上才能访问到，就会想起来插件中的CopyWebpackPlugin
         //CopyWebpackPlugin就是将静态资源导出到打包后的文件中（其实一般都是上线之前才会用到）
