@@ -1,5 +1,6 @@
 
 const path = require('path');
+const webpack = require('webpack');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -28,7 +29,14 @@ module.exports = {
                 },
                 changeOrigin: true //确保代理服务器请求后端服务器的主机名是api.github.com(实际请求地址)，而不是localhost:8080（服务器无法确定网站出处）
             }
-        }
+        },
+
+        //dev-server代码更改后，页面会刷新，页面状态将丢失
+        //hmr(Hot Module Replacement)模块热替换，我们可以在应用运行过程中，实时的去替换掉应用中的某个模块，不会整体刷新，所以应用的运行状态不会因此而改变
+        // 开启 HMR 特性，如果资源不支持 HMR 会 fallback 到 live reloading，还需要引入webpack内置插件HotModuleReplacementPlugin
+        hot: true,
+        // 只使用 HMR，不会 fallback 到 live reloading
+        // hotOnly: true
     },
     // devtool: 'source-map',//source-map设置
     //eval模式，是将打包好的代码放在eval函数中，然后通过注释sourceURL来指明这段代码的文件路径
@@ -76,6 +84,10 @@ module.exports = {
         //         to: 'output'
         //     }]
         // }),
-        new RemoveCommentsPlugin()
+
+        //自己写的插件
+        new RemoveCommentsPlugin(),
+        // HMR 特性所需要的插件
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
