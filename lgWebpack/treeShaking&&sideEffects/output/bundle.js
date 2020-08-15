@@ -89,31 +89,39 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+// import { Button, Link } from './components'
+// document.body.appendChild(Button())
+// document.body.appendChild(Link())
 
-// CONCATENATED MODULE: ./src/components.js
-const Button = () => {
-    return document.createElement('button');
-    // 未引用代码
-    console.log('dead-code');
-}
-// 未引用代码
-const Link = () => {
-    return document.createElement('a')
-}
-// 未引用代码
-const Heading = level => {
-return document.createElement('h' + level)
-}
-//去除冗余代码是生产环境优化的重要工作，webpack的tree-shaking就可以实现这一个功能
+document.body.appendChild(Object(_components__WEBPACK_IMPORTED_MODULE_0__[/* Button */ "a"])()); //因为模块中有了副作用的代码，所以tree-shaking并不会将这些模块移除，模块中的副作用代码都是用来服务整个模块的
+//所以，在整个模块都没有引入的情况下，副作用代码就没有留下的必要所以说，Tree-shaking 只能移除没有用到的代码成员，而想要完整移除没有用到的模块，那就需要开启 sideEffects 特性了。
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Button; });
+/* unused harmony export Link */
+/* unused harmony export Heading */
+var Button = function Button() {
+  return document.createElement('button'); // 未引用代码
+
+  console.log('dead-code');
+}; // 未引用代码
+
+var Link = function Link() {
+  return document.createElement('a');
+}; // 未引用代码
+
+var Heading = function Heading(level) {
+  return document.createElement('h' + level);
+}; //去除冗余代码是生产环境优化的重要工作，webpack的tree-shaking就可以实现这一个功能
 //打包后，components 模块中冗余的代码根本没有输出。这就是经过 Tree-shaking 处理过后的效果。
 //很多外部引用的第三方库（Lodash）只用几个常用的工具函数，其他部分都是冗余代码，
 //tree-shaking极大的减少了打包后的文件体积
-// CONCATENATED MODULE: ./src/main.js
-
-document.body.appendChild(Button())
-document.body.appendChild(Link())
 
 /***/ })
 /******/ ]);

@@ -19,9 +19,12 @@ module.exports = {
         //普通打包只是将一个模块最终放入一个单独的函数中，如果我们的模块很多，就意味着在输出结果中会有很多的模块函数。
         //concatenateModules 配置的作用就是尽可能将所有模块合并到一起输出到一个函数中，这样既提升了运行效率，又减少了代码的体积。
         // 尽可能合并每一个模块到一个函数中
-        concatenateModules: true,
+        // concatenateModules: true,
         //压缩打包结果
-        minimize: false//负责把枯树枝和枯树叶摇下来，
+        // minimize: true//负责把枯树枝和枯树叶摇下来，
+
+
+        sideEffects: true
     },
     module: {
         rules:[
