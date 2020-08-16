@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- code splitting把打包的结果按照一定的规则分离到多个 bundle 中，然后根据应用的运行需要按需加载。
+        这样就可以降低启动成本，提高响应速度。 
+        Webpack 实现分包的方式主要有两种：
+        1.根据业务不同配置多个打包入口，输出多个打包结果；
+        2.结合 ES Modules 的动态导入（Dynamic Imports）特性，按需加载模块。
+
+
+
+        //多入口文件打包
+        多入口打包可能存在一个弊端，就是不同的入口可能会使用相同的公共模块，这样多个打包结果中就会有相同的模块，
+        我们需要把这些公共的模块提取到一个单独的 bundle 中，在优化配置中开启splitChunks功能
+        const HtmlWebpackPlugin = require('html-webpack-plugin')
+        module.exports = {
+            //entry配置中，多入口是一个对象，如果是一个数组是把多个文件打包到一起，还是一个入口
+            entry: {
+                index: './src/index.js',
+                album: './src/album.js'
+            },
+            output: {
+                filename: '[name].bundle.js' // [name] 是入口entry中的名称
+            },
+            optimization:{
+                splitChunks: {
+                    //自动提取所以公共模块到单独的bundle
+                    chunks: 'all'
+                }
+            },
+            // ... 其他配置
+            plugins: [
+                new HtmlWebpackPlugin({
+                    title: 'Multi Entry',
+                    template: './src/index.html',
+                    filename: 'index.html',
+                    chunks: ['index']   // 指定使用 index.bundle.js,如果不指定，就会引入index和album两个js文件
+                }),
+                new HtmlWebpackPlugin({
+                    title: 'Multi Entry',
+                    template: './src/album.html',
+                    filename: 'album.html',
+                    chunks: ['album']   // 指定使用 album.bundle.js
+                })
+            ]
+        }
+
+
+
+        结合ES Modules的动态导入
+        在应用运行过程中，需要某个资源模块时，才去加载这个模块。这种方式极大地降低了应用启动时
+        需要加载的资源体积，提高了应用的响应速度，同时也节省了带宽和流量。
+
+        将 import 关键字作为函数调用。当以这种方式使用时，import 函数返回一个 Promise 对象。
+        posts模块是以默认成员导出的，所以在default中解构出来posts模块进行使用
+        import('./posts/posts').then(({ default: posts }) => {
+            mainElement.appendChild(posts())
+        })
+
+
+        //魔法注释
+        默认通过动态导入产生的打包后的 bundle 文件，它的 name 就是一个序号，这并没有什么不好，
+        因为大多数时候，在生产环境中我们根本不用关心资源文件的名称。但是如果你还是需要给这些 bundle 命名
+        的话，就可以使用 Webpack 所特有的魔法注释去实现。
+        import(/* webpackChunkName: 'posts' */'./posts/posts')
+        .then(({ default: posts }) => {
+            mainElement.appendChild(posts())
+        })
+        打包后posts模块的文件名是在魔法注释中写的posts，并且如果两个模块是相同的webpackChunkName，
+        就会被打包到一起
+    -->
+</body>
+</html>
