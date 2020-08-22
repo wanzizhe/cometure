@@ -16,7 +16,7 @@
 #### 2.模块化规范
 - `CommonJS`（node.js规范）一个文件就是一个模块，每个模块是单独的作用域，通过modules.exports导出，通过require函数导入，CommonJS是同步加载模块，大流量请求，应用效率低下
 
-- `AMD (Asynchronous Module Definition) 异步模块定义规范`   require.js  弊端：同一个js文件请求很多文件，运行效率低
+- `AMD (Asynchronous Module Definition) 异步模块定义规范`require.js  弊端：同一个js文件请求很多文件，运行效率低
    define(['jquery','./module2.js'模块依赖路径], function($, module2){return {start: function(){模块}}})  函数为模块提供私有空间，加载和定义模块require(['./modules/module1.js'], function(module1){module1.start()})   加载模块  自动创建 `<script>`标签去请求资源
 
 
