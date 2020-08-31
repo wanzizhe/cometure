@@ -8,38 +8,58 @@
 </head>
 <body>
     <script>
-        function now() {
-            const timezone = 8 //目标时区时间，东八区
-            const offset_GMT = new Date().getTimezoneOffset() // 本地时间和格林威治的时间差，单位为分钟
-            const nowDate = new Date().getTime() // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
-            const targetDate = new Date(
-                nowDate + offset_GMT * 60 * 1000 + timezone * 60 * 60 * 1000
-            )
-            console.log(targetDate, 'targetDate');
-            return targetDate
-        }
-        now();
-        function dateFormat(fmt, date) {
-            let ret;
-            const opt = {
-                "Y+": date.getFullYear().toString(),        // 年
-                "m+": (date.getMonth() + 1).toString(),     // 月
-                "d+": date.getDate().toString(),            // 日
-                "H+": date.getHours().toString(),           // 时
-                "M+": date.getMinutes().toString(),         // 分
-                "S+": date.getSeconds().toString()          // 秒
-                // 有其他格式化字符需求可以继续添加，必须转化成字符串
-            };
-            for (let k in opt) {
-                ret = new RegExp("(" + k + ")").exec(fmt);
-                if (ret) {
-                    fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
-                };
-            };
-            console.log(fmt, 'fmt');
-            return fmt;
-        }
-        dateFormat('Sat Jul 18 2020 16:25:46 GMT+0800 (中国标准时间)', now());
+        // setTimeout(()=>{
+        //     console.log(1) 
+        // },0)
+        // Promise.resolve().then(()=>{
+        //     console.log(2) 
+        // })
+        // console.log(3) 
+        // 321
+
+        // setTimeout(()=>{
+        //     console.log(1) 
+        // },0)
+        // let a=new Promise((resolve)=>{
+        //     console.log(2)
+        //     resolve()
+        // }).then(()=>{
+        //     console.log(3) 
+        // }).then(()=>{
+        //     console.log(4) 
+        // })
+        // console.log(5) 
+        //25341
+
+        // let a=new Promise((resolve)=>{
+        //     console.log(2)
+        //     resolve()
+        // })
+        // a.then(()=>{
+        //     console.log(3) 
+        // })
+        // a.then(()=>{
+        //     console.log(4) 
+        // })
+        //234
+
+        new Promise((resolve,reject)=>{
+            console.log("promise1")
+            resolve()
+        }).then(()=>{
+            console.log("then11")
+            new Promise((resolve,reject)=>{
+                console.log("promise2")
+                resolve()
+            }).then(()=>{
+                console.log("then21")
+            }).then(()=>{
+                console.log("then23")
+            })
+        }).then(()=>{
+            console.log("then12")
+        })
+
     </script>
 </body>
 </html>
