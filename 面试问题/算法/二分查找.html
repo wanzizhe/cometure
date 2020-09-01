@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 二分查找  while
+        function BinarySearch(arr, item){
+            let left = 0;
+            let right = arr.length - 1;
+            while(left <= right){
+                let mid = Math.floor((left + right) / 2);
+                if(arr[mid] === item){
+                    return mid;
+                }else if (arr[mid] > item){
+                    right = mid - 1;
+                }else{
+                    left = mid + 1;
+                }
+            }
+            return false;
+        }
+        let arr = [1,2,3,4,5,6,7,8]
+        console.log(BinarySearch(arr, 4));
+
+        //二分查找  递归
+        function binarySearch2(arr, item, right, left){
+            let mid = Math.floor((right + left)/2);
+            if(arr[mid] === item){
+                return mid;
+            }else if(arr[mid] > item){
+                return binarySearch2(arr, item, mid - 1, left);
+            }else {
+                return binarySearch2(arr, item,right, mid + 1);
+            }
+            return false;
+        }
+        let arr2 = [1,2,3,4,5,6,7,8]
+        console.log(binarySearch2(arr2, 5, arr2.length - 1, 0));
+    </script>
+</body>
+</html>
