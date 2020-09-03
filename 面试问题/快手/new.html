@@ -8,9 +8,13 @@
 <body>
     <script>
         function new1(...rest){
+            //定义一个新对象
             let obj = {};
+            //从rest中解构出来context和剩下的参数args
             let [context, ...args] = rest;
+            //将新对象的_proto_指向context的prototype属性
             obj._proto_ = Object.create(context.prototype);
+            //将context的this指向新对象obj
             let result = context.apply(obj,args);
             return typeof result == 'object' ? result : obj;
         }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function random(arr){
+            let length = arr.length;
+            let newArr = [];
+            while(length > 0){
+                let index = Math.floor(Math.random() * length);
+                newArr.push(arr[index]);
+                arr.splice(index,1);
+                length--;
+            }
+            return newArr;
+        }
+
+        function random1(arr){
+            return arr.sort(()=>Math.random() - 0.5);
+        }
+
+        function random2(arr){
+            for(let i = 0; i < arr.length; i++){
+                let currentRandom = parseInt(Math.random() * (arr.length - 1));
+                let current = arr[i];
+                arr[i] = arr[currentRandom];
+                arr[currentRandom] = current;
+            }
+            return arr
+        }
+
+        let arr = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+        console.log(random(arr));
+    </script>
+</body>
+</html>
