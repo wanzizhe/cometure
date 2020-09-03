@@ -13,7 +13,7 @@
             //从rest中解构出来context和剩下的参数args
             let [context, ...args] = rest;
             //将新对象的_proto_指向context的prototype属性
-            obj._proto_ = Object.create(context.prototype);
+            obj.__proto__ = Object.create(context.prototype);
             //将context的this指向新对象obj
             let result = context.apply(obj,args);
             return typeof result == 'object' ? result : obj;

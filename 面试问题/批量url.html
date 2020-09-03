@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let urls = ['1111', '22222', '3333'];
+        function fetchImg(){
+            return new Promise()
+        }
+        let count = 0;
+        let queue = [];
+        function fetch(fetchImg, max) {
+            return new Promise(()=>{
+                let task = con(fetchImg, max);
+                if(count > max){
+                    queue.push(task);
+                }else{
+                    task();
+                }
+            })
+        }
+
+        function con(){
+            return ()=>{
+                fetchImg.then(resolve)
+                .catch(reject)
+                .finally(() => {
+                // 任务队列的消费区，利用Promise的finally方法，在异步任务结束后，取出下一个任务执行
+                this._count--
+                if (this._taskQueue.length) {
+                    // console.log('a task run over, pop a task to run')
+                    let task = this._taskQueue.shift()
+                    task()
+                } else {
+                    // console.log('task count = ', count)
+                }
+                })
+            this._count++
+            // console.log('task run , task count = ', count)
+            }
+            }
+        }
+    </script>
+</body>
+</html>
