@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+          Promise.all = (all) => {
+            return new Promise((resolve, reject) => {
+                let resolves = []
+                let length = all.length
+                all.map((item, i) => {
+                    if (
+                        (typeof item === 'object' ||
+                            typeof item === 'function') &&
+                        item.then
+                    ) {
+                        item.then((data) => {
+                            resolves[i] = data
+                            length--
+                            if (length === 0) resolve(resolves)
+                        }, reject)
+                    } else {
+                        resolves[i] = item
+                        length--
+                        if (length === 0) resolve(resolves)
+                    }
+                })
+            })
+        }
+
+        const promise1 = Promise.resolve(3)
+        const promise2 = 42
+        const promise3 = new Promise((resolve, reject) => {
+            setTimeout(resolve, 100, 'foo')
+        })
+
+        Promise.all([promise1, promise2, promise3]).then((values) => {
+            console.log(values)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 防抖就是频繁的改变，但是只会在规定的时间触发一次
+        // 所以只要有timer就清掉，再重新开始
+        function debounce(func, wait){
+            let timer;
+            return function () {
+                let context = this;
+                let args = arguments;
+
+                if(timer) clearTimeout(timer);
+
+                timer = setTimeout(() =>{
+                    func.apply(context, args);
+                }, wait);
+            }
+        }
+
+        //节流就是对时刻触发的函数进行规定，在规定的时间内触发一次
+        //只有timer为null时再去生成一个定时器
+        function throttle(func, wait) {
+            let timer;
+            return function () {
+                let context = this;
+                let args = arguments;
+                if(!timer){
+                    timer = setTimeout(()=>{
+                        timer = null;
+                        func.apply(context, args);
+                    },wait)
+                }
+            }
+        }
+    </script>
+</body>
+</html>
