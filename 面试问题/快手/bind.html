@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if(!Function.prototype.bind){
+            Function.prototype.bind = function (...arg) {
+                if(typeof this !== 'function'){
+                    return
+                }
+                const self = this;
+
+                return function (...arg2) {
+                    let _this = this instanceof self ? this : arg[0];
+                    self.apply(_this, arg.slice(1).concat(arg2));
+                }
+            }
+        }
+    </script>
+</body>
+</html>
