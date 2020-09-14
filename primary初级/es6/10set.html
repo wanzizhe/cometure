@@ -66,8 +66,12 @@
         // console.log(wa);//WeakSet {{…}}
        
         let wa =new WeakSet();
-        let obj={name:'zhangsan'};
-        let obj1=obj;
+        let obj={name:{
+            a: 1
+        }};
+        let obj1={name:{
+            a: 2
+        }};
         wa.add(obj);
         wa.add(obj1);
         console.log(wa);//WeakSet {{…}} weakset和set一样，不能有重复的值
