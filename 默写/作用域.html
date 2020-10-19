@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = 3;
+        // var obj = { 
+        // a: 5,
+        // fn: function() {
+        //     this.a = 10;
+        // }
+        // }
+        // var fn2 = obj.fn;
+        // fn2();
+        // console.log(a);  //10
+        // console.log(obj.a)   //5
+
+
+
+        // let x = 5;
+        // function setFn() {
+        // let x  =  0;
+        // return function() { x = x + 1; return x;};
+        // }
+        // const f1 = setFn();
+        // const f2 = setFn();
+
+        // console.log( f1() ); // 1
+        // console.log( f2() ); // 1
+        // console.log( f1() ); // 2
+        // console.log( f2() ); // 2
+
+
+        async function async1 () {
+            console.log('async1 start')
+            await async2()
+            console.log('async1 end')
+        }
+        async function async2 () {
+            console.log('async2')
+        }
+        console.log('script start')
+            setTimeout(function() {
+            console.log('setTimeout')
+        })
+        async1()
+        new Promise(function (resolve) {
+            console.log('promise1')
+            resolve()
+        }).then(function () {
+            console.log('promise2')
+        })
+        console.log('script end')
+    </script>
+</body>
+</html>

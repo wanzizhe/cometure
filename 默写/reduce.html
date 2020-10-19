@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let list = [{id: 1, name: 'name1'},{id: 2, name: 'name2'}];
+        let obj = list && list.reduce((total, item)=>{
+            return {...total, [item.id]: item.name}
+        },{})
+        console.log(obj, 'obj'); // {1: "name1", 2: "name2"}
+    </script>
+</body>
+</html>
