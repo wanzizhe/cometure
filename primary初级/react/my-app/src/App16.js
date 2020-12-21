@@ -18,33 +18,31 @@ class LifeCycle extends React.Component {
 
   }
 
-  // 初始化渲染时调用
+  // 初始化/更新时调用
 
-  componentWillMount() {
+  static getDerivedStateFromProps(props, state) {
 
-    console.log("componentWillMount方法执行");
+    console.log("getDerivedStateFromProps方法执行");
+
+    return {
+
+      fatherText: props.text
+
+    }
 
   }
 
   // 初始化渲染时调用
 
   componentDidMount() {
-
+    console.log(this.state, 'this.state');
     console.log("componentDidMount方法执行");
-
-  }
-
-  // 父组件修改组件的props时会调用
-
-  componentWillReceiveProps(nextProps) {
-
-    console.log("componentWillReceiveProps方法执行");
 
   }
 
   // 组件更新时调用
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(prevProps, nextState) {
 
     console.log("shouldComponentUpdate方法执行");
 
@@ -54,17 +52,21 @@ class LifeCycle extends React.Component {
 
   // 组件更新时调用
 
-  componentWillUpdate(nextProps, nextState) {
+  getSnapshotBeforeUpdate(prevProps, prevState) {
 
-    console.log("componentWillUpdate方法执行");
+    console.log("getSnapshotBeforeUpdate方法执行");
+
+    return "haha";
 
   }
 
   // 组件更新后调用
 
-  componentDidUpdate(nextProps, nextState) {
+  componentDidUpdate(nextProps, nextState, valueFromSnapshot) {
 
     console.log("componentDidUpdate方法执行");
+
+    console.log("从 getSnapshotBeforeUpdate 获取到的值是", valueFromSnapshot);
 
   }
 
@@ -91,6 +93,7 @@ class LifeCycle extends React.Component {
   render() {
 
     console.log("render方法执行");
+    console.log(this.state, 'this.state')
 
     return (
 
@@ -181,3 +184,5 @@ class LifeCycleContainer extends React.Component {
 }
 
 export default LifeCycleContainer;
+
+
