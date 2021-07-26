@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="math.js"></script>
+    <!-- <script src="math.js"></script> -->
+    <script>
+        let arr = [1,2,3,4,5];
+        let brr = [1,2,3]
+        for(var i = 0;i < brr.length; i++) {
+            for(var j = 0; j < arr.length; j++) {
+                if(arr[j] === brr[i]) {
+                    arr.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        console.log(arr, 'arr')
+    </script>
 </body>
 </html>
