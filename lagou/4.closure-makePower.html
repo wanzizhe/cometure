@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 2二次方   3二次方   3三次方
+        makePower = (power) => {
+            return (num) => {
+                return Math.pow(num, power);
+            }
+        }
+
+        let makePower2 = makePower(2);
+        let makePower3 = makePower(3);
+
+        console.log(makePower2(2), '2二次方');
+        console.log(makePower2(3), '3二次方');
+        console.log(makePower3(3), '3三次方');
+
+    </script>
+</body>
+</html>
