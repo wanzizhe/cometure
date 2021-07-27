@@ -16,9 +16,11 @@ function circle (r) {
 //封装下memoize方法
 function memoize (fn) {
     let obj = {};
-    return function () {
-        let key = JSON.stringify(arguments);
-        obj[key] = obj[key] || fn.apply(fn, arguments);
+    return function (...args) {
+        console.log(args, 'args')
+        console.log(arguments, 'arguments')
+        let key = JSON.stringify(args);
+        obj[key] = obj[key] || fn.apply(fn, args);
         return obj[key];
     }
 }
