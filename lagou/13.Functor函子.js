@@ -35,6 +35,6 @@ let res = Container.of(5)
 
 console.log(res, 'res2');//Container { _value: 49 } 'res2'
 
-//如果传入了 null或者undefined怎么办
+//如果传入了 null或者undefined怎么办？？？
 Container.of(null)
     .map(x => x.toUpperCase());//这里是会报错的，因为null没有toUpperCase的方法，引出了MagBe函子
