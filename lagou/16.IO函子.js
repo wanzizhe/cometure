@@ -9,6 +9,7 @@ class IO {
     constructor (fn) {
         this._value = fn;
     }
+    //fn为传入的 p => p.execPath 函数，this._value为传入of的process参数返回的函数
     map (fn) {
         return new IO(fp.flowRight(fn, this._value))
     }
